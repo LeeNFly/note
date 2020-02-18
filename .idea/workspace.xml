@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6518e61-7f4b-4beb-a792-f050a7d7ad4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/11-git/04-代码/03-git命令详解/index4.html" beforeDir="false" afterPath="$PROJECT_DIR$/11-git/04-代码/03-git命令详解/index4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/11-git/04-代码/04-git-diff/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/11-git/04-代码/04-git-diff/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/11-git/04-代码/06-git-忽视文件/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/11-git/04-代码/06-git-忽视文件/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/11-git/7-作业/01-初体验/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/11-git/7-作业/01-初体验/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00-html+css基础/day07/04-源代码/09-固定定位.html" beforeDir="false" afterPath="$PROJECT_DIR$/00-html+css基础/day07/04-源代码/09-固定定位.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02-WebAPIs编程/补充-重绘回流-面试题.html" beforeDir="false" afterPath="$PROJECT_DIR$/02-WebAPIs编程/补充-重绘回流-面试题.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/05-PHP+H5开发/day02/04-demo/05-form/01-form-get.html" beforeDir="false" afterPath="$PROJECT_DIR$/05-PHP+H5开发/day02/04-demo/05-form/01-form-get.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07-阿里百秀/baixiu-day04/04-代码/others/06-模态框/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/07-阿里百秀/baixiu-day04/04-代码/others/06-模态框/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-电商全端/back/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/12-电商全端/back/js/login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +42,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/12-电商全端/MY-LETAO/public" />
+    <property name="last_opened_file_path" value="D:/MY-LETAO/my-letao" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -245,7 +247,8 @@
       <workItem from="1581868005569" duration="254000" />
       <workItem from="1581899260666" duration="20651000" />
       <workItem from="1581986018687" duration="14141000" />
-      <workItem from="1582005639953" duration="2655000" />
+      <workItem from="1582005639953" duration="7866000" />
+      <workItem from="1582016184350" duration="629000" />
     </task>
     <servers />
   </component>
@@ -270,6 +273,10 @@
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
     <state x="584" y="264" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1707.1027@0.0.1707.1027" timestamp="1581903439723" />
+    <state x="634" y="272" key="FileChooserDialogImpl" timestamp="1582010062218">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state x="634" y="272" key="FileChooserDialogImpl/0.0.1707.1027@0.0.1707.1027" timestamp="1582010062218" />
     <state x="357" y="159" key="SettingsEditor" timestamp="1581899798949">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
