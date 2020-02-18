@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: pink;
+    }
+    li {
+      width: 150px;
+      height: 150px;
+      border-radius: 5px;
+      background-color: #fff;
+      margin: 20px;
+      display: flex;
+    }
+    span {
+      width: 20px;
+      height: 20px;
+      background-color: #000;
+      border-radius: 50%;
+    }
+    li:nth-child(1) {
+      justify-content: center;
+      align-items: center;
+    }
+    li:nth-child(2) {
+      justify-content: space-around;
+      align-items: center;
+    }
+    li:nth-child(3) {
+      justify-content: space-around;
+      align-items: center;
+    }
+    li:nth-child(3) span:nth-child(1) {
+      align-self: flex-start;
+      margin: 20px;
+    }
+    li:nth-child(3) span:nth-child(3) {
+      align-self: flex-end;
+      margin: 0px 20px;
+    }
+    li:nth-child(4) {
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: space-around;
+    }
+    li:nth-child(4) span {
+      margin: 0px 20px;
+    }
+    li:nth-child(5) {
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: space-around;
+    }
+    li:nth-child(5) span {
+      margin: 0px 20px;
+    }
+    li:nth-child(5) span:nth-child(3) {
+      margin: 0px 50px;
+    }
+    li:nth-child(6) {
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: space-around;
+    }
+    li:nth-child(6) span {
+      margin: 0px 20px;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li>
+    <span></span>
+  </li>
+  <li>
+    <span></span>
+    <span></span>
+  </li>
+  <li>
+    <span></span>
+    <span></span>
+    <span></span>
+  </li>
+  <li>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </li>
+  <li>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </li>
+  <li>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </li>
+</ul>
+</body>
+</html>

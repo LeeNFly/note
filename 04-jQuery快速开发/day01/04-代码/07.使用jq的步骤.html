@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="jquery-1.12.4.js"></script>
+
+    <script>
+        // 1. 引入jq这个js库 , jquery-1.12.4.js
+        // 2. 一定要写上jq入口函数
+        // 3. 在入口函数里面实现功能
+
+
+        // 将代码写入全局里面，存在变量污染问题 这也是我们将代码写在入口函数里的原因之一
+        var num = 124;
+        $(function(){
+            // 局部变量
+            // var num = 124;
+        })
+
+        console.log(num);
+    </script>
+</body>
+</html>

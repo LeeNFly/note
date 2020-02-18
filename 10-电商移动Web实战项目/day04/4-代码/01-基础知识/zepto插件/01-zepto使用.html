@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <!--
+        在移动端也可以使用jq, 但是jq中1.x版本的大量代码用于处理低版本浏览器兼容性问题, 而移动端不需要考虑低版本浏览器兼容, 因此在移动端使用jq, 会造成代码冗余
+        zepto就是移动端的jq, 专门为移动端所写的一套插件
+            1. 会使用jq, 就会使用zepto, api与jq基本一致
+            2. 分模块化, 需要哪个模块, 就引入哪个模块
+        解决了代码冗余的问题
+
+        ps: pc端也可以使用zepto, 但没必要, 要考虑兼容性问题, 所以直接使用jq即可
+        ps: 移动端一般也使用jq, 除非要求特别简化, 才使用zepto
+    -->
+    <!--基础核心模块-->
+    <script src="zepto/zepto.js"></script>
+    <!-- 事件模块 -->
+    <script src="zepto/event.js"></script>
+    <!-- 引入动画模块 -->
+    <script src="zepto/fx.js"></script>
+    <script>
+        $(function () {
+            //改变盒子样式
+            $('.box').css('background', 'pink');
+            //点击盒子，让盒子做动画
+            $('.box').on('click', function () {
+                // alert('你好');
+                $('.box').animate({width: 400, height: 400}, 1000, function (){
+                    alert('我完了！');
+                })
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    table{
+        border-collapse: collapse;
+    }
+    
+    </style>
+</head>
+<body>
+    姓名: <input type="text" id="username"><br>
+    邮箱: <input type="text" id="email"><br>
+    电话: <input type="text" id="phone"><br>
+    地址: <input type="text" id="address"><br>
+    <button id="btn">添加</button>
+
+    <script>
+        //1. 表格动态创建出来
+        // 1.1 创建表格的基本机构
+        var table = document.createElement('table');
+        var thead = document.createElement('thead');
+        table.appendChild(thead);
+        var tbody = document.createElement('tbody');
+        table.appendChild(tbody);
+
+        // 1.2 完成表头部分
+        var str = '<tr><th>姓名</th><th>邮箱</th><th>电话</th><th>地址</th></tr>';
+        thead.innerHTML = str;
+
+        //1.3 给table加样式
+        table.border = '1px';
+        thead.style.backgroundColor = 'purple';
+
+        //把table添加到页面上
+        document.body.appendChild(table);
+
+
+
+        //2. 点击添加按钮,将表单中的内容添加到表格中(判断是否有未填写的,如果有就提示)
+        // 2.1 获取元素 btn input 
+        var btn = document.getElementById('btn');
+        var inputs = document.getElementsByTagName('input');
+        var index = 0; //用于存储tbody中有几行了
+      
+        // 2.2 给按钮注册点击事件 
+        btn.onclick = function(){
+        var arr = []; //用于存储用户输入的信息
+        
+        // 2.3 在事件处理函数中,获取input里面的值 
+        // 2.3.1 由于直接获取了四个input,所以需要遍历inputs,获取里面的四个值,并且存储到一个数组中
+            Array.prototype.forEach.call(inputs, function(item){
+                arr.push(item.value);
+            });
+
+            console.log(arr);
+        // 2.4 判断是否有空值,如果有提示,如果没有进行下一步
+            var result = arr.some(function(item){
+                //如果item.length == 0 证明有空的input
+                return item.length == 0;
+            })
+
+            // 如果result是true,证明有空的
+            if(result){
+                alert('请您输入完整');
+                // return;
+            }else{
+                  // 2.5 根据用户输入的信息,创建表体中一行的内容,添加到表格中
+                //   console.log('创建表格');
+                var tr = document.createElement('tr');
+                arr.forEach(function(item){
+                    var td = document.createElement('td');
+                    td.innerText = item;
+                    tr.appendChild(td);
+                })
+                tbody.appendChild(tr);
+                //2.6 如果添加表格完成应该清空input里面的文本
+                Array.prototype.forEach.call(inputs, function(item){
+                 item.value = '';
+                });
+
+                //2.7 给tbody中的每一行加隔行变色
+                if(index % 2 == 0){
+                    tr.style.backgroundColor = 'pink';
+                }else{
+                    tr.style.backgroundColor = 'red';
+                }
+                //为了隔行变色,添加完成之后,给index++
+                index++;
+
+            }
+      
+        }
+     
+
+
+    
+    
+    
+    </script>
+</body>
+</html>

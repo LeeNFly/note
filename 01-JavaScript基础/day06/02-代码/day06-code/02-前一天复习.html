@@ -1,0 +1,145 @@
+1. 匿名函数  => 没有名字的函数 
+- 声明 : function () {  }
+- 自调用/自执行  
+(function () {
+
+})();
+// 第一个() 保护我们这个匿名函数
+// 第二个() ; 执行这个函数的
+
+- 场景 :
+-1. 声明 
+var fn = function () {...}
+-2. 参数
+function test (num) {
+  // var num = function(){ }
+
+
+  // num 就是一个函数 
+}
+
+test(function(){
+
+});
+
+-3. 返回值
+function test () {
+
+    return function () {
+
+    }
+}
+
+var f =   test();
+f();
+
+- 4. 防止全局变量污染
+(function () {
+
+
+})();
+
+
+2. 对象 
+- 创建对象 4种方法
+- 单独 2
+- 字面量 (掌握)
+var obj = {}
+obj.name = 'zs';
+
+var obj = {
+  name :'zs'
+}
+
+
+- 构造函数 Object (了解) 这个是字面量的底层
+var obj = new Object(); 
+
+- 批量 2
+- 工厂函数  (了解一下)
+function createPerson( name, age ) {
+
+  //1. 创建一个新对象
+  var obj = {};
+  //2. 添加属性和方法
+  obj.name = name;
+  obj.age = age;
+
+  //3. 返回这个新对象
+  return obj;
+
+  <!-- var obj =  {
+    name : name,
+    age : age
+  } -->
+
+}
+
+
+createPerson('zs',18)
+
+
+- 自定义构造函数  (掌握)
+<!-- Array Object  -->
+function Person(  name ,age) {
+
+  this.name = name;
+  this.age = age;
+
+  this.sayHi = function () {
+    console.log(this.name);
+    // 谁调用this所在的这个函数,,就指向谁
+  }
+}
+
+var p =   new Person('zs',18);
+p.sayHi();
+
+var p2 =   new Person('zs',18);
+p2.sayHi();
+
+//1. new 四件
+1.1 创建一个新对象
+1.2 this指向了这个新对象  (对象有了属性)
+1.3 执行构造函数  (添加属性值和方法)  实例化
+1.4 返回这个新对象
+
+
+//2. 构造函数  : 添加属性值 和  方法  实例化
+//3. this
+
+function test() {
+
+
+  console.log(this.age)
+}
+
+test();
+
+
+5. 点语法和[] 语法
+5.1点语法  对象名.属性名  (不是字符串)
+5.2 []语法  对象名[属性名字符串]  ['name']   [key]  key ='name';
+
+
+6. 遍历对象
+for (var k in obj ) {
+  k : 属性名字符串
+  obj[k] 属性值
+}
+
+7. 判断属性是否在对象里
+if ('name' in obj) {}
+
+8. 获取对象的所有属性 Object.keys(对象) => 数组
+
+
+9. 值类型和引用类型'
+简单数据类型 => 值类型 存储的就是值本身
+复杂数据类型 => 引用类型 存储的就是 地址 和引用 
+
+
+
+
+
+

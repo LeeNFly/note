@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    .main {
+        margin: 10px auto 0;
+        width: 1000px;
+    }
+
+    .fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="top" id="topPart">
+        <img src="images/top.png" alt="" />
+    </div>
+    <div class="nav" id="navBar">
+        <img src="images/nav.png" alt="" />
+    </div>
+    <div class="main" id="mainPart">
+        <img src="images/main.png" alt="" />
+    </div>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+        // 分析：
+        // 1. 导航区域进行固定
+        //  1.1 监听页面滚动事件  scroll
+        //  1.2 获取页面垂直方向卷曲的距离
+        //  1.3 获取topPart的高度，与卷曲距离进行比较
+        //  1.4 topPart的高度 < 卷曲距离, 让navBar进行固定定位
+        //            navBar 会脱标，不占位置，就需要让mainPart的marginTop = 10 + navBar的高度
+        //  1.5 topPart的高度 > 卷曲距离, 让navBar不能固定定位
+        //            navBar 不脱标的时候，就回到原来的位置，还占位置，mainPart的marginTop = 10
+
+        $(window).scroll(function(){
+            // 获取页面垂直方向卷曲的距离
+            var scrollTop = $(window).scrollTop();
+
+            // 获取topPart的高度
+            var topH = $("#topPart").height();
+
+            if(scrollTop >= topH){
+                // 让navBar进行固定定位
+                $("#navBar").addClass("fixed");
+
+                $("#mainPart").css("marginTop", $("#navBar").height() + 10);
+            }else{
+                // // 让navBar不进行固定定位，回到原来位置
+                $("#navBar").removeClass("fixed");
+
+                $("#mainPart").css("marginTop", 10);
+            }
+        })
+    });
+    </script>
+</body>
+
+</html>

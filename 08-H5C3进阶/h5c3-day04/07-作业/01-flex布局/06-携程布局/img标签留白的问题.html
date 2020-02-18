@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      border: 1px solid #000;
+      background-color: pink;
+    }
+    img {
+      width: 100%;
+      /* 原因: img标签是行内块元素, 默认基线对齐 */
+      /*vertical-align: bottom;*/
+
+      /* 块级元素对 vertical-align 无感 */
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <img src="./images/banner.jpg" alt="">
+</div>
+
+</body>
+</html>

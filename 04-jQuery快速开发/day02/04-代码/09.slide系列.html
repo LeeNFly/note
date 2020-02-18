@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: #f99;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <button>展示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // 滑动显示
+            // jq对象.slideDown(speed, easing, callback) // 显示 会将获取到的所有元素都显示 如果元素已显示 则什么都不做
+            // jq对象.slideUp(speed, easing, callback) // 隐藏 会将获取到的所有元素都隐藏 如果元素已隐藏 则什么都不做
+            // jq对象.slideToggle(speed, easing, callback) // 切换 会将获取到的所有元素都切换, 即如果是显示的, 就隐藏; 如果是隐藏的, 就显示。 支持差异化切换, 即获取到的元素中有的是显示的, 有的是隐藏的, 则将显示的隐藏, 隐藏的显示
+            // 不传参，有动画效果，默认值speed是 "normal" = 400
+            // slideDown slideUp slideToggle 与之前的三组基本动画基本一致, 参数解析及api都一样,且都是可选的 主要是动画效果不同
+            // 主要修改的是元素的height
+            // 显示过程 display改为block(占标准流位置), 然后将height设为0, 开始从小到大改变height; 隐藏过程 从大到小改变height, 最后将display 设置为 none (不占标准流位置)
+            // ★ slide系列主要功能 动态控制元素的显示和隐藏 且带有动画效果
+            // ps: 最终是通过display: none 来隐藏的, 所以有display: none的相关的性值
+            
+            $("button").eq(0).click(function(){
+                $("div").slideDown(3000, function(){
+                    console.log("slideDown 运动结束了");
+                });
+            })
+
+            $("button").eq(1).click(function(){
+                $("div").slideUp(3000, function(){
+                    console.log("slideUp 运动结束了");
+                });
+            })
+
+            $("button").eq(2).click(function(){
+                $("div").slideToggle(3000, function(){
+                    console.log("slideToggle 运动结束了");
+                });
+            })
+
+            // 淡入淡出显示  
+            // jq对象.fadeIn() // 显示 会将获取到的所有元素都显示 如果元素已显示 则什么都不做
+            // jq对象.fadeOut() // 隐藏 会将获取到的所有元素都隐藏 如果元素已隐藏 则什么都不做
+            // jq对象.fadeToggle() // 切换 会将获取到的所有元素都切换, 即如果是显示的, 就隐藏; 如果是隐藏的, 就显示。 支持差异化切换, 即获取到的元素中有的是显示的, 有的是隐藏的, 则将显示的隐藏, 隐藏的显示
+            // 不传参，有动画效果，默认值speed是 "normal" = 400
+            // fadeIn fadeOut fadeToggle 与之前的三组基本动画基本一致, 参数解析及api都一样,且都是可选的 主要是动画效果不同
+            // 主要修改的是元素的透明度opacity
+            // 显示过程 display改为block(占标准流位置), 然后将opacity设为0, 开始从小到大改变opacity; 隐藏过程 从大到小改变opacity, 最后将display 设置为 none (不占标准流位置)
+            // ★ fade系列主要功能 动态控制元素的显示和隐藏 且带有动画效果
+            // ps: 最终是通过display: none 来隐藏的, 所以有display: none的相关的性值
+            
+        })
+    </script>
+</body>
+</html>

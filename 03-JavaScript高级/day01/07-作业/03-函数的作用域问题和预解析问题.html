@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 1. 
+
+    //  var a;
+    //  if ('a' in window) { // undefined in window
+    //    var a = 10;
+    //  }
+    //  alert(a);  //10
+
+    // ====================================================
+
+    //  var a;
+    //  if ('a' in window) { // undefined in window
+    //    var a = 10;
+    //  }
+    //  alert(a);  //10
+
+    // 2. 
+    // var foo = 1;
+    // function bar() {
+    //   if (!foo) {
+    //     var foo = 10;
+    //   }
+    //   alert(foo); //
+    // }
+    // bar();
+
+    // ===================================================
+
+    //    var foo;
+    //    函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+    //    function bar() {
+    //      var foo;
+    //      if (!foo) {
+    //        foo = 10;
+    //      }
+    //      alert(foo); // 10
+    //    }
+    //    foo = 1;
+    //    bar();
+
+    // 3. 
+    // var num = 123;
+    // function f1(num) {
+    //   console.log(num); //  
+    // }
+    // function f2() {
+
+    //   var num = 456;
+    //   f1(num);
+    // }
+    // f2();
+
+    // ================================================
+
+    // var num
+    //  函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+    // function f1(num) {
+    //   console.log(num); //456 
+    // }
+    //  函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+    // function f2() {
+    //   var num;
+    //   num = 456;
+    //   f1(num);
+    // }
+    // num = 123
+    // f2();
+
+    // 4.
+    // function fn() {
+    //   var a = 1, b = 1, c = 1;
+    // }
+    // fn();
+    // console.log(c); //
+    // console.log(b); //
+    // console.log(a); //
+
+    // ===================================================
+
+    //  函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+    // function fn() {
+    //   var a = 1;
+    //   var b = 1;
+    //   var c = 1;   
+    // }
+    // fn();
+    // console.log(c); // 报错
+    // console.log(b); // 
+    // console.log(a); // 
+
+    // 5.
+    // function fn1() {
+    //   var a = b = c = 1;
+    // }
+    // fn1();
+    // console.log(c); //
+    // console.log(b); //
+    // console.log(a); //
+
+    // =======================================================
+
+    //  函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+    // function fn1() {
+    //   var a = 1;
+    //   b = 1;
+    //   c = 1;
+    // }
+    // fn1();
+    // console.log(c); // 1
+    // console.log(b); // 1
+    // console.log(a); // 报错
+
+    // 6. 
+    // var a = 1;
+    // function fn() {
+    //   var a = 2;
+    //   function fnSon(a) {
+    //     a = 3;
+    //     console.log(a); //
+    //   }
+    //   fnSon();
+    //   console.log(a);  // 
+    // }
+    // console.log(a);  // 
+    // fn();
+    // console.log(a); // 
+
+    // ================================================
+
+    // var a;
+    //  函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+    // function fn() {
+    //   var a;
+    //  函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+    //   function fnSon(a) {
+    //     a = 3;
+    //     console.log(a); // 3
+    //   }
+    //   a = 2;
+    //   fnSon();
+    //   console.log(a);  //  2
+    // }
+    // a = 1;
+    // console.log(a);  //  1
+    // fn();
+    // console.log(a); //  1
+
+    // 7. 
+    // var a;
+    // function a() {
+    //   console.log('呵呵')
+    //   function a() {
+    //     a = 4;
+    //     console.log('哈哈')
+    //   }
+    //   a();
+    //   console.log(a);  //
+    // }
+    // a();
+    // console.log(a); //
+
+    // ===============================================
+
+    // var a;
+    // //  函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+    // function a() {
+    //   console.log('呵呵')  // 呵呵
+    //   //  函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+    //   function a() {
+    //     a = 4;
+    //     console.log('哈哈') // 哈哈
+    //   }
+    //   a();
+    //   console.log(a);  // 4
+    // }
+    // a();
+    // console.log(a); // 函数
+
+    // 8. 
+    // var a = 1;
+    // function a() {
+    //   a++;
+    // }
+    // console.log(a) //
+
+    // ===================================================
+
+    // var a;
+    //  函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+    // function a() {
+    //   a++;
+    // }
+    // a = 1;
+    // console.log(a) // 1
+
+    // 9
+    // var a = { x: 1 }
+    // var b = a;
+    // a.x = a = { n: 1 };
+    // console.log(a.x); //
+    // console.log(b.x); //
+
+    // ====================================================
+    
+    // var a
+    // var b
+    // a = { x: 1 }
+    // b = a
+    // a.x = a = { n: 1 };  // 赋值顺序从右往左,给变量赋值之前,先找到变量(记住了a和a.x的位置)
+    // console.log(a.x); // undefined
+    // console.log(b.x); // {n:1}
+  </script>
+</body>
+
+</html>

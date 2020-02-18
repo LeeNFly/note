@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box,
+		.box1 {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+		.box {
+			margin-bottom: 80px;
+		}
+		.box1 {
+			background-color: purple;
+		}
+		/* 
+		当上下相邻的两个块元素相遇时，如果上面的元素有下外边距margin-bottom，
+		下面的元素有上外边距margin-top，则他们之间的垂直间距不是margin-bottom与margin-top之和
+		而是两者中的较大者。这种现象被称为相邻块元素垂直外边距的合并（也称外边距塌陷）。 */
+
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box1"></div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table{
+      border-collapse: collapse;
+     
+    }
+  </style>
+</head>
+<body>
+ <!--<table border="1px" width="300px">-->
+   <!--<thead style="background-color: #ccc">-->
+    <!--<tr>-->
+      <!--<th>haha </th>-->
+      <!--<th>hehe  </th>-->
+    <!--</tr>-->
+   <!--</thead>-->
+   <!--<tbody align="center">-->
+    <!--<tr>-->
+      <!--<td>123</td>-->
+      <!--<td>345</td>-->
+    <!--</tr>-->
+   <!--</tbody>-->
+ <!--</table>-->
+</body>
+<script>
+  // 数据行 中的数据
+  var bodyData = [
+    {name: 'zs', subject: '语文', score: 100},
+    {name: 'ls', subject: '数学', score: 80},
+    {name: 'sdb', subject: '体育', score: 0},
+    {name: 'gw', subject: '英语', score: 59},
+    {name: 'bzr', subject: '数学', score: 50}
+  ];
+  // 表头数据
+  var headData = ['姓名', '科目', '成绩', '操作'];
+  
+  
+  //需求:根据数据动态创建表格, 还要增加一个删除的操作
+// 1. 先创建表格的基本机构
+//  1.1. 创建table标签
+  var table = document.createElement('table');
+  table.border = '1px';
+  table.width = '500px';
+//    1.2 创建thead
+  var thead = document.createElement('thead');
+  thead.style.backgroundColor = '#ccc';
+  table.appendChild(thead);
+//  1.3 创建tbody
+  var tbody = document.createElement('tbody');
+  tbody.align = 'center';
+  table.appendChild(tbody);
+  
+  
+//  2. 完成表头部分
+//   2.1 创建表头中的tr
+  var tr = document.createElement('tr');
+  thead.appendChild(tr);
+//   2.2 根据headdata中的数据,创建tr中的th
+    for(var i = 0; i < headData.length; i++) {
+      var th = document.createElement('th');
+      th.innerText = headData[i];
+      tr.appendChild(th);
+    }
+    
+    
+    //3. 完成表体
+//  3.1.根据bodyData中对象的个数,决定创建多少个tr
+  for(var i = 0; i < bodyData.length; i++) {
+    var tr = document.createElement('tr');
+    //3.2 创建每一个tr的td  td的个数是对象中键值对的个数 + 1
+    for(var key in bodyData[i]){
+      var td = document.createElement('td');
+      td.innerText = bodyData[i][key];
+      tr.appendChild(td);
+      
+    }
+    // 加上后面的那个td
+    var td = document.createElement('td');
+    //删除是一个a元素
+    var a = document.createElement('a');
+    a.innerText = '删除';
+    a.href = ''; //没有href属性,a元素就相当于一个普通的标签.没有超链接的效果
+    td.appendChild(a);
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    
+    //给每一个a注册点击事件,在事件处理函数中,删除当前行
+    a.onclick = fn;
+  }
+//  删除点击时,调用的函数
+  function fn(){
+//    删除当前行  tbody.removeChild(tr)
+//    console.log(this.parentNode.parentNode);
+      var result = confirm('您确定要删除吗?');
+      if(result){
+        tbody.removeChild(this.parentNode.parentNode);
+      }
+    
+    return false;
+  }
+  
+  //最后把table加到dom树上,这样就只会渲染一次
+  document.body.appendChild(table);
+  
+  
+  
+  
+  
+ 
+ 
+ 
+ 
+  //for..in
+  var obj = {
+    name: 'zs',
+    age: 18,
+    score : 100
+  }
+  
+  for(var key in obj){
+//    console.log(key);
+//    console.log(obj[]);
+//    console.log(obj['age']); //中括号语法里面,允许写字符串/数字/变量
+//    console.log(obj.key); //.后面写什么就去对象中找对应的那个属性
+    console.log(obj[key]);
+  }
+  
+  
+
+
+</script>
+</html>

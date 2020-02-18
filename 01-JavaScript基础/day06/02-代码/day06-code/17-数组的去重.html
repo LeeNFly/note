@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      var arr = ['a','b','c','d','a','b','c','a','z']
+
+      //1. 获取数组中每个元素出现的次数
+      var obj = {};
+      for ( var i = 0 ; i < arr.length ; i++) {
+
+          // 遍历数组,查看元素是否存在过obj中 
+          if (arr[i] in obj) { // 是在对象里
+              
+              obj[arr[i]] += 1;
+          }else { // 不在对象里 
+
+            obj[arr[i]] = 1;
+          }
+      }
+      console.log(obj);
+
+      //2. 
+      //1. 遍历对象,,拿到对象里的属性
+      // var newArr = [];
+      // for (var key in obj  ) {
+
+      //     newArr.push(key);
+      // }
+      // console.log(newArr);
+
+      //2. 获取所有的属性
+      var newArr =   Object.keys(obj);
+      console.log(newArr);
+    
+     
+    </script>
+</body>
+</html>

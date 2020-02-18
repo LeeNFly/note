@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="one">1</div>
+  <div class="one">2</div>
+  <div>3</div>
+  <script>
+    var divs = document.getElementsByTagName('div');
+
+    // divs.forEach(function (item) {  //报错
+    //   console.log(item);
+    // })
+
+    // console.log(Array.prototype);
+    // Array.prototype.forEach.call(divs,function (item,index,arr) {
+    //   console.log(item);
+    //   console.log(index);
+    //   console.log(arr);
+    // })
+
+    var resArr = Array.prototype.filter.call(divs, function (item, index, arr) {
+      return item.className === 'one'
+    })
+    console.log(resArr);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            background-color: #f99;
+            margin: 10px;
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <button id="btn1">展示</button>
+    <button id="btn2">设置内容</button>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    
+    <script>
+        // 恶心的地方：
+        // 1. 获取元素的方法名字太长，记忆与书写麻烦
+        // 2. 代码冗余（for循环）
+        // 3. 使用on系列注册的事件存在覆盖
+        // 4. 实现动画效果比较复杂，需要自己去封装
+
+
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var div = document.getElementsByTagName("div");
+
+        btn1.onclick = function(){
+            for(var i = 0; i < div.length; i++){
+                div[i].style.display = "block";
+            }
+        }
+
+        /*btn1.onclick = function(){
+            console.log(1111);
+        }*/
+
+        btn2.onclick = function(){
+            for(var i = 0; i < div.length; i++){
+                div[i].innerText = "设置的内容";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div class="aa bb cc dd">帅鹏鹏</div>
+
+<button>切换类</button>
+
+<script>
+  // 需求, 给 div 添加一个类 pp
+  //  var div = document.querySelector("div");
+  //  div.className = "aa bb cc dd pp";
+
+  // 原生操作类名很麻烦, html5 新增了一个专门用于操作类的 api
+
+  // classList, 给标签元素添加类名
+  // 类似于jq中的类名操作
+  // 1. 添加类 dom元素.classList.add('类名'), 在原来的类名基础上, 追加类名, 不会覆盖原来的类名, 若元素已有该类名, 则不会重复添加类名
+  // 2. 移除类 dom元素.classList.remove('类名'), 在原来的类名基础上, 删除指定的类名, 会保留其他的类名, 若元素没有该类名, 则相当于什么都不做, 不会报凑
+  // 3. 判断类 dom元素.classList.contains('类名') 返回boolean值, 含有该类名, 返回true, 否则返回false
+  // 4. 切换类 dom元素.classList.toggle('类名') 若含有该类名, 则移除该类名, (会保留其他类名) 否则, 在原来类名的基础上追加该类名 (不会覆盖原来的类名)
+
+  // ps: 如果元素在dom树上, 且类名有相关的css, 则浏览器会重新渲染,
+  // ps: 增删类名 浏览器会根据操作后的标签的类名, 重新渲染标签及其css样式
+
+  var div = document.querySelector("div");
+  var btn = document.querySelector("button");
+  // 添加类
+  div.classList.add("pp");
+  // 移除类
+  div.classList.remove("cc");
+  // 判断类
+  console.log( div.classList.contains("ee") );
+  console.log( div.classList.contains("aa") );
+
+  // 切换类, 如果有这个类, 就移除, 如果没有这个类, 就追加
+  btn.onclick = function() {
+    div.classList.toggle("bb");
+  }
+
+
+</script>
+
+</body>
+</html>

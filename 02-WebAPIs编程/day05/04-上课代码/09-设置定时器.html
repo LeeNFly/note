@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  setInterval(回调函数(匿名函数), 间隔时间(ms)) 回调函数不立即执行,时间到了才调用;每隔一段时间就调用一次
+//  setTimeout(回调函数(匿名函数), 间隔时间(ms))  回调函数不立即执行,时间到了才调用;时间到了之后,只调用一次,之后不再调用
+
+//  设置定时器方式二:
+    setInterval(fn, 间隔时间(ms))
+    setTimeout(fn, 间隔时间(ms))    
+    function fn() {
+      
+    }
+//  设置一个定时器,则在内存中开辟一块空间存储定时器的回调函数,每次执行的都是这块空间里的回调函数。
+//  定时器可以同时设置多个,只要执行一次setInterval和setTimeout的代码  就是设置一个定时器
+//  设置多个定时器, 多个定时器共同作用, 工作, 互不影响
+//  设置多个定时器时,每个定时器都有自己的空间存储回调函数。定时器执行的回调函数都是自己存储的那块空间里的回调函数
+    // window.setInterval()
+    // window.setTimeout()
+
+//    setInterval(function(){
+//      console.log(1);
+//    }, 3000);
+
+//      setTimeout(function(){
+//        console.log(1);
+//      }, 3000);
+  
+  
+//  console.log(1);
+//  setTimeout(function(){
+//    console.log(2);
+//  }, 1000);
+//  console.log(3);
+
+
+//    console.log(1);
+//    setTimeout(function(){
+//      console.log(2);
+//    }, 0);
+//    console.log(3);
+//  输出顺序1 3 2
+//  定时器就算时间到了之后,也会等到外部的代码都执行完以后,才会开始执行回调函数里的代码。所以是大约间隔时间后调用回调函数
+</script>
+</body>
+</html>

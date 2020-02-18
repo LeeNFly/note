@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      perspective: 1000px;
+    }
+    img {
+      display: block;
+      margin: 100px auto;
+      transition: all 4s;
+    }
+    img:hover {
+      /*transform: translateX(-100px);*/
+      /*transform: translateY(-100px);*/
+      transform: translateZ(-500px);
+      /* 相对于自身的初始位置进行平移, 相对于自身初始的位置移动一段距离, 即平移不可叠加 */
+      /*  ps: 比如盒子初始位置是A, 设置平移属性平移了90px到位置B, 此时再给盒子设置一样的平移属性,
+              由于css渲染层叠性, 会覆盖之前的平移, 所以盒子总体还是相对于A平移90px, 所以盒子的位置还是在B
+              如果给盒子设置平移30px, 由于css层叠性, 会覆盖之前的平移, 则还是参照盒子初始位置A, 进行平移30px
+
+              变换的连续性, 如果盒子已经平移了45px, 此时设置平移90px, 则会在45px的位置, 再平移45px, 达到90px的位置
+      */
+      /* translateX: 水平偏移量, 正值水平向右, 负值水平向左 */
+      /* translateY: 垂直偏移量, 正值水平向下, 负值水平向上 */
+      /* translateZ: Z轴偏移量, 正值屏幕向外打脸方向, 屏幕向内方向 */
+      /* 偏移量可以是值px, 也可以是百分比, 百分比参照自身的大小 */
+
+      /* 所有的盒子都可以进行平移
+         平移和定位没有冲突, 定位的盒子也可以平移, 且定位的盒子平移也是相对于自身的初始位置(定位后的位置) 进行平移, 一般都是先定位, 然后再平移, 微调 */
+    }
+  </style>
+</head>
+<body>
+
+<img src="./images/01.jpg" alt="">
+
+</body>
+</html>

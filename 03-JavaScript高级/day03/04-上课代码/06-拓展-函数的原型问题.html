@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  function fn(x, y){
+//    console.log(x+y);
+//  } //函数底层是通过Function()构造函数创建的 var fn = new Function();
+//  var fn = function (){
+//
+//  } //函数底层是通过Function()构造函数创建的 var fn = new Function(); 
+  
+//  var fn = new Function('x','y','console.log(x+y)');
+//  fn(3,5);
+  
+  // function 关键字 相当于字面量创建函数
+
+  function fn(){
+    
+  }
+  
+//  console.log(fn.__proto__);
+//  console.log(fn.__proto__.__proto__);
+
+//console.log(Function.__proto__.constructor);
+
+
+//  Object Array等构造函数 都是被Function创造出来的 都是Function的实例 
+//  Function自己创造了自己 
+//  Object构造函数是Function的实例 
+//  任何一个对象原型链最终指向的都是Object原型 在往上是null   
+//  头等函数 对象都是通过函数new出来的 
+
+console.log(Object.__proto__.constructor);
+</script>
+</body>
+</html>

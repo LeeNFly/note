@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // undefined
+  // (function(){
+  //   console.log(1);
+  // })()
+
+  // 以上代码运行报错 因为浏览器解析成undefined( 解析成调用undefined 所以浏览器会报错 undefined is not a function 这与我们的预期相反,是错误的解析
+  // 加上分号后 正常运行 达到预期
+  undefined;
+  (function(){
+    console.log(1);
+  })()
+  
+  // 在自调用函数前面加; 是为了与之前的代码隔离开来 之后是一个新的代码了
+  // 连续两个; 不会报错 代码正常运行 即 ;;不报错 相当于执行一条语句后 ; 然后什么都不做 ; 然后开始执行后面的代码
+  // 一般在{}花括号后面不加分号; 改为在自调用函数前面加分号;
+  undefined
+  ;(function(){
+    console.log(1);
+  })()
+</script>
+</body>
+</html>

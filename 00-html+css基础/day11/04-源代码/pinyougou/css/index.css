@@ -1,0 +1,265 @@
+.drop-down {
+	display: block;
+}
+/* banner区域 */
+.banner {
+	padding-top: 10px;
+}
+.carousel {
+	width: 720px;
+	height: 456px;
+	margin-left: 220px;
+	background-color: red;
+	position: relative;
+}
+.carousel .arrow {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	background-color: rgba(0,0,0,.5);
+	top: 50%;
+	margin-top: -20px;
+	text-align: center;
+	line-height: 40px;
+}
+.carousel .arrow i {
+	font-size: 40px;
+}
+.carousel .arrow-l {
+	/* 沿着垂直方向旋转180度 */
+	transform: rotateY(180deg);
+}
+.carousel .arrow-r {
+	right: 0;
+}
+.carousel .points {
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	left: 0;
+	bottom: 10px;
+	text-align: center;
+	/* 解决行内块之间默认的间距 */
+	font-size: 0;
+}
+.carousel .points li {
+	width: 10px;
+	height: 10px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	display: inline-block;
+	margin:0 5px;
+}
+.carousel .points li.current {
+	background-color: #fff;
+}
+.short-wrapper {
+	width: 250px;
+	height: 456px;
+}
+.short-news {
+	border:1px solid #ccc;
+	height: 163px;
+}
+.short-icons {
+	height: 208px;
+	margin-top: -1px;
+}
+.short-news .sn-t {
+	padding: 0 15px;
+	height: 32px;
+	line-height: 32px;
+	border-bottom: 1px dashed #ccc;
+	font-size: 16px;
+}
+.short-news .sn-t i {
+	position: relative;
+	top: -2px;
+	vertical-align: middle;
+}
+.short-news .sn-t .more {
+	font-size: 12px;
+}
+.short-news .sn-b {
+	padding:0 15px;
+}
+.short-news .sn-b ul {
+	padding: 5px 0;
+}
+.short-news .sn-b li {
+	height: 24px;
+	line-height: 24px;
+}
+.short-icons table {
+	width: 100%;
+	height: 100%;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+.short-icons table .icons {
+	width: 19px;
+	height: 24px;
+	margin: 0 auto;
+	background:  url(../images/sprite_03.png) -20px -12px no-repeat;
+}
+.short-icons table td {
+	width: 25%;
+	border: 1px solid #ccc;
+}
+.short-icons table p {
+	text-align: center;
+	line-height: 2;
+}
+.short-ad {
+	margin-top: 9px;
+}
+
+/* 今日推荐 */
+.recommend {
+	margin-top: 10px;
+}
+.recommend .rec-l {
+	width: 210px;
+	height: 163px;
+	background-color: #5c5251;
+}
+.recommend .rec-l .clock {
+	width: 57px;
+	height: 57px;
+	margin: 28px auto 0;
+	background: url(../images/clock.png) 0 0 no-repeat;
+}
+.recommend .rec-l p {
+	text-align: center;
+	line-height: 45px;
+	font-size: 18px;
+	color: #Fff;
+}
+.recommend .rec-r {
+	width: 990px;
+	height: 163px;
+	background-color: red;
+}
+.recommend .rec-r .rec-item {
+	width: 25%;
+	height: 163px;
+	float: left;
+	position: relative;
+}
+
+/*
+
+	伪元素：在当前标签的内容的前面或者后面追加一个新的虚拟标签  
+
+	特性：
+	1. 是由css渲染  不会增大页面的开销
+	2. 默认是行内元素 可以进行转换
+	3. content一定不能少 即使没有内容也要写一个空
+*/
+.rec-line:after {
+	content: '';
+	width: 1px;
+	height: 143px;
+	background-color: #ccc;
+	position: absolute;
+	right: 0;
+	top: 10px;
+}
+/* 猜你喜欢 */
+.guess {
+	margin-top: 20px;
+}
+.guess .guess-t {
+	line-height: 40px;
+}
+.guess .guess-t strong {
+	font-size: 18px;
+	font-weight: 400;
+}
+.guess-b {
+	border: 1px solid #ccc;
+}
+.guess-b li {
+	float: left;
+	width: 16.6666%;
+	height: 233px;
+	overflow: hidden;
+}
+.guess-b li a.text-info {
+	padding: 0 20px;
+	line-height: 50px;
+	font-size: 16px;
+	display: block;
+}
+.guess-b li .price {
+	padding: 0 20px;
+}
+.guess-b li .price span {
+	font-size: 18px;
+}
+.guess-desc {
+	position: relative;
+}
+.gd-line:after {
+	content: '';
+	width: 1px;
+	height: 62px;
+	background-color: #ccc;
+	position: absolute;
+	right: 0;
+	top: 7px;
+}
+
+/* 楼层模块 */	
+.floor {
+	margin-top: 30px;
+}
+.floor .floor-t {
+	border-bottom: 2px solid #c81623;
+	line-height: 36px;
+}
+.floor-tit {
+	font-size: 18px;
+}
+.floor .floor-t li {
+	float: left;
+}
+.floor .floor-t li.line {
+	margin: 0 16px;
+}
+.floor-b > div {
+	height: 360px;
+	background-color: lime;
+	float: left;
+}
+.floor-b .floor-item1 {
+	width: 210px;
+}
+.floor-b .floor-item2 {
+	width: 330px;
+}
+.floor-b .floor-item3 {
+	width: 220px;
+}
+.floor-b .floor-item4 {
+	width: 220px;
+}
+.floor-b .floor-item5 {
+	width: 220px;
+}
+.floor-keywords li {
+	width: 50%;
+	float: left;
+	padding: 0 10px;
+	/* css3的盒子模型 最大的好处：自动内减  内减掉padding和border
+	说的直白点：就是一个具体宽度的盒子 添加上了padding或者border之后不需要
+	在自己手动减去width  这个属性会自动内减  甚至这个width是一个百分比都可以 */
+	box-sizing: border-box;
+}
+.floor-keywords li a {
+	display: block;
+	text-align: center;
+	line-height: 32px;
+	height: 32px;
+	border-bottom: 1px solid #ccc;
+}

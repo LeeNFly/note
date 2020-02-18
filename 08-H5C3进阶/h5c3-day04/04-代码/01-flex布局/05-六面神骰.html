@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    body {
+      background-color: hotpink;
+    }
+    ul {
+      width: 150px;
+      height: 150px;
+      background-color: #fff;
+      border-radius: 10px;
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+    li {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #000;
+    }
+
+    /* 第1个面 */
+    ul:nth-child(1) {
+      display: flex;
+      /* 控制主轴对齐方式 */
+      justify-content: center;
+      /* 控制侧轴对齐方式 */
+      align-items: center;
+    }
+
+    /* 第2个面 */
+    ul:nth-child(2) {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    /* 第3个面 */
+    ul:nth-child(3) {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 20px 0;
+      box-sizing: border-box;
+    }
+    /* 子元素单独设置自己的侧轴对齐方式 align-self */
+    ul:nth-child(3) li:nth-child(1) {
+      align-self: flex-start;
+    }
+    ul:nth-child(3) li:nth-child(3) {
+      align-self: flex-end;
+    }
+
+    /* 第 4 个面 */
+    ul:nth-child(4) {
+      display: flex;
+      /* 指定允许换行 */
+      flex-wrap: wrap;
+      justify-content: space-around;
+      /* 设置多行侧轴对齐方式 */
+      align-content: space-around;
+    }
+    ul:nth-child(4) li {
+      margin: 0 20px;
+    }
+
+    /* 第 5 个面 */
+    ul:nth-child(5) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: space-around;
+    }
+    ul:nth-child(5) li {
+      margin: 0 20px;
+    }
+    ul:nth-child(5) li:nth-child(3) {
+      margin: 0 60px;
+    }
+
+
+    /* 第 6 个面 */
+    ul:nth-child(6) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: space-around;
+    }
+    ul:nth-child(6) li {
+      margin: 0 20px;
+    }
+  </style>
+</head>
+<body>
+
+<ul>
+  <li></li>
+</ul>
+
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+
+</body>
+</html>

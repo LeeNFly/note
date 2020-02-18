@@ -1,0 +1,1 @@
+[{"username":"pp","nickname":"\u9e4f\u9e4f","age":"18","tel":"188","sex":"m","class":"24","photo":"upload\/15756202097480.jpg"}][{"username":"pp","nickname":"\u9e4f\u9e4f","age":"18","tel":"188","sex":"m","class":"24","photo":"upload\/15756202097480.jpg"}]

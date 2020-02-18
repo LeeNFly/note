@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #f99;
+            position: relative;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div index="1">swing</div>
+    <div>linear</div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // animate(obj, speed, easing, callback)
+            // 参数：
+            // obj: 是一个对象，对象里面写上你需要做的动画样式,可以设置多个样式，这些样式同时一起做运动
+            //      obj参数是必写的
+            // 不传speed，有动画效果，默认值是 "normal" = 400
+            // 其他三个参数同show() 方法的参数，也都是可选的
+            // 做自定义动画时, 同时改变对应css属性, 同时做运动
+
+            $('div').eq(0).animate({
+                left: '500px',
+                // top: '300px',
+                // borderRadius: '50px',
+
+            }, 3000, 'swing', function () {
+                console.log('swing结束了');
+
+            })
+            // $('div').eq(1).animate({
+            //     left: '500px',
+            //     // top: '300px',
+            //     // borderRadius: '50px'
+            // }, 3000, 'linear', function () {
+            //     console.log('linear结束了');
+            // })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: cyan;
+      margin: 50px auto;
+    }
+    /*
+      inset 表示内阴影
+      盒子阴影: box-shadow: inset 水平偏移 垂直偏移 模糊度 (外延值) 颜色;    外延值可以省略
+       水平便宜 正值向右, 负值向左
+       垂直便宜 正值向下, 负值向上
+       程序的坐标系, X轴正方向朝右 Y轴正方向朝下
+       外延值如果是正值, 就算增大阴影盒子, 如果是负值, 就算缩小阴影盒子
+       inset 内阴影, 一般不用, 我们都是用默认的外阴影
+       盒子阴影也可以设置多个, 用逗号隔开
+       阴影会随着盒子的移动而一起移动       
+    */
+    div:first-child {
+      box-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+    }
+
+    div:nth-child(2) {
+      box-shadow: 0px 0px 0px 20px red;
+    }
+
+    div:nth-child(3) {
+      /* 设置 inset 可以设置内阴影 */
+      box-shadow: inset 0px 0px 0px 20px red;
+    }
+
+    div:nth-child(4) {
+      /* 最常见加阴影的实现立体效果的方式 
+         相对来说都设置成2px 盒子阴影效果较好, 也可以加上外延值2px
+      */
+      box-shadow: 2px 2px 2px rgba(0,0,0,0.7); 
+    }
+
+  </style>
+</head>
+<body>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+
+</body>
+</html>

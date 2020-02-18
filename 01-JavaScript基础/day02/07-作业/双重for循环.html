@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1  网页打印5*5方形★阵  document.write();
+        for ( var i = 1 ; i <= 5 ; i++ ) {
+          for ( j = 1 ; j <= 5 ; j++) {
+            document.write('★');
+          }
+          document.write('<br/>');
+        }
+        document.write('----------------------');
+        document.write('<br/>');
+        //2  网页打印五角星直角三角形  document.write();
+        for ( var i = 1 ; i <= 5 ; i++ ) {
+          for ( var j = 1 ; j <= i ; j ++ ) {
+            document.write('★');
+          }
+          document.write('<br/>');
+        }
+        //3 网页打印99乘法表   document.write();
+        
+        for ( var i = 1 ; i <= 9 ; i++ ) {
+          for ( var j = 1 ; j <= i ; j++ ) {
+            document.write( j + '*' + i + '=' + (j * i) + ' ');
+          }
+          document.write('<br/>');
+        }
+        
+        document.write('----------------------');
+        document.write('<br/>');
+        //美化
+        document.write('<table width="800" >')
+        for ( var i = 1 ; i <= 9 ; i++ ) {
+          document.write('<tr>')
+          for ( var j = 1 ; j <= i ; j++ ) {
+            document.write('<td style="border:1px solid #ccc">')
+            document.write( j + '*' + i + '=' + (j * i) + ' ');
+            document.write('</td>')
+          }
+          document.write('</tr>')
+        }
+        document.write('</table>')
+    </script>
+</body>
+</html>

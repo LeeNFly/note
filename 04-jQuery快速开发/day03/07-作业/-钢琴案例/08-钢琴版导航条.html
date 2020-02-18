@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .nav {
+        width: 900px;
+        height: 60px;
+        background-color: black;
+        margin: 0 auto;
+    }
+
+    .nav li {
+        width: 100px;
+        height: 60px;
+        /*border: 1px solid yellow;*/
+        float: left;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav a {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        font-size: 24px;
+        color: blue;
+        text-align: center;
+        line-height: 60px;
+        text-decoration: none;
+        z-index: 2;
+    }
+
+    .nav span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: yellow;
+        top: 60px;
+    }
+
+    .mp3 {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="javascript:void(0);">导航1</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航2</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航3</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航4</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航5</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航6</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航7</a>
+                <span></span>
+            </li>
+        </ul>
+        <div>
+            <img src="1.jpg" alt="">
+        </div>
+        <div class="mp3">
+            <audio src="mp3/1.mp3"></audio>
+            <audio src="mp3/2.mp3"></audio>
+            <audio src="mp3/3.mp3"></audio>
+            <audio src="mp3/4.mp3"></audio>
+            <audio src="mp3/5.mp3"></audio>
+            <audio src="mp3/6.mp3"></audio>
+            <audio src="mp3/7.mp3"></audio>
+        </div>
+    </div>
+    <script src="../jquery-1.12.4.min.js"></script>
+    <script>
+    $(function() {
+        var $lis = $('.nav li')
+        $lis.mouseenter(function () {
+            var index = $(this).index();
+            $(this).children('span').stop().animate({
+                top: '0'
+            });
+            $('audio').get(index).load();
+            $('audio').get(index).play();
+        })
+        $lis.mouseleave(function () {
+            $(this).children('span').stop().animate({
+                top: '60'
+            })
+        })
+        var flag = false;
+        $(document).keydown(function (e) {
+            // 49 ~ 55
+            if (flag) {
+                return;
+            }
+            if (e.keyCode >= 49 && e.keyCode <= 55) {
+                var index = e.keyCode - 49;
+                $lis.eq(index).mouseenter();
+            }
+            flag = true;
+        })
+        $(document).keyup(function (e) {
+            // 49 ~ 55
+            if (e.keyCode >= 49 && e.keyCode <= 55) {
+                var index = e.keyCode - 49;
+                $lis.eq(index).mouseleave();
+            }
+            flag = false;
+        })
+    });
+    </script>
+</body>
+
+</html>

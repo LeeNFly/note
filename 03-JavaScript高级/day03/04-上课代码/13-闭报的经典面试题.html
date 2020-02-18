@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul>
+  <li>第1个li</li>
+  <li>第2个li</li>
+  <li>第3个li</li>
+  <li>第4个li</li>
+  <li>第5个li</li>
+  <li>第6个li</li>
+</ul>
+<script>
+  
+  //不能使用this, 利用闭包,打印每一个li的文本
+  var lis = document.getElementsByTagName('li');
+
+//  for(var i = 0; i < lis.length; i++) {
+//      lis[i].onclick = function(){
+////      console.log(this.innerText);
+//        console.log(lis[i].innerText);
+//      }
+//  }
+  for(var i = 0; i < lis.length; i++) {
+    // 自调用函数 => 声明 + 调用     自调用函数也可以写形参和实参 参数是可有可无的 (function(形参...) {}) (实参)
+    // 声明和执行了5次 自调用函数 相当于声明了5个函数 和调用了5次函数
+    // 自调用函数自调用后函数不会消失 还会存在内存里 函数中的变量也会存在函数的内存里  声明 + 调用
+    (function(i){
+      // 相当于var i = 传进来的i  把每次传进来的i记录在形参里
+      lis[i].onclick = function(){
+//      console.log(this.innerText);
+        // 时间触发时,访问的i为自调用函数里存储的i了,不再是全局变量里for循环的i了
+        console.log(lis[i].innerText);
+      }
+    })(i);
+
+  }
+</script>
+</body>
+</html>

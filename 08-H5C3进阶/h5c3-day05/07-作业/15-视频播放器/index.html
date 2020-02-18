@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="./css/font-awesome.min.css">
+  <style>
+    .box {
+      width: 800px;
+      height: 500px;
+      margin: 100px auto;
+      display: flex;
+      box-shadow: 0 0 4px 4px rgba(0, 0, 0, .4);
+    }
+    .left {
+      flex: 4;
+    }
+    .right {
+      flex: 1;
+      background-color: #666666;
+    }
+    ul {
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+    }
+    .left video {
+      height: 85%;
+      width: 100%;
+      display: block;
+      background-color: #000;
+    }
+    .controls {
+      height: 15%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .controls i {
+      flex: 1;
+      font-size: 25px;
+      color: orange;
+      cursor: pointer;
+      text-align: center;
+    }
+    .controls input[type='range'] {
+      flex: 7;
+    }
+    .range-volume {
+      position: absolute;
+      transform: rotate(-90deg);
+      left: -7px;
+      top: -47px;
+      width: 80px;
+      display: none;
+    }
+    .volume {
+      position: relative;
+    }
+    .volume:hover .range-volume {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="left">
+      <video src="./movies/movie01.mp4"></video>
+      <div class="controls">
+        <i class="play fa fa-play"></i>
+        <i class="screen fa fa-arrows-alt"></i>
+        <input type="range" value="0">
+        <i class="volume fa fa-volume-up">
+          <input class="range-volume" type="range" value="100">
+        </i>
+      </div>
+    </div>
+    <div class="right">
+      <ul>
+        <li data-src="./movies/movie01.mp4">灰姑娘</li>
+        <li data-src="./movies/movie02.mp4">兔子哥</li>
+        <li data-src="./movies/movie03.mp4">报告老板</li>
+        <li data-src="./movies/movie04.mp4">轻松时刻</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    var play = document.querySelector('.play');
+    var screen = document.querySelector('.screen');
+    var range = document.querySelector('input[type="range"]');
+    var lis = document.querySelectorAll('ul li');
+    var video = document.querySelector('video');
+    var volumeRange = document.querySelector('.range-volume');
+    var volume = document.querySelector('.volume');
+
+    // 1. 开始, 播放功能
+    play.addEventListener('click', function () {
+      if (play.classList.contains('fa-play')) {
+        video.play();
+        play.classList.remove('fa-play');
+        play.classList.add('fa-pause');
+      }
+      else {
+        video.pause();
+        play.classList.remove('fa-pause');
+        play.classList.add('fa-play');
+      }
+    });
+
+    // 2. 全屏功能
+    screen.addEventListener('click', function () {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      }
+      else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      }
+      else if (video.mozRequestFullscreen) {
+        video.mozRequestFullscreen();
+      }
+    });
+
+    // 3. 播放进度功能
+    // currentTime
+    // duration
+    video.addEventListener('timeupdate', function (e) {
+      var percent = (video.currentTime / video.duration) * 100;
+      range.value = percent;
+    });
+
+    range.addEventListener('click', function () {
+      var currentTime = (this.value / 100) * video.duration;
+      video.currentTime = currentTime;
+    });
+
+    // 4. 音量控制
+    volumeRange.addEventListener('change', function () {
+        video.volume = this.value / 100;
+
+        if (this.value == 0 ) {
+          volume.classList.remove('fa-volume-up');
+          volume.classList.add('fa-volume-off');
+        }
+        else {
+          volume.classList.remove('fa-volume-off');
+          volume.classList.add('fa-volume-up');
+        }
+    });
+
+    volume
+
+    // 5. 切换视频
+    lis.forEach(function (v, i) {
+      v.addEventListener('click', fn)
+    });
+    function fn() {
+      video.src = this.dataset.src;
+      video.play();
+    }
+  </script>
+</body>
+</html>

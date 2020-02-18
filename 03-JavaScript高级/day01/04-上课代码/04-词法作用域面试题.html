@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  var a;
+//  if ('a' in window) { // undefined in window
+//    var a = 10;
+//  }
+//  alert(a);  //10
+  
+  //====================================================
+
+//    var foo = 1;
+//    function bar() {
+////      var foo
+//      if (!foo) {
+//        var foo = 10;
+//      }
+//      alert(foo); // 1
+//    }
+//    bar();
+  
+  //==============================================
+
+//    var num = 123;
+//
+//    function f1() {
+////      var num;
+//      console.log(num); //456
+//    }
+//
+//    function f2() {
+//      var num = 456;
+//      f1(num);
+//    }
+//    f2();
+  
+  //===================================
+//  function fn(){
+//    var a = 1, b = 1, c = 1;
+////    var a =1;
+////    var b = 1;
+////    var c = 1;
+//  }
+//  fn();
+//  console.log(c); // 报错
+//  console.log(b); //
+//  console.log(a); //
+  
+  
+  //============================================
+
+//    function fn1(){
+//      var a = b = c = 1;
+////      var a =1;
+////      b = 1;
+////      c = 1;
+//    }
+//    fn1();
+//    console.log(c); // 1
+//    console.log(b); // 1
+//    console.log(a); // 报错
+  
+  //=====================================================================
+////    var a = 1;
+//    function fn(){
+////      var a = 2;
+//      function fnSon(){
+//        a = 3;
+//        console.log(a); // 3
+//      }
+//      fnSon();
+//      console.log(a);  // 2
+//    }
+////    console.log(a);  // 1
+//    fn();
+//    console.log(a); // 1
+  
+  //=============================================================
+
+//    var a ;
+//    function a(){
+//      console.log('呵呵');
+//      function a(){
+//        a = 4;
+//        console.log('哈哈');
+//      }
+//      a();
+//      console.log(a);  // 4
+//    }
+//    a();
+//    console.log(a); // 外面的a
+  
+  //=================================================================
+
+//  var a = 1;
+//  function a(){
+//    a++;
+//  }
+//  console.log(a) // 1
+//
+////  预解析阶段:
+////  var a;
+////  function a(){}
+////    a -- >函数
+////  代码执行阶段:
+////  a = 1;
+////  console.log(a);
+  
+  // =================================================================
+
+//  var a = { x : 1 }
+//  var b = a;
+//  a.x = a = { n : 1}; //赋值顺序从右往左,给变量赋值之前,先找到变量(记住了a和a.x的位置,然后执行赋值)
+//  console.log(a.x); //
+//  console.log(b.x); //
+    
+  
+
+</script>
+</body>
+</html>

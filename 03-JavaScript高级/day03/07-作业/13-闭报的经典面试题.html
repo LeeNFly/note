@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>第1个li</li>
+    <li>第2个li</li>
+    <li>第3个li</li>
+    <li>第4个li</li>
+    <li>第5个li</li>
+    <li>第6个li</li>
+  </ul>
+
+  <script>
+    // 以前的做法 使用this
+    // var lis = document.querySelectorAll('li');
+    // for (var i = 0; i < lis.length; i++) {
+    //   lis[i].onclick = function () {
+    //     console.log(this.innerText);
+    //   }
+    // }
+
+    // 不使用this,使用闭包
+    var lis = document.querySelectorAll('li');
+    for (var i = 0; i < lis.length; i++) {
+      (function (i) {
+        lis[i].onclick = function () {
+          console.log(lis[i].innerText);
+        }
+      })(i)
+
+    }
+  </script>
+</body>
+
+</html>

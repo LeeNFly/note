@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--斐波那契数列: 1 1 2 3 5 8 13-->
+<script>
+  // 求斐波那契数列中第n个数字是几
+//  function fn(n){
+//    if(n == 1 || n == 2){
+//      return 1;
+//    }
+//
+//    return fn(n - 1) + fn(n - 2);
+//
+//  }
+//
+//  console.log(fn(6));
+  
+  function fn(i){
+    console.log(i++);
+    if(i == 10000){
+      return;
+    }
+    fn(i);
+  }
+//  fn(0);
+  
+//  递归: 函数中自己调用了自己 (在函数体中自己调用自己)
+//  注意: 如果要写递归,必须给一个出口,如果没有会造成栈溢出  // 栈的大小是有限制的
+//  栈溢出: 栈里面放不下了就会溢出
+  
+  
+//  (function(){
+//
+//  })(); //自调用函数,不是递归   把申明函数和调用函数合成了一步
+//
+//  function fn(){
+//
+//  }
+//  fn();
+  
+  
+//  (function fn(){
+//    fn()
+//  })();
+</script>
+</body>
+</html>

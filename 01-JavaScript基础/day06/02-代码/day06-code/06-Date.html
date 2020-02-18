@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // Date 日期和时间的对象
+
+      // 创建当前时间的日期对象
+      // var date = new Date(); 
+      // console.log(date); // Sat Oct 05 2019 21:38:43 GMT+0800 (中国标准时间) // 创建的是东八区的时间, 也就是北京时间
+
+      // 格式化时间  
+      // 返回格式化的时间  不会改变原date对象
+      // console.log( date.toLocaleString() ); //2019/10/5 下午9:38:43
+      // console.log( date.toLocaleDateString() ); // 2019/10/5
+      // console.log( date.toLocaleTimeString() ); // 下午9:38:43
+
+      // 指定时间
+      // var date = new Date("2017-06-22");//创建一个指定时间的日期对象
+      // var date = new Date("2017-03-22 00:52:34");//创建一个指定时间的日期对象
+      // var date = new Date(2017, 2, 22, 0, 52, 34);
+      // var date = new Date(1523199394644);//参数：毫秒值 时间戳
+      
+      // console.log(date);
+
+      // 获取具体的日期和时间 返回 数字类型
+      // 不会改变原date对象
+
+      var date = new Date();
+      console.log(date);
+      
+      // 年 
+      console.log( date.getFullYear() ); //2018
+      // 月  0-11  , 特殊 要记得+1
+      console.log( date.getMonth() + 1 );
+      // 日 
+      console.log( date.getDate() );
+
+      // 星期几  3=星期三   0: 星期日  1-6 
+      console.log( date.getDay() );
+
+      // 小时
+      console.log( date.getHours() );
+      // 分钟
+      console.log( date.getMinutes() );
+      // 秒
+      console.log( date.getSeconds() );
+      
+      
+      
+      
+      
+      
+      
+
+      
+      
+      
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+/*css reset 初始化*/
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    margin: 0;
+    padding: 0;
+    /*所有的元素采用内减模式*/ 
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    //去除移动端默认点击高亮效果
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-size: 14px;
+    color:#333;
+    font-family: 'Microsoft Yahei','Times New Roman', Times, serif; /*后面都是备胎*/
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+input {
+    border: none; /*去除边框*/
+    outline: none;  /*去除轮廓线*/ 
+    -webkit-appearance: none; /*去除 表单在移动端 阴影 立体 效果 */
+}
+
+/*css common 公共样式*/  
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/*清除浮动*/
+.clearfix::before, 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+    line-height: 0;
+}
+
+.jd-sprite {
+    background-image: url(../images/jd-sprites.png);          
+    background-size: 200px 200px; /*压缩背景图片*/
+}
+
+/*公共头部*/
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    // background-color: #daa520; /*金麒麟*/
+    background-image: linear-gradient(#eee, #bbb);
+    .back,
+    .menu {
+        width: 44px;
+        height: 44px;
+        float: left;
+        background-position:  -22px 0;
+        padding: 12px;
+        //设置盒子背景从content-box开始平铺
+        background-origin: content-box;
+        //设置将content-box之外的背景裁剪调
+        background-clip: content-box;
+    }
+
+    .menu {
+        float: right;
+        background-position:  -60px 0;
+
+    }
+
+    .search {
+        height: 44px;
+        // background-color: coral;
+        overflow: hidden;
+        padding-top: 7px;       
+    }
+
+}  

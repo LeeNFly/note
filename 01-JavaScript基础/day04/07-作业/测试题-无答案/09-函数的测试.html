@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  //封装一个函数，翻转数组
+  //比如  传入[1,2,3,4] 能够返回[4,3,2,1]
+  //比如  传入[10,20,30,40] 能够返回[40,30,20,10]
+
+  // 方法1
+  // function fanZhuan(arr) {
+  //   arr.reverse();
+  //   return arr;
+  // }
+
+  // 方法2
+  function fanZhuan(arr) {
+    var newArr = [];
+    for (var i = arr.length - 1; i >= 0; i--) {
+       newArr.push(arr[i])
+    }
+    return newArr;
+  }
+  var res = fanZhuan([1,2,3,4]);
+  console.log(res);
+  var res1 = fanZhuan([10,20,30,40])
+  console.log(res1);
+  
+</script>
+
+</body>
+</html>

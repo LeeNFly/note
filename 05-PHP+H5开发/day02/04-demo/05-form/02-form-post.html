@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./form.css">
+</head>
+<body>
+
+  <!-- form 表单的作用: 收集用户信息, 将来提交给后台, 进行处理 -->
+
+  <!-- 
+    表单中的三大属性
+    1. action: 指定提交数据的地址  (如果没设置值, 默认提交到当前页面)
+    2. method: 指定提交的类型, get/post, 默认值就是 get
+    3. 给 input 指定 name 属性, 将来才可以提交给后台进行处理
+       前后端 name 要统一
+   -->
+
+
+  <form action="02-form-post.php" method="post">
+    用户名: <input type="text" name="username">
+    密码: <input type="password" name="password">
+    <input type="submit" value="登录">
+  </form>
+
+  
+</body>
+</html>

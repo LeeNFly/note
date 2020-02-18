@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function fn() {
+      
+    }
+    // var f = new fn();
+    
+    // fn.prototype.one = function () {
+    //   console.log(1);
+    // }
+    // fn.prototype.two = function () {
+    //   console.log(2);
+    // }
+    // fn.prototype.three = function () {
+    //   console.log(3);
+    // }
+    // console.log(f);
+    fn.prototype = {
+      constructor: fn,
+      one: function () {
+        console.log(1);
+      },
+      two: function () {
+        console.log(2);
+      },
+      three: function () {
+        console.log(3);
+      }
+    }
+
+    var f = new fn();
+    
+    f.one();
+    f.two();
+    f.three();
+    
+    console.log(fn.prototype);
+    console.log(fn.prototype.constructor);
+    
+  </script>
+</body>
+
+</html>

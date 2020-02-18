@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background:#f1f1f1;
+}
+
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+    font-weight: normal;
+    font-size: 30px;
+    margin-top:30px;
+}
+body>a{
+   float:right;
+
+}
+table{    
+    margin:20px auto;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    width: 50%;
+    text-align: center;
+}
+
+th,
+td{
+    border: 1px solid #ccc;
+    line-height: 30px;
+    height: 30px;  
+    padding:5px 0;
+}
+tr{
+    background:rgb(223, 216, 217);    
+}
+tr:nth-child(odd){
+    background: #fff;
+}
+img{
+    height: 200px;
+ 
+}
+
+a{
+    text-decoration: none;
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    background:#bb6767;
+    color:#fff;
+    font-size: 24px;
+    line-height: 50px;
+}

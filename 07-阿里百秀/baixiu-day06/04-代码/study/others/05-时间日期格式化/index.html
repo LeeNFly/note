@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <input type="datetime-local">
+
+  <script src="./moment.js"></script>
+  <script>
+    // var inp = document.querySelector("input");
+    // 当前时间
+    // var now = new Date();
+    // console.log( now );
+    // inp.value = now;  // 直接赋值, 格式不正确
+
+    // 日期框, 需要 2018-07-03T02:05 的格式
+    // 原生方式太麻烦, 解决方式: 使用 moment.js 来格式化
+    // inp.value = "2017-07-03T02:05";
+
+
+    // 使用插件
+    // moment(日期对象).format("日期格式");
+    // 目标: 2017-07-03T02:05
+
+    // Y: 表示年   YYYY  2017
+    // M: 表示月   MM    07
+    // D: 表示天   DD    03
+    // H: 表示时   HH    02    大写 H 24小时制度, 小写 h 12小时制
+    // m: 表示分   mm    05
+    // s: 表示秒   ss    00
+
+    var inp = document.querySelector("input");
+    // var now = new Date();
+    // // console.log( moment( now ).format( "YYYY-MM-DDTHH:mm" ) );
+    // inp.value = moment( now ).format( "YYYY-MM-DDTHH:mm" );
+
+    // moment 方法不传日期对象, 默认就是当前时间
+    inp.value = moment().format( "YYYY-MM-DDTHH:mm" );
+  
+  
+  </script>
+
+
+</body>
+</html>

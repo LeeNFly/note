@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btn">点击让box从0移动到400</button>
+  <button id="btnBack">点击让box从400移动到0</button>
+  <div id="box"></div>
+  <script>
+    var btn = document.querySelector('#btn');
+    var box = document.querySelector('#box');
+    var step = 7;
+    var target = 400;
+    var timeid;
+    var target1 = 0;
+    // 1 需求: 点击btn,让box从0移动到400
+    //  1.1 给btn注册点击事件
+    btn.onclick = function () {
+      // 1.4 多次点击,box移动加快,是因为多次点击,注册多个定时器,同时操作box导致的,为了保证每次只能有一个定时器操作box,每次进来先判断box身上是否有定时器,若有,则清除
+      // 1.5 由于预解析作用,每次进来timeid都是undefined,要将timeid定义成全局变量
+      if (timeid) {
+        clearInterval(timeid);
+      }
+      // 1.2 注册定时器,先获取box当前位置,然后每次执行定时器在当前位置上前进step步
+      timeid = setInterval(function () {
+        var current = box.offsetLeft; //box的最近定位父元素是body
+        var pos = current + step;
+        //1.3 如果到达或超出了目标位置,则让box停下,清除定时器
+        if (pos >= target) {
+          clearInterval(timeid);
+          pos = target;
+        }
+        box.style.left = pos + 'px';
+      }, 15)
+    }
+
+    // 2 需求: 点击btnBack,让box从400移动到0
+    var btnBack = document.querySelector('#btnBack');
+    btnBack.onclick = function () {
+      // 保证box身上只能有一个定时器作用
+      if (timeid) {
+        clearInterval(timeid)
+      }
+      timeid = setInterval(function () {
+        var current = box.offsetLeft;
+        var pos = current - step;
+        if (pos <= target1) {
+          pos = target1;
+          clearInterval(timeid)
+          console.log(target1);
+          
+        }
+        box.style.left = pos + 'px';
+      }, 15)
+    }
+  </script>
+</body>
+
+</html>

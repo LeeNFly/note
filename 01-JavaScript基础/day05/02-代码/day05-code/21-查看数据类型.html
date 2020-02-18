@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 查看数据类型
+      // 简单数据类型  number string boolean undefined  null
+      // 复杂数据类型  function array object
+
+      //1. typeOf
+      var num1 = 12; //number
+      var num2 = 'abc'; //string
+      var num3 = true; //boolean
+      var num4 = undefined; //undefined
+      var num5 = null;  // object
+      var num6 = function () {}; //function
+      var num7 = [];  // object
+      var num8 = {};  // object
+
+      console.log(typeof  num1);
+      console.log(typeof  num2);
+      console.log(typeof  num3);
+      console.log(typeof  num4);
+      console.log(typeof  num5);
+      console.log(typeof  num6);
+      console.log(typeof  num7);
+      console.log(typeof  num8);
+      
+      // 总结 : 
+      //1. typeOf 检测简单数据类型 ok
+      //   复杂类型 分不清
+      //2. null => object
+      //  [] 数组/ obj 对象 => object
+
+
+      // 以下两种方式可以判断复杂类型具体的数据类型
+
+      //2. instanceof  
+      // 判断 返回一个布尔 
+      // 复杂数据类型底层都是对象Object
+      // 结构 : 对象 instanceof 构造函数 => 布尔 查看是否为true  是 返回true  不是 返回false
+      var num6 = function () {};
+      var num7 = [];  // object
+      var num8 = {};  // object
+      console.log(num6 instanceof Function); //true
+      console.log(num7 instanceof Array); //true
+      console.log(num8 instanceof Object); //true
+
+      //3. constructor 构造器    直接获取数据类型名(构造函数名)
+      console.log( num6.constructor.name ); //Function
+      console.log( num7.constructor.name ); //Array
+      console.log( num8.constructor.name ); //Object
+
+      
+      console.log( num1.constructor.name ); //Number
+      console.log( num2.constructor.name ); //String
+      console.log( num3.constructor.name ); //Boolean
+      
+      
+
+    </script>
+</body>
+</html>

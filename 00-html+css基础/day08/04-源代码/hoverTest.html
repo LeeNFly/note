@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 300px;
+			height: 300px;
+			background-color: red;
+		}
+		.info {
+			width: 100px;
+			height: 100px;
+			background-color: lime;
+		}
+		/* 需求：鼠标放到box上面就让info的背景颜色变成蓝色 (此用法要求元素为子父级关系)*/
+		.box:hover .info{
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="info"></div>
+	</div>
+</body>
+</html>

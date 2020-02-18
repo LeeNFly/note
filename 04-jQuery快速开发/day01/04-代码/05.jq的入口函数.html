@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        height: 100px;
+        background-color: #f99;
+        margin: 10px;
+        display: none;
+    }
+    </style>
+
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+    // winodw.onload: 当页面加载完成的时候，才来执行这里的代码 保证函数内一定可以获取到页面元素
+
+    /*window.onload = function() {
+
+        var btn1 = document.getElementById("btn1"); // null
+        var btn2 = document.getElementById("btn2");
+        var div = document.getElementsByTagName("div");
+
+        btn1.onclick = function() {
+            for (var i = 0; i < div.length; i++) {
+                div[i].style.display = "block";
+            }
+        }
+
+        btn2.onclick = function() {
+            for (var i = 0; i < div.length; i++) {
+                div[i].innerText = "设置的内容";
+            }
+        }
+    }*/
+
+    
+    // jq的入口函数
+    // document: 文档
+    // ready: 准备
+    // 当文档(页面)加载完成的时候，来调用执行这里的函数 保证函数内一定可以获取到页面元素
+    /*$(document).ready(function(){
+        // console.log(222);
+
+        var btn1 = document.getElementById("btn1"); 
+        var btn2 = document.getElementById("btn2");
+        var div = document.getElementsByTagName("div");
+
+        btn1.onclick = function() {
+            for (var i = 0; i < div.length; i++) {
+                div[i].style.display = "block";
+            }
+        }
+
+        btn2.onclick = function() {
+            for (var i = 0; i < div.length; i++) {
+                div[i].innerText = "设置的内容";
+            }
+        }
+    })*/
+
+
+    // 更简洁的实现的入口函数, 更推荐使用
+    $(function(){
+        console.log(333);
+
+        var btn1 = document.getElementById("btn1"); 
+        var btn2 = document.getElementById("btn2");
+        var div = document.getElementsByTagName("div");
+
+        btn1.onclick = function() {
+            for (var i = 0; i < div.length; i++) {
+                div[i].style.display = "block";
+            }
+        }
+
+        btn2.onclick = function() {
+            for (var i = 0; i < div.length; i++) {
+                div[i].innerText = "设置的内容";
+            }
+        }
+    })
+    </script>
+</head>
+
+<body>
+    <button id="btn1">展示</button>
+    <button id="btn2">设置内容</button>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+
+</html>

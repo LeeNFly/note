@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <form id="form">
+    用户名: <input type="text" name="username"> <br> <br>   
+    密码: <input type="text" name="password"> <br> <br>   
+    确认密码: <input type="text" name="repass"> <br> <br>   
+    <input type="button" value="提交" id="btn">
+  </form>
+
+
+  <script>
+    // formData 可以用于管理表单数据, 是xhr2.0里的新特性
+    // 1. formData 仅支持 post 请求
+    // 2. 不需要设置请求头, 浏览器会自动检测帮我们设置
+    // 3. 通过 new Formdata() 来创建formData实例
+    //    参数: form 表单元素 (dom元素)
+    //    (1) 没有传参, 表示没有收集 form 表单数据
+    //    (2) 如果传了 form元素, 将来就会收集form表单中 表单元素 中所有设置了 name 属性的值, 进行提交
+    // 4. 这个 formData 可以作为 send 的参数
+    // 5. formData可以通过以 append 可以追加提交的数据
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+      var xhr = new XMLHttpRequest();
+      xhr.open('post', './02-formData.php');
+      var form = document.getElementById('form');
+      var formData = new FormData(form);
+      formData.append('id', '123');
+      xhr.send(formData);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var text = xhr.responseText;
+            console.log(text);
+          }
+        }
+      }
+    }
+  
+  </script>
+  
+</body>
+</html>

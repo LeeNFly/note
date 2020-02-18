@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/*
+			我们在量一个盒子的时候 有时候很难直接量盒子的内容的大小  于是更多的是直接量整个盒子的大小 后期添加padding的时候需要在width的基础上减去padding值
+
+			如果一个盒子本身没有width  而是通过继承得到的宽度 那么这个盒子在添加padding的时候 不会撑大当前盒子
+
+
+		*/
+
+		/* .news {
+			width: 100px;
+			height: 33px;
+			border: 1px solid #ccc;
+			padding-left: 15px;
+		} */
+		.news {
+			width: 116px;
+			height: 33px;
+			border: 1px solid #ccc;
+			text-indent: 15px;
+		}
+
+		.father {
+			width: 200px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+		.son {
+			height: 50px;
+			background-color: lime;
+			padding:0 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="news">新闻</div>
+	
+	<div class="father">
+		<div class="son">11111</div>
+	</div>
+
+</body>
+</html>

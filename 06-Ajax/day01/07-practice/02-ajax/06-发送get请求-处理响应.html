@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">点击发送get请求</button>
+  <div id="content"></div>
+  <script>
+    var btn = document.getElementById('btn');
+    var content = document.getElementById('content');
+    btn.onclick = function () {
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', '04-readyState1.php?username=pp&password=123456', true);
+      xhr.send(null);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var result = xhr.responseText;
+            content.innerHTML = result;
+          }
+          else {
+            alert(xhr.responseText)
+          }
+        }
+      }
+
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  console.log(navigator.onLine);
+
+  window.addEventListener('online', function () {
+    console.log('切换到联网状态触发', navigator.onLine);
+  }, false)
+
+  window.addEventListener('offline', function () {
+    console.log('切换到断网状态触发', navigator.onLine);
+  }, false)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+
+    <script>
+
+      // 时间戳
+      // 与后台服务器交互,一般都使用时间戳
+
+      var date = +new Date(); //获取当前时间的时间戳 => 将日期对象Date转化为时间戳 => +号
+      // var date = new Date();
+      // date = +date;
+      console.log(date); // 1528257382558
+      // 1528257382558  时间戳是时间单位,是数字类型  ★ 单位是毫秒数 
+      // 从1970年1月1日0时0分0秒 ==> 到现在的总共毫秒数
+
+      // 通过以上可知, 将日期对象Date转化为时间戳, 只需要在日期对象前加+号即可
+
+     // 获取当前时间的时间戳的第二种方法: Date.now();
+      
+      // 场景 1 : 根据时间戳 实例化日期对象Date 
+      var date = new Date(1523199394644); 
+      console.log(date); // Sun Apr 08 2018 22:56:34 GMT+0800 (中国标准时间)
+        
+      // 场景 2 : 根据时间戳A 和 时间戳B 计算从A到B所需要的时间,(A和B的时间差)
+      // ( 时间戳B - 时间戳A ) / 1000  单位为秒  1s == 1000ms
+      // 应用如下练习。
+
+
+      // 练习 : 计算一下 遍历打印1-10000次所需要的时间
+
+      var start = +new Date();
+
+      for ( var i = 1 ; i <= 10000 ; i++) {
+      
+          // console.log(i);
+          
+      }
+
+      var end = +new Date();
+
+      console.log(parseInt((end - start)/1000));
+      
+
+      
+
+    </script>
+</body>
+</html>

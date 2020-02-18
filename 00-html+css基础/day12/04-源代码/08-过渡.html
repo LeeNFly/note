@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			left: 0;
+			top: 0;
+			
+			/* 
+				过渡本质上不是动画，是css的某一个属性的值变换到另外一个值的过程
+				过渡：过渡的属性 过渡的时间  单位是s或者ms  过渡的曲线 
+				过渡的延迟时间
+				可以写多个,中间用逗号隔开
+				过渡写在属性变化的那个元素中
+			 */
+
+			/* transition: width 1s cubic-bezier(1,-1.06, 0, 2.38),height 5s cubic-bezier(1,-1.06, 0, 2.38); */
+			transition: all 1s;  /* all代表所有属性 */
+		}
+		.box:hover {
+			width: 200px;
+			height: 200px;
+			background-color: lime;
+			border-radius: 50%;
+			/* left: 500px;
+			top: 500px; */
+			transform: rotate(360deg);
+			box-shadow: 10px 10px 50px blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

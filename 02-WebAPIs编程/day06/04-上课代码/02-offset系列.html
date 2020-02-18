@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #far{
+      width: 300px;
+      height: 300px;
+      border:10px solid blue;
+      position:relative;
+    }
+    
+    #son{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin-left:10px;
+      margin-top:10px;
+      position:absolute;
+      left:20px;
+      top:20px;
+      padding:10px;
+      border:10px solid green;
+    }
+  </style>
+</head>
+<body>
+<div id="far">
+  <div id="son"></div>
+</div>
+<script>
+  // offset系列 属性  一般要求元素在dom树上才能获取
+//  元素.offsetParent   返回当前元素最近的定位 父元素 (静态定位除外),是一个元素,如果没有,则返回body元素
+//  parentNode  直接父元素
+//  元素.offsetLeft  返回元素左上角(border开始)距离offsetParent的左上角(padding: 0处)的左(水平)偏移量, (不是定位的偏移量,可能受到margin等其他因素影响,是左边距离offsetParent的总距离)
+//  元素.offsetTop   返回元素左上角(border开始)距离offsetParent的左上角(padding: 0处)的上(垂直)偏移量, (不是定位的偏移量,可能受到margin等其他因素影响,是上边距离offsetParent的总距离)
+//  元素.offsetWidth  返回当前元素盒子的总宽(与是否设置width无关)  content + padding + border,即盒子的width/height + padding + border 若内容有超出,则不包括内容的超出部分
+//  元素.offsetHeight  返回当前元素盒子的总高(与是否设置height无关) content + padding + border,即盒子的width/height + padding + border 若内容有超出,则不包括内容的超出部分
+//  offsetWidth, offsetHeight 与盒子是否设置width/height无关, 就算不设置css的宽和高, 也能获取默认的宽度和撑大的高度
+//   var son = document.getElementById('son');
+//  console.log(son.offsetParent);
+//  console.log(son.offsetLeft);
+//  console.log(son.offsetTop);
+// console.log(son.offsetWidth);
+// console.log(son.offsetHeight);
+  
+//  son.offsetWidth = 300;
+//  son.offsetWidth = '300px';
+//    son.offsetLeft = 200;
+//    son.offsetLeft = '200px';
+//  son.offsetParent = document.body;
+//console.log(son.offsetParent);
+//  结论: offset系列不能赋值,只能获取,获取的值是数字类型没有单位,但是参考的是px单位
+</script>
+</body>
+</html>

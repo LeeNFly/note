@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .clock {
+      width: 600px;
+      height: 600px;
+      margin: 100px auto;
+      background: url(images/clock.jpg) no-repeat;
+      position: relative;
+    }
+
+    .clock div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(images/hour.png) no-repeat center center;
+    }
+
+    #m {
+      background-image: url(images/minute.png);
+      /*transform: rotate(90deg);*/
+    }
+
+    #s {
+      background-image: url(images/second.png);
+      /*让盒子旋转*/
+      /* transform: rotate(30deg); */
+    }
+
+    #h {
+      /*transform: rotate(30deg);*/
+    }
+  </style>
+</head>
+
+<body>
+  <div class="clock">
+    <div id="h"></div>
+    <div id="m"></div>
+    <div id="s"></div>
+  </div>
+  <script>
+    //需求: 根据当前时间,让我们的时钟展示当时间的角度
+    var hour = document.querySelector('#h')
+    var minute = document.querySelector('#m')
+    var second = document.querySelector('#s')
+    fn();
+    setInterval(fn, 1000)
+    function fn() {
+      var date = new Date();
+      var hT = date.getHours();
+      hT = hT >= 12 ? hT - 12 : hT; // 将24小时制转为12小时制
+      var mT = date.getMinutes();
+      var sT = date.getSeconds();
+      // 计算偏移角度 比如30分钟,时针要偏移一小时一半的角度
+      // 时针偏移角度 = ( mT / 60 ) * ( 360 / 12 ) => 0.5 * mT
+      // 分针偏移角度 = ( sT / 60 ) * ( 360 / 60 ) => 0.1 * sT
+      // 秒针无偏移角度
+      var hDeg = (hT / 12) * 360 + 0.5 * mT;
+      var mDeg = (mT / 60) * 360 + 0.1 * sT;
+      var sDeg = (sT / 60) * 360;
+      hour.style.transform = 'rotate(' + hDeg + 'deg)';
+      minute.style.transform = 'rotate(' + mDeg + 'deg)';
+      second.style.transform = 'rotate(' + sDeg + 'deg)';
+    }
+
+
+
+  </script>
+</body>
+
+
+</html>

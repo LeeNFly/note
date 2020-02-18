@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    header {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+    span {
+      background-color: yellow;
+    }
+  </style>
+  <!-- 小于等于 ie 8 才进行引包, 用于兼容 html5 语义化标签 -->
+  <!--[if lte IE 8]>
+    <script src="./html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<!--
+   问题: h5新增了很多语义化标签, 要一个一个创建吗?
+   解决: 使用html5shiv插件, 里面帮我们封装好了IE8以下版本兼容h5语义化标签的操作
+  html5shiv 插件原理:
+   1. 动态创建元素, 让浏览器认识
+   2. 默认创建出来是行内, 进行样式重置, 转成块级
+
+   由原理可知道, 要在页面标签之前引入html5shiv, 即在body之前引入 才能解决IE8以下版本不支持html5语义化标签
+-->
+
+<!-- 现象: IE8 以下版本不支持 html5 语义化标签 -->
+<header>我是header标签, 独占一整行</header>
+<span>我是span标签</span>
+
+<!-- 问题: 对于IE8及以上的浏览器, 是支持h5语义化标签的, 那么引入的html5shiv插件, 就是多余的了, 增大了资源请求量 -->
+<!-- 解决: 通过以下条件注释来解决  -->
+<!-- 条件注释: ie9 及 ie9以下版本才认识, 浏览器才会解析和执行条件注释里的代码, 专门用于兼容 ie
+              条件注释可以写在任意位置
+              条件注释里有判断浏览器版本的方法
+              ie9 以上的浏览器, 都会把条件注释当成注释, 里面的代码不会解析也不会执行
+ -->
+<!--
+    lte 小于等于
+    lt  小于
+    gt  大于
+    gte 大于等于
+    注意: 大于ie8, 说明只有ie9才能执行条件注释里的代码, 因为ie9以上的版本的浏览器, 条件注释都会被当成注释, 里面的代码不会解析也不会执行
+-->
+
+
+<!--[if lte IE 8]>
+<script>
+  alert('ie8及ie8以下会执行');
+</script>
+<![endif]-->
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="sel">
+        <option>请随机选择</option>
+        <option>食堂</option>
+        <option id="op">吃翔</option>
+        <option >泡面</option>
+        <option >外卖</option>
+        <option>哼,不吃了</option>
+    </select>
+    <input type="button" value="随机" id="btn">
+</body>
+<script>
+    var btn = document.getElementById('btn');
+    var options = document.querySelectorAll('#sel option');
+    btn.onclick = function () {
+        var random = getRandom(1,options.length - 1);
+        for (var i = 0; i < options.length; i++) {
+           options[i].selected = false;
+        }
+        options[random].selected = true;
+    }
+    function getRandom(min,max) {
+        // min ~ max => 0 ~ max - min => 
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+</script>
+</html>

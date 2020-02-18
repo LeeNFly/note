@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: green;
+			/* 
+				边框圆角语法：border-radius:像素;
+				取值还可以是百分比 百分比参照的是当前盒子完整的宽高
+				注意：边框圆角并不需要依赖与边框
+			*/
+			/* border:10px solid #ccc; */
+			/* border-radius: 20px; */
+			/* border-radius: 50%; */
+
+			/* 
+				单独控制圆角 
+				一个值：四个角
+				两个值：对角线
+				三个值：左上  对角线  右下
+				四个值：从左上开始 顺时针
+
+			*/
+			border-radius: 10px 20px 30px 40px;
+
+		}
+		
+		/* 胶囊形 */
+		.rectangle {
+			width: 300px;
+			height: 50px;
+			background-color: pink;
+			/* border-radius: 25px; */
+			border-radius: 50%;
+		}
+
+		/* 口袋形 */
+		.pocket {
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			border-radius: 0 0 100px 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="rectangle"></div>
+	<div class="pocket"></div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>封装jquery插件</title>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: "Microsoft Yahei";
+	}
+	
+	.box {
+		position: relative;
+		width: 1200px;
+		margin: 0 auto;
+	}
+	
+	.item {
+		width: 232px;
+		position: absolute;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+		overflow:hidden;
+	}
+	
+	.item > img {
+		width: 100%;
+		display: block;
+	}
+	
+	.item > p {
+		margin: 0;
+		padding: 10px;
+    background: #eee;
+	}
+	
+	.btn {
+		width: 280px;
+		height: 40px;
+		margin: 30px auto;
+		text-align: center;
+		line-height: 40px;
+		background-color: #CCC;
+		border-radius: 6px;
+		font-size: 24px;
+		cursor: pointer;
+	}
+	
+	.loading {
+		background-color: transparent;
+	}
+</style>
+</head>
+
+<body>
+	<div class="box">
+		<div class="item ">
+			<img src="./images/1.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/2.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/3.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/4.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/3.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/4.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/3.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/4.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/3.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/4.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/3.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/4.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/6.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/6.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/6.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/6.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/7.jpg" alt="">
+			<p>花非花云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/8.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/9.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+	</div>
+
+<div class="btn">加载更多</div>
+
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+
+  // 瀑布流具体实现
+  // 1. 获取父盒子和子盒子, 获取父盒子和子盒子的宽度
+  // 2. 计算间隙
+  // 3. 遍历子盒子, 进行设置位置 left, top
+  //    (1) 第一行
+  //    (2) 第一行以外的盒子
+
+  $(function() {
+
+    var $box = $('.box'); // 父盒子
+    var $items = $box.children(); // 所有子盒子
+    var boxWidth = $box.width(); // 父盒子的宽度
+    var itemWidth = $items.width(); // 获取子盒子的宽度, 返回第一个盒子的宽度
+    
+    // 设定 5 列
+    var columns = 5;
+    // 计算间隙 = (父盒子的宽度 - 子盒子的宽度 * 列数) / (列数 - 1)
+    var space = (boxWidth - itemWidth * columns) / (columns - 1);
+
+    // 准备一个数组, 专门用于存放每一列的总高度
+    var arr = [ 0, 0, 0, 0, 0 ];
+
+    // 遍历子盒子, 设置 left 和 top
+    $items.each(function( index, element ) { 
+      if ( index < columns ) {
+        // (1) 第一行 0 1 2 3 4
+        //     设置第一行 left 和 top
+        //     left: 当前盒子的索引 * (盒子的宽度 + 间隙)
+        //     top: 0
+        $(this).css({
+          left: index * ( itemWidth + space ),
+          top: 0
+        });
+        // 摆放完盒子之后, 需要将盒子高度, 赋值到每列中
+        arr[ index ] = $(this).height();
+      }
+      else {
+        // (2) 其他行的盒子, 在最小列放置 
+        //     根据数组中存的每列的高度, 求最小列和最小列的索引, 再设置盒子位置
+
+        // 遍历数组, 求最小列和最小列索引
+        var min = arr[0];
+        var minIndex = 0;
+        for ( var i = 0; i < arr.length; i++ ) {
+          if ( min > arr[i] ) {
+            min = arr[i];  // 更新最小列
+            minIndex = i; // 更新索引
+          }
+        }
+
+        // 设置盒子的位置, 设置 left 和 top
+        //  left: 最小列的索引 * ( 盒子的宽度 + 间隙 )
+        //  top: 最小列的高度 + 间隙
+        $(this).css({
+          left: minIndex * ( itemWidth + space ),
+          top: min + space
+        });
+
+        // 设置完盒子的位置后, 需要更新最小列
+        // 更新成 = min + 间隙 + 新添加盒子的高度
+        arr[ minIndex ] = min + space + $(this).height();
+      }
+    });
+
+
+  })
+
+
+</script>
+
+
+</html>

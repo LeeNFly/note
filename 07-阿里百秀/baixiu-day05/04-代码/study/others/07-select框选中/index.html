@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <select name="hobby" >
+    <option value="1">吃饭</option>
+    <option value="2">睡觉</option>
+    <option value="3">打豆豆</option>
+  </select>
+
+  <button id="btn">点我</button>
+
+  <script>  
+    var btn = document.getElementById("btn");
+    var sel = document.querySelector("select");
+
+    // 通过给 select 框指定 value 值, 可以切换选中的 option
+    btn.onclick = function() {
+      sel.value = "3";
+    };
+  
+  </script>
+
+
+</body>
+</html>

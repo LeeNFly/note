@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./form.css">
+</head>
+<body>
+
+  <!-- form 表单的作用: 收集用户信息, 将来提交给后台, 进行处理 -->
+  <!-- form 表单提交, 是同步的, 会进行页面跳转和刷新页面, 会改变地址栏url为提交的url -->
+
+  <!-- 
+    表单中的三大属性
+    1. action: 指定提交数据的地址  (如果没设置值或值为#, "", 默认提交到当前页面)
+    2. method: 指定提交的类型, get/post, 默认值就是 get
+    3. 给 input 指定 name 属性, 将来才可以提交给后台进行处理, 不指定name, 将来不会被提交
+       前后端 name 要统一
+    ps: 表单通过 type:submit进行提交 , 会将form内所有带name属性的表单标签进行提交, key为表单标签的name属性值, 值为表单标签的value属性值
+    ps: ★ 表单中的三大属性, 是指如果是通过表单的方式提交数据, 即通过input:submit按钮进行提交, 则表单的三大属性必须设置; 如果是通过其他方式提交数据, 则三大属性不需要设置
+   -->
+  <form action="01-form-get.php" method="get">
+    用户名: <input type="text" >
+    密码: <input type="password" name="password">
+    <!-- 向form的action地址发起请求, 提交表单数据 -->
+  <input type="submit" value="登录">
+    <!-- 重置form中所有的表单元素 -->
+  <input type="reset" value="重置">
+  </form>
+
+  
+</body>
+</html>

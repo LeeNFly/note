@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  // mousewheel 事件, 可以监听鼠标滚轮的滚动, 是h5新增的事件
+  window.addEventListener("mousewheel", function( e ) {
+
+    console.log( e.wheelDelta );
+    if (e.wheelDelta > 0) {
+      console.log( "滚轮往上滚动" );
+    }
+    else {
+      console.log( "滚轮往下滚动" );
+    }
+
+  })
+
+
+</script>
+
+
+</body>
+</html>

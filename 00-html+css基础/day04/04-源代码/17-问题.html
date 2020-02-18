@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/* 后渲染的div并没有干掉先渲染的.box 原因是什么：权重 */ 
+
+		.box {
+			color: green;
+		}
+		div {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">文字</div>
+</body>
+</html>

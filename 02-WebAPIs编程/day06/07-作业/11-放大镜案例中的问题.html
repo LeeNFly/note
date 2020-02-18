@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #far{
+      width: 200px;
+      height: 200px;
+      background: red;
+    }
+
+    #son{
+      width: 100px;
+      height: 100px;
+      background: yellow;
+    }
+  </style>
+</head>
+<body>
+<div id="far">
+  <div id="son"></div>
+</div>
+<script>
+  var far = document.getElementById('far');
+//  far.onmouseover = function(){
+//    console.log('far 鼠标移入触发了');
+//  }
+
+//  far.onmouseout = function(){
+//    console.log('far 鼠标移出触发了');
+//  }
+  
+  
+  
+//  mouseenter  mouseleave  不会冒泡的(推荐)
+
+  far.onmouseenter = function(){
+    console.log('鼠标移入触发了');
+  }
+
+  far.onmouseleave = function(){
+    console.log('鼠标移出触发了');
+  }
+</script>
+</body>
+</html>

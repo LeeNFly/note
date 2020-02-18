@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 800px;
+			height: 800px;
+			border: 1px solid #000;
+			/* background: url(images/daziran.jpg) 0 0 no-repeat; */
+			background: url(images/timg.jpg) 0 0 no-repeat;
+			
+
+			/* 
+
+			background-size 控制的背景图的大小
+			取值：
+			可以是像素  一个值整体缩放 两个值单独缩放
+			可以是百分比 百分比参照的是当前盒子的大小
+			
+			特殊值：
+			contain  缩放的过程里面  只要有一遍与盒子保持一致 那么整体停止缩放
+			cover  铺满
+
+			*/
+
+			/*background-size: cover;*/
+		}
+		.test {
+			width: 50%;
+			padding-top: 50%;
+			border: 1px solid #000;
+			background: url(images/timg.jpg) 0 0 no-repeat;
+			background-size: cover;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="test"></div>
+</body>
+</html>

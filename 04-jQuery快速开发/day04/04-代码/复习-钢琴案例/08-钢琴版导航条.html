@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .nav {
+        width: 900px;
+        height: 60px;
+        background-color: black;
+        margin: 0 auto;
+    }
+
+    .nav li {
+        width: 100px;
+        height: 60px;
+        /*border: 1px solid yellow;*/
+        float: left;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav a {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        font-size: 24px;
+        color: blue;
+        text-align: center;
+        line-height: 60px;
+        text-decoration: none;
+        z-index: 2;
+    }
+
+    .nav span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: yellow;
+        top: 60px;
+    }
+
+    .mp3 {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="javascript:void(0);">导航1</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航2</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航3</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航4</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航5</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航6</a>
+                <span></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);">导航7</a>
+                <span></span>
+            </li>
+        </ul>
+        <div>
+            <img src="1.jpg" alt="">
+        </div>
+        <div class="mp3">
+            <audio src="mp3/1.mp3"></audio>
+            <audio src="mp3/2.mp3"></audio>
+            <audio src="mp3/3.mp3"></audio>
+            <audio src="mp3/4.mp3"></audio>
+            <audio src="mp3/5.mp3"></audio>
+            <audio src="mp3/6.mp3"></audio>
+            <audio src="mp3/7.mp3"></audio>
+        </div>
+    </div>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+        // 分析
+        // 1. 移入事件
+        //  1.1  获取到nav下的所有li，注册mouseenter
+        //  1.2  让当前li下的span做自定义动画，top=0
+        //  1.3  获取到当前li的下标
+        //  1.4  找到对应下标的audio， 进行播放
+
+        $(".nav li").mouseenter(function(){
+            $(this).children("span").stop().animate({
+                top: 0
+            })
+
+            // 找到当前li的下标
+            var idx = $(this).index();
+
+            // 找到对应的audio
+            // play(): 播放视频，音频，这个方法jq没有进行封装， 是H5提供的，只能由dom对象进行调用
+            // load():  让资源重新加载,，这个方法jq没有进行封装， 是H5提供的，只能由dom对象进行调用
+            // get(index) :  返回的是dom对象
+            // eq(index) :  返回的是jq对象
+            $("audio").get(idx).load();
+            $("audio").get(idx).play();
+        })
+
+
+        // 2. 鼠标移出事件
+            // 2.1 让当前li下的span做动画，top=60
+        $(".nav li").mouseleave(function(){
+            $(this).children("span").stop().animate({
+                top: 60
+            })
+        })
+
+
+        // 3. 添加键盘事件
+        // 只能由数字1-7触发这个播放
+            // 3.1 键盘摁下事件： keydown
+            // 3.2 触发 对应下标的li的 mouseenter事件
+            // 3.3 键盘抬起事件： keyup
+            // 3.4 触发 对应下标的li的 mouseleave事件
+
+        // 节流阀： 就是让事件有限制的触发
+        var flag = true;
+
+        // bug:  摁住不放，keydown事件会不停的触发
+        $(document).keydown(function(e){
+            if(!flag){
+                return;
+            }
+
+            flag = false;
+
+            var keycode = e.keyCode;
+            // 键盘数字1-7 的下标是 49-55
+            console.log(keycode);
+
+            // 数字1的keycode是49，导航1的下标就是0
+            // keycode - 49;
+
+            /*if(keycode === 49){
+                $(".nav li").eq(0).trigger("mouseenter");
+            }else if(keycode === 50){
+                $(".nav li").eq(1).trigger("mouseenter");
+            }*/
+
+            // 限制：只能有1-7数字键盘来触发keydown事件
+            if(keycode >= 49 && keycode <= 55){
+                // 其实就是将49-55 这个键盘码 转换成对应下标 0-6
+                var index = keycode - 49; // 0  1
+                console.log(index);
+                $(".nav li").eq(index).trigger("mouseenter");
+            }
+        })
+
+        $(document).keyup(function(e){
+            // 让flag在变成true，为了下次还能够触发keydown里面的事件处理函数
+            flag = true;
+
+            var keycode = e.keyCode;
+
+            /*if(keycode === 49){
+                $(".nav li").eq(0).trigger("mouseleave");
+            }else if(keycode === 50){
+                $(".nav li").eq(1).trigger("mouseleave");
+            }*/
+
+            // 限制：只能有1-7数字键盘来触发keydown事件
+            if(keycode >= 49 && keycode <= 55){
+                // 其实就是将49-55 这个键盘码 转换成对应下标 0-6
+                var index = keycode - 49; // 0  1
+                console.log(index);
+                $(".nav li").eq(index).trigger("mouseleave");
+            }
+        })
+    });
+    </script>
+</body>
+
+</html>

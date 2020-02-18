@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			border: 1px solid #000;
+			/* line-height: 100px; */
+		}
+		/* 
+		解决图片下面留白的问题
+		
+		问题的来源：图片默认和文字的基线对齐 (没有文字时也有一个幽灵文本，相当于文字)
+		解决方法：
+		将图片转成块级元素 (块级元素就没有基线等问题，只有行内块元素有基线等问题)
+		或者将图片设置成不要以基线对齐即可 */
+
+		img {
+			border: 1px solid lime;
+			/* display: block; */
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/2.jpg" alt="">1111
+	</div>
+</body>
+</html>

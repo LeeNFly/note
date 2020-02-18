@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(){
+
+        }
+
+        fn.prototype.say = function(){
+            console.log('哈哈');
+        }
+
+        var f1 = new fn();
+        console.log(f1 instanceof fn); // ★ true  此刻fn的原型在f1的原型链上
+
+
+        fn.prototype = {
+            say:function(){
+                console.log('呵呵');
+            }
+        }
+
+        var f2 = new fn();
+
+
+        // f1.say(); //哈哈
+        // f2.say(); //呵呵
+
+        console.log(f1 instanceof fn); // ★ false  此刻fn的原型发生改变, 不在f1的原型链上
+        console.log(f2 instanceof fn);  // ★ true  f2是在fn原型变化后创建的实例,此时fn的原型在f2的原型链上
+    
+
+    // 结论: 一个实例,一旦创建出来,他的原型链就固定了,不会随着函数的原型的改变而改变.这就是原型链不可变
+    // 函数的原型以函数的prototype属性所指对象为准 即函数的原型是会变得 可以是任意对象
+    // 实例的原型 以在创建的实例那一刻函数的原型(prototype属性所指对象)是谁，实例的原型就指向谁 并且后续不可变 即使后续函数的原型改变了，已经创建的实例的原型也不会变
+    // 实例的 __proto__ 属性可以访问到对应(构造函数)的原型对象
+    
+    </script>
+</body>
+</html>

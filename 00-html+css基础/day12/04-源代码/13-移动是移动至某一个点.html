@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/* 移动至(移动参照的是该元素占标准流的位置为移动起始点) */
+
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: lime;
+			/* transform: translateX(200px); */
+		}
+	</style>
+</head>
+<body>
+	
+	<button>点我呀</button>
+	<div class="box"></div>
+
+	<script>
+		
+		// 获取box元素
+		var box = document.querySelector('.box');
+		// 获取button元素
+		var button = document.querySelector('button');
+		// 给box注册点击事件
+		box.onclick = function(){
+			// 点击一次就移动至200px的位置上
+			box.style.transform = 'translateX(200px)';
+		}
+		// 给button注册点击事件
+		button.onclick = function(){
+			// 点击一次就移动至0px的位置上
+			box.style.transform = 'translateX(0px)';
+		}
+
+
+	</script>
+</body>
+</html>

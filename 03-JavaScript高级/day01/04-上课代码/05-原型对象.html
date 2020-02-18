@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  1.为什么要学原型对象?
+//    因为按照以前的构造函数的写法,会造成内存浪费. 如果把函数写到外面,又有可能导致函数被覆盖.
+//    所以要使用原型对象, 使用原型对象,可以完美的解决上面提到的两个问题
+
+//  2.什么是原型对象?
+//    所有函数(不管是什么函数, 只要是函数, 构造函数也是函数)只要一创建出来(声明),浏览器就会自动分配(创建)一个原型对象(简称原型)给这个函数(原型对象也是一个对象,可以添加属性和方法).通过这个函数的prototype属性可以找到自己的原型对象(函数名.prototype 返回函数的原型对象).
+//      并且构造函数的实例,默认可以访问(只能访问获取使用,不能赋值,若属性为函数的,也可以调用 访问到函数后 加()调用 )到构造函数对应的原型对象身上的属性, 获取属性的值
+//      任何函数都有原型对象,只要是函数就有原型对象,只有函数才有原型对象 (构造函数也是函数)
+//      对于原型对象后来添加的属性 对应的实例也可以访问到 因为原型对象是一个对象 即实例的原型指向的是对象 是引用地址
+//      只有原型对象可以给原型对象自己添加或赋值属性 通过函数.prototype 可以拿到原型对象 或者实例对象的__proto__ 可以拿到原型对象 (不推荐)
+//  3.原型对象身上的 属性 : contructor 找到自己对应的函数 
+//  4.浏览器为了我们学习,工作方便,帮我们实现了一个属性 ,这个属性可以看到实例对应找的是哪个原型对象 
+//    (每一个对象,只要是对象,浏览器为了我们方便,都会给我们实现一个__proto__属性(指向实例对应的构造函数原型对象),用来访问对象对应构造函数的原型,就算没有该属性,实例也可以访问构造函数对应原型身上的属性)
+//    实例的 属性 : __proto__ 返回实例对应构造函数的原型对象(简称实例的原型)。非标准属性.不建议在生产环境下使用
+//  5. 往构造函数的原型对象中加的属性相当于公共属性,共有属性一般都加到原型对象上，所有实例都可以访问到 ; 构造函数/实例中的属性是实例(对象)中私有的属性(相当于私有,当前实例可以访问) 原型中没有。实例中没有原型中的属性,给原型添加的属性和方法,实例中也没有.不过实例可以访问到原型中的属性
+//     构造函数的中的方法一般都写在构造函数的原型上,每个实例都可以访问。避免造成内存浪费
+//     对象(函数，数组也是对象) 的方法都加到构造函数的原型对象上 节省内存空间
+
+    // 实例出发 返回实例(构造函数)对应的原型对象 实例.__proto__
+    // 实例出发 返回实例对应的构造函数  实例.__proto__.constructor
+
+    // ================================================================================
+
+    // function Person(name,age) {
+    //   this.name = name;
+    //   this.age = age;
+    // }
+    // console.log(Person.prototype); // {constructor: ƒ, __proto__: Object}
+    // console.log(Person.prototype.constructor); 
+    // ƒ Person(name,age) {
+    //   this.name = name;
+    //   this.age = age;
+    // }
+    // console.log(Person.prototype.constructor === Person);  ★ //true 说明是同一个构造函数
+    
+    // Person.prototype.sayHi = function () {
+    //   console.log('大家好,我是' + this.name);
+    // }
+    // var zs = new Person('zs',18); 
+    // console.log(zs); // Person {name: "zs", age: 18, __proto__: Object}
+    
+    // zs.sayHi(); //大家好,我是zs
+    // console.log(zs.__proto__); // {sayHi: ƒ, constructor: ƒ, __proto__: Object}
+    
+    // console.log(zs.__proto__ === Person.prototype) ★ //true 说明是同一个原型对象
+
+    // ================================================================================
+
+//    function Person(name, age){
+//      this.name = name;
+//      this.age = age;
+//      this.say = function (){
+//        console.log('你好,我是' + this.name);
+//      };
+//    }
+
+
+//    function Person(name, age){
+//      this.name = name;
+//      this.age = age;
+//      this.say = fn;
+//    }
+//
+//      function fn(){
+//        console.log('你好,我是' + this.name);
+//      }
+//
+//     var zs =  new Person('zs', 18);
+//      zs.say();
+//      var ls = new Person('ls', 20);
+//      ls.say();
+////        new做的四件事:
+////        1. new创建了一个空的对象
+////        2. new 调用了这个函数
+////        3. new让函数中的this指向了这个新的对象
+////        4. 返回这个新的对象
+
+//
+
+//
+
+
+//      function fn(){
+//
+//      }
+//
+//      console.log(fn.prototype);
+
+      function Person(name, age){
+            this.name = name;
+            this.age = age;
+      }
+
+//    console.log(Person.prototype);
+//    console.log(Person.prototype.constructor === Person); //true
+
+      Person.prototype.say = function(){
+        console.log('你好,我是' + this.name);
+      }
+      
+      //实例:一个对象是通过某个构造函数new出来的 ,就说这个对象是某个构造函数的实例,实例也是一个对象
+      //在js中,实例默认就可以访问(只能访问获取使用,不能赋值,若属性为函数的,也可以调用 访问到函数后 加()调用 )自己构造函数的原型身上的属性, 获取属性的值
+      var zs = new Person('zs', 18); //zs 是 Person的实例
+      zs.say();
+      var ls = new Person('ls', 18); //ls 是 Person的实例
+      ls.say();
+//
+//    console.log(zs);
+//    console.log(ls);
+  
+//      console.log(zs.__proto__ === Person.prototype); //true
+  
+  //小测试:
+console.log(Person.prototype); // Person的原型对象
+console.log(Person.prototype.constructor); // Person
+console.log(zs.__proto__ == ls.__proto__); // true
+console.log(zs.__proto__ == Person.prototype); // true
+console.log(zs.constructor); // Person
+console.log(zs.constructor.prototype); //Person的原型
+console.log(zs.constructor.prototype.constructor); //Person
+  
+
+
+</script>
+</body>
+</html>

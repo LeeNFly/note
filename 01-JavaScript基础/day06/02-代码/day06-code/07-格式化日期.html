@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 封装一个函数，返回当前的时间，
+      // 格式是：yyyy-MM-dd HH:mm:ss  (2018-01-01 01:20:12)
+      
+      function gettime() {
+
+        //1. 创建当前时间/ 获取当前时间
+        var date = new Date() ;  // data (X) 
+        
+        //2. 获取具体的数据
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+
+        var hour = date.getHours();
+        var minute = date.getMinutes() ;
+        var second = date.getSeconds();
+        
+        // 6 => 06
+        // 16 =>16
+        function addZero( time ) {
+          
+          return  time > 10 ? time : '0' + time;
+        }
+
+
+ return   year + '-' + addZero(month) + '-' + addZero(day)  + ' ' + addZero(hour) + ':' + addZero(minute)  + ':' + addZero(second);    
+      }
+
+     var res =    gettime();
+     console.log(res);
+     
+     console.log(addZero(8)); //报错,函数内部定义的函数,只能在函数内部使用
+    
+
+    </script>
+</body>
+</html>

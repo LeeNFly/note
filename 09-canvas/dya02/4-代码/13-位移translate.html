@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="800" height="500" style="border: 1px solid red;"></canvas>
+<script>
+    /* canvas中位移, 旋转, 缩放
+    *  注意 在css3中  变换操作的元素本身
+    *  在canvas中  变换操作 变换是坐标系 ，基于变换后的坐标系，绘制出来图形都是变形的；
+    *
+    *  canvas变换 变换操作的变换的是画布的坐标系, 所以变换 ★之后的绘画, 操作, 都是基于变换的坐标系进行绘制, 变换之前绘制的图形仍不变,  参考的还是原来的坐标系, 变换之前的操作参考的还是变换前的坐标系
+    * */
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+    //3-canvas中变换
+    //坐标系
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = 'blue';
+    ctx.moveTo(600, 0);
+    ctx.lineTo(0,0);
+    ctx.lineTo(0, 400);
+    ctx.stroke();
+
+    ctx.fillRect(0, 0, 70, 70);
+
+    ctx.beginPath();
+    //平移
+    //translate(), 平移是可以叠加的 (改方法中封装了叠加的功能), translate(5, 5), 执行一次就平移x:5, y:5, 2次就平移x:10, y:10 ......
+    //坐标系
+    ctx.translate(100, 100);
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'green';
+    ctx.moveTo(600, 0);
+    ctx.lineTo(0,0);
+    ctx.lineTo(0, 400);
+    ctx.stroke();
+    //绘制矩形
+    ctx.fillStyle = 'red';
+    ctx.fillRect(0, 0, 50, 50);
+    //绘制矩形
+    ctx.beginPath();
+    ctx.fillStyle = 'green';
+    ctx.fillRect(-100, -100, 40, 40);
+
+
+
+</script>
+</body>
+</html>

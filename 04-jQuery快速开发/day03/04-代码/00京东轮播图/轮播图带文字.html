@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>京东商城</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    img{
+        display: block;
+    }
+
+    .slider {
+        height: 340px;
+        width: 790px;
+        margin: 100px auto;
+        position: relative;
+    }
+
+    .slider li {
+        position: absolute;
+        display: none;
+    }
+
+    .slider li:first-child {
+        display: block;
+    }
+
+    .slider li p{
+        position: absolute;
+        width: 100%;
+        padding: 10px 0;
+        text-indent: 2em;
+        background-color: rgba(0, 0, 0, .6);
+        bottom: 0;
+        left: 0;
+        font-size: 18px;
+    }
+    .slider li a{
+        color: #fff;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    .slider:hover .arrow {
+        display: block;
+    }
+
+    .arrow-left,
+    .arrow-right {
+        font-family: "SimSun", "宋体";
+        width: 30px;
+        height: 60px;
+        background-color: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 50%;
+        margin-top: -30px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 60px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 30px;
+    }
+
+    .arrow-left:hover,
+    .arrow-right:hover {
+        background-color: rgba(0, 0, 0, .5);
+    }
+
+    .arrow-left {
+        left: 0;
+    }
+
+    .arrow-right {
+        right: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <ul>
+            <li><a href="#">
+                    <img src="images/1.jpg" alt="">
+                    <p>这是第1张图片的文字说明</p>
+                </a></li>
+            <li><a href="#">
+                    <img src="images/2.jpg" alt="">
+                    <p>这是第2张图片的文字说明</p>
+                </a></li>
+            <li><a href="#">
+                    <img src="images/3.jpg" alt="">
+                    <p>这是第3张图片的文字说明</p>
+                </a></li>
+            <li><a href="#">
+                    <img src="images/4.jpg" alt="">
+                    <p>这是第4张图片的文字说明</p>
+                </a></li>
+            <li><a href="#">
+                    <img src="images/5.jpg" alt="">
+                    <p>这是第5张图片的文字说明</p>
+                </a></li>
+            <li><a href="#">
+                    <img src="images/6.jpg" alt="">
+                    <p>这是第6张图片的文字说明</p>
+                </a></li>
+            <li><a href="#">
+                    <img src="images/7.jpg" alt="">
+                    <p>这是第7张图片的文字说明</p>
+                </a></li>
+            <li><a href="#">
+                    <img src="images/8.jpg" alt="">
+                    <p>这是第8张图片的文字说明</p>
+                </a></li>
+        </ul>
+        <!--箭头-->
+        <div class="arrow">
+            <span class="arrow-left">&lt;</span>
+            <span class="arrow-right">&gt;</span>
+        </div>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+        // 分析：
+        // 定义一个变量，存储下标，下标的默认值是0，
+        // 右箭头click， 下标自增
+        // 找到对应的li，让其显示（fadeIn），其他的兄弟元素隐藏（fadeOut）
+
+        // 定义下标
+        var index = 0;
+        // 右边的箭头
+        $(".arrow-right").click(function() {
+            index++;
+
+            // 临界点的判断
+            if (index === $(".slider>ul>li").length) {
+                index = 0;
+            }
+
+            $(".slider>ul>li").eq(index).fadeIn().siblings().fadeOut();
+        })
+
+        // 左边的箭头
+        $(".arrow-left").click(function() {
+
+            index--;
+
+            if (index < 0) {
+                // 回到最后一张
+                index = $(".slider>ul>li").length - 1;
+            }
+
+            $(".slider>ul>li").eq(index).fadeIn().siblings().fadeOut();
+        })
+
+        // 添加定时器
+        var timer = setInterval(function() {
+            // 主动触发右箭头的点击事件
+            $(".arrow-right").click();
+        }, 1000)
+
+        // 鼠标移入到slider，清定时器
+        $(".slider").mouseenter(function() {
+            clearInterval(timer);
+        })
+
+        // 鼠标移出，重新开启定时器
+        $(".slider").mouseleave(function() {
+            // 这里是重点难点，开启的定时器一定要赋值给timer，
+            // 用于在mouseenter 清定时器
+            // 同时注意，这个定时器的表示不要用var
+            timer = setInterval(function() {
+                // 主动触发右箭头的点击事件
+                $(".arrow-right").click();
+            }, 1000)
+        })
+    })
+    </script>
+</body>
+
+</html>

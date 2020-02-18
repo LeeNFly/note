@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <script>
+
+    // 自调用的场景 
+    // 防止全局变量污染
+
+// ; 放到前面的作用,,就是以后代码压缩为一行的时候, 不会出现问题
+//拓展1 :  如果大家以后见到前面有分号,不要以为是错了,给人家删除掉,,否则会被打死
+
+// 拓展2;   function ( 参数1,参数2 ) {}
+//          function ( 参数1[,参数2] ) {}  // 参数2 是可选的 
+
+    (function () {
+      var num = 10;
+      function test() {
+        console.log('aaaaa');
+      }
+      console.log(num);
+      test()
+
+    })();
+    
+    (function () {
+      var num = 20;
+      function test() {
+        console.log('bbbb');
+      }
+      console.log(num);
+      test()
+    })();
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="get">发送get请求</button>
+  <button id="post">发送post请求</button>
+
+  <script>
+    var get = document.getElementById("get");
+    var post = document.getElementById("post");
+    
+    // 发送请求, 要求传参 username=pp&password=123456
+    get.onclick = function() {
+      // get 请求
+      ajax({
+        type: "get",
+        url: "06-get.php",
+        params: "username=pp&password=123456",
+        // 成功的时候做的事情, 根据后台返回的数据渲染页面
+        success: function( info ) {
+          console.log( "hello ajax" );
+          console.log( info );
+        },
+        // 失败的时候做的事情
+        error: function( info ) {
+          console.log( "服务器炸了" );
+          console.log( info )
+        }
+      })
+    };
+
+    post.onclick = function() {
+      // post 请求
+      ajax({
+        type: "post",
+        url: "06-post.php",
+        params: "username=pp&password=123456"
+      })
+    };
+
+    // 参数分析
+    // type:  get | post, 默认值: get
+    // url: 必须传, 注意: get 请求需要将参数拼接在地址栏中
+    // async: true 是否异步, 默认 true
+    // params: 请求的参数
+    // success: 成功的(回调)函数
+    // error: 失败的(回调)函数
+
+    function ajax( options ) {  // options 是一个对象
+      // 如果 options 没有传, 或者 options 传的不是一个对象, 直接 return
+      if ( !options || typeof options != "object" ) {
+        return;
+      }
+      // 如果传的是 post, 就按post处理
+      // 只要传的不是 post, 按 get 处理, 效果: 默认 get 
+      var type = options.type === "post" ? "post" : "get";
+      
+      // url 必须传
+      var url = options.url;
+      if ( !url ) {
+        return;
+      }
+      // 只要传的不是 false, 就按 true 处理, 效果: 默认true
+      var async = options.async === false ? false : true;
+      
+      // 传递的参数
+      var params = options.params;
+
+      var success = options.success;  // 成功的函数
+      var error = options.error;  // 失败的函数
+
+      // 发送请求
+      var xhr = new XMLHttpRequest();
+      // 遵循 http 协议
+      // 1. 请求行, get请求需要拼接上参数  06-get.php ? username=pp
+      if ( type === "get" ) {
+        url = url + "?" + params;
+        params = null;  // 如果参数已经拼接在地址栏了, 置为 null
+      }
+      xhr.open( type, url, async );
+
+      // 2. 请求头, post请求需要设置请求头
+      if ( type === "post" ) {
+        xhr.setRequestHeader( "content-type", "application/x-www-form-urlencoded");
+      }
+
+      // 3. 请求体, post请求需要传参, get请求传 null
+      xhr.send( params );
+
+      // 添加监听, 处理响应
+      xhr.onreadystatechange = function() {
+        if ( xhr.readyState === 4 ) {
+
+          if ( xhr.status === 200 ) {
+            // 响应成功
+            // 响应成功后要做的事情不应该是写死,
+            // 应该将要做的事情, 通过函数传递进来
+            // 如果 success 存在为 true, 就执行 success();
+            // 如果 success 不存在为 false, 后面就不执行了
+            success && success( xhr.responseText );
+          }
+          else {
+            // 响应失败
+            error && error( xhr.responseText );
+          }
+        }
+      }
+
+    };
+   
+    
+
+
+  </script>
+
+
+</body>
+</html>

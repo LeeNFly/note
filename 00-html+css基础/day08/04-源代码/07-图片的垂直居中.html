@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/* 需求引出vertical-align */
+
+
+		/* 图片(行内块元素)的垂直居中
+		1、让父级元素设置一个高等于行高
+		2、给图片设置一个vertical-align:middle */
+
+		.box {
+			width: 800px;
+			height: 800px;
+			border: 1px solid #000;
+			text-align: center;
+			line-height: 800px;
+		}
+		img {
+			border: 1px solid #000;
+			/* 
+			vertical-align 
+			控制行内块与文字的对齐方式 写在行内块元素身上  (该属性只能作用域行内块元素)
+			
+			baseline 基线  默认值
+			middle  中线
+			top  顶线
+			bottom 底线
+
+			*/
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/2.jpg" alt="">
+		来打我呀！！
+	</div>
+</body>
+</html>

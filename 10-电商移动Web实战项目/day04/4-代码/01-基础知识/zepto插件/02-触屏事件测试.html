@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script src="zepto/zepto.js"></script>
+    <!-- 事件模块 -->
+    <script src="zepto/event.js"></script>
+    <!-- 触屏模块 -->
+    <script src="zepto/touch.js"></script>
+    <script>
+        // 移动端没用左滑右滑, tap等事件, 这里之所以可以直接注册, 是因为zepto底层用touch事件帮我们封装好了左滑右滑等事件.
+        // 以下回调函数, 虽然不是事件处理函数, 所以this指向不明确(如果是事件处理函数, 事件处理函数中的this就指向了注册事件的dom元素), 但zepto帮我们封装了回调函数中的this, 使回调函数中的this指向了注册事件的dom元素.
+        // 以下回调函数, 虽然不是事件处理函数, 无法获取到事件对象, 但zeptp帮我们封装了一个事件处理对象e, 可以通过回调函数的形参直接获得, 但事件对象中数据比较少，没有滑动相关 数据 距离 坐标点
+        $(function (){
+            $('.box').on('tap', function () {
+                console.log('点击事件触发');
+                console.log(this);
+            })
+            // //滑动事件
+            // $('.box').on('swipe', function () {
+            //     console.log('滑动了，不管方向');
+            // })
+
+            //左滑
+            $('.box').on('swipeLeft', function (e) {
+                console.log('左滑');
+                console.log(e);
+                console.log(this);
+            })
+
+            //右滑
+            $('.box').on('swipeRight', function () {
+                console.log('右滑');
+                console.log(this);
+            })
+
+            //上滑
+            $('.box').on('swipeUp', function () {
+                console.log('上滑');
+            })
+
+            //下滑
+            $('.box').on('swipeDown', function () {
+                console.log('下滑');
+            })
+        })
+    </script>
+
+</body>
+</html>

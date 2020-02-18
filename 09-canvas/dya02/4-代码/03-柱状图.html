@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="1000" height="500" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+
+    var size = 20;
+
+    //1-绘制坐标线
+    ctx.moveTo(size, size);
+    ctx.lineTo(size, cs.height - size);
+    ctx.lineTo(cs.width - size, cs.height -size);
+    ctx.stroke();
+
+    //2-绘制箭头
+    ctx.beginPath(); //开启新路径后，之前画笔位置会丢失，必须重新移动画笔
+    ctx.moveTo(cs.width - size, cs.height -size);
+    ctx.lineTo(cs.width - size - 20, cs.height -size - 7);
+    ctx.lineTo(cs.width - size - 15, cs.height -size);
+    ctx.lineTo(cs.width - size - 20, cs.height -size + 7);
+    ctx.closePath();
+    ctx.fillStyle = 'red';
+    ctx.fill();//填充
+    ctx.stroke();
+
+    //3-箭头2
+    ctx.beginPath();
+    ctx.moveTo(size, size);
+    ctx.lineTo(size - 7, size + 20);
+    ctx.lineTo(size , size + 15);
+    ctx.lineTo(size + 7 , size + 20);
+    ctx.closePath();
+    ctx.fillStyle = 'red';
+    ctx.fill();
+    ctx.stroke();
+
+    //间距
+    var gap = 50;
+    var w = 100; // 矩形的宽
+    ctx.fillStyle = 'hotpink';
+
+    var datas = [300, 200, 400, 450, 145]; // 每个矩形的高度
+    // x1 = size + gap
+    // x2 = size + gap *2  + width *1
+    // x3 = size + gap *3  + width * 2;
+
+    //最终的公式
+    // 矩形的左上角顶点的 x, y 坐标:
+    // x = size + gap * (index + 1)  + width * index
+    // y = cs.height - size - value;
+    // index为索引, 从0开始
+    // value为矩形的高度
+    // size为坐标系距离盒子的间隙
+
+    //ctx.fillRect(size + gap,  cs.height - size - 300 , 100,300 );
+    //ctx.fillRect(size + gap * 2 + w, cs.height - size - 250, 100, 250);
+
+    datas.forEach(function (v , i, arr) {
+        ctx.fillRect( size + gap * (i + 1) + w * i,  //x坐标
+                      cs.height - size - v,  //y坐标
+                      w,v  //宽 高
+        )
+    })
+
+</script>
+</body>
+</html>

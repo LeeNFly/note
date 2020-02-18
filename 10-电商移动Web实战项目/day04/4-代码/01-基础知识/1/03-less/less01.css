@@ -1,0 +1,75 @@
+/*我也是less的注释*/
+.box {
+  width: 100px;
+  height: 200px;
+  color: #e92322;
+}
+.box1 {
+  background-color: #e92322;
+}
+.box2 {
+  border: 1px solid #e92322;
+}
+.box3 {
+  font-size: 100px;
+  padding: 50px;
+}
+.box4 {
+  background-color: #e92322;
+  border: 1px solid #e92322;
+  font-size: 100px;
+  padding: 50px;
+}
+.box5 {
+  border-radius: 10px;
+  border: 2px solid pink;
+}
+.box6 {
+  border-radius: 1px;
+  border: 5px solid green;
+}
+.box7 {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.box8 {
+  width: 2px;
+  height: 79.18231047px;
+}
+.nav {
+  height: 80px;
+}
+.nav ul {
+  overflow: hidden;
+}
+.nav ul li {
+  float: left;
+  margin: 0 5px;
+}
+.nav ul li a {
+  display: block;
+  width: 60px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+.nav ul li a::before {
+  content: "";
+}
+.nav ul li > p {
+  color: red;
+}
+.nav ul li.current {
+  background-color: #fff;
+}
+.nav ul div,
+.nav ul p {
+  font-size: 20px;
+}
+.box9 {
+  width: 66px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/* 继承性：
+			子后代元素都可以继承祖先元素以任何方式添加的一些css样式, 行内、内嵌、外链样式都可以被继承
+			
+			跟文字相关的基本都可以继承：
+			只能继承和文字相关的css样式
+			color  font-  text-  line-height 都可以继承
+
+			块级元素会继承父级的宽度 但是“高度不继承”
+
+			a链接的颜色 text-decoration不予继承 (因为自己本身有颜色和text-decoration的样式) 需要单独写
+			如果一个元素自身有对应的css样式属性，那么继承过来的相同类型的属性会被覆盖掉
+			（自己有用自己的 没有在去祖先哪里找）
+		*/
+
+		.ancestor {
+			width: 300px;
+			color: red;
+			text-align: center;
+			font-size: 80px;
+			height: 200px;
+		}
+		.descendant {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="ancestor">
+		<div class="descendant">文字</div>
+		<a href="#">百度一下</a>
+	</div>
+</body>
+</html>

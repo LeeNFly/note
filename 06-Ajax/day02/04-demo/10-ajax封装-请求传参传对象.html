@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="get">发送get请求</button>
+  <button id="post">发送post请求</button>
+
+  <script>
+    var get = document.getElementById("get");
+    var post = document.getElementById("post");
+    
+    var obj = {
+
+    };
+    
+    // 发送请求, 要求传参 username=pp&password=123456
+    get.onclick = function() {
+      // get 请求
+      ajax({
+        type: "get",
+        url: "01-xml.php",
+        data: {
+          name: "pp",
+          age: 18,
+          desc: "帅哥"
+        },
+        dataType: "xml",
+        // 成功的时候做的事情, 根据后台返回的数据渲染页面
+        success: function( info ) {
+          console.log( info );
+        }
+      })
+    };
+
+    post.onclick = function() {
+      // post 请求
+      ajax({
+        type: "post",
+        url: "05-json.php",
+        params: "username=pp&password=123456",
+        dataType: "json",
+        success: function( info ) {
+          console.log( info );
+        }
+      })
+    };
+
+    // 参数分析
+    // type:  get | post, 默认值: get
+    // url: 必须传, 注意: get 请求需要将参数拼接在地址栏中
+    // async: true 是否异步, 默认 true
+    // data: 请求的参数, 是一个对象
+    //       需要转换成 username=pp&age=18 这种字符串格式
+    // dataType: 响应的数据类型  xml/json/text
+    // success: 成功的(回调)函数
+    // error: 失败的(回调)函数
+  
+    function ajax( options ) {  // options 是一个对象
+      // 如果 options 没有传, 或者 options 传的不是一个对象, 直接 return
+      if ( !options || typeof options != "object" ) {
+        return;
+      }
+      // 如果传的是 post, 就按post处理
+      // 只要传的不是 post, 按 get 处理, 效果: 默认 get 
+      var type = options.type === "post" ? "post" : "get";
+      
+      // url 必须传
+      var url = options.url;
+      if ( !url ) {
+        return;
+      }
+      // 只要传的不是 false, 就按 true 处理, 效果: 默认true
+      var async = options.async === false ? false : true;
+      
+      // 传递的参数
+      var data = options.data;  
+      // 需要一个方法, 将 data 对象转换成 params 字符串
+      // parse 方法, 将 对象 转成 username=pp&password=123456 的格式
+      var params = parse( data );
+      var dataType = options.dataType;
+
+      var success = options.success;  // 成功的函数
+      var error = options.error;  // 失败的函数
+
+      // 发送请求
+      var xhr = new XMLHttpRequest();
+      // 遵循 http 协议
+      // 1. 请求行, get请求需要拼接上参数  06-get.php ? username=pp
+      if ( type === "get" ) {
+        url = url + "?" + params;
+        params = null;  // 如果参数已经拼接在地址栏了, 置为 null
+      }
+      xhr.open( type, url, async );
+
+      // 2. 请求头, post请求需要设置请求头
+      if ( type === "post" ) {
+        xhr.setRequestHeader( "content-type", "application/x-www-form-urlencoded");
+      }
+
+      // 3. 请求体, post请求需要传参, get请求传 null
+      xhr.send( params );
+
+      // 添加监听, 处理响应
+      xhr.onreadystatechange = function() {
+        if ( xhr.readyState === 4 ) {
+
+          if ( xhr.status === 200 ) {
+            // 响应成功
+            // 根据响应的类型不同, 需要做不同的处理 xml/json/text
+            var result = null;
+            if ( dataType === "xml" ) {
+              result = xhr.responseXML;
+            }
+            else if ( dataType === "json" ) {
+              // 如果是 json字符串, 将字符串解析成 数组或对象
+              result = JSON.parse( xhr.responseText );
+            }
+            else {
+              result = xhr.responseText;
+            }
+            success && success( result );
+          }
+          else {
+            // 响应失败
+            error && error( xhr.responseText );
+          }
+        }
+      }
+
+    };
+    
+    /* 
+      var obj = {
+        username: 'pp',
+        password: '123456'
+      }
+      => username=pp&password=123456
+     */
+    // 作用: 将一个对象, 转换成 字符串: username=pp&password=123456, 即属性名=属性值&属性名=属性值..格式
+    function parse( obj ) {
+      if ( !obj || typeof obj != "object" ) {
+        return null;
+      }
+      var arr = [];
+      // 遍历对象
+      for ( var k in obj ) {
+        arr.push( k + "=" + obj[k] );
+      }
+      // [ "username=pp", "password=123456" ]
+      return arr.join("&");
+    }
+
+    // var obj = {
+    //   name: "小红",
+    //   age: 15,
+    //   desc: "小美女"
+    // };
+    // // name=小红&age=15&desc=小美女
+    // console.log( parse( obj ) );
+
+  </script>
+
+
+</body>
+</html>

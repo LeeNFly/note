@@ -1,0 +1,31 @@
+1-bootstrap框架：
+    实现响应式布局
+
+    版本： 
+    2.x  兼容ie678
+    3.x  用于响应式布局，移动端优先
+    4.x  测试阶段 
+
+bootstrap.css.map   .map文件作用： 记录压缩文件 和未压缩之前 代码行号之间 关系；
+
+
+2- 栅格系统：
+    容器： .container  .container-fluid
+    行： row
+    列：col-*-n    *: lg  md  sm  xs
+
+    列可以继续嵌套划分
+    列偏移： col-lg-offset-n    整体向右偏移
+            col-lg-push-n 向右推    col-lg-pull-n 向左拉   偏移当前元素 
+    大于12列会换行 
+    <div class="col-lg-6  col-md-4  col-sm-8 col-xs-12"></div> 
+
+
+3- 背景图片和插入图片区别：
+    背景图片：css  样式 
+        控制图片很方便，适合全屏轮播 大背景图片布局；
+ 
+    插图片： img标签 结构 
+        1-方便
+        2-有语义 
+        确定：  图片过大时，全屏轮播图 控制布局不方便 

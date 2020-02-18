@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="500" style="border: 1px solid red;"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+        //绘制
+        //大矩形
+        ctx.moveTo(100, 100);
+        ctx.lineTo(400, 100);
+        ctx.lineTo(400, 400);
+        ctx.lineTo(100, 400);
+        ctx.closePath();//闭合路径
+//        ctx.fill();
+//        ctx.stroke();//描边
+
+
+
+        //小矩形
+        ctx.moveTo(200, 200);
+        ctx.lineTo(200, 300);
+        ctx.lineTo(300, 300);
+        ctx.lineTo(300, 200);
+        ctx.closePath();
+
+        //填充遵守非零环绕原则
+        //当前canvas通过fill填充路径是，会根据非零环绕原则
+        //从当前区域中向外任意引一条直线，这个线和路径的相交之和如果不等于0就填充 ，
+        //顺时针画, 和 逆时针画, 取相反数的值 , 比如顺时针取1, 逆时针就取 -1
+        //等于0就不填充
+        ctx.fillStyle = '#000';
+        ctx.fill();
+
+        ctx.strokeStyle = 'red';
+        ctx.stroke();//描边
+
+    </script>
+</body>
+</html>

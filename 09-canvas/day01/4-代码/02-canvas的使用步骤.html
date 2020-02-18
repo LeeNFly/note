@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        //1-获取canvas标签
+        var cs = document.querySelector('canvas');
+        console.log(cs);
+        //2-获取canvas绘图上下文（canvas绘图的相关API）
+        // 通过canvas元素.getContext(), 拿到画图工具箱, 该工具箱仅限于在该canvas元素画布上进行绘制
+        var  ctx = cs.getContext('2d'); // 2d绘图   ps: 3d传递 webgl
+        console.log(ctx); //ctx就是绘图工具箱
+
+        //3-进行绘制
+        // 1) -移动画笔 moveTo(x,y);  -> x: 画布x轴坐标, y: 画布y轴坐标
+        //    将画笔移动到坐标处, 移动画笔不会画线
+        ctx.moveTo(100, 100);
+        // 2) -画线 lineTo(x,y) -> x: 画布x轴坐标, y: 画布y轴坐标
+        //    从画笔所在坐标处, 到画线坐标(x, y), 画一条线 (路径)
+        //    ps: 画线, 所以画笔也会移动, 画笔的坐标也会跟着变化
+        ctx.lineTo(200, 200);
+        //以上两行代码只是一个(绘制)路径， 并且路径是存储在ctx中的, 但是还没有绘制  ( 相当于是想法, 设计 打算这么画 )
+        // 3) -绘制, 按照以上2行的设计, 动笔将设计一次性画在画布上 真正的绘制了
+        //    stroke: 描边, 会按照当前ctx中的所有路径, 进行画线描边, 对于moveTo, 是抬起画笔并移动, 所以moveTo的过程不会画线, 也就不会被描边了
+
+
+        // 先绘制路径, 然后再根据路径进行绘画
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

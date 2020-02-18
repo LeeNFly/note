@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+        var  deg = 0;
+        var timer = setInterval(function () {
+            //ctx.clearRect(0,0, cs.width, cs.height);
+            deg += 5;
+            ctx.beginPath(); //开启新路径
+            ctx.moveTo(300, 200);
+            ctx.arc(300, 200, 150, 0, getRadain(deg));
+            ctx.closePath();//闭合路径
+            //ctx.stroke();
+            ctx.fillStyle = 'hotpink';
+            ctx.fill();
+            //停止定时器
+            if( deg > 360) {
+                clearInterval(timer);
+            }
+        },100)
+
+
+        //将角度转弧度的方法
+        function getRadain(deg) {
+            return  deg / 180  * Math.PI;
+        }
+    </script>
+</body>
+</html>

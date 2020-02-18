@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        transition: all 1s;
+        margin: 100px auto;
+		
+		/* 控制中心点
+		
+		值可以是方位名词
+		还可以是像素
+
+        缩放不改变盒子在标准流中的大小。即原来100 * 100 ，缩放到200 * 200 , 但该元素在标准流中的位置仍是100 * 100;
+		 */
+
+      
+    }
+    /* 缩放   里面的值是倍数 相对于自身 */
+    .box:hover {
+    	transform: scale(1.5);
+    }
+    </style>
+</head>
+<body>
+	 <div class="box">1111</div>
+</body>
+</html>

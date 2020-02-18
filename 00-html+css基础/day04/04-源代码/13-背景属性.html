@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 800px;
+			height: 800px;
+			/*
+				背景颜色：background-color: 颜色, 支持具体英文, 16进制, rgb, rgba;   默认的背景色是透明的 (透明和白色是不同的颜色)
+				背景图片：background-image: url(路径);  背景图片默认是如果溢出盒子, 则会将溢出部分隐藏, 背景图片不会超出盒子的大小
+				背景平铺：background-repeat: no-repeat || repeat || repeat-x || repeat-y;
+				背景是否跟随滚动：background-attachment:scoll || fixed;
+				设置背景图片的位置：background-position： 默认靠左上角对齐
+				1、方位名词 left right top bottom center 顺序不论
+				2、像素 第一个值是X轴方向 第二值是Y轴方向
+				程序的坐标系 水平x轴 正方向朝右  垂直Y轴  正方向朝下
+				3、百分比（了解）
+				4、混写 但是需要考虑顺序
+
+				简写方式：快捷键bg+ 按tab键
+				background:背景颜色 背景图片地址 背景平铺 背景滚动 背景位置;
+				若简写的方式没有写背景颜色, 相当于默认的透明色, 若之前有设置背景色, 由于层叠性, 会将之前设置的背景色覆盖
+
+			*/
+			/* background-color: rgba(100,100,100,0.5);
+				background-image: url(mienv.jpg);
+				background-repeat: no-repeat;
+				background-attachment: scroll;
+				background-position: right 100px;
+			 */
+
+			 /* 以上四个参数, 共同作用于盒子, 不会互相冲突, 可以分开写, 也可以连写 */
+
+			 /* 背景连写后, 可以给盒子单独添加以上4个参数,
+            	如果参数在连写中有定义, 则会覆盖合写中的这一类参数, 连写中的其他参数不会覆盖, 仍保持 保证背景正常
+            	如果参数在合写中没有定义, 则相当于在连写的基础上, 还添加了这一类参数, 原来连写的参数仍保持
+			*/
+
+			 /* 当多个场景下有多个background连写共存时, 后面的会覆盖前面的, 若不想被覆盖, 则要将前面的background连写里设置的参数都加上 *
+			
+			 /* background-color: transparent; => 透明色 */
+
+			background: rgba(100,100,100,0.5) url(mienv.jpg) right 100px no-repeat;
+			
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="box">1111111</div>
+
+
+</body>
+</html>

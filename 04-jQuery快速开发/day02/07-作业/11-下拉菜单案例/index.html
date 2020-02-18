@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .wrap {
+        width: 330px;
+        height: 30px;
+        margin: 100px auto 0;
+        padding-left: 10px;
+        background-image: url(imgs/bg.jpg);
+    }
+
+    .wrap li {
+        background-image: url(imgs/libg.jpg);
+    }
+
+    .wrap>ul>li {
+        float: left;
+        margin-right: 10px;
+        position: relative;
+    }
+
+    .wrap a {
+        display: block;
+        height: 30px;
+        width: 100px;
+        text-decoration: none;
+        color: #000;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    .wrap li ul {
+        position: absolute;
+        top: 30px;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul class="ul">
+                    <li><a href="javascript:void(0);">二级菜单11</a></li>
+                    <li><a href="javascript:void(0);">二级菜单12</a></li>
+                    <li><a href="javascript:void(0);">二级菜单13</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单2</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单21</a></li>
+                    <li><a href="javascript:void(0);">二级菜单22</a></li>
+                    <li><a href="javascript:void(0);">二级菜单23</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单3</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单31</a></li>
+                    <li><a href="javascript:void(0);">二级菜单32</a></li>
+                    <li><a href="javascript:void(0);">二级菜单33</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+      $(function(){
+        // 分析：
+        // 获取一级菜单的li，给其注册鼠标移入事件，让当前的li下ul进行展示
+        $(".wrap>ul>li").mouseenter(function(){
+            // this: 表示当前的元素， 是个dom对象
+            // children(): 获取当前元素的所有的子元素, 可以传参，参数是选择器，根据参数过滤出指定的子元素
+            // console.log(this);
+            // console.log($(this).children()[1]); // 这里取出来的是dom对象
+            // console.log($(this).children("ul"));
+
+            console.log("mouseenter");
+            $(this).children("ul").stop().slideDown();
+        })
+
+        // 鼠标移出事件，让当前的li下的ul进行隐藏
+        $(".wrap>ul>li").mouseleave(function(){
+            console.log("mouseleave");
+
+            // hide() , 用来隐藏元素
+            $(this).children("ul").stop().slideUp();
+        })
+
+        // 小结：
+        // children(), 获取当前元素的所有子元素，传参，参数是选择器，根据参数可以过滤出指定的子元素。
+        // hide(), 隐藏元素
+        // mouseenter，使用会比mouseover性能要好
+      })
+    </script>
+</body>
+
+</html>

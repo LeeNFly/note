@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <title>Document</title>
+
+</head>
+
+<body>
+      <script>
+
+            var arr = ['zs', 'ls', 'ww', 'zl'];
+            
+
+            // arr[arr.length] = 'wg'; // ["zs", "ls", "ww", "zl", "wg"]
+            // arr.length 数组长度发生改变
+            // arr[arr.length+1] = 'mg'; // ["zs", "ls", "ww", "zl", empty, "mg"]
+
+            // 方法 : 
+            // arr.push('wg');
+            // arr.push('mg');
+
+            arr[arr.length] = 'wg';
+            arr[arr.length] = 'mg';
+
+            console.log(arr);
+            
+
+            // 数组最后追加一个元素 (会自动撑大数组长度) : 
+            //1. arr[arr.length] = 值
+            //2. arr.push(值) 
+
+
+      </script>
+</body>
+
+</html>

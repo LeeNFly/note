@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+        // var num = 11;
+        //  函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+        // function fn() {
+        //   var num = 22;
+        //   console.log(num); //22
+        // }
+        // fn();
+        // console.log(num); //11
+
+
+          var num1 = 11; // 全局变量
+          //  函数的声明不执行,可以先不看,直接跳过,等调用的时候再看
+          function fn() {
+            var num1 = 22; //局部变量   33
+                num1 = 33;   
+                num2 = 44;  //隐式全局
+            console.log(num1);  //  33
+            console.log(num2);  //44
+          }
+          fn();
+          console.log(num1); //11
+          console.log(num2); //44
+
+    </script>
+</body>
+</html>

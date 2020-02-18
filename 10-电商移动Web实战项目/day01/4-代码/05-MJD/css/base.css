@@ -1,0 +1,97 @@
+/*css基础样式*/
+/*css样式重置*/
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  /*所有盒子采用内减模式*/
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /*在移动去除默认点击高亮效果, pc端没有这个问题*/
+  -webkit-tap-highlight-color: transparent;
+}
+/* 设置页面字体等 (css继承性) */
+body {
+  font-size: 14px;
+  color: #333;
+  font-family: "Microsoft Yahei", Arial, sans-serif;
+  /*后面的字体都是备胎*/
+}
+ul,
+ol {
+  list-style: none;
+}
+a,
+a:hover {
+  text-decoration: none;
+  color: #333;
+}
+input {
+  /* 去除边框 */
+  border: none;
+  /* 去除点击时的边框 */
+  outline: none;
+  /*去除表单在移动端 3d  阴影效果, pc端没有这个问题 */
+  -webkit-appearance: none;
+}
+/*废物利用, 如果通过i标签来使用字体图标的时候, 不希望倾斜 */
+em,
+i {
+  font-style: normal;
+}
+/*公共样式*/
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+/*清除浮动*/
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.jd-sprites {
+  background: url(../images/jd-sprites.png) no-repeat;
+  background-size: 200px 200px;
+}

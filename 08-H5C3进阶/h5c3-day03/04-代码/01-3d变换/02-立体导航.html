@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    ul {
+      width: 600px;
+      height: 50px;
+      border: 1px solid #000;
+      margin: 100px auto;
+    }
+    li {
+      float: left;
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      position: relative;
+      transition: all 1s;
+
+      /* 让子盒子在三维空间布局 */
+      transform-style: preserve-3d;
+    }
+    li span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    li span:first-child {
+      background-color: pink;
+      transform: translateZ(25px);
+    }
+    li span:nth-child(2) {
+      background-color: orange;
+      transform: rotateX(90deg) translateZ(25px);
+    }
+
+    li:hover {
+      transform: rotateX(-90deg);
+    }
+  </style>
+</head>
+<body>
+
+<ul>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+</ul>
+
+
+</body>
+</html>

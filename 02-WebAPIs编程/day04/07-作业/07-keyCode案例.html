@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<script>
+    var inputs = document.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+       inputs[i].onkeydown = fn;
+    }
+    function fn(e) {
+      //console.log(e.keyCode); //13
+      //console.log(typeof e.keyCode);
+     
+      if (e.keyCode == 13) {
+        this.nextElementSibling.focus();
+      }
+    }
+</script>
+</body>
+</html>

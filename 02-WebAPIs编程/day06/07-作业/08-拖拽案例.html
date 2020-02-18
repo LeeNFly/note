@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav {
+      height: 30px;
+      background: #036663;
+      border-bottom: 1px solid #369;
+      line-height: 30px;
+      padding-left: 30px;
+    }
+    
+    .nav a {
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      text-decoration: none;
+      
+    }
+    
+    .d-box {
+      width: 400px;
+      height: 300px;
+      border: 5px solid #eee;
+      box-shadow: 2px 2px 2px 2px #666;
+      position: absolute;
+      top: 40%;
+      left: 40%;
+      background-color: white;
+      
+      /* 不让文字被选中 */
+      -webkit-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select:none;
+      user-select:none;
+    }
+    
+    .hd {
+      width: 100%;
+      height: 25px;
+      background-color: #7c9299;
+      border-bottom: 1px solid #369;
+      line-height: 25px;
+      color: white;
+      cursor: move; /*将鼠标编程移动标示*/
+    }
+    
+    #box_close {
+      float: right;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="nav">
+  <a href="javascript:void(0);" id="register">注册信息</a>
+</div>
+<div class="d-box" id="d_box">
+  <div class="hd" id="drop">注册信息 (可以拖拽)
+    <span id="box_close">【关闭】</span>
+  </div>
+  <div class="bd"></div>
+</div>
+</body>
+</html>
+<script>
+
+   //需求: 鼠标在drop上按下的时候,鼠标移动d-box跟着移动
+    var drop = document.querySelector('#drop');
+    var d_box = document.querySelector('#d_box');
+    drop.onmousedown = function (e) {
+      // 获取鼠标按下时鼠标相对浏览器可视区的坐标
+      var downX = e.clientX;
+      var downY = e.clientY;
+      // 获取鼠标按下时,d_box的初始位置: d_box 的 定位父元素是body
+      var x = d_box.offsetLeft;
+      var y = d_box.offsetTop;
+      
+      // 若鼠标移的快一点,移出了d_box,则鼠标移动事件不会触发
+      // 解决:应该将鼠标移动事件注册给整个页面,即document
+      // d_box.onmousemove = function (e) {
+      document.onmousemove = function (e) {
+        // 鼠标移动时,鼠标相对浏览器可视区的坐标
+        var posX = e.clientX;
+        var posY = e.clientY;
+        // 将鼠标移动时的坐标 - 鼠标按下时的坐标 就是鼠标移动了的距离
+        var instanceX = posX - downX;
+        var instanceY = posY - downY;
+        // 盒子的起始距离 + 鼠标移动的距离 => 让盒子和鼠标保持相对位置一致
+        d_box.style.left = x + instanceX + 'px';
+        d_box.style.top = y + instanceY + 'px';
+      }
+    }
+
+    // 当鼠标弹起时,将鼠标移动事件取消
+    document.onmouseup = function () {
+      document.onmousemove = null;
+    }
+
+    
+    
+</script>

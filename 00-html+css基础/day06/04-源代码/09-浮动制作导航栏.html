@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    	* {
+    		padding: 0;
+    		margin: 0;
+    		list-style: none;
+    	}
+		.wrapper {
+			width: 750px;
+			height: 500px;
+			margin:0 auto;
+			background-color: red;
+		}
+		img {
+			display: block;
+		}
+		.banner {
+			background: url(images/banner_bg.jpg) 0 0 repeat-x;
+		}
+		.wrapper ul {
+			height: 32px; 
+			background: url(images/button1_bg.jpg) 0 0 repeat-x;
+		}
+		.wrapper li {
+			float: left;
+			width: 80px;
+			height: 32px;
+			font-size: 12px;
+			line-height: 32px;
+			text-align: center;
+		}
+		.wrapper li a {
+			color: #666;
+			text-decoration: none;
+			display: block;
+		}
+		.wrapper li:hover {
+			background: url(images/button2.jpg) 0 0 no-repeat;
+		}
+		/* 这种写法的意思是鼠标移到li上面去 控制的是li里面的a元素 */
+		.wrapper li:hover a {
+			color: #fff;
+		}
+		/* .wrapper li a:hover {
+			color: #fff;
+			background: url(images/button2.jpg) 0 0 no-repeat;
+		} */
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="banner">
+        	<img src="images/banner1.jpg" alt="">
+        </div>
+        <ul>
+            <li><a href="#">网站首页</a></li>
+            <li><a href="#">网站首页</a></li>
+            <li><a href="#">网站首页</a></li>
+            <li><a href="#">网站首页</a></li>
+            <li><a href="#">网站首页</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

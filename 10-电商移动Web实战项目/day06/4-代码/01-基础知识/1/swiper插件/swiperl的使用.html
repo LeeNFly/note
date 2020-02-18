@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        .swiper-container {
+            width: 600px;           
+            border: 1px solid red;
+        }  
+
+        img {
+            width: 100%; 
+            display: block;           
+        }
+    </style>
+</head>
+<body>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/banner01.jpg" alt=""></div>           
+            <div class="swiper-slide"><img src="img/banner02.jpg" alt=""></div>           
+            <div class="swiper-slide"><img src="img/banner03.jpg" alt=""></div>           
+            <div class="swiper-slide"><img src="img/banner04.jpg" alt=""></div>           
+            <div class="swiper-slide"><img src="img/banner05.jpg" alt=""></div>           
+            <div class="swiper-slide"><img src="img/banner06.jpg" alt=""></div>           
+            <div class="swiper-slide"><img src="img/banner07.jpg" alt=""></div>           
+            <div class="swiper-slide"><img src="img/banner08.jpg" alt=""></div> 
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+        
+        <!-- 如果需要导航按钮 -->
+        <!-- <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> -->
+        
+        <!-- 如果需要滚动条 -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+
+
+    <script src="js/swiper.min.js"></script>
+    <script>        
+            var mySwiper = new Swiper ('.swiper-container', {
+              //   direction: 'vertical',  //默认水平
+              loop: true, //是否无缝
+              autoplay : 2000,
+              speed: 300,  //滚动速度
+              autoplayDisableOnInteraction: false, //用户操作后 是否停止定时器
+              longSwipesRatio: 0.33, //最小滑动比例
+              
+              // 如果需要分页器
+              pagination: '.swiper-pagination',             
+            
+            })        
+    </script>
+</body>
+</html>

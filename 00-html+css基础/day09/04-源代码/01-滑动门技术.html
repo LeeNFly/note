@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		.left {
+			width: 36px;
+			height: 59px;
+			float: left;
+			background:  url(images/qipao-left.png) 0 0 no-repeat;
+		}
+		.right {
+			width: 20px;
+			height: 59px;
+			background: url(images/qipao-right_03.png) 0 0 no-repeat; 
+			float: left;
+		}
+		.center {
+			height: 59px;
+			float: left;
+			line-height: 59px;
+			color: #fff;
+			padding-right: 16px;
+			background: url(images/qipao-center03_03.png) 0 0 repeat-x;
+		}
+		
+
+
+		/* 吃饱了无聊的 可以不用看 */
+		.box-right .right {
+			transform:rotateY(180deg);
+		}
+		.box-right .left {
+			transform:rotateY(180deg);
+		}
+		.box-right .center {
+			padding-left: 16px;
+			padding-right: 0;
+		}
+		.fl {
+			float: left;
+		}
+		.fr {
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="fl">
+			<div class="left"></div>
+			<div class="center">我喜欢你，你喜欢我么</div>
+			<div class="right"></div>
+		</div>
+	</div>
+
+	<div class="box box-right">
+		<div class="fr">
+			<div class="right"></div>
+			<div class="center">emmmmmmm!! 容我思考</div>
+			<div class="left"></div>
+		</div>
+	</div>
+
+	<div class="box box-right">
+		<div class="fr">
+			<div class="right"></div>
+			<div class="center">你是个好人，但是我觉的我们性格不太合适</div>
+			<div class="left"></div>
+		</div>
+	</div>
+
+	<div class="box">
+		<div class="fl">
+			<div class="left"></div>
+			<div class="center">再见！！</div>
+			<div class="right"></div>
+		</div>
+	</div>
+
+	<div class="box box-right">
+		<div class="fr">
+			<div class="right"></div>
+			<div class="center">滚！！！</div>
+			<div class="left"></div>
+		</div>
+	</div>
+</body>
+</html>

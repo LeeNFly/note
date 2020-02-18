@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            /* width: 200px; */
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script src="tap.js"></script>
+    <script>
+        //调用插件的tap方法 
+       itcast.tap('.box', function (e) {
+           console.log('点击事件触发');
+           console.log(e);
+           console.log(e.changedTouches[0].clientX);
+           console.log(e.changedTouches[0].clientY);
+       })  
+    </script>
+</body>
+</html>

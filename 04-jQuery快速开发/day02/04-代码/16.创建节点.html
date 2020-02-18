@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <!-- <a href="http://sh.itcast.cn" target="_blank">大前端</a> -->
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // var a = document.createElement("a");
+            // a.href = "http://sh.itcast.cn";
+            // a.target = "_blank";
+            // a.innerText = "大前端";
+            // document.body.appendChild(a);
+            
+            // jq中也是通过操作元素, 来达到操作页面上标签的结构
+                
+            // jq的方式创建元素, ★ 返回的是jq对象
+            // $('html字符串') 会识别字符串中 ★ 所有 的html标签、标签的html结构、标签的属性、标签的内容,标签的文本等 可以识别多个标签及标签的嵌套关系, 并列关系等, (最外层可以是并列的多个标签, 也可以是嵌套标签);
+            // ★ 返回一个新的元素, 是一个jq对象, 即返回一个jq对象, 这个jq对象里存储着创建出来的dom元素及其包含的所有内部元素和内容, 但是这个元素不在dom树上,浏览器不会渲染,需要手动(jq的添加节点操作)加到dom树,浏览器才会渲染
+            //    如果html字符串最外层是多个并列关系, 在返回的一个jq对象中, 每有一个并列关系都是一个dom元素, 存储在返回的这一个jq对象中
+            // ★ $的作用又加一条 $('html标签') 创建元素, 返回一个新的jq对象(jq元素),  这个jq对象里存储着创建出来的dom元素及其包含的所有内部元素和内容, 创建的元素不在浏览器dom树上, 需要手动添加到dom树上, 浏览器才会渲染出来
+            // ★ 注意，引号嵌套的问题 单引号可以嵌套双引号 双引号可以嵌套单引号, 但是单引号不能嵌套单引号, 双引号不能嵌套双引号
+            // 手动创建的jq对象和从页面获取的jq对象一样, 唯一的区别就是创建的jq对象不在dom树上, 需要手动添加到dom树
+            // ★★★ 对新创建的元素可以进行设置的相关操作 可以在添加到dom树之前之后都可以, 都能实现效果
+            var aa = $('<div>aaa</div><div><a href="http://sh.itcast.cn" target="_blank">大前端<span>aaa</span></a></div>');
+            console.log(aa);
+            
+            // 添加节点到body中 (同时也将元素添加到dom树上, 浏览器自动重新渲染)
+            // jq对象1.append(jq对象2) 往jq1对象1(获取到的所有元素)内部的后面添加jq对象2(元素) (同时也将元素添加到dom树上, 浏览器自动重新渲染) 或者 元素1.append(元素2)
+            $("body").append(aa);
+            
+
+                        
+        })
+    </script>
+</body>
+</html>

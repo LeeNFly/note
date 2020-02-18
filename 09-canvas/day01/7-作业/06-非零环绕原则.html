@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="800" height="600" style="border: 1px solid red;"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+
+        ctx.moveTo(100, 100);
+        ctx.lineTo(500, 100);
+        ctx.lineTo(500, 500);
+        ctx.lineTo(100, 500);
+        ctx.closePath();
+
+        ctx.moveTo(200, 200);
+        ctx.lineTo(200, 400);
+        ctx.lineTo(400, 400);
+        ctx.lineTo(400, 200);
+        ctx.closePath();
+
+        ctx.fill();
+        // ctx.stroke();
+    </script>
+</body>
+</html>

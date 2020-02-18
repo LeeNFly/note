@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table {
+      border: 1px solid #000;
+      width: 500px;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+
+    th {
+      border: 1px solid #000;
+      height: 40px;
+      line-height: 40px;
+      background-color: #ccc;
+    }
+
+    td {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button>获取数据</button>
+  <table>
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>描述</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="test">鹏鹏</td>
+        <td>男</td>
+        <td>18</td>
+        <td>帅</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    var btn = document.getElementsByTagName('button')[0];
+    var tbody = document.querySelector('tbody');
+    btn.onclick = function () {
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', './01-xml.php');
+      xhr.send(null);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var result = xhr.responseXML;
+            var allUser = result.querySelectorAll('user');
+            var str = '';
+            allUser.forEach(function (item, index) {
+              str +=
+                '<tr>' +
+                '  <td>' + item.children[0].innerHTML + '</td>' +
+                '  <td>' + item.children[1].innerHTML + '</td>' +
+                '  <td>' + item.children[2].innerHTML + '</td>' +
+                '  <td>' + item.children[3].innerHTML + '</td>' +
+                '</tr>'
+            })
+            tbody.innerHTML = str;
+          }
+        }
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>

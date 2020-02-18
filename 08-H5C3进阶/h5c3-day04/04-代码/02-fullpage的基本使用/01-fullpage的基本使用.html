@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="./css/jquery.fullPage.css">
+</head>
+<body>
+
+<!--
+  fullpage的基本使用
+  1. 引包, jquery.fullPage.css, jquery.min.js, jquery.fullPage.min.js
+           fullpage是jq的插件, 依赖于jq, 所以要先引入jq
+  2. 准备html结构
+  3. 通过js进行初始化
+-->
+
+<!-- 准备结构 -->
+<!-- section类, 表示一屏
+     在fullpage插件中, section类是固定的
+ -->
+<!--
+    进入默认展示第一屏
+    给 section 盒子加上 active 类可以配置显示第几屏, 一般用于测试
+
+-->
+<div class="box">
+  <div class="section">1</div>
+  <div class="section">2</div>
+  <div class="section">
+    <div class="slide">横向的第1屏</div>
+    <div class="slide">横向的第2屏</div>
+    <div class="slide">横向的第3屏</div>
+    <div class="slide">横向的第4屏</div>
+  </div>
+  <div class="section">4</div>
+  <div class="section">5</div>
+</div>
+
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.fullPage.min.js"></script>
+<script>
+  $(function() {
+    // 使用jq对象 初始化fullpage
+    $('.box').fullpage({
+      // 配置每一个屏幕的颜色
+      sectionsColor: ['pink', 'skyblue', 'green', 'gray', 'yellow'],
+      // 配置每一屏内容垂直方向不进行居中显示, 默认true, 每一屏内容垂直方向上居中显示
+      verticalCentered: false,
+      // 配置小圆点, 进行页面导航, 默认false, 关闭小圆点导航
+      navigation: true,
+      afterLoad: function (anchorLink, index) {
+        // 滚动到某一屏后的回调函数, 会在滚动结束后调用
+        // 第一个参数没用, 不用管, 但是需要写在那里占位
+        // 第二个参数, 当前屏的序号, 从1开始
+      }
+    });
+
+  })
+
+</script>
+
+
+</body>
+</html>

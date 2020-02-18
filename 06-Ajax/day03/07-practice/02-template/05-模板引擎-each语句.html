@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="userlist">
+
+  </div>
+
+  <script src="template-web.js"></script>
+
+  <script type="text/html" id="tpl">
+    <!-- {{each list}}
+      <p>
+        索引: {{$index}}, 值: {{$value}}
+      </p>
+    {{/each}} -->
+
+    {{each list valuee indexx}}
+      <p>
+        索引: {{indexx}}, 值: {{valuee}}
+      </p>
+    {{/each}}
+  </script>
+  
+  <script>
+    var content = document.querySelector('#userlist');
+    var arr = [ "张三", "李四", "王五", "赵六" ];
+    var str = template('tpl', {list: arr}); 
+    console.log(str);
+    content.innerHTML = str;
+
+  </script>
+</body>
+</html>

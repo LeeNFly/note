@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table {
+      margin-top: 20px;
+      width: 500px;
+      border: 1px solid #000;
+      border-collapse: collapse;
+    }
+
+    td {
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <input type="text" id="city">
+  <input type="button" value="查询" id="btn">
+
+  <table id="showTable">
+    <!-- <tr>
+      <td>城市</td>
+      <td>北京</td>
+    </tr>
+    <tr>
+      <td>日期</td>
+      <td>2017-10-27</td>
+    </tr>
+    <tr>
+      <td>天气</td>
+      <td>多云</td>
+    </tr>
+    <tr>
+      <td>气温</td>
+      <td>9度</td>
+    </tr>
+    <tr>
+      <td>最高气温</td>
+      <td>18度</td>
+    </tr>
+    <tr>
+      <td>最低气温</td>
+      <td>9度</td>
+    </tr>
+    <tr>
+      <td>更新时间</td>
+      <td>2017-10-27 00:49:29</td>
+    </tr> -->
+  </table>
+  <script src="template-web.js"></script>
+  <script src="jquery-1.12.4.js"></script>
+  <script id="tpl" type="text/html">
+    <tr>
+      <td>城市</td>
+      <td>{{result.city}}</td>
+    </tr>
+    <tr>
+      <td>日期</td>
+      <td>{{result.date}}</td>
+    </tr>
+    <tr>
+      <td>天气</td>
+      <td>{{result.weather}}</td>
+    </tr>
+    <tr>
+      <td>气温</td>
+      <td>{{result.temp}}</td>
+    </tr>
+    <tr>
+      <td>最高气温</td>
+      <td>{{result.temphigh}}度</td>
+    </tr>
+    <tr>
+      <td>最低气温</td>
+      <td>{{result.templow}}度</td>
+    </tr>
+    <tr>
+      <td>更新时间</td>
+      <td>{{result.updatetime}}</td>
+    </tr>
+  </script>
+  <script>
+    $(function () {
+      $('#btn').click(function () {
+        $.ajax({
+          type: 'get',
+          url: 'https://api.jisuapi.com/weather/query',
+          dataType: 'jsonp',
+          data: {
+            appkey: '1a1009d880b3105e',
+            city: $('#city').val()
+          },
+          success: function (info) {
+            console.log(info);
+            var jsonStr = template('tpl', info);
+            console.log(jsonStr);
+            $('#showTable').html(jsonStr);
+          }
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>

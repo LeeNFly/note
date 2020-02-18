@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      height: 100px;
+      background-color: #f99;
+      margin: 10px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btn1">展示</button>
+  <button id="btn2">设置内容</button>
+
+  <div></div>
+  <div></div>
+  <div></div>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $('#btn1').click(function () {
+      // $('div').show();
+      $('div').style.display = 'block' 
+    });
+    $('#btn1').click(function () {
+      console.log(111);
+      
+    })
+    $('#btn2').click(function () {
+      $('div').text('设置的内容')
+    })
+  </script>
+</body>
+</html>

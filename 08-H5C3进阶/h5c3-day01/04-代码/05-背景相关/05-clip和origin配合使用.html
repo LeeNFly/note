@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /* 需求: 给盒子的内容(content)加上背景图片 */
+    div {
+      width: 400px;
+      height: 400px;
+      border: 30px dashed #000;
+      padding: 30px;
+      box-sizing: border-box;
+      background-image: url(./images/bg.jpg);
+      /* 1. 设置 背景显示范围 content-box */
+      background-clip: content-box;
+      /* 2. 设置 背景显示原点 */
+      background-origin: content-box;
+    }
+
+    /* 使用时, 需要注意, 一般
+       background-clip 和 background-origin
+       一起联合使用,  */
+
+  </style>
+</head>
+<body>
+
+<div>1231232</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array是数组的构造函数 Array是JS内置的函数
+       var arr =  new Array(1,2,3); //说明 arr 是 Array的实例
+    //    var arr1 = []; //底层也是 new  Array();  arr1也是Array的实例
+    //    结论: 所有的数组都是Array的实例, 所有的数组都可以默认访问到Array的原型
+        // 数组的所有的常用方法都是放在数组构造函数的原型对象上的   这样做节省了内存空间
+    // console.log(arr);
+    // console.log(arr.__proto__.__proto__); // Object原型
+    // console.log(arr.__proto__.__proto__.constructor); // Object构造函数
+    // console.log(arr.__proto__.__proto__.__proto__); // null
+
+    // console.log(arr.toString()); // 字符串 1,2,3 用的toString是数组原型上的属性,而非Object原型上的
+    // console.log(arr.__proto__);
+    // var obj = {};
+    // console.log(obj.toString());
+
+    console.log(Array.prototype); // Array原型
+    console.log(arr.__proto__ === Array.prototype); // true
+    console.log(arr.__proto__.constructor === Array); // true
+    console.log(Array.prototype.__proto__); // Object原型
+    console.log(Array.prototype.__proto__.constructor); // Object构造函数
+    console.log(Array.prototype.__proto__.__proto__); // null
+    console.log(arr.toString());
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

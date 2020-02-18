@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 20px;
+            border: 1px solid #000;
+        }
+        /* 默认情况下, 盒子中文字如果一行放不下了, (超出父盒子内容区域宽度了) 会自动换行 */
+        /* .txt-cut {
+        缺一不可，前提是容器要设置宽度，然后超过容器的宽度后以...形式显示
+
+        overflow: hidden;
+        white-space: nowrap; // 强制文字不换行
+        text-overflow: ellipsis;
+    } */
+        /*ps: 对于块级元素, 有默认宽度, 可以不设置宽度, 超出部分...
+              对于行内块等默认宽度是由内容决定的, 一般先给盒子设置一个固定的宽度(具体值或者百分比都行), 然后再设置文字超出部分使用...
+        */
+
+       /*
+
+
+        补充: 文字超出时候不会自动换行,默认都会在一行显示
+            word-wrap: break-word;
+            word-break: break-all;
+        让文字超出部分自动换行 
+        */
+    </style>
+</head>
+
+<body>
+    <div class="txt-cut">
+        我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！</div>
+    <!--  <div class="txt-cut">我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！</div>
+   <div class="txt-cut">我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！我就看看这个昵称到底可以去多长！！</div> -->
+
+
+    <!--<style>
+		span {
+			border: 1px solid #000;
+			
+			white-space: nowrap;
+		}	
+	</style>
+	<span>我是文字，哈哈哈 嘻嘻</span>-->
+
+    <!--
+        需求, 最多显示2行文字, 多余的文字不显示.
+         1. 给盒子设置定高, 如 height: 40px
+         2. 将行高设置成高度的一半 如 line-height: 20px
+         3. 给盒子设置overflow: hidden
+    -->
+
+    <!--
+    文本超出2行 ...显示
+        display: -webkit-box;
+        overflow: hidden;
+
+        white-space: normal !important;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+
+        -webkit-line-clamp: 2;  // 换成几 文本就超出几行...显示
+        -webkit-box-orient: vertical;
+    -->
+</body>
+
+</html>

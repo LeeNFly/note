@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="">
+    <label>用户名:
+      <input id='username' type="text" name="username">(3-6位)</label>
+    <br>
+    <label>密码:
+      <input id='password' type="text" name="password">(6-8位)</label>
+    <br>
+    <input id='login' type="submit" value="登录">
+  </form>
+  <script>
+    var username = document.getElementById('username');
+    var password = document.getElementById('password');
+    var login = document.getElementById('login');
+
+    login.onclick = function () {
+      // 校验用户名和密码
+      var checkUsername = checkPlaces(username, 3, 6);
+      var checkPassword = checkPlaces(password, 6, 8);
+      if (checkUsername && checkPassword) {
+        return true;
+      } else {
+        // 排他
+        username.style.backgroundColor = '';
+        password.style.backgroundColor = '';
+        if (!checkUsername) {
+          username.style.backgroundColor = 'yellow';
+        }
+        if (!checkPassword) {
+          password.style.backgroundColor = 'yellow';
+        }
+      }
+      return false;
+      
+      function checkPlaces(element, min, max) {
+        var value = element.value;
+        if (value.length >= min && value.length <= max) {
+          return true; // 验证通过
+        } else {
+          return false;
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+<button id="btn"> 弹窗 </button>
+
+<script>
+  var i = 0;
+  setInterval(function () {
+    console.log(i++);
+
+  },2000)
+
+  var btn = document.getElementById('btn');
+  btn.onclick = function () {
+//     alert(0);
+//    confirm('1')
+//    prompt();
+    console.log('点击了');
+  }
+  
+//  console.log(1);
+////  alert(1);//会阻塞后续的代码执行
+//  confirm('1')
+//  console.log(2);
+
+//     alert(0); confirm('1'); prompt(); js中弹框会阻塞栈中代码的执行
+//     js中规定了 弹框的方法的机制是 当选择完弹框后 弹框方法才算执行结束 弹框的方法才会弹出栈,然后栈才会执行后面的代码; 否则栈 会一直等待弹框结束 才会继续往下执行栈中的代码
+//     队列中的任务也会被阻塞 因为栈中代码没有执行完 所以要等待栈中代码执行完轮询机制才会从队列中取任务放到栈中执行
+//     所以弹框会阻塞栈 阻塞栈中的代码执行 并且也会阻塞队列中的任务执行
+//     定时器回调函数 /事件处理函数等 都是放在队列中排队 然后才放到栈中执行 所以也会被弹框alert(0); confirm('1'); prompt(); 阻塞
+</script>
+</body>
+
+</html>

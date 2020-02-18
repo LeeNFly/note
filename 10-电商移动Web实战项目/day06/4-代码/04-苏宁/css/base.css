@@ -1,0 +1,89 @@
+/*css基础样式*/
+/*css样式重置*/
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  /*所有盒子采用内减模式*/
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /*在移动去除默认点击高亮效果*/
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  font-size: 14px;
+  color: #333;
+  font-family: "Microsoft Yahei", Arial, sans-serif;
+  /*后面都是备胎*/
+}
+ul,
+ol {
+  list-style: none;
+}
+a,
+a:hover {
+  text-decoration: none;
+  color: #333;
+}
+input {
+  border: none;
+  outline: none;
+}
+/*废物利用*/
+em,
+i {
+  font-style: normal;
+}
+/*公共样式*/
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+/*清除浮动*/
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+

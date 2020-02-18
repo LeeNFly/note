@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+</ul>
+
+<!--ul>li{第$个li}*8-->
+<script>
+    var lis = document.querySelectorAll('li');
+    for (var i = 0; i < lis.length; i++) {
+       lis[i].onclick = fn;
+    }
+    function fn() {
+      // 排他
+      for (var i = 0; i < lis.length; i++) {
+          lis[i].style.backgroundColor = '';
+      }
+      this.style.backgroundColor = 'yellow';
+    }
+</script>
+</body>
+</html>

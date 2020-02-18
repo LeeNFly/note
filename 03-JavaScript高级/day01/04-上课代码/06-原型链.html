@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <script>
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    var zs = new Person('zs', 18);
+    zs.toString = function () {
+      console.log(1);
+    }
+
+    Person.prototype.toString = function () {
+      console.log(2);
+    }
+
+
+
+    //  console.log(zs.__proto__.__proto__.constructor); //Object
+    //  console.log(zs.__proto__.__proto__); //Object原型
+    //  console.log(zs.__proto__.__proto__.__proto__); //null
+    //
+    //
+    //  console.log(zs.__proto__.__proto__);
+
+    console.log(zs.toString());
+
+    // =========================================================================
+
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    // var zs = new Person('zs',18);
+    // console.log(Person.prototype.__proto__); //构造函数原型所对应的原型 => Object原型 {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+    // console.log(Person.prototype.__proto__.constructor); //构造函数原型所对应的构造函数 => ƒ Object() { [native code] }  [native code]:代表是JS内置的函数或对象 是底层的东西,我们看不见
+
+    // // 效果同上
+    // console.log(zs.__proto__.__proto__);
+    // console.log(zs.__proto__.__proto__.constructor);
+
+    // console.log(Person.prototype.__proto__.__proto__); // null
+
+    // ==================================================
+
+    // Person.prototype.__proto__.sayHi = function () {
+    //   console.log(1);
+    // }
+
+    // var zs = new Person('zs', 18);
+    // zs.sayHi() // 1
+
+    // ===================================================
+
+    // Person.prototype.__proto__.sayHi = function () {
+    //   console.log(1);
+    // }
+
+    // Person.prototype.sayHi = function () {
+    //   console.log(2);
+    // }
+
+    // var zs = new Person('zs', 18);
+    // zs.sayHi() // 2
+
+    // ====================================================
+
+    // Person.prototype.__proto__.sayHi = function () {
+    //   console.log(1);
+    // }
+
+    // Person.prototype.sayHi = function () {
+    //   console.log(2);
+    // }
+
+    // var zs = new Person('zs', 18);
+    // zs.sayHi = function () {
+    //   console.log(0);
+    // }
+    // zs.sayHi() // 0
+
+    // ====================================================
+    // var zs = new Person('zs', 18);
+    // console.log(zs.hh); //undefined
+    // console.log(zs.hh()); //报错 => zs.hh => undefined => undefined() 报错
+
+    // console.log(zs.toString()); // [object Object] 是字符串  是在构造函数对应的原型对象对应的原型中(Object的原型)有toString()方法 
+
+// ★★★ 只要是对象,都有对应的构造函数和构造函数的原型,都有原型链。浏览器为了我们方便,都会给我们实现一个__proto__属性,用来访问对象对应构造函数的原型,就算没有该属性,实例也可以访问构造函数对应原型身上的属性
+// ★★★ 字面量/构造函数Object() 创建的对象,是Object的实例。底层是new Object({..}) 构造函数是Object 原型是Object原型 Object原型的原型就是null
+// ★★★ 所有对象 的原型链 顶层 都是Object原型,。都可以访问到Object的原型 Object原型的原型就是null
+// var obj = {name: 'zs',age: 14} 字面量创建对象,底层是new Object({name: 'zs',age: 14})  原型是Object原型,obj构造函数是Object,obj是Object构造函数的实例 Object的原型的原型是null
+// ★★★ 若是通过 构造函数 创建的实例 则实例对应的原型先是最近的构造函数的原型 然后一层层往上找 直到Object的原型 最后到 null
+// var zs = new Person('zs',14); zs的构造函数是Person  zs的原型是Person的原型,Person的原型的原型是Object原型,对应的构造函数是Object,Person原型对象是Object构造函数的实例 Object原型的原型是null
+// ★★★ Object的原型的原型是null
+// Object原型的toString()方法 返回的是  [object Object] 字符串
+
+//  总结:   构造函数的 原型 也是其他构造函数的实例,也可以访问自己的原型
+//          浏览器为每个函数分配的默认原型对象是 {constructor: ƒ, __proto__: Object} constructor指向函数自己  __proto__指向Object原型,对应的构造函数是Object,Object原型的原型是null
+//  原型链: 从实例(对象)开始,实例默认可以访问自己构造函数的原型中的属性, 这个原型也是其他构造函数的实例,也还可以访问自己的构造函数的原型. 实例和原型以及原型和原型之间连接的关系.我们就称之为是原型链
+//  原型链: 实例(对象) -> 原型 - >原型的原型 -> 原型的原型的原型 -> ... -->null 构造成一个原型链 ★ 这条原型链上都是一个一个的原型对象
+  //  对象 查找(访问/获取/取值) ★ 属性 的规则:  (函数, 数组也是对象, 伪数组也是数组, 所以伪数组也是对象)
+  //  先在自己身上找,如果有,直接使用, 并停止查找, 如果没有,则顺着原型链(图中绿色箭头)往上找,找到了就使用,停止查找,找不到就继续往上找,如果找到了null,都没有的话,就返回undefined;
+  //  ps: 对象查找属性规则, 最后获取的是属性的值.
+  //  注意 原型链上的属性不是对象自己身上的属性,只不过对象可以访问到而已
+  //  对于对象自己身上的属性,可以访问,也可以赋值;对于原型链上原型的属性,只能访问获取/取值 使用,不能赋值,访问的原型链上的属性为函数的,也可以调用 访问/获取/取值 到函数后 加()调用
+  //  只有原型对象自己可以设置自己的属性
+  //  对于原型链上的原型对象后来添加的属性 对象也能访问到, 因为原型对象也是一个对象 是引用类型变量 原型链指向的是地址
+  //  对象查找属性规则,若属性值为函数的,函数中的this与之前一样 谁调用this所在的函数,this就指向谁, 
+  //  在原型上加方法实际上就是对象调用模式  函数中的this 就是 谁调用 就指向谁
+  //  对象查找属性规则,若属性值为函数的,调用函数, 属于对象调用函数的 调用模式  函数中的this   谁调用this所在的函数,this就指向谁
+  //  只要是对象访问原型上的方法, 都是对象调用模式, 函数中的this都是 谁调用, 就指向谁 
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    select {
+      width:200px;
+      height: 200px;
+      background-color: #33cccc;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+<select id="all" multiple="multiple">
+  <option>苹果</option>
+  <option>橘子</option>
+  <option>梨</option>
+  <option>西瓜</option>
+  <option>水蜜桃</option>
+</select>
+
+<input type="button" value=">>" id="btn1">
+<input type="button" value="<<" id="btn2">
+<input type="button" value=">" id="btn3">
+<input type="button" value="<" id="btn4">
+
+<select id="select" multiple="multiple">
+ 
+</select>
+
+
+<script>
+// 需求: >> 左边都到右边   > 左边选中的到右边
+//  1. >> 左边的all里面的option都到右边的select
+//  1.1 获取元素
+    var all = document.getElementById('all');
+    var select = document.getElementById('select');
+    var options = all.getElementsByTagName('option');
+//      var options = all.querySelectorAll('option');
+    var btn1 = document.getElementById('btn1');
+//  1.2 给元素注册事件
+    btn1.onclick = function(){
+      //  1.3 在事件处理函数中,让all里面的option 都添加到select里面  appendChild
+      for(var i = 0; i < options.length; i++) {
+        // 剪切操作修改了options所指对象里的数据,导致判断条件中获取的length发生变化
+        select.appendChild(options[i]);
+         // ★★★ 剪切后,下标不要移动,否则会漏元素
+        i--; //由于appendChild之后,options中的元素的下标会发生变化,所以i--.是为了让i永远为0
+      }
+  
+//      for(var i = 0; i < options.length; ) {
+//        select.appendChild(options[i]);
+//      }
+      
+//      for(var i = 0, leng = options.length; i < leng; i++){
+//        select.appendChild(options[0]);
+//      }
+      
+//      for(;;){
+//        console.log(1);
+//      }
+//
+    }
+    
+    
+    //2. > 左边all选中的option移动到右边select
+    //2.1 获取元素 btn3
+      var btn3 = document.querySelector('#btn3');
+  //  2.2 给btn3注册点击事件
+      btn3.onclick = function(){
+        //    2.3 在事件处理函数中,让左边的选中的到右边
+//      2.3.1 如何判断哪些选中了?  option.selected == true证明选中
+        for(var i = 0; i < options.length; i++) {
+          if(options[i].selected){
+            //      2.3.2 选中的就移动到select里面
+            select.appendChild(options[i]);
+            // 剪切操作修改了options所指对象里的数据,导致判断条件中获取的length发生变化
+            // ★★★ 剪切后,下标不要移动,否则会漏元素
+            i--;//只有移动了,options中的下标才会发生变化,所以,如果移动了,就让i--.让i保持不变
+          }
+        }
+
+      }
+
+   
+
+  
+</script>
+</body>
+</html>

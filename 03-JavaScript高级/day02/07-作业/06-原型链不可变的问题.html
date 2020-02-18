@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function fn() {
+      
+    }
+    var f1 = new fn();
+    fn.prototype = {
+      constructor: fn,
+      sayHi: function () {
+        console.log('say');
+      }
+    }
+    var f2 = new fn();
+    
+    console.log(f1.sayHi);
+    console.log(f2.sayHi);
+    
+    console.log(fn.prototype === f2.__proto__);
+    console.log(f1.__proto__ === fn.prototype);
+    
+    
+    
+  </script>
+</body>
+
+</html>

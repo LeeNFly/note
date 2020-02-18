@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图静态布局</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		ul,ol {
+			list-style: none;
+		}
+		.box {
+			width: 520px;
+			height: 280px;
+			/*background-color: pink;*/
+			margin: 0 auto;
+			margin-top: 100px;
+			position: relative;
+		}
+		.box .arrow {
+			width: 24px;
+			height: 36px;
+			background-color: pink;
+			position: absolute;
+			top: 50%;
+			margin-top: -18px;
+		}
+		.box .arrow-l {
+			left: 0;
+			background: url(images/left.png) 0 0 no-repeat;
+		}
+		.box .arrow-r {
+			right: 0;
+			background: url(images/right.png) 0 0 no-repeat;
+		}
+		.box .next {
+			width: 82px;
+			height: 20px;
+			background-color: green;
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			margin-left: -41px;
+			border-radius: 10px;
+			background-color: rgba(255,255,255,.5);
+		}
+		.box .next li {
+			width: 10px;
+			height: 10px;
+			background-color: #fff;
+			float: left;
+			border-radius: 50%;
+			margin-left: 5px;
+			margin-top: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/taobao.jpg">
+		<span class="arrow arrow-l"></span>
+		<span class="arrow arrow-r"></span>
+		<ul class="next">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>	
+	</div>
+</body>
+</html>

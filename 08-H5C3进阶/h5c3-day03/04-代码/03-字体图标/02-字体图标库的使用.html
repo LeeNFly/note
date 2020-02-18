@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- 字体图标库 Font Awesome -->
+  <!-- 1. 引包 -->
+  <link rel="stylesheet" href="./fa/css/font-awesome.css">
+  <style>
+    .my {
+      font-size: 200px;
+      color: red;
+      text-shadow: 2px 2px 2px blue, 4px 4px 4px green;
+    }
+  </style>
+</head>
+<body>
+
+<!--
+  2. 给标签添加类名 fa 指定字体
+  3. 给标签添加类名 fa-图标名 指定具体哪个图标, 需要自己添加前缀fa
+  字体图标就是字体, 可以添加字体类的相关css属性, 起作用
+  设置样式时, 一般自己设置一个类名, 然后通过类选择器去改变字体图标的样式, 否则会导致权重不足, 无法修改, 因为字体图标的默认样式就算通过类选择器进行添加的
+-->
+<!--一般使用任意的行内元素来使用字体图标-->
+<span class="fa fa-gratipay my"></span>
+<span class="fa fa-ge my"></span>
+
+
+</body>
+</html>

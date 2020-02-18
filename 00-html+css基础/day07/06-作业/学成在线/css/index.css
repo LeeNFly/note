@@ -1,0 +1,311 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+ul {
+	list-style: none;
+}
+a {
+	color: #333;
+	text-decoration: none;
+}
+a:hover {
+	color: #00a4ff;
+}
+/* 去掉input默认的边框 */
+input,
+button {
+	border: none;
+}
+/* 清除浮动公共类 */
+.clearfix::after {
+    content:'';
+    display:block;
+    clear:both;
+    height:0;
+    visibility:hidden;
+}
+.clearfix {
+    *zoom:1;
+}
+/* 版心公共类 */
+.w1200 {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+body {
+	background-color: #f3f5f7;
+}
+
+/* 头部区域 */
+header {
+	/*height: 100px;*/
+	/*background-color: blue;*/
+}
+.xc-top {
+	/*background-color: pink;*/
+	/*height: 47px;*/
+	padding: 25px 0 28px;
+}
+.xc-top > div {
+	float: left;
+}
+.xc-top .logo {
+	height: 47px;
+	width: 199px;
+	margin-right: 55px;
+	background: url(../images/logo.png) 0 center no-repeat;
+}
+.xc-top .nav-bar {
+	height: 47px;
+	/*width: 280px;*/
+	/*background-color: lime;*/
+	margin-right: 32px;
+}
+.xc-top .search {
+	/*width: 415px;*/
+	/*height: 47px;*/
+	/*background-color: lime;*/
+	margin-right: 21px;
+} 
+.xc-top .user {
+	/*width: 154px;*/
+	/*height: 47px;*/
+	/*background-color: lime;*/
+}
+.nav-bar li {
+	float: left;
+	height: 47px;
+	/*background-color: red;*/
+	line-height: 47px;
+	text-align: center;
+	margin-right: 38px;
+	padding: 0 10px;
+}
+.nav-bar li:hover {
+	border-bottom: 2px solid #00a4ff;
+}
+.search input {
+	float: left;
+	width: 361px;
+	height: 38px;
+	/*background-color: blue;*/
+	border: 1px solid #00a4ff;
+	text-indent: 10px;
+}
+.search button {
+	float: left;
+	width: 51px;
+	height: 40px;
+	/*background-color: red;*/
+	background: #00a4ff url(../images/fa-search.png) center center no-repeat;
+}
+.user .user-pic {
+	float: left;
+	margin-right: 10px;
+}
+.user .user-pic img {
+	margin-top: 5px;
+	border-radius: 50%;
+}
+.user .user-name {
+	float: left;
+	height: 47px;
+	max-width: 88px;
+	line-height: 47px;
+	text-align: center;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+	/*background-color: green;*/
+}
+
+/* 轮播图区域 */
+
+.banner {
+	/*height: 420px;*/
+	background-color: #1c036c;
+}
+.banner-info {
+	/*height: 420px;*/
+	background: url(../images/banner.png) 0 0 no-repeat;
+	position: relative;
+}
+.banner-info .nav-classes {
+	height: 388px;
+	width: 190px;
+	background-color: #14024b;
+	padding: 16px 0;
+}
+.banner-info .nav-classes li {
+	height: 43px;
+	line-height: 43px;
+	text-indent: 20px;
+	position: relative;
+}
+.banner-info .nav-classes a {
+	color: #fff;
+	display: block;
+}
+.banner-info .nav-classes a:hover {
+	color: #00a4ff;
+}
+.banner-info .nav-classes a:hover span {
+	background: url(../images/arrow-b.png) 0 0 no-repeat;
+}
+.banner-info .nav-classes span {
+	width: 6px;
+	height: 10px;
+	position: absolute;
+	right: 22px;
+	background: url(../images/arrow-w.png) 0 0 no-repeat;
+	top: 50%;
+	margin-top: -5px;
+}
+.banner-info .classes-schedule {
+	width: 227px;
+	height: 300px;
+	/*background-color: lime;*/
+	background-color: #fff;
+	position: absolute;
+	right: 0;
+	top: 50px;
+}
+.banner-info .classes-schedule .schedule-title {
+	height: 48px;
+	background-color: #9bceea;
+	line-height: 48px;
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	text-align: center;
+}
+.classes-schedule .classes-info {
+	padding: 10px 17px;
+	/*background-color: pink;*/
+}
+.classes-schedule .classes-info .classes-item {
+	height: 45px;
+	border-bottom: 1px solid #ccc;
+	padding-top: 15px;
+}
+.classes-info .classes-btn {
+	/*width: 200px;*/
+	height: 40px;
+	display: block;
+	border: 1px solid #22b0ff;
+	font-size: 16px;
+	color: #00a4ff;
+	line-height: 40px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+/* 课程推荐 */
+.classes-recommend {
+	margin-top: 10px;
+	/*height: 60px;*/
+	/*background-color: lime;*/
+	border-bottom: 1px solid #ccc;
+	/*background-color: #fff;*/
+	box-shadow: 0 1px 5px 1px rgba(0,0,0,.3);
+}
+.classes-name {
+	float: left;
+}
+.classes-recommend .classes-name li {
+	float: left;
+	height: 60px;
+	line-height: 60px;
+	padding: 0 34px;
+}
+.classes-recommend .unique {
+	color: #00a4ff;
+}
+.classes-recommend .classes-name li a:hover {
+	color: #00a4ff;
+}
+.classes-recommend .classes-name .line {
+	width: 1px;
+	height: 18px;
+	background-color: #ccc;
+	padding: 0;
+	line-height: 1;
+	margin-top: 22px;
+}
+.classes-recommend .modify-interest {
+	float: right;
+	height: 60px;
+	line-height: 60px;
+	color: #00a4ff;
+	font-size: 14px;
+	padding-right: 24px;
+}
+.classes-list {
+	/*height: 611px;*/
+	/*background-color: red;*/
+	margin-top: 37px;
+}
+
+/* 课程列表 */
+.classes-list-title {
+	height: 38px;
+	/*background-color: blue;*/
+}
+.classes-list-title span {
+	float: left;
+	font-size: 20px;
+}
+.classes-list-title a {
+	float: right;
+	font-size: 12px;
+	padding-right: 32px;
+	line-height: 38px;
+}
+.classes-list-item li {
+	float: left;
+	width: 227px;
+	/*width: 229px;*/
+	/*height: 274px;*/
+	/*background-color: pink;*/
+	margin: 0 15px 15px 0;
+	/*overflow: hidden;*/
+	box-shadow: 0 1px 5px 1px rgba(0,0,0,.3);
+	position: relative;
+}
+.classes-list-item li .clsses-img {
+	overflow: hidden;
+}
+.classes-list-item li img {
+	display: block;
+}
+.classes-list-item li .classes-explain {
+	padding: 20px 20px 31px 25px;
+}
+.orange {
+	color: #ff7c2d;
+}
+.mlr5 {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.classes-introduction {
+	font-size: 14px;
+}
+.classes-state {
+	font-size: 12px;
+	display: block;
+	padding-top: 20px;
+}
+.classes-list-item li:nth-child(5n) {
+	margin-right: 0;
+}
+.classes-list-item li .icon-hot {
+	width: 40px;
+	height: 24px;
+	background: url(../images/hot.png) 0 0 no-repeat;
+	position: absolute;
+	right: -5px;
+	top: 5px;
+}

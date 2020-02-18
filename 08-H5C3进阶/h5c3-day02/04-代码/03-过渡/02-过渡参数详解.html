@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 100px auto;
+      /* transition 和 background 一样, 也是一个复合属性 */
+      /*transition: all 1s;*/
+
+      /* 1. 过渡属性: transition-property,
+            设置盒子上的哪些属性变化, 添加过渡效果; 过渡属性里没有设置的属性, 不会添加过渡效果, 也就没有动画效果了
+            多个属性, 用 , 隔开
+            特殊属性值 all 表示对所有属性都添加过渡
+      */
+      /*transition-property: width, height;*/
+      /*transition-property: all;*/
+
+      /* 2. 过渡时间 transition-duration */
+      /*transition-duration: 3s;*/
+
+
+      /* 3. 过渡动画效果
+            ease 缓动  (默认值)
+            linear 匀速
+            ease-in-out 慢快慢
+            steps(步数, start/end)  默认值 end
+            start 在步数一开始就执行动画
+            end 在步数结束时, 才执行动画, 更符合我们的需求, 和过渡时间吻合
+            一般直接 steps(步数) 即可
+      */
+      /*transition-timing-function: steps(10);*/
+      /*transition-timing-function: linear;*/
+
+      /*
+        4. 过渡延迟 transition-delay
+           延迟指定时间后, 才开始执行过渡及其动画效果, 默认没有过渡延迟, 即延迟为0s
+      */
+      /*transition-delay: 2s;*/
+
+     
+      /*
+        分写属性
+        (1) transition-property 过渡属性
+        (2) transition-duration 过渡时间
+        (3) transition-timing-function 过渡效果
+        (4) transition-delay 过渡延时
+        以上四个参数, 共同作用于盒子, 不会互相冲突, 可以分开写, 也可以连写
+
+        连写属性: 连写不区分顺序, 但过渡延时需要放在过渡时间的后面, 不需要的参数可以不写, 不写就采用默认值
+        
+      */
+      transition: all 1s linear 2s;
+      transition: all 1s;
+
+      /* 过渡连写后, 可以给盒子单独添加以上4个参数, 
+            如果参数在连写中有定义, 则会覆盖合写中的这一类参数, 连写中的其他参数不会覆盖, 仍保持 保证过渡正常进行
+            如果参数在合写中没有定义, 则相当于在连写的基础上, 还添加了这一类参数, 原来连写的参数仍保持
+      */
+
+      /*
+        以上四个参数, 可以设置none, 相当于去除对应的单个属性
+        transition: none, 相当于清除盒子身上的所有过渡属性
+
+        ps: 由于过渡在盒子状态变化时, 添加了动画效果, 所以在需要实时看到效果的一些场景下, 比如拖动, 拖拽, 可能会造成延迟卡顿, 此时将过渡去除即可实时看到变化了
+
+      */
+
+      /*
+       * 多个transition连写共存时, 后面的会覆盖前面的, 若不想被覆盖, 则要将前面的transition连写里设置的参数都加上
+       * 当多个场景下同一个盒子有多个transition连写共存时, 后面的会覆盖前面的, 若不想被覆盖, 则要将前面的transition连写里设置的参数都加上 *
+
+      /* 
+        transition-property  过渡属性
+        transition-duration 过渡时间
+        transition-timing-function 过渡效果
+        transition-delay 过渡延时
+       */
+    }
+    div:hover {
+      width: 400px;
+      height: 400px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+
+<div></div>
+
+</body>
+</html>

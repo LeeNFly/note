@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button id="btn">点击按钮,清除第二个定时器</button>
+<script>
+//  setInterval  --> clearInterval
+//  setTimeout   --> clearTimeout
+//  clearInterval(定时器id)
+//  clearTimeout(定时器id)
+//  var timeid1 = setInterval(function(){
+//    console.log('第一个定时器');
+//  },2000);
+//
+//  //设置定时器的时候,就会返回这个定时器的id (数字类型) ,我们只需要申明一个变量接受一下就可以了 (设置定时器的时候就会返回定时器的id,与回调函数执行没执行没关系的)
+//  即  设置定时器 有返回值 返回值是定时器id,每个定时器的id都不同
+//  由于定时器的回调函数要等到时间到了之后才调用 而setInterval/setTimeout在执行完代码后就会产生定时器的id 所以在定时器的回调函数里一定可以拿到定时器的id
+//  定时器的回调函数是放在浏览器的任务队列里等待被调用的, 要栈空了才有可能被调用, 此时设置定时器的代码早已执行完了, 并且定时器的id早已拿到了,
+//  所以在定时器的回调函数里, 一定可以拿到定时器的id
+//    var timeid = setInterval(function(){
+//      console.log('第二个定时器');
+//    },2000);
+
+
+    var timeid2 = setTimeout(function(){
+      console.log('炸弹,炸了')
+    }, 2000);
+
+//    console.log(timeid, timeid1, timeid2);  //定时器的id,一定是一个非0的数字
+  
+  var btn = document.querySelector('#btn');
+  btn.onclick = function(){
+    //清除第二个定时器
+//      clearInterval(timeid);
+//      clearTimeout(timeid2);
+  }
+</script>
+</body>
+</html>

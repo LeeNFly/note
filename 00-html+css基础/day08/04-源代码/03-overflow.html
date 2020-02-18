@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 200px;
+			border: 1px solid #000;
+			/* 利用overflow清除浮动 */
+			overflow: hidden;
+		}
+
+		.info {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			float: left;
+		}
+
+		/* overflow：控制元素溢出后的显示方式 */
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<div class="info"></div>
+	</div>
+
+
+	<style>
+		.box1 {
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			/* overflow：控制盒子内容部分溢出后的显示方式
+				visible  直接显示 (默认值)
+				hidden  盒子内容溢出部分隐藏掉(包括定位的子元素，如果溢出，也隐藏)
+				auto 内容溢出自动产生滚动条 如果没有溢出就没有滚动条
+				scroll 不管有没有溢出  都有滚动条控件
+
+				以上盒子的内容包括在html结构中, 属于该标签内部的所有子后代标签元素
+
+				overflow: hidden 说明:
+					设置了overflow: hidden, 则
+					1) 内部的盒子, 只要超出父盒子的内容区域, 超出的部分就会被隐藏, 包括定位和浮动的内部盒子
+					2) 只是隐藏, 内部盒子的大小, 内容等均没有被改变, 还是和原来一样, 只是被隐藏了, 不显示了
+
+				注意: overflow 控制盒子内容部分溢出后的显示方式, 盒子的内容区域, 不管是默认的宽高, 还是设置了的宽高, 都生效
+		*/
+
+			
+
+			
+
+			overflow: auto;
+		}
+
+		.info1 {
+			width: 50px;
+			height: 50px;
+			background-color: lime;
+		}
+	</style>
+	<div class="box1">
+		<div class="info1">文字</div>
+	</div>
+</body>
+
+</html>

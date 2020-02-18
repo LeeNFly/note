@@ -1,0 +1,178 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+ul {
+	list-style: none;
+}
+a {
+	color: #333;
+	text-decoration: none;
+}
+a:hover {
+	color: #7ab82a;
+}
+/* 去掉input默认的边框 */
+input,
+button {
+	border: none;
+}
+/* 清除浮动公共类 */
+.clearfix::after {
+    content:'';
+    display:block;
+    clear:both;
+    height:0;
+    visibility:hidden;
+}
+.clearfix {
+    *zoom:1;
+}
+/* 版心公共类 */
+.w980 {
+	width: 980px;
+	margin: 0 auto;
+}
+
+
+/* 搜索区域 */
+.search-wrap {
+}
+.search-wrap .left {
+	width: 182px;
+	height: 63px;
+	float: left;
+	background: url(../images/logo.png) 0 center no-repeat;
+}
+/* .search-wrap .left img {
+	margin-top: 20px;
+} */
+.search-wrap .right {
+	height: 30px;
+	float: right;
+	margin-top: 17px;
+}
+.search-wrap .right input {
+	width: 170px;
+	border: 1px solid #ccc;
+	height: 28px;
+	float: left;
+	text-indent: 10px;
+}
+.search-wrap .right button {
+	width: 30px;
+	height: 30px;
+	float: left;
+	border: 1px solid #ccc;
+	background: url(../images/btn.png) 0 0 no-repeat;
+}
+
+/* 导航部分 */
+.sh-nav {
+	border-top: 1px solid #bbb;
+	border-bottom: 1px solid #bbb;
+	background: #fff url(../images/nav-bg_03.png) 0 0 repeat-x;
+}
+.sh-nav li {
+	float: left;
+	width: 130px;
+	height: 54px;
+	background-color: red;
+	text-align: center;
+	background: url(../images/nav-bd_05.png) right 0 no-repeat;
+}
+.sh-nav li a {
+	color: #222;
+	line-height: 54px;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+/* 公告区域 */
+.notice {
+	height: 29px;
+	background-color: #fbfbfb;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.notice .notice-left {
+	line-height: 29px;
+	height: 29px;
+	font-size: 12px;
+	float: left;
+}
+.notice .notice-right {
+	float: right;
+	width: 87px;
+	height: 29px;
+	background: url(../images/share_06.png) 0 center no-repeat;
+}
+/* 产品主体区域 */
+.product {
+	margin-top: 15px;
+}
+.product .item {
+	height: 224px;
+	float: left;
+	border: 1px solid #ccc;
+	margin-right: 12px;
+}
+.product .item:nth-child(1) {
+	width: 310px;
+}
+.product .item:nth-child(2) {
+	width: 372px;
+}
+.product .item:nth-child(3) {
+	width: 268px;
+	margin-right: 0;
+}
+.product .item-t {
+	height: 35px;
+	line-height: 35px;
+}
+.product .item-t span {
+	display: block;
+	height: 35px;
+	text-indent: 27px;
+	float: left;
+	background: url(../images/tip_06.png) 6px center no-repeat;
+}
+.product .item-t .more {
+	float: right;
+	margin-right: 10px;
+	font-size: 14px;
+	font-weight: 700;
+}
+.item-b .news-wrapper{
+	padding: 0 20px;
+}
+.item-b .news-wrapper li {
+	height: 27px;
+	line-height: 27px;
+	border-bottom: 1px dashed #ccc;
+	font-size: 14px;
+}
+.active a{
+	font-weight: 700;
+	color: red;
+}
+.technology {
+	padding-left: 28px;
+}
+.technology li {
+	border-left: 3px solid #98cb00;
+	text-indent: 5px;
+	margin-bottom: 10px;
+	line-height: 1;
+}
+.address,
+.tel {
+	margin-top: 30px;
+	text-indent: 30px;
+	font-size: 14px;
+}
+.tel {
+	margin-top: 5px;
+}

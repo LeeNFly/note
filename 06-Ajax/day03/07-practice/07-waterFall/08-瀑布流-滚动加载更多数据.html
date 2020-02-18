@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>封装jquery插件</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Microsoft Yahei";
+    }
+
+    .box {
+      position: relative;
+      width: 1200px;
+      margin: 0 auto;
+    }
+
+    .item {
+      width: 232px;
+      position: absolute;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .item>img {
+      width: 100%;
+      display: block;
+    }
+
+    .item>p {
+      margin: 0;
+      padding: 10px;
+      background: #eee;
+    }
+
+    .btn {
+      width: 280px;
+      height: 40px;
+      margin: 30px auto;
+      text-align: center;
+      line-height: 40px;
+      background-color: #CCC;
+      border-radius: 6px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .loading {
+      background-color: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+  </div>
+
+  <div class="btn">加载更多</div>
+
+</body>
+<script src="js/template-web.js"></script>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery.waterfall.js"></script>
+<script type="text/html" id="tpl">
+	{{ each items v i}}
+	<div class="item">
+		<img src="{{v.path}}" alt="" width="{{v.width}}" height="{{v.height}}">
+		<p>{{v.text}}</p>
+	</div>
+	{{/each}}
+</script>
+<script>
+  // jQuery.fn === jQuery.prototype  true
+  // $.fn.waterFall  就相当于给原型添加方法, 将来所有实例都能调用
+
+  // 方法调用模式, 谁调用, 里面的 this 就指向谁
+  $(function () {
+
+    var currentPage = 1;
+    var pageSize = 10;
+    var $btn = $('.btn');
+    function render() {
+      $.ajax({
+        type: 'get',
+        url: 'data.php',
+        data: {
+          page: currentPage,
+          pageSize: pageSize
+        },
+        dataType: 'json',
+        beforeSend: function () {
+          $btn.addClass('loading');
+          $btn.text('正在加载中');
+        },
+        success: function (info) {
+          var str = template('tpl', info);
+          $element = $(str);
+          console.log(info);
+          $('.box').append($element);
+          $('.box').waterfall();
+          currentPage = info.page;
+          console.log($('.item:last').offset());
+          if (info.items.length < pageSize) {
+            // 没有数据了
+            $btn.text('没有更多数据了');
+          }
+          else {
+            // 恢复按钮
+            $btn.removeClass('loading').text('加载更多');
+          }
+        },
+        error: function () {
+          alert('服务器繁忙, 稍后再试');
+        },
+      })
+    }
+    render();
+
+    $btn.click(function () {
+      if ($(this).hasClass('loading')) {
+        // 避免重复发送
+        return;
+      }
+      render();
+    })
+
+    // 当最后一个项出现在可视区内, 则发起请求加载数据
+    $(window).scroll(function () {
+      if ($btn.hasClass('loading')) {
+        // 避免重复发送
+        return;
+      }
+      var scrollTop = $(this).scrollTop(); // 浏览器垂直方向滚动的距离
+      if ($('.item:last').offset().top < scrollTop + $(this).height()) {
+        // 当最后一项距离整个页面顶部的距离 < 浏览器垂直滚动出去的距离 + 浏览器可视区的高度时, 最后一项出现在可视区, 发起ajax请求
+        render();
+      }
+
+    })
+  });
+</script>
+
+
+</html>

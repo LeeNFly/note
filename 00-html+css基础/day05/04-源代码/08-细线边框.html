@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		table {
+			border:1px solid #ccc;
+			/* 合并边框 针对的是table  添加在table身上*/
+			border-collapse: collapse;
+		}
+		td {
+			border:1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<!-- <h1>25期成绩管理系统</h1> -->
+	
+	<!-- 姓名  性别  年纪  成绩 -->
+
+
+	<!-- 
+	表格的属性：
+	cellspacing：控制的是单元格和单元格之间的距离 
+	cellpadding：控制的是单元格和内容之间的距离
+	width：控制的是表格的宽度
+	height：控制的是表格的高度
+	align：left  right center
+	-->
+
+	<!-- th  表头标签   一般用在第一行 表示一个列的标题  可以替代td -->
+	<!-- 
+		thead  表格的头部部分
+		tbody  表格的主体部分 
+	-->
+
+	<!-- caption 表格的标题  写在thead上面  渲染在表格的外面 -->
+
+	<table width="800" height="800" cellspacing="0" cellpadding="0" align="center">
+		
+		
+
+		<thead>
+			<tr>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>年纪</td>
+				<td>成绩</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>芳芳</td>
+				<td>女</td>
+				<td>18</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>飞飞</td>
+				<td>男</td>
+				<td>18</td>
+				<td>95</td>
+			</tr>
+			<tr>
+				<td>班长</td>
+				<td>男</td>
+				<td>18</td>
+				<td>99</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<script>
+//  var f1 = 8;
+//  function f1() {
+//    var f1 = 7;
+//
+//    function f1(f1) {
+//      f1 = 10;
+//      console.log(f1);
+//    }
+//
+//    f1 = f1++ + ++f1 + f1;
+//    console.log(f1);
+//  }
+//  console.log(f1);
+//  f1();
+  
+//  var divs = document.getElementsByTagName('div');
+//  divs.forEach(function(item, index, arr){
+//
+//  });
+  
+//  Array.prototype.forEach.call(divs, function(item, index, arr){
+//    console.log(item, index, arr);
+//  });
+  
+  
+//  预解析规则:
+//  1. 用var 申明的变量
+//  2. 函数申明      会预解析
+//    var fn = function(){}; //函数表达式
+//    function fn(){}  //函数申明
+//    如果预解析时,变量和函数重名了. 一定是函数覆盖变量
+  
+  function a(){}
+  var a;
+  
+  //所谓预解析实际是把申明的变量和函数,提前加载到内存中, 在代码的角度上讲就好像把申明的变量和函数,写在了最上面,所以又叫变量提升.. 实际上,变量和函数提升的时候,是有顺序的,不管你在代码中如果书写,提升时,一定是先提升变量,后提升函数,由于函数后提升,所以覆盖了变量
+  
+ 
+  
+</script>
+</body>
+</html>

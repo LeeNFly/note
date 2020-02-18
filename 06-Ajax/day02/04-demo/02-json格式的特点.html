@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    关于xml和json用于传递数据:
+      1. 前后端 各个语言有各自自己的复杂数据类型, 无法通用, 需要一个统一的数据格式, 并且前后端都可以识别解析, 这样就可以在前后端传递复杂数据类型了.
+      2. 前后端进行数据交互, 需要传递 ★ 复杂数据类型 的时候, 使用json格式 或 xml格式
+    为什么使用json格式或xml格式就可以传递复杂数据类型?
+      1. 前端有解析json格式或xml格式的方法, 各个服务器端的语言也都有解析json格式或xml格式的方法, 这样前后端都可以识别json格式或xml格式.
+      
+
+   -->
+  <script>
+    // var obj = {
+    //   name: "鹏儿",
+    //   age: 15,
+    //   desc: "帅"
+    // };
+    // // 在js中, 将 js 对象 或 数组 转换成 json字符串 : JSON.stringify( obj/arr );
+    //    ps: json字符串是一个字符串
+    // var jsonStr = JSON.stringify( obj ); 
+    // console.log( jsonStr );
+
+    // var arr = [ "张三", "李四", "王五", "赵六" ];  
+    // var arr = [{name:"鹏儿",age:15,desc:"帅"}, {name:"鹏儿",age:15,desc:"帅"}, {name:"鹏儿",age:15,desc:"帅"}];
+    console.log( JSON.stringify( arr ) );;
+      
+    // {"name":"鹏儿","age":15,"desc":"帅"}  json字符串可以是对象格式
+    // ["张三","李四","王五","赵六"]    json字符串可以是数组格式, 且数组中的元素类型任意
+    // [{"name":"鹏儿","age":15,"desc":"帅"},{"name":"鹏儿","age":15,"desc":"帅"},{"name":"鹏儿","age":15,"desc":"帅"}, "赵六"]
+
+    // json 格式的特点
+    // 1. 由键值对组成, 每个键值对通过 逗号分隔
+    // 2. 所有键名, 都要加引号, 且是双引号, 值没有要求,
+    // 3. 可以数组格式, 也可以是对象格式
+    // ps: json是字符串类型数据, 最外层也需要引号包裹, 可以用单引号(因为json字符串键名必须加双引号)
+
+  
+  </script>
+
+  
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>封装jquery插件</title>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: "Microsoft Yahei";
+	}
+	
+	.box {
+		position: relative;
+		width: 1200px;
+		margin: 0 auto;
+	}
+	
+	.item {
+		width: 232px;
+		position: absolute;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+		overflow:hidden;
+	}
+	
+	.item > img {
+		width: 100%;
+		display: block;
+	}
+	
+	.item > p {
+		margin: 0;
+		padding: 10px;
+    background: #eee;
+	}
+	
+	.btn {
+		width: 280px;
+		height: 40px;
+		margin: 30px auto;
+		text-align: center;
+		line-height: 40px;
+		background-color: #CCC;
+		border-radius: 6px;
+		font-size: 24px;
+		cursor: pointer;
+	}
+	
+	.loading {
+		background-color: transparent;
+	}
+</style>
+</head>
+
+<body>
+	<div class="box">
+		<div class="item ">
+			<img src="./images/1.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/2.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/3.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/4.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/3.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/4.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/3.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/4.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/3.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/4.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/3.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/4.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/6.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/6.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/6.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/5.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/6.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/7.jpg" alt="">
+			<p>花非花云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/8.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+		<div class="item">
+			<img src="./images/9.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，，夜半来，天明去，，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div>
+	</div>
+
+<div class="btn">加载更多</div>
+
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	
+	// 瀑布流核心思想:
+	// 	1. 用绝对定位做: 设置盒子 left 和 top: 第一行的盒子; 除了第一行以外的盒子
+	//  2. 找最小列: 声明一个数组, 存放当前每一列的总高度
+	//  3. 在最小列的位置进行追加盒子: 追加完成需要更新数组中最小列的高度
+
+  // 瀑布流具体实现
+  // 1. 获取父盒子和子盒子, 获取父盒子和子盒子的宽度
+  // 2. 计算间隙
+  // 3. 遍历子盒子, 进行设置位置 left, top
+  //    (1) 第一行
+  //    (2) 第一行以外的盒子: 需要在最小列的位置进行摆放; 需要知道 最小列的索引和值
+
+  $(function() {
+		$box = $('.box');
+		$item = $('.item');
+		boxWidth = $box.width();
+		itemWidth = $item.width();
+		columns = 5;
+		// 计算间隙
+		var space = (boxWidth - itemWidth * columns) / (columns - 1);
+		var arr = []; // 存储每列的总高度
+		$item.each(function (index, element) {
+			if (index < columns) {
+				// 第一行
+				$(this).css({
+					left: (itemWidth + space) * index,
+					top: 0
+				});
+				arr.push($(this).height()); // 处理第一行时, 初始化最小列数组
+			} else {
+				// 其他行
+				var min = arr[0];
+				var minIndex = 0;
+				for(var i = 1; i < arr.length; i++) {
+					if (min > arr[i]) {
+						min = arr[i];
+						minIndex = i;
+					}
+				}
+				$(this).css({
+					left: (itemWidth + space) * minIndex,
+					top: min + space
+				})
+				arr[minIndex] = min + space + $(this).height();
+			}
+		})
+		
+		var MaxHeight = Math.max.apply(null, arr);
+		$box.height(MaxHeight);
+  })
+
+
+</script>
+
+
+</html>

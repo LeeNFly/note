@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .father {
+            width: 300px;
+            height: 300px;
+            margin: 100px;
+            background-color: #f99;
+            position: relative;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            position: relative;
+            left: 100px;
+            top: 50px;
+        }
+
+        body {
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 原生js
+            // offsetLeft、offsetTop
+            // 有定位的父元素的距离 
+
+
+            // jq对象.offset():   用来获取jq对象中第一个元素距离 ★ 整个页面 的位置 (不是浏览器可视区)
+            //             返回一个 对象 {top: xx, left: xx}  
+            //             如: {top: 150, left: 200}   属性值是数字类型, 不带单位, 但是单位参考px
+            //             一般只能用于获取, 不能用于设置
+            console.log($(".son").offset());
+
+
+            // jq对象.position():  用来获取jq对象中第一个元素距离最近定位的父元素的位置, 若找到顶了都没有定位父元素, 则参考body
+            //             返回一个 对象 {top: xx, left: xx}
+            //             如: {top: 50, left: 100}    属性值是数字类型, 不带单位, 但是单位参考px
+            //              一般只能用于获取, 不能用于设置
+            console.log($(".son").position());
+
+            // $(window).scroll(function () {
+            //     console.log($('.father').offset())
+            // })
+        })
+    </script>
+</body>
+
+</html>

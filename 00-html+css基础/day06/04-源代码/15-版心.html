@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/* 版心公共类 */
+		.w1280 {
+			width: 1280px;
+			margin: 0 auto;
+		} 
+		header {
+			height: 60px;
+			background-color: red;
+		}
+		nav {
+			height: 30px;
+			background-color: lime;
+		}
+		section:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		aside {
+			float: left;
+			width: 580px;
+			height: 500px;
+			background-color: blue;
+		}
+		article {
+			float: right;
+			width: 700px;
+			height: 500px;
+			background-color: yellow;
+		}
+		footer {
+			height: 100px;
+			background-color: gray;
+		}
+		.banner {
+			height: 340px;
+			background: url(images/big-banner.jpg) center no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<!-- 版心：约束网页宽度的一个容器，网页的内容都在这个容器里面，并且容器都是居中 -->
+	
+	<!-- 
+	大图的使用：
+	用意：为的是整个屏幕里面都有图片显示 
+	图片本身的特点：自带版心 (设计如此)
+	
+	怎么使用：
+	不要设置版心约束，设置成背景图片 并且让背景图片居中 
+	-->
+
+	<header class="w1280"></header>
+	<nav class="w1280">
+		
+	</nav>
+	<div class="banner">
+		<!-- <img src="images/big-banner.jpg" alt=""> -->
+	</div>
+	<section class="w1280">
+		<aside></aside>
+		<article></article>
+	</section>
+	<footer class="w1280"></footer>
+</body>
+</html>

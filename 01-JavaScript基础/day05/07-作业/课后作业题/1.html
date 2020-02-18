@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //     1. 创建一个对象
+    // 	名字：张三
+    // 	年纪：18
+    // 	性别：男
+    // 	爱好：篮球
+      
+    // 	方法:
+    // 	打招呼
+    // 	打人
+    
+    // var zs = {
+    //   name:'张三',
+    //   age : 18,
+    //   gender : '男',
+    //   hobby : '篮球',
+    //   sayHi: function () {
+    //     console.log('大家好,我是' + this.name);
+    //   },
+    //   play: function () {
+    //     console.log(this.name + '正在打' + this.hobby);
+    //   }
+    // }
+    // console.log(zs);
+    // zs.sayHi();
+    // zs.play();
+    
+    // 2.  创建一类对象（英雄）
+    // 	属性：
+    // 		名字
+    // 		性别
+    // 		价格
+    // 		技能
+    // 		描述
+    // 	方法：
+    // 		移动
+    // 		攻击
+    function Hero(name,gender,price,skill,desc) {
+      this.name = name;
+      this.gender = gender;
+      this.price = price;
+      this.skill = skill;
+      this.desc = desc;
+      this.move = function () {
+        console.log(this.name + '可以移动');
+        
+      }
+      this.att = function () {
+        console.log(this.name + '可以发动攻击');
+        
+      }
+    }
+    
+    var hero = new Hero('机器人','无',998,'飞','很棒');
+    console.log(hero);
+    hero.move();
+    hero.att();
+
+
+  </script>
+</body>
+</html>

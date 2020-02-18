@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  // html5新增了可以判断用户网络状态的 api
+  // 1个属性
+  // navigator.onLine 用于判断当前用于是否联网(互联网和局域网都算), 返回布尔值
+  // (1) true 联网了, 有可能是互联网, 也有可能是局域网, 所以, true, 不一定代表能访问互联网
+  // (2) false 离线了, false, 一定没联网
+  console.log( navigator.onLine );
+
+  // 2个事件
+  // online  当用户 ★切换 到联网状态时触发, 调用该事件的事件处理函数
+  // offline 当用户 ★切换 到离线状态时触发, 调用该是加的事件处理函数
+  // 注意: 是在切换时才触发
+  // 以上2个事件都是h5新增的事件, 要用addEventListener来注册
+  // 以上两个事件, 只能给window注册才有效, 即只能给浏览器注册
+
+  window.addEventListener("online", function() {
+    console.log( "切换到联网状态了" );
+  });
+  window.addEventListener("offline", function() {
+    console.log( "切换到离线状态了" );
+  });
+
+</script>
+
+</body>
+</html>

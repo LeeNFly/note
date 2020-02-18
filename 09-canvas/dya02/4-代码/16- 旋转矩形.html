@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="800" height="500" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+    var r = 0;
+
+    //矩形动画 ：让盒子绕着自己中心点转动， 旋转旋转的是坐标系原点，
+    //要把坐标系的原点 移动到盒子中心点
+
+
+    setInterval(function () {
+        r += 5;
+        //清空
+        ctx.clearRect(0, 0, cs.width, cs.height);
+        //中心线
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.moveTo(200, 200);
+        ctx.lineTo(400, 200);
+        ctx.stroke();
+        //保存正常画布 ( 坐标轴未平移旋转时的状态 )
+        ctx.save();
+
+        ctx.translate(200, 200);
+        ctx.rotate(gr(r));
+        ctx.beginPath();
+        //矩形
+        ctx.lineWidth = 1;
+        ctx.strokeRect(-100, -100, 200, 200);
+        //旋转矩形绘制完成后，恢复到正常的画布
+        ctx.restore();
+
+    }, 50);
+
+    //获取弧度
+    function gr(deg) {
+        return deg / 180 * Math.PI;
+    }
+
+
+
+</script>
+</body>
+</html>

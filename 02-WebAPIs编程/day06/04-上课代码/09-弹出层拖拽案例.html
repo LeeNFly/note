@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .login-header {
+      width: 100%;
+      text-align: center;
+      height: 30px;
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    ul,
+    li,
+    ol,
+    dl,
+    dt,
+    dd,
+    div,
+    p,
+    span,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .login {
+      width: 512px;
+      height: 280px;
+      position: absolute;
+      border: #ebebeb solid 1px;
+      left: 50%;
+      right: 50%;
+      background: #ffffff;
+      box-shadow: 0px 0px 20px #ddd;
+      z-index: 9999;
+      margin-left: -256px;
+      margin-top: 140px;
+      display: none;
+    }
+
+    .login-title {
+      width: 100%;
+      margin: 10px 0px 0px 0px;
+      text-align: center;
+      line-height: 40px;
+      height: 40px;
+      font-size: 18px;
+      position: relative;
+      cursor: move;
+      -moz-user-select: none;
+      /*火狐*/
+      -webkit-user-select: none;
+      /*webkit浏览器*/
+      -ms-user-select: none;
+      /*IE10*/
+      -khtml-user-select: none;
+      /*早期浏览器*/
+      user-select: none;
+    }
+
+    .login-input-content {
+      margin-top: 20px;
+      -moz-user-select: none;
+      /*火狐*/
+      -webkit-user-select: none;
+      /*webkit浏览器*/
+      -ms-user-select: none;
+      /*IE10*/
+      -khtml-user-select: none;
+      /*早期浏览器*/
+      user-select: none;
+    }
+
+    .login-button {
+      width: 50%;
+      margin: 30px auto 0px auto;
+      line-height: 40px;
+      font-size: 14px;
+      border: #ebebeb 1px solid;
+      text-align: center;
+      -moz-user-select: none;
+      /*火狐*/
+      -webkit-user-select: none;
+      /*webkit浏览器*/
+      -ms-user-select: none;
+      /*IE10*/
+      -khtml-user-select: none;
+      /*早期浏览器*/
+      user-select: none;
+    }
+
+    .login-bg {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      background: #000000;
+      filter: alpha(opacity=30);
+      -moz-opacity: 0.3;
+      -khtml-opacity: 0.3;
+      opacity: 0.3;
+      display: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
+
+    .login-button a {
+      display: block;
+    }
+
+    .login-input input.list-input {
+      float: left;
+      line-height: 35px;
+      height: 35px;
+      width: 350px;
+      border: #ebebeb 1px solid;
+      text-indent: 5px;
+    }
+
+    .login-input {
+      overflow: hidden;
+      margin: 0px 0px 20px 0px;
+    }
+
+    .login-input label {
+      float: left;
+      width: 90px;
+      padding-right: 10px;
+      text-align: right;
+      line-height: 35px;
+      height: 35px;
+      font-size: 14px;
+    }
+
+    .login-title span {
+      position: absolute;
+      font-size: 12px;
+      right: -20px;
+      top: -30px;
+      background: #ffffff;
+      border: #ebebeb solid 1px;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-header">
+    <!--如果a的href属性值中.协议名是javascript. 那么点击a标签的时候,就会执行:后面的代码-->
+    <a id="link" href="javascript:;">点击，弹出登录框</a>
+  </div>
+  <div id="login" class="login">
+    <div id="title" class="login-title">登录会员
+      <span>
+        <a id="closeBtn" href="javascript:void(0);" class="close-login">关闭</a>
+      </span>
+    </div>
+    <div class="login-input-content">
+      <div class="login-input">
+        <label>用户名：</label>
+        <input type="text" placeholder="请输入用户名" name="info[username]" id="username" class="list-input">
+      </div>
+      <div class="login-input">
+        <label>登录密码：</label>
+        <input type="password" placeholder="请输入登录密码" name="info[password]" id="password" class="list-input">
+      </div>
+    </div>
+    <div id="loginBtn" class="login-button">
+      <a href="javascript:void(0);" id="login-button-submit">登录会员</a>
+    </div>
+  </div>
+  <!-- 遮盖层 -->
+  <div id="bg" class="login-bg"></div>
+
+
+</body>
+
+</html>
+<script>
+  
+  // 获取元素
+  var link = document.getElementById('link'); //点击的文字
+  var bg = document.getElementById('bg'); //遮盖层
+  var login = document.getElementById('login'); //登录框
+  var title = document.getElementById('title'); //登录框的标题
+  var closeBtn = document.getElementById('closeBtn');
+//  需求:
+//      1.点击文字,展示遮盖层和登录框
+//        1.1获取元素
+//        1.2 给link注册点击事件
+        link.onclick = function(){
+          //        1.3 在事件处理函数中,让login和bg展示出来
+          login.style.display = 'block';
+          bg.style.display = 'block';
+        }
+
+  
+//      2. 鼠标在登录框的头部按下时,可以拖动
+//      2.1 给title注册mousedown事件
+        title.onmousedown = function(e){
+//          2.4 获取鼠标在title上按下的坐标
+          var downX = e.clientX;
+          var downY = e.clientY;
+          
+//          2.6 获取鼠标按下时,login的初始位置
+          var posX = login.offsetLeft;
+          var posY = login.offsetTop;
+          
+          // 2.2 在mousedown中给document注册mousemove事件
+          document.onmousemove = function(e){
+            //2.3 获取鼠标移动的坐标
+            var x = e.clientX;
+            var y = e.clientY;
+            
+//            2.5 计算鼠标移动了多少  移动的坐标- 按下的坐标
+            var instanceX = x - downX;
+            var instanceY = y - downY;
+            
+            //2.7 计算login最终处于的位置   鼠标移动的距离 + login初始的位置
+            var targetX = instanceX + posX;
+            var targetY = instanceY + posY;
+  
+  
+            // 3. 限制登录框的位置
+//              3.1 获取最小距离和最大距离
+                var maxX = window.innerWidth - login.offsetWidth -21; //可视区的宽度 - login的宽度
+                var maxY = window.innerHeight - login.offsetHeight; //可视区的宽度 - login的宽度
+//              3.2 判断target是否小于最小距离或者大于最大距离
+                if(targetX < 0){
+                  targetX = 0;
+                }
+                if(targetY < 21){
+                  targetY = 21;
+                }
+  
+                if(targetX > maxX){
+                  targetX = maxX;
+                }
+  
+                if(targetY > maxY){
+                  targetY = maxY;
+                }
+            //由于target算出来的就是login应该处于的位置,但是在最后渲染的一瞬间,css中的margin又作用到了login的身上,导致位置发生了变化,为了抵消掉css中margin的值,所以应该在最后赋值的那一刻,把margin减掉
+            login.style.left = targetX + 256 + 'px';
+            login.style.top = targetY - 140 + 'px';
+          }
+        }
+        
+        //2.8 松手,login不在移动
+    document.onmouseup = function(){
+      document.onmousemove = null;
+    }
+
+
+  
+  
+  
+  
+ 
+
+  
+
+ 
+</script>

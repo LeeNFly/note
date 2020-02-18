@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 搞定1个
+      var arr = [2,4,8];
+      // 遍历正常个数 : i < arr.length;
+      // 遍历个数 -1次 : i < arr.length-1
+      for (var i = 0; i < arr.length-1; i++) {
+          // console.log(arr[i]);
+          
+      }
+
+      //2.交换2个变量
+      var a = 10;
+      var b = 20;
+
+      var temp = a;
+          a = b;
+          b = temp;
+
+      console.log(a,b);
+
+      //3. 把最大的值,放到最后 => 两两比较
+      // 3.1 最大的值放到最后,5次
+      var arr = [1,4,7,2,5,6];
+      for  (var i = 0; i < arr.length ; i++) {
+            if (arr[i] > arr[i+1]) {
+                // 交换值
+                var  temp = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = temp;
+            }
+      }
+      console.log(arr);
+      
+
+
+          
+
+
+    </script>
+</body>
+</html>

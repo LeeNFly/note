@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  //需求：将数组中的字符串使用-拼接成  d-c-b-a
+  //最终打印结果是d-c-b-a
+  var arr = ["a", "b", "c", "d"];
+  var str = arr[arr.length - 1]
+  for (var i = arr.length - 2; i >= 0; i--) {
+     str += '-' + arr[i];
+  }
+  console.log(str); // d-c-b-a
+  
+</script>
+
+</body>
+</html>

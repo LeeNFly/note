@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/* 	line-height 控制的文字的行与行之间的距离 
+			包含文字和间隙  真正的所处的位置是 上下各占一半（行高 - 文字的大小 / 2 ） 加上文字的大小
+			行高不太好量  所以 一般都是直接从文字的顶线量到下一行文字的顶线
+			小技巧：让单行文本垂直居中 ：让行高和容器的高度保持一致
+			ps: 行高是相对于盒子内容区域计算的, 所以让盒子内部单行文字垂直居中, 行高 = 盒子内容区域的高度
+		*/
+
+		div {
+			line-height: 100px;
+		}
+		section {
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			text-align: center;
+			line-height: 200px;
+		}
+		header {
+			line-height: 1.5;
+		}
+	</style>
+</head>
+<body>
+	<div>坐上了火车去拉萨,去看那神奇的布达拉</div>
+
+	<section>文字</section>
+
+	<header>
+		文字
+	</header>
+</body>
+</html>

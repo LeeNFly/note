@@ -1,0 +1,65 @@
+1. 类型转换
+1.1 转化为number
+- Number(值)
+- parseInt(值) parseFloat(值)
+- + / -0
+
+1.2 转化string
+- String(值)
+- 值.toString()
+- + ''  加一个空字符串
+
+1.3 转化为布尔类型 (true false)
+- Boolean 
+ - 先记转化为false 
+ - 0 '' undefined null NaN
+ - 'false' 和 false
+- !! 两次取非
+
+
+2. 流程控制
+- 顺序结构
+- 分支结构
+2.1 if语句
+- 单独的if语句  if (条件) { 条件满足执行....}
+- if..else 
+ if (条件){
+  条件满足执行
+ }else {
+   条件不满足时候执行
+ }
+- if..else if...else ....
+- if (条件1) {
+  条件1 满足
+}else if (条件2) {
+  条件2满足时执行
+}else {
+  其他时候
+}
+
+2.2 三元运算符
+结构 :  条件 ? 值1 : 值2 ;   (值1,,表达式)
+
+2.3 switch
+switch (变量) {
+  case 值1 :
+    代码1 :
+    
+  case 值2 :
+    代码2 :
+    break;
+  case 值3 :
+    代码3 :
+    break;
+  default :
+    代码4
+    break;  
+}
+
+注意 :
+1. 变量与值 比较是 全等于 (内容 + 类型)
+2. break 中止
+3. 先找case,再找到break中止
+
+
+- 循环结构 

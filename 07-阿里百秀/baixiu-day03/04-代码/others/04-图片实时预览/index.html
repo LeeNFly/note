@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <input type="file">
+  <img src="" alt="">
+
+  <script>
+    var fileInp = document.querySelector("input");
+    var img = document.querySelector("img");
+
+    // 监听文件选中
+    fileInp.onchange = function() {
+      // 获取文件对象 (图片)
+      var file = fileInp.files[0];
+      // URL.createObjectURL(文件对象) 可以创建一个路径, 指向指定的文件对象, URL是html5新增的对象
+      // 返回值: 就是文件路径, 通过这个文件路径可以访问到文件
+      // 这个文件是暂时存储在浏览器内存中的,是临时文件, 没有持久化到磁盘, 浏览器关闭就丢失.
+      var imgUrl = URL.createObjectURL( file );
+      // 设置给 img
+      img.src = imgUrl;
+    }
+
+    // URL.createObjectURL不兼容低版本浏览器
+
+  </script>
+
+
+</body>
+</html>

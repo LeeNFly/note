@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <div></div>
+    
+    <script src="./jquery-1.12.4.js"></script>
+
+    <!-- 让jq的animate支持做颜色动画 -->
+    <script src="jquery.color.js"></script>
+
+    <script>
+        // 什么是jq插件：
+        //  插件其实就是个js文件，这个js文件依 ★ 赖于jQuery，并且在jq的基础上增加了一些功能
+
+        //  扩展: 不仅仅是jq插件, 所有的插件其实都是一个js库, 就是js文件, 别人写好的js代码, 我们引入到页面执行和使用而已.
+
+        $(function(){
+            // jq提供的animate默认只支持做数字型的动画，不支持颜色的动画
+            $("div").animate({
+                left: 600,
+                backgroundColor: "#f99"
+            }, 1000)
+        })
+
+        // 使用jq插件的步骤：
+        // 1. 先引入jq (插件依赖于jq, 要先引入jq)
+        //    就是jq插件内部使用了jq, 但是自己却没有引入jq, 所以我们要先引入jq, 再引入jq插件
+        // 2. 引入jq插件
+        // 3. 使用功能
+    </script>
+</body>
+</html>

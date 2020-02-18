@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  传智的邮箱: <input type="text" id="txt"> <span id="des"></span>
+  <script>
+    //  需求: 当input失去焦点的时候,验证input中输入的是不是传智的邮箱,如果是,就展示一个绿色的字,表示通过,如果不是,则展示红色的字,提示用户
+    var input = document.getElementById('txt');
+    var des = document.getElementById('des');
+    input.onblur = function () {
+      var reg = /^\w+@itcast\.cn$/;
+      var value = this.value;
+      if (reg.test(value)) {
+        des.innerText = '格式正确';
+        des.style.color = 'green';
+      } else {
+        des.innerText = '格式不正确';
+        des.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+
+</html>

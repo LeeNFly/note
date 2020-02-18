@@ -1,0 +1,390 @@
+a, b, body, dd, del, div, dl, dt, em, form, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, label, legend, li, ol, p, pre, small, span, strong, u, ul, var, input {
+    margin: 0;
+    padding: 0;
+}
+ol,
+ul {
+    list-style: none;
+}
+img,button,input {
+    border: 0;
+}
+em, i, u {
+    font-style: normal;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    *zoom: 1;
+}
+body {
+    font: 12px/1.5 'microsoft yahei',Arial, Verdana, "\5b8b\4f53";
+    color: #666;
+}
+a {
+    color: #666;
+    text-decoration: none;
+    font-family: 'microsoft yahei';
+}
+a:hover {
+    color: #c81623;
+}
+/* 版心公共类 */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+.ml-5 {
+    margin-left: 5px;
+}
+.mr-5 {
+    margin-right: 5px;
+}
+.mt-5 {
+    margin-top: 5px;
+}
+.mb-5 {
+    margin-bottom: 5px;
+}
+.pl-5 {
+    padding-left: 5px;
+}
+.pr-5 {
+    padding-right: 5px;
+}
+.pt-5 {
+    padding-top: 5px;
+}
+.pd-5 {
+    padding-bottom: 5px;
+}
+.m-color {
+    color: #c81623;
+}
+.fz-18 {
+    font-size: 18px;
+}
+/* 解决图片下面留白的问题 */
+img {
+    vertical-align: top;
+}
+.bl-1 {
+    border-left: 1px solid #ccc;
+}
+.br-1 {
+    border-right: 1px solid #ccc;
+}
+.bt-1 {
+    border-top: 1px solid #ccc;
+}
+.bb-1 {
+    border-bottom: 1px solid #ccc;
+}
+
+
+/* 头部区域 */
+header {
+    border-bottom: 2px solid #c81623;
+}
+.header-nav {
+    /*height: 31px;*/
+    background-color: #f1f1f1;
+}
+.hd-box {
+    /*background-color: pink;*/
+    /*height: 31px;*/
+    line-height: 31px;
+}
+.hd-box .hd-box-r {
+    height: 31px;
+}
+.hd-box .hd-box-l {
+    height: 31px;
+}
+.hd-box .hd-box-r li{
+    float: left;
+}
+.hd-box .hd-box-r li.line {
+    height: 12px;
+    width: 1px;
+    background-color: #666;
+    margin: 9px 15px 0;
+}
+.hd-box .hd-box-r li span {
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+.header-main {
+    height: 105px;
+    /*background-color: pink;*/
+    position: relative;
+}
+.header-main .logo-wrapper {
+    width: 171px;
+    height: 62px;
+    background-color: lime;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    background: url(../images/logo.png) 0 0 no-repeat;
+}
+.header-main .logo-wrapper h1 {
+    font-size: 0;
+}
+.header-main .search-wrapper {
+    /*width: 547px;*/
+    /*height: 37px;*/
+    background-color: lime;
+    position: absolute;
+    top: 25px;
+    left: 346px;
+}
+.header-main .search-wrapper input {
+    width: 454px;
+    height: 32px;
+    border: 2px solid #c81623;
+    text-indent: 10px;
+}
+.header-main .search-wrapper button {
+    height: 36px;
+    width: 81px;
+    background-color: #c81623;
+    color: #fff;
+}
+.header-main .cart-wrapper {
+    width: 138px;
+    height: 34px;
+    /*background-color: lime;*/
+    position: absolute;
+    top: 25px;
+    right: 60px;
+    border: 1px solid #ccc;
+    line-height: 34px;
+    text-align: center;
+}
+.header-main .cart-wrapper:hover .cart-content {
+    display: block;
+}
+.header-main .cart-wrapper span {
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+.header-main .cart-wrapper .cart-count {
+    /*width: 16px;*/
+    /*height: 14px;*/
+    padding: 2px 4px;
+    position: absolute;
+    left: 104px;
+    top: -14px;
+    background-color: #e60012;
+    line-height: 1;
+    border-radius: 10px 10px 10px 0;
+    line-height: 16px;
+    color: #fff;
+}
+
+.header-main .cart-wrapper .cart-content {
+    width: 313px;
+    height: 200px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 34px;
+    right: -1px;
+    z-index: 1;
+    background-color: #fff;
+    display: none;
+}
+.header-main .cart-wrapper .cart-content .white-box {
+    width: 138px;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    top: -1px;
+}
+.header-main .search-hot {
+    /*width: 487px;*/
+    /*height: 33px;*/
+    /*background-color: blue;*/
+    position: absolute;
+    top: 61px;
+    left: 346px;
+}
+.header-main .search-hot {
+    padding-left: 12px;
+    /*padding-top: 8px;*/
+}
+.header-main .search-hot a {
+    float: left;
+    padding-right: 23px;
+    line-height: 30px;
+}
+.main-nav {
+    /*height: 46px;*/
+    /*background-color: pink;*/
+}
+.main-nav .main-nav-l {
+    width: 207px;
+    /*height: 46px;*/
+    background-color: #b1191a;
+    line-height: 46px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    position: relative;
+}
+.main-nav .main-nav-r {
+    padding-left: 40px;
+}
+.main-nav .main-nav-r li {
+    float: left;
+    font-size: 16px;
+    line-height: 46px;
+    padding-right: 50px;
+    position: relative;
+}
+.main-nav .main-nav-r .hot-nav{
+    padding: 3px 15px;
+    position: absolute;
+    background-color: #b1191a;
+    left: 32px;
+    top: -10px;
+    font-size: 12px;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: 10px 10px 10px 0;
+    color: #fff;
+}
+
+.main-nav .main-nav-l .classify-list {
+    background-color: #c81623;
+    width: 207px;
+    position: absolute;
+    border-left: 1px solid #c81623;
+    border-bottom: 1px solid #c81623;
+    box-sizing: border-box;
+    top: 46px;
+    display: none;
+    z-index: 2;
+}
+.main-nav .main-nav-l:hover .classify-list{
+    display: block;
+}
+
+.main-nav .main-nav-l .classify-list li {
+    height: 31px;
+    line-height: 31px;
+    text-indent: 10px;
+    text-align: left;
+    font-size: 14px;
+
+}
+.main-nav .main-nav-l .classify-list li a {
+    color: #fff
+}
+.main-nav .main-nav-l .classify-list li a .icon-arrow-right {
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 18px;
+}
+.main-nav .main-nav-l .classify-list li:hover {
+    background-color: #fff;
+}
+.main-nav .main-nav-l .classify-list li:hover a {
+    color: #c81623;
+}
+
+
+/* 底部区域 */
+footer {
+     background-color: #f5f5f5;
+     margin-top: 40px;
+}
+.f-sup {
+    border-bottom: 1px solid #ededed;
+}
+.f-sup li {
+    height: 110px;
+    width: 20%; 
+    float: left;
+    position: relative;
+}   
+.f-sup .sup-icon {
+    position: absolute;
+    width: 49px;
+    height: 49px;
+    left: 40px;
+    top: 30px;
+    background: url(../images/icons.png) -253px -3px no-repeat;
+}
+.f-sup p {
+    text-indent: 95px;
+    font-weight: 0;
+}
+.f-sup .sup-tit {
+    margin-top: 38px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.footer-m {
+    border-bottom: 1px solid #ededed;
+}
+
+.footer-m dl {
+    float: left;
+    width: 16.666%;
+    text-indent: 55px;
+}
+.footer-m dt {
+    font-size: 16px;
+}
+.footer-m dd {
+    height: 20px;
+    line-height: 20px;
+}
+
+
+.footer-m .fm-ewm {
+    height: auto;
+    margin: 5px 0 5px;
+}
+
+.footer-b {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.footer-b-t a{
+    display: inline-block;
+}
+.fb-line {
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    background-color: #666;
+    margin: 0 15px;
+    position: relative;
+    top: 2px;
+}
+
+.footer-b-b {
+    margin-top: 10px;
+    text-align: center;
+    line-height: 20px;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    // var zs = new Person('zs',18);
+    // console.log(Person.prototype.__proto__); //构造函数原型所对应的原型 => {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+    // console.log(Person.prototype.__proto__.constructor); //构造函数原型所对应的构造函数 => ƒ Object() { [native code] }  [native code]:是底层的东西,我们看不见
+
+    // // 效果同上
+    // console.log(zs.__proto__.__proto__);
+    // console.log(zs.__proto__.__proto__.constructor);
+
+    // console.log(Person.prototype.__proto__.__proto__); // null
+
+    // ==================================================
+
+    // Person.prototype.__proto__.sayHi = function () {
+    //   console.log(1);
+    // }
+
+    // var zs = new Person('zs', 18);
+    // zs.sayHi() // 1
+
+    // ===================================================
+
+    // Person.prototype.__proto__.sayHi = function () {
+    //   console.log(1);
+    // }
+
+    // Person.prototype.sayHi = function () {
+    //   console.log(2);
+    // }
+
+    // var zs = new Person('zs', 18);
+    // zs.sayHi() // 2
+
+    // ====================================================
+
+    // Person.prototype.__proto__.sayHi = function () {
+    //   console.log(1);
+    // }
+
+    // Person.prototype.sayHi = function () {
+    //   console.log(2);
+    // }
+
+    // var zs = new Person('zs', 18);
+    // zs.sayHi = function () {
+    //   console.log(0);
+    // }
+    // zs.sayHi() // 0
+
+    // ====================================================
+    // var zs = new Person('zs', 18);
+    // console.log(zs.hh); //undefined
+    // console.log(zs.hh()); //报错 => zs.hh => undefined => undefined() 报错
+
+    // console.log(zs.toString()); //[object Object] 是在构造函数对用的原型对象对应的原型中有toString()方法
+    
+    
+
+  </script>
+</body>
+
+</html>

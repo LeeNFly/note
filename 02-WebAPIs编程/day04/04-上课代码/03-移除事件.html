@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+<button id="btn">点击按钮,移除div的事件</button>
+<div id="box"></div>
+<script>
+  var box = document.getElementById('box');
+//  box.onmouseover = function(){
+  //    console.log('有个胖子叫哆啦A梦');
+  //  }
+  
+  box.addEventListener('mouseover', fn, false);
+  box.addEventListener('mouseover', fn1, false);
+  function fn(){
+    console.log('多啦a梦明天穿件蓝色的衣服');
+  }
+
+  function fn1(){
+    console.log('啊哈哈哈哈');
+  }
+  
+  var btn = document.getElementById('btn');
+  btn.onclick = function(){
+    //移除box的鼠标移入的事件
+    //1. 如果注册事件时使用的是元素.on + 事件名 方式注册,则移除事件使用 元素.on + 事件名 = null,即可移除事件
+//    box.onmouseover = null;
+    //2. addEventListener对应移除事件的方法是 元素.removeEventListener ('事件名',函数,布尔值)
+    box.removeEventListener('mouseover', fn, false);
+//    注意: 如果我们后面要移除事件,那么在使用addEventListener注册的时候,第二个参数就不要使用匿名函数的方式,使用方式2注册, 将事件处理函数外提
+//          因为addEventListener可以多次注册同类型事件,所以同一类型事件可能有好几个事件处理函数,第二个参数是要移除这类事件中的哪一个事件处理函数
+//          比如上述,通过addEventListener给box同事注册了2次鼠标移入事件,对应2个事件处理函数fn,fn1。此时触发事件,控制台输出:
+//          多啦a梦明天穿件蓝色的衣服
+//          啊哈哈哈哈
+//          然后通过上面的代码,移除了mouseover事件的事件处理函数fn,此时mouseover的事件处理函数只剩下fn1,这是再触发mouseover事件,控制台输出
+//          啊哈哈哈哈
+//          第三个参数,和注册时保持一致
+
+  }
+</script>
+</body>
+</html>

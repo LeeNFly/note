@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- action method name -->
+
+  <!-- 
+    radio 
+    1. 指定name, 可以用于提交, 还可以用于分组 (让单选框互斥)
+       没有设置value值, 提交的值为 on
+       gender=on
+       
+    2. 需要指定 value 值
+  -->
+
+  <form action="get.php" method="get">
+
+    <input type="radio" name="gender" value="man"> 男
+    <input type="radio" name="gender" value="female"> 女
+
+    <input type="submit">
+
+  </form>
+  
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text"><br>
+<input type="text"><br>
+<input type="button" value="我是按钮"><br>
+<input type="text"><br>
+<button>点击按钮禁用文本框</button>
+
+<script>
+  //需求: 点击button按钮,禁用 文本框 input type ="text"
+  //1. 获取元素
+    var btn = document.getElementsByTagName('button')[0];
+    var inputs = document.getElementsByTagName('input');
+//  2. 给button注册点击事件
+    btn.onclick = function(){
+      //  3. 在事件处理函数中,找到对应的文本框,在给文本框禁用
+//      3.1 找到文本框
+      for(var i = 0; i < inputs.length; i++) {
+        if(inputs[i].type === 'text'){ //工作中,一般判断字符串是否相等要使用全等===运算符 用==也可以
+          //证明此时的inputs[i]一定是文本框
+          //      3.2 禁用文本框
+          inputs[i].disabled = true;
+        }
+      }
+
+    }
+
+  
+  
+  
+
+</script>
+</body>
+</html>

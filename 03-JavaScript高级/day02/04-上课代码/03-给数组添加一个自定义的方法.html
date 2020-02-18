@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 小测试: 给数组添加一个我们自己定义的方法
+        // 我们想要给数组添加一个方法,这个方法希望可以被所有的数组实例使用
+        // ,我们应该把这个方法添加到Array的原型上
+        var arr = [1,14,2,13,18];
+        // console.log(arr.sort(function(a,b){
+        //         return a - b;
+        // }));
+
+        Array.prototype.mySort = function(){
+            //  对象查找属性规则,若属性值为函数的,函数中的this与之前一样 谁调用this所在的函数,this就指向谁 
+            // this 谁调用this所在的函数 this就指向谁
+
+             for(var i = 0; i < this.length - 1; i++){
+
+                 for(var j = 0; j < this.length - 1 - i; j++){
+
+                        if(this[j] > this[j + 1]){
+                            var temp = this[j];
+                            this[j] = this[j + 1];
+                            this[j + 1] = temp;
+                        }
+                 }
+             }   
+             //想要返回结果
+             return this;
+            // console.log(this);
+        }
+
+        console.log(arr.mySort());
+        console.log(arr);
+        </script>

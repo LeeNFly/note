@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script src="require.js"></script>
+  <script>
+    
+    // 方式1: 通过相对或者绝对路径进行引入
+    // require(['./js/one/two/three/four/zidongqiaodama', './js/one/two/three/five/zidongzhaobug'], function() {
+    //   console.log( "模块加载完成" );
+    // })
+    
+
+    // 方式2: 配置公共路径 data-main
+    // require(['./four/zidongqiaodama', './five/zidongzhaobug'], function() {
+    //   console.log( '模块加载完成' )
+    // })
+
+
+    // 方式3: 配置 config, 来配置公共路径, 还可以配置别名
+    require.config({
+      // 指定基础公共路径, 配置了公共路径后, 所有的路径访问都会先加上 baseUrl
+      // 真实的路径 = baseUrl + 配置的路径
+      baseUrl: './js/one/two/three/', // 最后一个/不能省略, 代表的是在目录下, 
+      // baseUrl可以使用相对路径, 也可以使用绝对路径, 一般在项目中使用绝对路径配置baseUrl
+      // 配置别名  paths
+      paths: {
+        // 自己起的模块名, 别名, 一般推荐使用相对路径, 且不要带.js文件后缀, 
+        // 真实路径 = baseUrl + 配置的路径
+        code: './four/zidongqiaodama',
+        bug: './five/zidongzhaobug'
+      }
+    });
+
+    // require(['/four/zidongqiaodama', '/five/zidongzhaobug'], function() {
+    //   console.log( '模块加载完成' )
+    // })
+
+    // require(['code', 'bug'], function() {
+    //   console.log( '模块加载完成' )
+    // })
+
+
+
+    // 使用 config 配置注意点: 
+    // 1. 只要使用 config 进行配置路径, 就不要给模块路径加上 .js 后缀, 一旦加上会无视 baseUrl 的配置
+    // 2. 如果是绝对路径, 也无视 baseUrl 配置, 直接以绝对路径读取, 需要加 .js
+    // 3. 如果 是网络路径, http://,  https://  都直接按照路径进行读取
+
+    // require.config配置的几点说明:
+    // 1. 使用require.config进行配置路径, 则所有的路径配置就不要加上.js后缀了
+    // 2. require.config配置的是模块化requirejs的全局配置, 即和此require有关系的所有模块, 都可以使用里面的config配置,
+    //    包括通过require加载的模块, 以及加载模块的定义中的依赖项, 等等, 都可以使用require.config里的配置, 
+    // 3. 使用require加载的模块, 以及加载模块中定义的依赖项, 都可以使用require.config里的配置, 具体说明:
+    //    1) 所有的路径都以baseUrl开头
+    //    2) 所有的模块, 依赖项 都可以使用require.config里配置的'别名'进行依赖项, 模块的引入
+  
+  </script>
+  
+</body>
+</html>

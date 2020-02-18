@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- 过渡和动画的区别:
+       1. 过渡也能实现动画效果, 但过渡必须触发，需要两个状态的改变。
+       2. 动画可以一直运行下去，不需要触发。实现效果与过渡差不多
+
+  -->
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      border: 10px solid blue;
+      margin: 100px auto;
+      /* 使用动画, 给盒子使用动画 */
+      /* animation: 动画名称 动画时间 动画次数 */
+      /* 动画名称, 就是我们定义的动画 */
+      /* 默认动画执行完毕后, 然后瞬间回到盒子的初始状态 */
+      /* 动画次数默认一次, infinite 无限次 */
+      animation: play 2s infinite;
+    }
+    /* 使用动画
+       1. 声明动画序列 (声明动画写在style中)
+       2. 使用动画
+       动画一次声明, 可以多次使用
+       动画声明不会自动执行, 需要使用动画, 动画才会执行
+    */
+    /* 声明动画序列  动画在style标签中声明, 且动画的声明也会自动进行提前, 所以动画也可以写style的在后面*/
+    /* @keyframes 动画名称 { ... }
+       from to  从哪个状态到哪个状态
+       from to 只能设置两个状态的变化, 满足不了复杂动画的要求, 
+       复杂使用 百分比, 0% ~ ... ~  100%, 每个百分比都是一个状态, 多个状态变化需要使用百分比
+       from to 就相当于 0% ~ 100% 两个状态
+       ★★★ 动画就是给从一个状态 变换到 另外一个状态的过程添加动画效果
+    */
+    @keyframes zhuan {
+      from {
+        width: 200px;
+        height: 200px;
+        transform: rotate(0deg);
+      }
+      to {
+        width: 300px;
+        height: 300px;
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes play {
+      0% {
+        width: 200px;
+        height: 200px;
+      }
+      50% {
+        width: 400px;
+        height: 200px;
+      }
+      100% {
+        width: 400px;
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div></div>
+
+</body>
+</html>

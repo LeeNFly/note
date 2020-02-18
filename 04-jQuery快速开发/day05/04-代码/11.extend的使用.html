@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // extend:  拓展
+
+        var obj = {
+            name: "玮玮",
+            age: 18
+        };
+
+        // obj.name
+
+        var obj2 = {
+            height: 170,
+            color: "yellow"
+        };
+
+        var obj3 = {
+            weight: 50,
+            hasBf: true
+        }
+
+        // 把obj2里面的属性添加到obj里面
+        // 遍历
+        /*for(var k in obj2){
+            // 添加到obj里面去
+            // obj[k]  ==>   给obj添加属性
+            // obj2[k]   ==>   获取到对应属性的值
+            obj[k] = obj2[k];
+        }
+        for(var k in obj3){
+            obj[k] = obj3[k];
+        }*/
+
+        // 给obj这个对象添加extend
+        obj.extend = function(o){
+            for(var k in o){
+                console.log(o.k);
+                console.log(o[k]);
+                this[k] = o[k];
+            }
+        }
+
+        obj.extend(obj2);
+        obj.extend(obj3);
+        console.log(obj);
+        
+
+        // jq中提供了和上面一样的方法
+        // $.extend(obj1, obj2); 相当于上面的  obj1.extend(obj2);
+
+    </script>
+</body>
+</html>

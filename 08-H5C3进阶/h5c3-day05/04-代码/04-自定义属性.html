@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!-- 自定义属性必须以data- 开头 -->
+<div data-name="box" data-id="10" data-color="black">我是商品</div>
+
+<script>
+  // 早期, 我们都是通过 getAttribute setAttribute 来操作标签的自定义属性的
+  // 一旦操作的数据量大了会很不方便
+
+  // html5 新增一个操作自定义属性的 dataset 对象
+  var div = document.querySelector("div");
+  // 解决, 在h5中可以通过dom元素的dataset属性来操作 标签上 以data-开头的属性
+  // 直接通过 dom元素.dataset 可以来操作(获取,设置)元素标签上 所有 以 ★ data-开头的(自定义)属性, ★★★ dataset是用来操作页面标签上以data-开头的标签属性的
+  // 假设元素标签中有一个data-开头的属性, 结构为data-attrName="attrValue";
+  //  dom元素.dataset, 返回的是一个 js对象, 存储了该元素标签上的所有以 ★ data-开头的属性, 对象中属性名为attrName (省略了data-), 属性值attrValue, 即为对应标签属性的属性值
+
+  //  比如: <div data-name="box" data-id="10" data-color="black">我是商品</div>
+  //  则该div的dataset为 {name: 'box', id: '10', color: 'black' }
+
+  // ★ 将来我们通过操作dataset这个 对象 , 就可以来操作页面标签中以data-开头的自定义属性了
+  // ★ data-开头的标签自定义属性, 是不区分大小写的, 推荐小写
+
+  // 1. 获取元素标签中以data-开头的自定义属性属性值
+  //    如标签上的属性 data-attrName="attrValue" ->  通过dom元素.dataset.attrName (省略data-) 来获取属性值attrValue, 得到的属性值是一个字符串
+
+  console.log(div.dataset.id);
+  console.log(div.dataset['id']);
+
+  // 2. 设置添加data-开头的自定义属性, 直接操作 dom.dataset 对象即可
+  //    dom元素.dataset.属性名 = '属性值';
+  //    如果dom元素标签里存在data-属性名的标签属性, 则修改该属性的属性值
+  //    如果dom元素标签里不存在data-属性名的标签属性, 则添加data-属性名属性到元素标签上, 值为属性值
+  div.dataset.id = 20;  // 设置操作
+  div.dataset.price = 998; // 添加操作
+
+  // 在jq中, 通过 jq对象.data('data-之后的key'), 可以设置/获取 标签中的data-开头的自定义属性
+
+</script>
+
+</body>
+</html>

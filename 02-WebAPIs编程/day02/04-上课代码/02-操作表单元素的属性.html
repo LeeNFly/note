@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text" value="123" >
+<input type="button" value="按钮" >
+<script>
+   // 通过操作元素的属性,来操作页面上标签的属性
+   // 取值: 元素.属性名 
+   // 赋值/修改/添加: 元素.属性名 = 值 (一般值为字符串) (不存在就设置, 存在就修改)
+//  value
+//  ps: 表单标签中, 只要是能输入内容的, 获取和设置输入的内容都是通过表单元素的value属性, 且value属性值是字符串, 且和输入的内容一一对应, 默认值为'', 空串, 因为初始的时候输入框中什么内容都没有
+//  ps: 表单标签 输入框的值 始终 与 表单元素的value属性值自动保持一致, value属性值会随着输入框的内容变化而自动改变; 也可以通过设置表单元素的value属性的属性值, 来改变输入框中的内容.
+//  ps: 表单标签中输入框中的值(内容), 一定是一个字符串, 获取输入框的value值, 得到的一定是字符串
+  var input = document.querySelector('input');
+  var btn = document.querySelectorAll('input')[1];
+//console.log(input.value);
+//  input.value = '456';
+  
+  //type
+//console.log(input.type);
+//console.log(btn.type);
+//
+//  input.type = 'button';
+//  btn.type = 'text';
+  
+  //disabled  禁用
+//    在html中只需要写属性名的属性 (属性名="属性值" => 简写为属性值,比如selected checked disabled readonly),在js中通过布尔值true/false来控制,获取的属性值也是布尔值 true/false
+//    如果赋值为true,就是相当于在标签中写了这个属性
+//    如果赋值为false,就是相当于在标签中没写这个属性
+//  btn.onclick = function(){
+//    input.disabled = false;
+//  }
+//
+//获取只要写属性名的属性:
+// console.log(input.disabled); // 有这个属性 或 有 属性名="属性值"  => 返回布尔值 true / 没有这个属性或 没有 属性名="属性值" =>返回 布尔值 false 
+// console.log(typeof input.disabled); // boolean
+
+// selected/checked/readonly 同 disabled 一样
+</script>
+</body>
+</html>

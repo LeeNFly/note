@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="800" height="500" style="border: 1px solid red;"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+
+        var size = 20; // 坐标轴距离画布的距离
+
+        // x轴
+        ctx.moveTo(size, cs.height - size);
+        ctx.lineTo(cs.width - size, cs.height - size);
+        // 轴点
+        ctx.moveTo(cs.width - size - 7, cs.height - size - 7);
+        ctx.lineTo(cs.width - size, cs.height - size);
+        ctx.lineTo(cs.width - size - 7, cs.height - size + 7);
+        ctx.lineTo(cs.width - size - 7, cs.height - size + 7);
+        // y轴
+        ctx.moveTo(size, cs.height - size);
+        ctx.lineTo(size, size);
+        // 轴点
+        ctx.moveTo(size + 7, size + 7);
+        ctx.lineTo(size, size);
+        ctx.lineTo(size - 7, size + 7);
+
+        var points = [
+            {x: 0 , y: 0},
+            {x: 100 , y: 150},
+            {x: 200 , y: 50},
+            {x: 300 , y: 250},
+            {x: 400 , y: 200},
+            {x: 500 , y: 350},
+            {x: 600 , y: 300},
+            {x: 700 , y: 400},
+        ];
+        // 折线
+        ctx.moveTo(size, cs.height - size);
+        points.forEach(function (v, i) {
+            // 在画布中x坐标 = size + v.x
+            // 在画布中y坐标 = cs.height - size - v.y
+            ctx.lineTo(v.x + size, cs.height - size - v.y);
+        });
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

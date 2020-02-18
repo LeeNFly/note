@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      var arr = [5,3,4,2,1];
+      // 1 2 3 4 5
+
+       //1. 先来两个for循环
+       //2. -1 -1 -i
+       // 确定最大个数的, 5个值, 确定4个就可以了
+       for (var i = 0; i < arr.length-1 ; i++) {
+
+         // 5个数 ,4次
+         // -i; 
+         for (var j = 0; j < arr.length-1-i; j++) {
+
+            if (arr[j] > arr[j+1]) {
+
+                var temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+
+            }
+         }
+       } 
+
+       console.log(arr);
+       
+
+
+    </script>
+</body>
+</html>

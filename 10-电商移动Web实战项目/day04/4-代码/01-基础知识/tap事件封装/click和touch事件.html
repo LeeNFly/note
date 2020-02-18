@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            /* width: 200px; */
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        
+        //  在移动端 触屏之后，会优先触发touch事件， 在300ms之后会触发click事件
+        //  在移动端点击事件会有性能问题；
+        //  移动端优化点击事件：
+        //    给元素绑定touch事件, 在touch事件中 去执行点击事件的逻辑代码， 需要判断用户的行为是点击事件才行；
+        //    touch中判断是点击事件条件：
+        //     1. 触屏开始 到触屏结束， 手指没有在屏幕上移动
+        //     2. 触屏的时间比较短  小于150ms
+
+        // 以上问题只有移动端有, pc端没有
+        var box = document.querySelector('.box');
+
+        //点击事件
+        // box.addEventListener('click', function () {
+        //     console.log('再点我一下试试');
+        // })
+
+        // 通过touch事件来优化点击事件, 我们称为tap事件,
+        // 移动端本身是没有tap事件的, tap事件是我们通过touch事件进行封装出来的
+        // pc端没有touch事件, 所以也就无法使用封装出来的tap事件
+
+        var  isMove = false;
+        var  startTime = 0;
+
+        //触屏
+        box.addEventListener('touchstart',function () {
+            console.log('触屏开始');
+            startTime = Date.now();  //获取系统当前时间戳  
+            console.log(startTime);
+        })
+
+        box.addEventListener('touchmove',function () {
+            console.log('触屏移动');   
+            isMove = true;         
+        })
+
+        box.addEventListener('touchend',function () {
+            console.log('触屏结束');     
+            var distance = Date.now() - startTime;
+            console.log(distance);       
+
+            //判断
+            if(!isMove && distance < 150) {
+                console.log('触发点击事件');
+            }
+        })
+    </script>
+</body>
+</html>

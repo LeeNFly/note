@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script src="zepto/zepto.js"></script>
+    <!-- 事件模块 -->
+    <script src="zepto/event.js"></script>
+    <!-- 触屏模块 -->
+    <script src="zepto/touch.js"></script>
+    <script>
+        $(function (){
+            $('.box').on('tap', function () {
+                console.log('点击事件触发');                
+            })
+            // //滑动事件
+            // $('.box').on('swipe', function () {
+            //     console.log('滑动了，不管方向');
+            // })
+
+            //左滑
+            $('.box').on('swipeLeft', function (e) {
+                console.log('左滑');
+                console.log(e);                
+            })
+
+            //右滑
+            $('.box').on('swipeRight', function () {
+                console.log('右滑');
+            })
+
+            //上滑
+            $('.box').on('swipeUp', function () {
+                console.log('上滑');
+            })
+
+            //下滑
+            $('.box').on('swipeDown', function () {
+                console.log('下滑');
+            })
+        })
+    </script>
+
+</body>
+</html>

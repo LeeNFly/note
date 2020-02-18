@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<link rel="stylesheet" href="css/index.css">-->
+    <style>
+        img {
+            display: block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .big img {
+            position: absolute;
+
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="small" id="small">
+            <img src="images/small.jpg" width="350" alt="" />
+            <div class="mask" id="mask"></div>
+        </div>
+        <div class="big" id="big">
+            <img src="images/big.jpg" width="800" alt="" id="img" />
+        </div>
+    </div>
+</body>
+
+
+<script>
+    var small = document.querySelector('#small');
+    var mask = document.querySelector('#mask');
+    var big = document.querySelector('#big');
+    var box = document.querySelector('#box');
+    var img = document.querySelector('#img')
+    // 需求1: 鼠标移入小盒子,黄色框和大盒子显示;鼠标移出小盒子,黄色框和大盒子消失
+
+    small.onmouseenter = function () {
+        mask.style.display = 'block';
+        big.style.display = 'block';
+    }
+    small.onmouseleave = function () {
+        mask.style.display = 'none';
+        big.style.display = 'none';
+    }
+
+    // 需求2: 黄色盒子在小盒子范围内移动,鼠标在黄色盒子中间
+    small.onmousemove = function (e) {
+        // 获取鼠标移动时的在浏览器可视区内的坐标
+        var mouseX = e.clientX;
+        var mouseY = e.clientY;
+        // 获取黄色盒子mask在浏览器可视区的起始坐标 => 获取小盒子small在浏览器可视区的起始坐标
+        // 注意,small小盒子的父定位元素 是box,box的父定位元素才是body =>获取box在浏览器可视区的起始坐标
+        var posX = box.offsetLeft;
+        var posY = box.offsetTop;
+        // 2.1 鼠标移动时的坐标 - 黄色盒子mask的起始坐标 = 黄色盒子mask应该移动的距离
+        // mask的最近父定位元素是small
+        targetX = mouseX - posX; // => mask距small左边距离
+        targetY = mouseY - posY; // => mask距small顶部距离
+        // 2.2 让鼠标在黄色盒子mask中间 , 让黄色盒子向左，向上走自身宽度的一半  => 让left 和 top 少走一些
+        targetX -= mask.offsetWidth / 2;  // => mask距small左边距离 => mask移动的水平距离
+        targetY -= mask.offsetHeight / 2; // => mask距small顶部距离 => mask移动的垂直距离
+
+        // 2.3 限制黄色盒子不能超出小盒子
+        maxX = small.offsetWidth - mask.offsetWidth;
+        maxY = small.offsetHeight - mask.offsetHeight;
+
+        targetX = targetX < 0 ? 0 : targetX;
+        targetX = targetX > maxX ? maxX : targetX;
+        targetY = targetY < 0 ? 0 : targetY;
+        targetY = targetY > maxY ? maxY : targetY;
+
+        // targetX : 黄色盒子mask移动的水平距离  targetY 黄色盒子mask移动的垂直
+
+        mask.style.left = targetX + 'px';
+        mask.style.top = targetY + 'px';
+
+        // 需求3: 黄色盒子移动带哪,大盒子的图片展示到哪
+        // 公式:黄色盒子移动的距离 / 黄色盒子移动的最大距离 = 大盒子图片移动的距离 / 大盒子图片移动的最大距离
+        // 大盒子图片移动的距离 =  黄色盒子移动的距离 / 黄色盒子移动的最大距离  *   大盒子图片移动的最大距离
+
+        // 大盒子图片移动的最大距离
+        var imgMaxX = img.offsetWidth - big.offsetWidth;
+        var imgMaxY = img.offsetHeight - big.offsetHeight;
+        var targetImgX = targetX / maxX * imgMaxX;
+        var targetImgY = targetY / maxY * imgMaxY;
+        
+        console.log(-targetImgX);
+        console.log(typeof -targetImgX);
+        
+        
+        img.style.left = -targetImgX + 'px';
+        img.style.top = -targetImgY + 'px';
+
+    }
+</script>
+
+</html>

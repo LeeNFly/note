@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: #f99;
+        }
+        p{
+            padding: 10px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <button id="created">点击创建p元素，添加到div内</button>
+    
+    <div>
+        <p>这是div内的p元素</p>
+    </div>
+    <br>    
+    <br>    
+    <br>    
+    <br>    
+    <button id="unbind">解绑元素的事件</button>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // 对于动态创建出来的元素，还是需要注册事件委托
+            // 事件是注册给了父元素，但是只能有指定的子元素才能触发
+            $("div").on("click", "p", function(e){
+                console.log("这是使用on方式注册的click 事件委托");
+
+                // 阻止这个事件冒泡
+                e.stopPropagation();
+            });
+
+            $("p").on("click", function(){
+                console.log("这是p元素自身的click 事件");
+            })
+
+            $("p").on("mouseenter", function(){
+                console.log("这是p元素自身的 mouseenter 事件");
+            })
+
+            /*$("div").on("click", function(){
+                console.log("这是div自己本身的click事件");
+            })*/
+
+            // 创建p元素
+            $("#created").click(function(){
+                // 创建p元素
+                $("<p>这是创建的p元素</p>").appendTo("div");
+            })
+
+            
+            //使用off方法来解绑事件
+            $("#unbind").click(function(){
+                // jq对象.off();   把jq对象中所有元素的所有事件都解绑了
+                // $("div").off();
+
+                // jq对象.off(type); 
+                // type, 事件名字符串
+                // 将jq对象中所有元素的指定事件类型下注册的所有事件解绑
+                
+                // $("p").off("mouseenter");
+                
+                // jq对象.off('事件名', '选择器');
+                // 解绑jq对象中所有元素下的满足选择器的子元素的该类型事件的事件委托
+                
+                // 注意: 解绑事件委托, 是给父元素解绑, 只会解绑父元素的事件委托, 不会解绑子元素本身的同类型事件, 也不会解绑父元素本身非事件委托的相同类型事件
+                
+                // 解绑p的事件委托，p自己本身还保留
+                $("div").off("click", "p");
+            })
+        })
+    </script>
+</body>
+</html>

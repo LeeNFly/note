@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: #f91;
+      float: left;
+      margin-right: 100px;
+      border-radius: 50%;
+    }
+    div:first-child {
+      /* 径向渐变
+         background-image: radial-gradient( 半径 at 圆心位置, 颜色 范围, 颜色 范围 )
+      */
+      background-image: radial-gradient(
+          100px at 50px 50px,
+          rgba(0,0,0,0),
+          rgba(0,0,0,0.6)
+      );
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+<div></div>
+<div></div>
+
+</body>
+</html>

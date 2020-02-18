@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+    iscroll   触屏滚动效果, 没有滚动条
+    在外层容器overflow: hidden的情况下, 触屏滚动, 没有滚动条
+
+    参考文档: http://caibaojian.com/iscroll-5/gettingstart.html
+
+    使用思路:
+    1. 外层容器高度固定 overflow: hidden;
+    2. 里层用一个容器装着, 高度由内容撑开, 很长很长, 用于触屏滚动
+    3. new IScroll('.content-right'); 选择到外层高度固定的那个元素
+
+    如:
+        <div id="wrapper">
+            <ul>
+                <li>...</li>
+                <li>...</li>
+                ...
+            </ul>
+        </div>
+
+        <div id="wrapper"> 外层容器高度固定
+            <div>   里层容器高度默认撑开, 很长很长
+                ...   内容部分..
+            </div>
+        </div>
+--</body>
+</html>

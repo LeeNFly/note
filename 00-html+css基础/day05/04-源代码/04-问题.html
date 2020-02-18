@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    
+    /* 当多个标签作用上同一个标签的时候  那么就需要比较权重 */
+	
+	/* 权重针对选择器，而且只有渲染冲突时，才比较权重 */
+	
+	/* 并集选择器，各个选择器间权重相互独立，不叠加 */
+    #test1 {  /* 0,1,0,0 */
+        color: red;
+    }
+
+    #test .son {  /* 0,1,1,0 */
+        color: green;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="test">
+        <div class="son" id="test1">试问我这段文字的颜色</div>
+    </div>
+</body>
+
+</html>

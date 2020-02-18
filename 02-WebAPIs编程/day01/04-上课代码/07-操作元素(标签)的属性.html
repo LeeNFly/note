@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id='box'>
+  哈哈哈哈哈
+  <span>span的文本</span>
+</div>
+<!--<img src="images/1.jpg" alt="" title="哈哈" id="img">-->
+<input type="text" value='哈哈哈'>
+<script>
+  var img = document.getElementById('img');
+   // 通过操作元素的 ★属性 ,来操作页面上 ★ 标签 的属性
+   // 在JS中,元素就算标签 , 标签的属性 就算元素的属性
+   // 在JS中 元素 就是 标签
+   // 获取元素的属性值  (W3C中的标准标签属性)
+   // 元素.属性名  返回元素对应标签中标签属性的值 (一般都是字符串)
+   // 如果是有 -符号 的属性,在js中要改成驼峰命名法 (因为-不符合变量的命名规则)
+//  console.log(img.src);
+  //  console.log(img.title);
+  //  console.log(img.id);
+  //
+  //  修改/赋值(设置)/添加 元素的属性  (W3C中的标准标签属性) => 设置页面上标签的属性值
+  //  元素.属性名 = 值   (值一般都是字符串)
+  //  不会影响元素(标签)中的其他属性, 对于相同属性,后设置的值会覆盖之前设置的值
+  //  如果是有 -符号 的属性,在js中要改成驼峰命名法 (因为-不符合变量的命名规则)
+  
+  //  img.src = 'images/2.jpg';
+  //  img.title = '呵呵';
+  //  img.id = 'img1111'
+  
+//innerText 和 innerHTML 属性
+//  innerText  获取/操作/设置 元素(标签) 里面( ★ 内部) 的 所有 内容 (不会识别标签, 会把标签当作文本原样显示)
+//  innerHTML  获取/操作/设置 元素(标签) 里面( ★ 内部) 的 所有 内容 (会识别字符串中所有的html标签, 及标签的html结构, 以及标签的嵌套, 并列关系, (最外层可以是并列的多个标签, 也可以是嵌套标签), 及标签上的属性,标签里的内容,标签和文本, 可以识别多个标签及标签的嵌套关系, 把标签渲染出来)
+
+//  共同点: 都会覆盖原来的内容 (都会把标签内部原来的所有 内容 都覆盖了)
+//  注意: innerText , innerHTML 一般用来操作双标签
+  
+ var box = document.getElementById('box');
+ console.log(box.innerText); //哈哈哈哈哈 span的文本 => 返回元素里面 所有 的 文本 (包括子后代的文本)  , 不包括标签  返回的结果是字符串
+
+ // 
+ // 哈哈哈哈哈
+ // <span>span的文本</span>
+ console.log(box.innerHTML); //返回元素里面 所有 的 内容 (包括子后代,标签嵌套的所有内容都会获取), 包括标签  返回的结果是字符串
+  
+//  box.innerText = '我是动态加的内容<p>p的内容</p>'; //值是字符串,不会识别标签 把标签也直接当作文本了
+//  box.innerHTML = '我是动态加的内容<p>p的内容</p>';  //值是字符串,会识别字符串中所有的html标签及标签上的属性,标签里的内容,把标签直接渲染出来, 可以识别多个标签及标签的嵌套关系
+  
+//  var input = document.getElementsByTagName('input');
+//  console.log(input[0].innerText); // ''
+//  console.log(input[0].innerHTML); // ''
+//  console.log(input[0].value); // 哈哈哈
+
+
+</script>
+</body>
+</html>

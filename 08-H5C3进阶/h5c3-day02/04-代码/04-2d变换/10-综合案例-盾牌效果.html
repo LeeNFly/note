@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    body {
+      background-color: #008000;
+    }
+
+    div {
+      width: 440px;
+      margin: 100px auto;
+    }
+    div img {
+      transition: all 1s;
+    }
+  </style>
+</head>
+<body>
+
+<input type="button" value="打散">
+<input type="button" value="合并">
+
+<div>
+  <img src="./images/shield_1_01.png" alt="">
+  <img src="./images/shield_1_02.png" alt="">
+  <img src="./images/shield_1_03.png" alt="">
+  <img src="./images/shield_1_04.png" alt="">
+  <img src="./images/shield_1_05.png" alt="">
+  <img src="./images/shield_1_06.png" alt="">
+  <img src="./images/shield_1_07.png" alt="">
+  <img src="./images/shield_1_08.png" alt="">
+  <img src="./images/shield_1_09.png" alt="">
+</div>
+
+<script>
+  var btn1 = document.querySelectorAll("input")[0];
+  var btn2 = document.querySelectorAll("input")[1];
+  var imgs = document.querySelectorAll("img");
+
+  // 功能需求:
+  // 1. 打散 = 随机位移 + 旋转
+  // 2. 合并 = 恢复位置
+
+  // 打散
+  btn1.onclick = function() {
+
+    // 遍历每个 img, 生成随机角度和位置, 进行偏移
+    imgs.forEach(function( v, i ) {
+      // 打散 = 随机位移(x,y) + 旋转(角度)
+      // 随机角度, 0-360
+      var randDeg = Math.random() * 360;
+      // 随机位移x, -400~400
+      var randX = Math.random() * 800 - 400;
+      // 随机位移y, -200~200
+      var randY = Math.random() * 400 - 200;
+      
+      // 设置给图片
+      v.style.transform = "translate("+randX+"px, "+randY+"px) rotate("+ randDeg +"deg)";
+    })
+  }
+
+  // 合并
+  btn2.onclick = function() {
+    // 遍历所有的图片, 让所有的图片恢复位置
+    // transform: none;
+    imgs.forEach(function( v, i ) {
+      v.style.transform = "none";
+    })
+  }
+
+
+</script>
+
+</body>
+</html>

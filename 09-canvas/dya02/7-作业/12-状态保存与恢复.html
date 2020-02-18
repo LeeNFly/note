@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="500" height="600" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+
+    //3-画线
+    //线1
+    ctx.lineWidth = 20;
+    ctx.fillStyle = 'red';
+    ctx.strokeStyle = 'blue';
+
+    ctx.moveTo(100, 100);
+    ctx.lineTo(200, 100);
+    ctx.stroke();
+
+    ctx.save();
+
+    ctx.beginPath();
+    ctx.moveTo(100, 200);
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = 'orange';
+    ctx.lineTo(200, 200);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.restore();
+    ctx.moveTo(100, 300);
+    ctx.lineTo(300, 300);
+    ctx.stroke();
+
+</script>
+</body>
+</html>

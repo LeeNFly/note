@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1489504",
+      "name": "美女",
+      "font_class": "meinv",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "7230581",
+      "name": "美女剪影",
+      "font_class": "afdcb-copy",
+      "unicode": "e506",
+      "unicode_decimal": 58630
+    }
+  ]
+}

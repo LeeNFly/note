@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+    //绘制扇形
+    //多个扇形绘制时，核心: 上一个圆弧终点是下一 个圆弧起点
+    var start = -90; //起始角度
+    var size = 6;
+    var step = 360 / size;
+    for(var i = 0; i < size ; i ++) {
+        ctx.beginPath();
+        //1-移动画笔到圆心 一定要移动画笔到圆心
+        ctx.moveTo(300, 200);
+        //2-绘制圆弧
+        ctx.arc(300, 200, 150, getRadian(start), getRadian(start + step) );
+        //3-闭合路径
+        ctx.closePath();
+
+        //4-描边
+        ctx.stroke();
+        ctx.fillStyle = getColor();
+        ctx.fill();
+
+        //更新下次圆弧起点
+        start += step;
+    }
+
+
+    function getRadian(deg) {
+        return deg / 180 * Math.PI;
+    }
+
+    function getColor () {
+        return 'hsla(' + parseInt(Math.random() * 360)
+                + ', '
+                + parseInt(Math.random() * 100) +'%, '
+                + parseInt(Math.random() * 100) +'%, 1)';
+    }
+
+
+</script>
+</body>
+</html>

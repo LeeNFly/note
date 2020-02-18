@@ -1,0 +1,210 @@
+/*引入图标字体*/
+@font-face {
+    font-family: 'wjs-icon-font';
+    src: url('../font/MiFie-Web-Font.eot');
+    src: url('../font/MiFie-Web-Font.eot?#iefix') format('embedded-opentype'),
+    url('../font/MiFie-Web-Font.woff') format('woff'),
+    url('../font/MiFie-Web-Font.ttf') format('truetype'),
+    url('../font/MiFie-Web-Font.svg#iconfont') format('svg');
+  }
+
+[class^='wjs-icon-'] {
+    font-family: "wjs-icon-font";
+}
+/* 字体配伪元素使用*/
+.wjs-icon-phone::before {
+    content:'\e908';
+   
+}   
+
+.wjs-icon-tel::before {
+    content:'\e909';   
+}   
+
+.wjs-icon-logo::before {
+    content:'\e920';   
+}   
+
+.wjs-icon-text::before {
+    content:'\e93e';   
+}   
+
+
+.wjs-icon-E903::before{
+    content: "\e903";
+}
+.wjs-icon-E906::before{
+    content: "\e906";
+}
+.wjs-icon-E905::before{
+    content: "\e905";
+}
+.wjs-icon-E907::before{
+    content: "\e907";
+}
+.wjs-icon-E901::before{
+    content: "\e901";
+}
+.wjs-icon-E900::before{
+    content: "\e900";
+}
+.wjs-icon-E904::before{
+    content: "\e904";
+}
+.wjs-icon-E902::before{
+    content: "\e902";
+}
+.wjs-icon-E906::before{
+    content: "\e906";
+}
+.wjs-icon-new01::before{
+    content: "\e90e";
+}
+.wjs-icon-new02::before{
+    content: "\e90f";
+}
+.wjs-icon-new03::before{
+    content: "\e910";
+}
+.wjs-icon-new04::before{
+    content: "\e911";
+}
+.wjs-icon-partner01::before{
+    content:"\e946";
+}
+.wjs-icon-partner02::before{
+    content: "\e92f";
+}
+.wjs-icon-partner03::before{
+    content: "\e92e";
+}
+.wjs-icon-partner04::before{
+    content: "\e92a";
+}
+.wjs-icon-partner05::before{
+    content: "\e929";
+}
+.wjs-icon-partner06::before{
+    content: "\e931";
+}
+.wjs-icon-partner07::before{
+    content: "\e92c";
+}
+.wjs-icon-partner08::before{
+    content: "\e92b";
+}
+.wjs-icon-partner09::before{
+    content: "\e92d";
+}
+
+
+
+
+
+a,
+a:hover {
+    text-decoration: none;
+    color:#333;
+}
+/*头部*/
+.wjs-header {
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    line-height: 40px;
+    .row{
+        > div {
+            height: 40px;
+            border-right: 1px solid #ccc;
+        }
+        > div:last-child {
+            border: none;
+        }
+        .btn-register {
+            padding: 2px 10px;
+            font-size: 14px;
+        }
+    }
+} 
+
+/*导航*/
+.wjs-nav {
+
+ .wjs-navbar {
+    background-color: #fff;
+    border-color: #e7e7e7;
+    margin-bottom: 0px;
+  }
+  .wjs-navbar .navbar-brand {
+    color: #777;
+    height: 80px;
+    line-height: 50px;
+  }
+
+  .wjs-navbar .navbar-brand  .wjs-icon-logo {
+    font-size: 50px;
+    color: red;
+    vertical-align: middle;
+  }
+
+  .wjs-navbar .navbar-brand  .wjs-icon-text {
+    font-size: 30px;
+    color: #000;  
+    vertical-align: middle;
+    }
+  .wjs-navbar .navbar-brand:hover,
+  .wjs-navbar .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+  }
+  .wjs-navbar .navbar-text {
+    color: #777;
+  }
+  .wjs-navbar .navbar-nav > li > a {
+    color: #777;
+    height: 80px;
+    line-height: 50px;
+  }
+  .wjs-navbar .navbar-nav > li > a:hover,
+  .wjs-navbar .navbar-nav > li > a:focus {
+    border-bottom: 3px solid red;
+    background-color: #fff;
+  }
+  .wjs-navbar .navbar-nav > .active > a,
+  .wjs-navbar .navbar-nav > .active > a:hover,
+  .wjs-navbar .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #fff;
+  }
+  .wjs-navbar .navbar-nav > .disabled > a,
+  .wjs-navbar .navbar-nav > .disabled > a:hover,
+  .wjs-navbar .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+  }
+  .wjs-navbar .navbar-toggle {
+    border-color: #ddd;
+    margin-top: 23px;
+  }
+  .wjs-navbar .navbar-toggle:hover,
+  .wjs-navbar .navbar-toggle:focus {
+    background-color: #ddd;
+  }
+  .wjs-navbar .navbar-toggle .icon-bar {
+    background-color: #888;
+  }
+
+}
+
+/*轮播图模块*/
+.wjs-banner {
+    .pc-img {
+        border: 1px solid red;
+        height: 410px;
+        background-position: center center;
+      }
+
+      .m-img {
+        width: 100%;
+      }
+}   

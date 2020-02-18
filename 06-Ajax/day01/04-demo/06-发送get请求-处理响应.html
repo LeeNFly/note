@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #content {
+      width: 400px;
+      height: 400px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="btn">发送请求</button>
+  <div id="content"></div>
+
+
+  <script>
+    // 点击按钮, 发送一个 get 请求, 要求传参
+    
+    var btn = document.getElementById("btn");
+    var content = document.getElementById("content");
+
+    btn.onclick = function() {
+      // 发送请求
+      // 1. 创建 一个 xhr 对象
+      var xhr = new XMLHttpRequest();
+
+      // 2. 基于 http 协议, 请求行, 请求头,  请求体
+      xhr.open( "get", "03-get.php?username=pp&password=123456" );
+      // get 请求不需要设置请求头, get 请求没有请求体
+      xhr.send( null );
+
+      // 3. 处理响应  监听readyState的变化
+      xhr.onreadystatechange = function() {
+
+        // readyState === 4 才是真正响应完成
+        if ( xhr.readyState === 4 ) {
+          // 响应包含, 状态行,  响应头,  响应体(xhr.responseText)
+          // (1) 状态行, 通过 xhr.status 可以查看状态码
+          //     200 说明响应成功
+          if ( xhr.status === 200 ) {
+            // 响应成功
+            console.log( "响应成功" );
+
+            // (2) 响应头(了解)
+            //     xhr.getAllResponseHeaders() 获取所有的响应头信息
+            //     xhr.getResponseHeader( key ) 获取单个响应头信息
+            // console.log( xhr.getAllResponseHeaders() );
+            // console.log( xhr.getResponseHeader( "content-type" ) );
+
+            // (3) 响应体 xhr.responseText
+            content.innerHTML = xhr.responseText;
+          }
+          else {
+            // 响应失败
+            alert( "呵呵, 失败了");
+          }
+
+        }
+
+      }
+
+    }
+
+  
+  </script>
+
+
+  
+  
+</body>
+</html>

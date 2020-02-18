@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      margin: 10px;
+      border: 1px solid #000;
+    }
+    /*span:nth-child(2) {*/
+      /*background-color: blue;*/
+    /*}*/
+    /*span:nth-child(4) {*/
+      /*background-color: yellow;*/
+    /*}*/
+
+    /* of-type 系列, 先找类型, 再编号 */
+    /* 找第n个span类型的元素
+       先找到所有的span, 然后对他们进行编号, 从1开始
+       然后选择对应编号的span
+
+       也可以用2n, 2n+1 等等, n = 0, 1, 2, 3 ...
+       
+     */
+    span:nth-of-type(2) {
+      background-color: yellow;
+    }
+
+    /* 选中 第二个 ul 添加背景色 */
+    ul:nth-of-type(2) {
+      background-color: orange;
+    }
+
+  </style>
+</head>
+<body>
+
+<div>
+  <p>我是p元素</p>
+  <span>我是span元素</span>
+  <p>我是p元素</p>
+  <span>我是span元素</span>
+  <p>我是p元素</p>
+  <span>我是span元素</span>
+  <p>我是p元素</p>
+  <span>我是span元素</span>
+</div>
+
+<div>
+  <ul>
+    <li>pppp</li>
+    <li>pppp</li>
+    <li>pppp</li>
+  </ul>
+
+  <p>123</p>
+  <p>123</p>
+  <p>123</p>
+  <p>123</p>
+  <p>123</p>
+  <p>123</p>
+  <p>123</p>
+
+  <ul>
+    <li>pppp</li>
+    <li>pppp</li>
+    <li>pppp</li>
+  </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 函数作为参数 , 传入的是函数的地址, 此处不需要写函数名 (匿名函数) , 也可以带参数
+      
+      // function test(num) {
+          // 相当于var num = function () {
+          //   console.log('哈哈哈');
+            
+          // }
+          // 可以把参数看作函数名
+
+      //   console.log(num);
+      //   num(); //可以执行
+        
+      // }
+
+      // // test('abc');
+      // test(function () {
+      //   console.log('哈哈哈');
+        
+      // });
+
+      // 12 
+      // 'abc'
+      // 函数
+
+
+      // 函数作为返回值 返回的是函数的地址  此处不需要写函数名 (匿名函数)  也可以带参数
+
+      function test() {
+        
+
+        return function () {
+          console.log('马哥');
+          
+        };
+      }
+      
+      // 相当于函数的声明方式2
+      var res =  test();  //相当于 var res = function () {
+                          //   console.log('马哥');
+                            
+                          // };  可以把接收的变量名看作函数名
+    
+      console.log(res); //res 就是 函数
+      res(); //调用
+      
+
+
+
+
+    </script>
+</body>
+</html>

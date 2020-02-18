@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #grandfar{
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+    
+    #far{
+      width: 200px;
+      height: 200px;
+      background-color: green;
+    }
+    
+    #son{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="grandfar">
+  <div id="far">
+    <div id="son"></div>
+  </div>
+</div>
+<script>
+  var son = document.getElementById('son');
+  var far = document.getElementById('far');
+  var grandfar = document.getElementById('grandfar');
+//  第三个参数: 要求传入一个布尔值 ,如果是true,则事件处理函数在事件捕获阶段执行,如果是false,则事件处理函数在冒泡阶段执行.如果这个元素是事件目标,那么true/false就无效了, 时间处理函数在目标阶段执行
+//  第三个参数默认为false
+  son.addEventListener('click', function(){
+    console.log('son的点击');
+  }, true);
+  far.addEventListener('click', function(){
+    console.log('far的点击');
+  }, true);
+  grandfar.addEventListener('click', function(){
+    console.log('grandfar的点击');
+  }, false);
+  
+  
+  
+
+</script>
+</body>
+</html>

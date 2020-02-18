@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 600px;
+			height: 600px;
+			border: 50px dashed #000;
+			padding: 50px;
+			background: url(images/meizi.jpg) 0 0 no-repeat;
+			/* 从padding的初始点开始 默认*/
+			/* background-origin: padding-box; */
+			/* 从内容的起始点开始 */
+			/* background-origin: content-box; */
+			/* 从边框的起始点开始 */
+			background-origin: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">111111</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            height: 100px;
+            background-color: pink;
+        }
+
+        @media  screen and (min-width:1200px) {
+            .box {
+                background-color: red;
+            }
+        }
+
+        /*中等屏幕*/
+        @media screen and (min-width:992px) and (max-width: 1199px) {
+            .box {
+                width: 980px;
+                background-color: green;
+                margin: 0 auto;
+            }
+        }
+
+        /* pad屏幕 */
+        @media screen and (min-width: 768px) and (max-width:991px) {
+            .box {
+                width: 768px;
+                background-color: blue;
+                margin: 0 auto;
+            }
+        }
+
+        /* 手机 */
+        @media screen and (max-width: 767px) {
+            .box {
+                width: 100%;
+                background-color: yellow;
+                margin: 0 auto;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      var arr = [1,2,3,5,4];
+
+
+      var bianshu = 0;
+
+      // 遍数 (每遍确定一个最大值)
+      for (var i = 0; i < arr.length-1 ; i++) {
+
+        var isJiaoHuan = '没有交换';
+        // var isJiaoHuan =  true;
+
+        bianshu++;
+
+          // 1 2  3 4 5
+          // 每遍比较次数
+          for (var j = 0 ; j < arr.length-1-i; j++) {
+
+              if (arr[j] > arr[j+1]) {
+
+                isJiaoHuan = '交换了';
+
+                // isJiaoHuan =  false;
+
+                  var temp = arr[j];
+                  arr[j] = arr[j+1];
+                  arr[j+1] = temp;
+              }
+          }
+
+          if ( isJiaoHuan == '没有交换') {
+              // 排好了
+              break;
+          }
+
+      }
+
+      console.log(bianshu);
+      
+
+
+
+    </script>
+</body>
+</html> 

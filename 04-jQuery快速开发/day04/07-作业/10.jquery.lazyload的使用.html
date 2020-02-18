@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul,li{
+            list-style: none;
+        }
+        li{
+            height: 300px;
+            border: 1px solid #000;
+            margin: 10px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <!-- img标签有了src属性，会立即去加载资源 -->
+        <img class="lazy" data-original="imgs/01.gif" alt="">
+
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <img class="lazy" data-original="http://m.360buyimg.com/babel/jfs/t23533/328/537128230/94664/606e55d5/5b349062Ncfe49fa8.jpg" alt="">
+
+
+        <img class="lazy" data-original="imgs/44.gif" alt="">
+
+
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <img class="lazy" data-original="imgs/43.gif" alt="">
+
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script src="jquery.lazyload.js"></script>
+
+
+    <script>
+        $(function(){
+            // jq 实例对象可以使用原型上的属性和方法
+            console.log($("img.lazy"));
+
+
+            // 使用插件，lazyload() 就是插件提供的方法
+            $("img.lazy").lazyload({
+                // placeholder 用来配置占位的图片
+                placeholder: "imgs/lazyload.gif"
+            });
+
+
+            // 1. 先引入jq
+            // 2. 在引入的插件
+            // 3. data-original保存图片地址, 不能写src属性, 因为img只要写了src属性, 就会立刻去请求图片, 这样无法达到懒加载目的
+            // 4. 最好加类名，能够控制那些图片需要做懒加载
+            // 5. 调用：$("img.lazy").lazyload();
+            
+            // 当滑动至图片时, 才会自动给img标签加上src属性, 值为data-original里存储的地址, 达到懒加载效果
+            // 原理, 在jq对象的构造函数原型上, 增加了lazyload()方法
+        })
+    </script>
+</body>
+</html>

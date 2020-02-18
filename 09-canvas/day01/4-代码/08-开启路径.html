@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+
+        //画线
+        //1
+        ctx.moveTo(100, 100);
+        ctx.lineTo(500, 100);
+        ctx.lineWidth = 30;
+        ctx.strokeStyle = 'red';
+        ctx.stroke();
+
+
+        //2
+        ctx.beginPath(); //开启新路径
+        ctx.moveTo(100, 200);
+        ctx.lineTo(500, 200);
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 10;
+        ctx.stroke();
+
+        //3
+        ctx.beginPath(); //开启新路径
+        ctx.moveTo(100, 300);
+        ctx.lineTo(500, 300);
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        /* stroke()  fill()
+        * 在填充和描边时，stroke()  fill()会将当前ctx中的所有路径中全部代码进行填充或者描边, 可能会造成重复描边和填充
+        * 解决办法 ,开启新路径, 之后描边stroke() 和 填充fill(), 只会对当前ctx中, 上面最近一个beginPath之后的路径进行描边和填充, 避免重复描边, 填充
+        * ★ 每次执开始路径beginPath方法，表示重新绘制一个路径, 后面的绘制跟beginPath之前的绘制的路径就无关了, 不会影响前面
+        * beginPath(), 之前的画布样式还是生效的, 比如线宽, 颜色等等. 
+        * ★ 开启新路径后，之前画笔位置会丢失，必须重新移动画笔
+        * 一般在改变画笔的颜色或填充样式的时候, 要进行开启新路径, 避免影响前面的绘画
+        * ★ 一般在画新的模块时, 也会进行beginPath(), 表示之后的绘画和beginPath之前没有关系了, 不会影响之前的绘画, 避免对之前的绘画产生影响
+        *
+        * */
+
+    </script>
+</body>
+</html>

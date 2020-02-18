@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <input type="text" id="inp">
+  <span id="msg"></span>
+
+  <script>
+    // 实现效果: input框失去焦点, 提示用户, 该用户名是否可以注册
+
+    // 思路: 
+    // 1. 给 input 框注册 onblur
+    // 2. 获取 input 框的 value 值
+    // 3. 发送 get 请求到后台, 要传参
+    // 4. 后台处理 get 请求, 判断该用户名是否存在  in_array( $content, $arr )
+    //    (1) 如果已存在, 返回 yes
+    //    (2) 如果不存在, 返回 no
+    // 5. 前端处理响应, 根据 yes/no 提示用户
+
+    var inp = document.getElementById('inp');
+    var msg = document.getElementById('msg');
+
+    inp.onblur = function () {
+      var content = inp.value.trim();
+      if (!content) {
+        msg.innerText = '请输入用户名';
+        msg.style.color = 'red';
+        return;
+      }
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', '07-hasUser.php?username=' + content + '');
+      xhr.send(null);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var result = xhr.responseText;
+            if (result === 'yes') {
+              msg.innerText = '用户名已存在';
+              msg.style.color = 'red';
+            }
+            else {
+              msg.innerText = '用户可以使用';
+              msg.style.color = 'lime';
+            }
+          }
+        }
+      }
+    }
+
+  </script>
+
+
+</body>
+
+</html>

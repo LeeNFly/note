@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      /* 先让html, body实现全屏 */
+      /* body和html默认高度都是由内容决定的, 需要设置100%, 才能让html, body充满整个 ★ 浏览器可视区 */
+      /* html 和 body的默认宽度是浏览器可视区的宽度 */
+      width: 100%;
+      height: 100%;
+    }
+    div {
+      /* 让html, body全屏后, 再让盒子全屏 */
+      width: 100%;
+      height: 100%;
+      background-color: pink;
+      background: url(./images/1.jpg);
+      /* 设置背景填满整个容器, 配合居中使用, 实现背景全屏不失真且主要内容居中的布局 */
+      background-size: cover;
+      background-position: center center;
+    }
+
+  </style>
+</head>
+<body>
+
+<div></div>
+
+</body>
+</html>

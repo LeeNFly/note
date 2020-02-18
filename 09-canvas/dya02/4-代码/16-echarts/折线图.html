@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+</head>
+<body>
+    <!--2. 准备容器, 可以是一个div, ★★★必须指定宽高(数值或百分比), 宽高必须使用行内样式进行指定-->
+    <div id="box" style="width: 600px;height:400px; border: 1px solid red;"></div>
+    <!--1. 引包: echarts.min.js-->
+    <script src="echarts.min.js"></script>
+    <script>
+        //3. 初始化
+        // 1> 基于准备好的dom，初始化echarts实例, 将来绘制就在初始化的容器, dom元素中进行
+        var myChart = echarts.init(document.getElementById('box'));
+
+        // 2> 设置图表的配置项 (核心)
+        // option, 是一个对象, 配置了该图标如何绘制等信息, 绘制的图表由option来决定
+        var option = {
+            //图标的标题
+            title:{
+                text: '前端24期体重荣耀榜',
+                // show: false
+            },
+            //图例, 图边上的提示小图标, 起到说明作用, 每个线, 柱状图是标注什么的
+            legend:{
+                data:['体重','颜值'] // 与下面核心数据series数组中的对象name值和顺序要一一对应
+            },
+            //提示工具, 移入到数据上时, 显示的提示信息
+            tooltip: {
+                // trigger: 'axis' // 默认是item, 移入到图形上显示, axis: 移到坐标显示
+            },
+            //x轴刻度
+            xAxis:{
+                data: ['第一组', '第二组', '第三组', '第四组', '第五组'] // x轴说明设置
+            },
+            //y轴刻度 一般不用配置，会根据数据自动动态生成
+            yAxis:{},
+            //★ 图片的核心数据, 这个是重点, 核心
+            //series, 是一个数组, 里面是对象, 每一个对象, 都会绘制一个数据图, 可以设置多个对象, 就绘制多个, 多条数据图
+            series: [{
+                name:'体重', // 该数据图的名称
+                type: 'line', //line 折线图  bar 柱状图  pie 饼图
+                data: [1000, 800, 1200, 2000, 1500] // 该数据图的数据
+            },{
+                name: '颜值',
+                type: 'bar',
+                data: [2000, 999, 500, 600, 666]
+            }]
+        };
+
+        // 3> 让图表根据配置项 生成图表
+        myChart.setOption(option);
+
+        // ★ 使用步骤基本一致, 唯一的区别在于设置图表的配置项option, option配置不同, 绘制出来的图表就不同.
+
+    </script>
+</body>
+</html>

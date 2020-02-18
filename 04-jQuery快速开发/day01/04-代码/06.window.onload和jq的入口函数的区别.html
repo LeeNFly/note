@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        height: 100px;
+        background-color: #f99;
+        margin: 10px;
+        display: none;
+    }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+    // winodw.onload: 当页面加载完成的时候，才来调用执行这里的代码
+
+    // jq的入口函数会比window.onload先执行
+    // window.onload 存在覆盖问题， jq的入口函数没有这个问题, jq入口函数可以写多个, 不会覆盖 而是类似于追加的效果, 根据路口函数的先后顺序执行路口函数中的代码
+
+    window.onload = function() {
+        console.log(111);
+    }
+
+    /*window.onload = function() {
+        console.log(333);
+
+        // 太慢了，等页面加载完成，包含了外部资源文件（引入的图片，css，js文件等）都加载完成, 才执行
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick = function(){
+            alert("这是个注册框");
+        }
+    }*/
+
+
+    // 更简洁的实现的入口函数, 更推荐使用
+    // 只等页面(结构)加载完成就调用执行函数，不管外部资源文件是否加载完成，推荐使用jq的入口函数
+    $(function() {
+        console.log(222);
+    })
+
+    $(function() {
+        console.log(444);
+
+
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick = function(){
+            alert("这是个注册框");
+        }
+    })
+    </script>
+</head>
+
+<body>
+    <!-- <button id="btn1">展示</button>
+    <button id="btn2">设置内容</button>
+    <div></div>
+    <div></div>
+    <div></div> -->
+
+
+    <button id="btn1">单击我出现注册框</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <img src="http://img.daimg.com/uploads/allimg/160324/1-160324232117.jpg">
+    <img src="http://img.daimg.com/uploads/allimg/160318/1-16031P01P0.jpg">
+    <img src="http://img.daimg.com/uploads/allimg/160318/1-16031P01332.jpg">
+    <img src="http://img.daimg.com/uploads/allimg/160608/1-16060R35630.jpg" alt="">
+    <img src="http://img.daimg.com/uploads/allimg/160531/1-160531224303.jpg" alt="">
+    <img src="http://m.360buyimg.com/babel/jfs/t19831/254/1520044090/94505/90caa8ff/5b1f72d8N14110de1.jpg" alt="">
+    <img src="http://img1.360buyimg.com/da/jfs/t20134/355/794889071/74776/464afa04/5b17b257N78663361.jpg" alt="">
+    <img src="http://m.360buyimg.com/babel/jfs/t21913/257/682838443/88443/a09d446e/5b14e813N3270b125.jpg" alt="">
+    <img src="http://m.360buyimg.com/babel/jfs/t19879/293/1523102499/88735/49d0dc0a/5b1fad94Nad9296f2.jpg" alt="">
+    <img src="http://m.360buyimg.com/babel/jfs/t20839/213/896863645/94608/2c018cf/5b1a5b09N9afde0e9.jpg" alt="">
+</body>
+
+</html>

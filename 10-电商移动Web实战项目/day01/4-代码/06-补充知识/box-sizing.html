@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100%;
+            background-color:pink;
+            height: 200px;
+            border: 10px solid red;
+            box-sizing: border-box;
+            font-size: 30px;
+        }
+
+        a {
+            /*去除移动端点击高亮效果*/
+            -webkit-tap-highlight-color:  red;
+            -webkit-tap-highlight-color:  transparent;
+        }
+
+        input {
+            border:  none;
+            outline: none;
+            /*去除表单在移动端 3d  阴影效果*/
+            -webkit-appearance: none;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="#">百度一下</a>
+    </div>
+
+    <input type="text" name="" id="">
+</body>
+</html>

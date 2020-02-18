@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+    body {
+      font-family: "Helvetica","Arial",serif;
+      color: #333;
+      background-color: #ccc;
+      margin: 1em 10%;
+    }
+    h1 {
+      color: #333;
+      background-color: transparent;
+    }
+    a {
+      color: #c60;
+      background-color: transparent;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    ul {
+      padding: 0;
+    }
+    li {
+      float: left;
+      padding: 1em;
+      list-style: none;
+    }
+    #imagegallery {
+    }
+    
+    #imagegallery a {
+      margin: 0px 20px 20px 0px;
+      padding: 0px;
+      display: inline;
+    }
+    
+    #imagegallery a img {
+      border: 0;
+    }
+  </style>
+
+</head>
+<body>
+<h2>
+  美女画廊
+</h2>
+
+<div id="imagegallery">
+  <a href="images/1.jpg" title="美女A">
+  <img src="images/1-small.jpg" width="100px" alt="美女1" />
+</a>
+  <a href="images/2.jpg" title="美女B">
+    <img src="images/2-small.jpg" width="100px" alt="美女2" />
+  </a>
+  <a href="images/3.jpg" title="美女C">
+    <img src="images/3-small.jpg" width="100px" alt="美女3" />
+  </a>
+  <a href="images/4.jpg" title="美女D">
+    <img src="images/4-small.jpg" width="100px" alt="美女4" />
+  </a>
+</div>
+
+<div style="clear:both"></div>
+
+<img id="image" src="images/placeholder.png" alt="" width="450px" />
+<p id="des">选择一个图片</p>
+
+</body>
+</html>
+<script>
+ //需求: 点击小图,修改大图和对应的文本
+//  给每一个a注册点击事件,在事件处理函数中,获取到当前a的href的值和title的值.分别赋值给img的src 和 p的innerText
+ 
+//  1. 获取元素
+      var imagegallery = document.getElementById('imagegallery');
+      var links = imagegallery.getElementsByTagName('a');
+      var image = document.getElementById('image');
+      var des = document.getElementById('des');
+//  2. 给每一个a注册点击事件
+//      links[0].onclick = function(){}
+//      links[1].onclick = function(){}
+//      links[2].onclick = function(){}
+//      links[3].onclick = function(){}
+        for(var i = 0; i < links.length; i++) {
+          // ★★★ 事件触发的时候,循环已经结束 事件已经注册完毕 此时 i = 4
+          links[i].onclick = function(){
+            //  3. 在事件处理函数中,获取到当前点击的a,然后拿到href 和title,再去赋值
+//            console.log(links[i]); // undefined => 由于事件触发的时候,此时循环已经结束,这时候再触发事件,调用事件处理函数,才开始具体解析和执行函数体中的代码,此事循环已经结束,i = 4,而link[i] => link[4] 不存在,所以是undefined
+            //  这里使用this来获得当前事件源 
+            //  console.log(this);  //this => 指向我们点击的事件源 元素
+            //  console.log(this.href);  // 绝对路径,绝对路径不影响赋值
+//              console.log(this.title);  //
+            image.src = this.href;
+            des.innerText = this.title;
+            
+            return false;//阻止a的默认行为
+          }
+        }
+
+        
+       
+</script>
+

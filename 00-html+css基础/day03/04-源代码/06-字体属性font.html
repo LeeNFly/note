@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/* px是一个单位  代表屏幕上的像素 */
+
+		/*
+			font-size: 设置字体大小, 默认16px
+			浏览器字体大小不会小于12px,
+		*/
+
+		/*
+		font-family 设置不同的字体
+		默认是微软雅黑
+		注意事项：
+		1.中文字体需要添加引号  英文可以不用  但是如果英文字体有空格或者其他特殊符号$也需要添加引号
+		2.字体可以设置多个  中间用逗号隔开 浏览器的解析原则：从左至右 一次解析 如果当前电脑识别这个字体 则直接使用，后续不管  如果不能识别 继续找下一个字体 如果都不识别 则会使用默认的
+		3. 不建议使用一些偏门字体
+		*/
+
+		h1 {
+			font-size: 100px;
+			font-family: SimSun,"\5B8B\4F53";
+		}
+		
+		
+		/*
+		font-weight 控制文字加粗
+
+		normal  不加粗
+		bold  加粗 
+		bolder 
+
+		100 - 900
+		
+		100
+		400 normal
+		700 bold
+
+		*/
+
+		p {
+			font-weight: 900;
+		}
+		
+		/* 
+			font-style 控制文字样式（风格） 
+			normal  正常
+			italic 倾斜
+		*/
+
+		span {
+			font-style: italic;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<h1>上海25期前端班级开始学习css了！！ 可喜可贺</h1>
+	
+	<p>
+		主讲老师：飞飞
+	</p>
+
+	<span>班主任：芳芳</span>
+</body>
+</html>

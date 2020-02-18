@@ -1,0 +1,22 @@
+2D转换总结：
+
+transform: 值
+
+值：
+translate 移动
+rotate 旋转
+scale  缩放
+skew  斜切
+
+
+
+移动：可以水平垂直分别移动  translateX  translateY  translate(x,y)
+移动取值可以是像素 百分比  百分比参照的是自身的盒子的宽高 可以配合绝对定位实现水平垂直居中
+移动是移动至
+
+旋转：沿着某个点旋转  这个点可以控制 --- transform-origin: 控制中心点
+旋转的单位是deg 
+
+缩放：缩放的倍数  没有单位 直接是数值  可以单个方向控制 scaleX  scaleY 
+
+斜切：斜切的是角度

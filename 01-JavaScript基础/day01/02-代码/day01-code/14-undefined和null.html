@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 简单数据类型四 undefined 
+      // 简单数据类型五  null
+
+      // undefined 和 null 在JS中是关键字,不会被识别为变量. 而是一个具体的值
+      // undefined 是一种数据类型  null 也是一种数据类型
+      // 对于null 变量有开辟内存空间只不过空间里没有值,对于undefined,只是声明了变量,没有给变量开辟内存空间
+      // 注意:undefined 和 null 也是一个值,若和字符串拼接,比如 undefined + 'a' => undefineda ; null + 'a' => nulla
+
+      // 通过typeof 查看其类型
+      var num = 12;
+      var str = 'abc';
+      var b = true;
+      var xx = undefined;
+      // 只声明,未赋值的变量,值为undefined,类型也为undefined
+      var yy;
+      console.log(xx); //undefined
+      console.log(yy); //undefined
+      var oo = null;
+      console.log(oo); //null
+      
+      
+      console.log(typeof yy);  // undefined
+      console.log( typeof num); //number
+      console.log( typeof str); //string
+      console.log( typeof b);  // boolean
+      console.log( typeof xx); // undefined
+      console.log( typeof oo); // null 通过 typeof 查看其类型特殊是一个 object
+      // null
+      // var obj = 对象
+      // var obj = null;
+      
+
+
+        
+
+    </script>
+</body>
+</html>

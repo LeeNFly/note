@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #box{
+      width: 600px;
+      height: 600px;
+      background-color: #ccc;
+      position:relative;
+    }
+  </style>
+</head>
+<body>
+<button id="btn">点击生成一个小盒子</button>
+<div id="box"></div>
+<script>
+  //面向对象的思想: 面向对象实际是对面向过程的封装
+//   需要一个对象,调用这个对象的某个方法,帮助我们实现在box中随机出现小盒子
+  var box = document.getElementById('box');
+  function SmallBox(width,height,bgc){
+    this.width = width;
+    this.height = height;
+    this.bgc = bgc;
+    this.x = getRandom(0, box.offsetWidth - this.width);
+    this.y = getRandom(0, box.offsetHeight - this.height);
+  }
+  
+  // 方法是每个实例共有的,写在原型上
+  SmallBox.prototype.render = function(){
+     //new出来的smallbox并不是我们在页面上看到的小盒子,smallbox里面只是存储了页面上小盒子的数据,真正的小盒子,我们需要自己创建出来
+    var div = document.createElement('div');
+    div.style.width = this.width + 'px';
+    div.style.height = this.height + 'px';
+    div.style.backgroundColor = this.bgc ;
+    div.style.left = this.x + 'px' ;
+    div.style.top = this.y + 'px' ;
+    div.style.position = 'absolute';
+    box.appendChild(div);
+    
+  }
+  
+  var btn = document.getElementById('btn');
+  btn.onclick = function(){
+    
+    var smallBox = new SmallBox(20,20,'red');
+    smallBox.render();
+  }
+    
+//      //用于获取min~max的随机整数 包括min 和 max
+    function getRandom(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+     }
+  
+</script>
+<!--<script>-->
+  <!--//面向过程的思想:-->
+<!--//  点击按钮,生成一个小盒子,这个小盒子的位置在box的范围中,随机出现-->
+<!--//   1. 获取元素-->
+      <!--var btn = document.getElementById('btn');-->
+      <!--var box = document.getElementById('box');-->
+<!--//   2.  给按钮注册事件-->
+      <!--btn.onclick = function(){-->
+        <!--//   3. 在事件处理函数中,要创建出来一个元素,并且要添加样式-->
+        <!--var div = document.createElement('div');-->
+        <!--div.style.width = '20px';-->
+        <!--div.style.height = '20px';-->
+        <!--div.style.backgroundColor = 'red';-->
+<!--//   4. 获取一个随机的坐标-->
+<!--//        4.1 明确坐标的范围-->
+          <!--var maxX = box.offsetWidth - 20; //box宽度 - div的宽度-->
+          <!--var maxY = box.offsetHeight - 20; //box宽度 - div的宽度-->
+<!--//        4.2 根据范围获取随机坐标(随机整数  0 ~ max)-->
+          <!--var x = getRandom(0, maxX);-->
+          <!--var y = getRandom(0, maxY);-->
+<!--//   5. 把坐标设置给小盒子,并且把动态创建的小盒子放到box里面-->
+          <!--div.style.left = x + 'px';-->
+          <!--div.style.top = y + 'px';-->
+          <!--div.style.position= 'absolute';-->
+          <!--box.appendChild(div);-->
+        <!---->
+      <!--}-->
+
+  <!---->
+  <!--//用于获取min~max的随机整数 包括min 和 max-->
+  <!--function getRandom(min, max) {-->
+    <!--return Math.floor(Math.random() * (max - min + 1)) + min;-->
+  <!--}-->
+
+<!--</script>-->
+</body>
+</html>

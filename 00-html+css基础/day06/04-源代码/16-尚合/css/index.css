@@ -1,0 +1,51 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+ul {
+	list-style: none;
+}
+a {
+	color: #333；
+}
+a:hover {
+	color: #7ab82a;
+}
+/* 清除浮动公共类 */
+.clearfix::after {
+    content:'';
+    display:block;
+    clear:both;
+    height:0;
+    visibility:hidden;
+}
+.clearfix {
+    *zoom:1;
+}
+/* 版心公共类 */
+.w980 {
+	width: 980px;
+	margin: 0 auto;
+}
+
+
+/* 搜索区域 */
+.search-wrap {
+	height: 63px;
+	background-color: red;
+}
+.search-wrap .left {
+	width: 182px;
+	height: 63px;
+	float: left;
+	background: url(../images/logo.png) 0 0 no-repeat;
+}
+/* .search-wrap .left img {
+	margin-top: 20px;
+} */
+.search-wrap .right {
+	width: 200px;
+	height: 30px;
+	background-color: green;
+	float: right;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="inp">
+  <button id="btn">发送 get 请求</button>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+
+    // 使用jq封装的ajax, 底层原理和机制, 以及参数的默认值都与我们自己封装的ajax类似, 可以参考我们自己封装的ajax来理解jq的ajax
+    // 特别说明, 参数dataType, 是指定我们在接收到后台返回的数据后, 要如何进行解析数据, 
+    //          然后将解析后的数据作为实参传入调用的success回调函数, 这样在success中就可以拿到解析后的后台返回的数据,
+    //          dataType  并不能改变后台返回给我们的数据
+    //          dataType: 'json', 'xml', 'text' ;
+    // ps: 由于之前的封装我们知道, 不管是成功还是失败执行的函数是在监听xhr的状态的事件处理函数中调用的, 而事件处理函数是放在任务队列中执行的, 
+    //     所以我们可以认为成功或者失败的回调函数也是放在任务队列中等待被调用, 等待栈空了才会被调用.
+    //     执行ajax操作后, 发起ajax请求:
+    //      1) 如果是异步的ajax(ajax默认是异步的)
+    //          ★ ajax代码执行完后立刻出栈(发出请求后就出栈, 不会等待请求的响应), 程序继续往下运行之后的代码,不会阻塞栈 将监听xhr响应状态暂由浏览器管理, 当readyState为4时, 会把监听事件的事件处理函数放到任务队列中, 等待栈空时才被调用,
+    //          当监听xhr的事件处理函数被调用事件, 也会调用我们的回调函数, 所以我们的回调函数也可以看作是在任务队列中等待被执行, 是异步的.
+    //      2) 如果是同步的ajax
+    //          会阻塞栈, 等待ajax请求完成并响应, 直到回调函数执行结束后, 才会继续往下执行栈中的代码
+    // ps: 如果在函数中调用ajax, 如果是异步的, 执行完ajax后, 继续往下执行代码, 函数体中的代码执行完后函数就出栈了, 函数就调用结束了, 不会等待ajax的回调函数是否执行结束
+    //                          如果是同步的, ajax会阻塞栈, 直到响应并执行完回调函数, 才会继续往下函数体中的代码, 即函数在ajax响应完并执行完回调函数后, 才有可能调用结束
+    // ps: 由于之前的封装我们知道, 我们都是在响应完成后, readyState为4时, 才调用的函数, 这时, 后台已经处理完请求, 后台代码已经执行完毕, 并且将响应返回回来了, 数据存储在响应体中, 这时可以保证拿到响应回来的数据,
+    //     所以ajax不管是成功还是失败的回调函数, 都一定可以拿到响应体中的数据
+    //     由之前封装ajax可知,
+    //        只有在readyState为4时, 并且http响应码为200时, 才会调用成功的回调函数success,
+    //        只有在readyState为4时, 并且http响应码为其他时, 会调用失败的回调函数error,
+    //        不管是成功还是失败的回调函数, 只会被调用其中一个, 并且一次请求只会被调用一次
+    // ps: 参数data除了支持传递对象, 也支持传递原始的 字符串 形式的拼接参数. key=value&key=value
+    // ps：由之前封装我们可以知道, 参数传对象进去之后, 最后也是被转换拼接成 key=value&key=value形式的字符串进行传输, 所以不管对象中的属性值是什么类型, 最后传递的时候值都是字符串
+    // ps: 对于复杂数据类型的传输, 参数对象中的对应的属性值要用json格式的字符串
+    // 点击按钮, 发送 get 请求
+
+    // 主要关注以下7个参数, get/post请求都一样
+    // 以下参数书写没有先后顺序, 因为对象是无序的
+    // 参数说明:
+    // type: get/post, 不是必传, 默认值get
+    // url: 请求地址, 必传, 可以是相对路径, 也可以是绝对路径
+    // data: 请求参数, 不是必传, 最终会被解析成key=value&key=value..的形式进行传递, 所以传递的都是字符串数据, 后台通过key来获取参数值value
+    // dataType: 处理响应类型, 不是必传, 默认以文本形式, 即text方式处理  (返回字符串)
+    // async: 是否异步, 非必传, 默认值true, 即异步
+    // success: 成功的回调函数, 不是必传
+    // error: 失败的回调函数, 不是必传
+    $('#btn').click(function() {
+
+      // 发送 ajax 请求
+      $.ajax({
+        type: "get", // get 或 post
+        url: "06-get.php",
+        data: {
+          username: "pp",
+          password: "123456"
+        },
+        // timeout 可以设置超时时间, 表示如果 2s 内, 响应还没有回来, 就认为超时, 调用失败的回调函数
+        timeout: 2000, 
+        // 发送ajax前,会调用的函数, 
+        // 如果这个函数返回 false,(注意: 必须返回false) 这次请求就不发送了
+        // 一般 beforeSend 中用于表单校验
+        beforeSend: function() {
+
+          if ( $('#inp').val() === "" ) {
+            alert("请输入内容");
+            return false;
+          }
+          console.log( "已输入内容, 进行请求" );
+        },
+        // 成功的回调函数, 由之前的封装知道, 当http协议响应码为200时, 调用此函数
+        success: function( info ) {
+          console.log( info )
+        },
+        // 失败的回调函数, http协议响应码不为200时, 调用此函数
+        error: function() {
+          alert( "服务器繁忙" );
+        },
+        // 不管成功还是失败都会调用的函数, 在成功或失败的回调函数调用之后再调用执行
+        complete: function() {
+          console.log( "不管成功还是失败都会调用的 complete" );
+        }
+      });
+
+    });
+
+
+  </script>
+
+</body>
+</html>

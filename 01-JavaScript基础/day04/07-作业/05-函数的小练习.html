@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1. 封装一个打招呼的函数 
+    function sayHi() {
+      console.log('哈喽');
+      
+    }
+    sayHi();
+    //2. 封装一个函数，计算两个数的和
+    function sum () {
+      console.log(3+5);
+      
+    }
+    sum();
+    //3. 封装一个函数，计算1-100之间所有数的和
+    function sum100 () {
+      var sum = 0;
+      for (var i = 1; i <= 100; i++) {
+         sum += i;
+      }
+      console.log(sum);
+    }
+    sum100();
+  </script>
+</body>
+</html>

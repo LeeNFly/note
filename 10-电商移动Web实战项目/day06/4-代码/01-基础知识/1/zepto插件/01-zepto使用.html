@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script src="zepto/zepto.js"></script>
+    <!-- 事件模块 -->
+    <script src="zepto/event.js"></script>
+    <!-- 引入动画模块 -->
+    <script src="zepto/fx.js"></script>
+    <script>
+        $(function () {
+            //改变盒子样式
+            $('.box').css('background', 'pink');
+            //点击盒子，让盒子做动画
+            $('.box').on('click', function () {
+                // alert('你好');
+                $('.box').animate({width: 400, height: 400}, 1000, function (){
+                    alert('我完了！');
+                })
+            })
+        })
+    </script>
+</body>
+</html>

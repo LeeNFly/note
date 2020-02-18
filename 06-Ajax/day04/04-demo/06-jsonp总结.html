@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- 同源: 域名, 端口, 协议相同,  跨域: 在不同源的网站请求数据 -->
+
+  <button id="btn">获取数据</button>
+  
+  <script>
+    // 优化
+    // 1. 函数名写死了,  => 将函数名作为参数, 传递给后台
+    // 2. 一进入页面就请求数据了 => 动态创建 script 标签
+
+    function fn( data ) {
+      console.log( data );
+    }
+    
+    var btn = document.getElementById("btn");
+    btn.onclick = function() {
+      var script = document.createElement("script");
+      script.src = "http://www.api.com/ajax-day04/06.php?callback=fn";
+      document.body.appendChild( script );
+    }
+  </script>
+
+  <!-- func(json数据) -->
+  <!-- <script src="http://www.api.com/ajax-day04/06.php?callback=fn"></script> -->
+  
+</body>
+</html>

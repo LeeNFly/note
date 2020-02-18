@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script src="./require.js"></script>
+  <script>
+    /**
+     * 开发过程中, 可能会使用到很多的包, 如果区分这些包是否支持模块化 ?
+     * 1. 查看官网文档 (很多不完善的插件都查不到) 
+     * 2. 直接看源代码, 看里面是否有 define( ), 有, 则支持模块化, 没有, 则不支持模块化
+     * ps: 对于支持模块化的第三方插件, 取导出项和之前一样, 通过主体函数的形参一一对应
+     **/  
+
+     /**
+      * 加载 jquery (支持模块化)  明确, 只要是大型项目, 肯定是配置require.config 来实现公共配置
+      */
+     require.config({
+       // 公共基础路径, 项目推荐使用绝对路径
+       // 将来所有的路径, 都要以 baseUrl 为基准
+      baseUrl: "/study/modules/",
+       // 对于定义好了模块名的模块, 必须定义别名, 而且要和定义的模块名统一
+      paths: {
+        jquery: './lib/jquery/jquery'
+      }
+     });
+     
+     // 注意: 由于 jquery 在内部定义了模块名, 所以只能以模块名, 即别名的方式加载模块, 
+     //      ★ 才能获取导出项
+     // ★ 对于定义了模块名的模块, 只能通过别名的方式加载模块, 才能在主体函数中通过形参获取到模块的导出项
+     //   对于没有定义模块名的模块, 即匿名模块, 则无论以路径还是别名的方式加载模块, 都可以在主体函数中通过形参获取到模块的导出项
+     require(['jquery'], function( $ ) {
+       console.log( $ );
+       $('body').css('backgroundColor', 'pink');
+     });
+
+     define(['jquery'], function( $ ) {
+       console.log( $ );
+       $('body').css('backgroundColor', 'pink');
+     });
+
+
+
+     // 引入第三方模块, 如果已经定义好了模块名
+     // 就必须指定别名, 通过别名进行加载模块
+
+    
+  </script>
+  
+</body>
+</html>

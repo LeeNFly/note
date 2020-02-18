@@ -1,0 +1,37 @@
+w布局基本原则：  大盒子包小盒子  a标签可以包一切，but self(除了a标签); 
+布局是宽高的百分比是直接继承父元素，如果父元素是行内元素，行内是没有宽高， 无法继承行内元素宽高
+li>a>img 
+li: 100% 
+img: 100%
+
+设计师给了设计稿是2倍或者3倍图， 在使用进行压缩； background-size  width  
+视口： 
+    移动端一个虚拟的布局区域， 在写移动页面前，要将视口调整为当前设备宽度；
+    meta:vp
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0, user-scalable=no, 
+    minimum-scale=1.0, maximum-scale=1.0">
+less: 
+    变量  @color
+    混入 
+    函数 
+    嵌套
+    导入 
+    计算 rem 
+
+css初始：
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-appearance: none; 
+    box-sizing: border-box;
+
+流式布局： 
+    百分比布局，宽度自适应，高度固定；
+    中间盒子： width:100%
+    父盒子： 设置padding值
+    左右盒子：定位  
+    
+
+em , rem 
+em: 一个字大小
+r + em;
+r: root  根标签  的字体大小  
+rem:  html的font-size属性

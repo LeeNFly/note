@@ -1,0 +1,380 @@
+a, b, body, dd, del, div, dl, dt, em, form, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, label, legend, li, ol, p, pre, small, span, strong, u, ul, var, input {
+    margin: 0;
+    padding: 0;
+}
+ol,
+ul {
+    list-style: none;
+}
+img,button,input {
+    border: 0;
+}
+em, i, u {
+    font-style: normal;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    *zoom: 1;
+}
+body {
+    font: 12px/1.5 'microsoft yahei',Arial, Verdana, "\5b8b\4f53";
+    color: #666;
+}
+a {
+    color: #666;
+    text-decoration: none;
+    font-family: 'microsoft yahei';
+}
+a:hover {
+    color: #c81623;
+}
+/* 版心公共类 */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+.ml-5 {
+    margin-left: 5px;
+}
+.mr-5 {
+    margin-right: 5px;
+}
+.mt-5 {
+    margin-top: 5px;
+}
+.mb-5 {
+    margin-bottom: 5px;
+}
+.pl-5 {
+    padding-left: 5px;
+}
+.pr-5 {
+    padding-right: 5px;
+}
+.pt-5 {
+    padding-top: 5px;
+}
+.pd-5 {
+    padding-bottom: 5px;
+}
+.m-color {
+    color: #c81623;
+}
+/* 解决图片下面留白的问题 */
+img {
+    vertical-align: top;
+}
+/* 解决文字超出溢出问题 */
+.text-cut {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 公共头部区域 */
+header {
+    border-bottom: 1px solid #b1191a;
+}
+.drop-down {
+    display: none;
+}
+.pro-classify:hover .drop-down {
+    display: block;
+}
+.short-nav {
+    line-height: 32px;
+    background-color: #f1f1f1;
+}
+.short-nav .container {
+}
+.short-nav .sn-l {
+    height: 32px;
+}
+.short-nav .sn-r {
+    height: 32px;
+}
+.short-nav .sn-r li {
+    float: left;
+}
+.short-nav .sn-r li.line {
+    width: 1px;
+    height: 12px;
+    background-color: #666;
+    margin: 10px 15px 0;
+}
+.short-nav .sn-r li i {
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+.header-main {
+    padding-top: 25px;
+    padding-bottom: 20px;
+    position: relative;
+}
+.logo-wrapper {
+    width: 171px;
+    height: 62px;
+    background: url(../images/logo.png) 0 0 no-repeat;
+    position: relative;
+}
+.logo-wrapper h1 {
+    font-size: 0;
+}
+.search-wrapper {
+    width: 536px;
+    background-color: red;
+    position: absolute;
+    left: 348px;
+    top: 25px;
+}
+.search-wrapper input {
+    width: 452px;
+    height: 32px;
+    border:2px solid #b1191a;
+    float: left;
+    text-indent: 10px;
+}
+.search-wrapper button {
+    width: 80px;
+    height: 36px;
+    background-color: #b1191a;
+    float: left;
+}
+.search-wrapper button i {
+    font-size: 26px;
+    color: #fff;
+}
+.cart-wrapper {
+    width: 138px;
+    height: 32px;
+    position: absolute;
+    top: 25px;
+    right: 60px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 32px;
+}
+.cart-wrapper:hover .cart-info {
+    display: block;
+}
+.cart-wrapper i {
+    vertical-align: middle;
+}
+.cart-wrapper i:nth-child(1){
+    position: relative;
+    top: -2px;  
+}
+.cart-wrapper i:nth-child(2){
+    position: relative;
+    top: -2px;
+}
+.count {
+    /*
+        1. 不建议直接使用宽高 而是让内容撑开  添加上padding
+        2. 使用left定位更合适
+    */
+    padding: 2px 4px;
+    background-color: red;
+    position: absolute;
+    top: -14px;
+    left: 105px;
+    line-height: 14px;
+    color: #fff;
+    border-radius: 10px 10px 10px 0;
+}
+.cart-info {
+    width: 310px;
+    position: absolute;
+    right: -1px;
+    top: 33px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 2;
+    display: none;
+    line-height: 70px;
+}
+.white-box {
+    width: 138px;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    top: -2px;
+}
+.search-hot {
+    position: absolute;
+    left: 348px;
+    top: 61px;
+}
+.search-hot a {
+    margin-right: 20px;
+    line-height: 30px;
+}
+
+/* main-nav 开始 */
+.pro-classify {
+    width: 210px;
+    height: 46px;
+    background-color: #b1191a;
+    text-align: center;
+    line-height: 46px;
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+}
+.pro-nav li {
+    float: left;
+    margin-left: 55px;
+    line-height: 46px;
+    height: 46px;
+    font-size: 16px;
+    position: relative;
+}
+.pro-nav li .hot {
+    position: absolute;
+    padding: 3px 15px;
+    color: #fff;
+    background-color: #b1191a;
+    line-height: 1;
+    /* 强制不换行 */
+    white-space: nowrap;
+    font-size: 12px;
+    top: -10px;
+    left: 32px;
+    /* width: 60px; */
+    border-radius: 10px 10px 10px 0;
+}
+
+/* 全部商品下拉 */
+.drop-down {
+    width: 210px;
+    height: 465px;
+    background-color: #c81623;
+    position: absolute;
+    top: 47px;
+    left: 0;
+    z-index: 99;
+}
+.drop-down ul {
+    border-left: 1px solid #b1191a;
+    border-bottom: 1px solid #b1191a;
+}
+.drop-down li {
+    height: 31px;
+    line-height: 31px;
+    text-align: left;
+    text-indent: 10px;
+    position: relative;
+}
+.drop-down li a {
+    color: #fff;    
+}
+.drop-down li .iconfont {
+    position: absolute;
+    right: 20px;
+    top: 0px;
+}
+.drop-down li:hover {
+    background-color: #fff;
+}
+.drop-down li:hover a {
+    color: #666;    
+}
+.drop-down li:hover i {
+    color: #666;
+}
+
+/* 公共底部区域 */
+footer {
+    background-color: #f5f5f5;
+    margin-top: 30px;
+}
+.footer-h {
+    padding: 30px 0;
+    border-bottom: 1px solid #ccc;
+}
+.footer-h li {
+    width: 20%;
+    float: left;
+    height: 49px;
+    position: relative;
+}
+.footer-h li p {
+    text-indent: 100px;
+}
+.footer-h li .mt-8 {
+    margin-top: 8px;
+}
+.footer-icons {
+    width: 49px;
+    height: 49px;
+    position: absolute;
+    left: 40px;
+    top: 0;
+    background: url(../images/icons.png) -253px -3px no-repeat;
+}
+.footer-b {
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+.footer-b dl {
+    float: left;
+    width: 16.6666%;
+    text-indent: 55px;
+}
+.footer-b dl dt {
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+}
+.footer-b dl dd {
+    height: 20px;
+    line-height: 20px;
+}
+.footer-b dl.help {
+    text-align: center;
+}
+.footer-b dl.help dd {
+    height: auto;
+}
+
+
+/* 公共的分页模块 */
+.page-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.page-wrapper .page {
+    padding: 10px 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.page-wrapper {
+    text-align: center;
+}
+.page-wrapper .no-border {
+    border: none;
+}
+.page-wrapper [type=number] {
+    width: 44px;
+    height: 38px;
+    outline: none;
+    border: 1px solid #ccc;
+    margin:0 5px;
+    text-align: center;
+}

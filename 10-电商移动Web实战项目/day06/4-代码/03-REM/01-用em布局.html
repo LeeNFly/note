@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+            流式布局：百分比布局  实现在移动宽度自适应, 高度无法自适应, 一般写死
+            响应式布局： 一个页面在多个设备完美布局；
+
+            REM单位进行布局： 实现盒子宽高都自适应的布局；
+
+            什么是rem:
+            em:  ★ 当前元素一个字体的大小
+            r : root  根标签  html
+
+            rem： html标签的字体大小  font-size属性；
+    -->
+
+    <!--
+        使用em布局
+    -->
+    <style>
+        .out {
+            width: 400px;
+            height: 400px;
+            border: 1px solid red;
+            font-size: 20px;
+            padding: 50px;
+        }
+        /* 字体大小继承于父盒子, 1em = 20px
+           当然如果盒子自己手动设置了字体大小font-size, 则以盒子手动设置的字体大小为准
+           1em = 当前css渲染盒子的字体大小font-size, 且em会随着盒子的字体大小改变而自动改变, 所有使用em为单位的css属性也会跟着自动改变, 浏览器自动重新渲染, 达到自适应的效果
+        */
+        .in {
+            width: 10em; /* width: 200px */
+            height: 10em; /* height: 200px */
+            border: 1px solid green;
+            font-size: 1em; /* font-size: 20px */
+        }
+    </style>
+</head>
+<body>
+    <div class="out">
+        <div class="in">
+            桃花潭水深千尺，
+            疑是银河落九天
+        </div>
+    </div>
+
+
+</body>
+</html>

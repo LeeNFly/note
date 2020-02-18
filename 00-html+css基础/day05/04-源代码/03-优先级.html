@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#test {
+			color: pink;
+		}
+		.box {
+			color: yellow;
+			font-size: 40px;
+		}
+		div {
+			/* font-size: 20px !important;
+			color: blue !important; */
+			color: blue;
+		}
+		* {
+			color: green;
+		}
+		body {
+			color: red !important;
+		}
+	</style>
+</head>
+<body>
+	
+	<!-- 继承 < 通配符 < 标签选择器 < 类选择器 < ID选择器 < 行内样式 <　!important 
+	
+	只有css渲染存在冲突的时候, 才会比较权重, 否则不会比较权重, 共同作用于标签,
+	是针对单条css属性, 而不是选择器和元素. 如果存在渲染冲突, 则比较他们的选择器优先级, 优先级高的, 会被渲染.
+	没有存在冲突的css属性, 则不会被覆盖, 共同作用于标签
+
+	★ 一个标签可以被多个选择器选中和渲染, 这些选择器的样式共同作用于标签, 不会覆盖, 对于相同的css属性, 先比较权重, 取权重大的那个, 如果权重一样, 则根据层叠性, 后取后渲染的.
+
+	★ css选择器不会覆盖(就算相同的选择器也不会覆盖), 选择器下的css样式共同作用于标签
+	★ 如果多个选择器之间的单条css样式属性渲染有冲突, 则参考层叠性和优先级进行渲染, 注意, 是针对单条css样式的, 而不是针对选择器的
+
+	!important 只能针对单条css属性起效果 而不是整个选择器
+	!important 对于继承没有作用
+
+	-->
+
+	<div id="test" class="box" style="color: purple;">请问我的颜色是？？？</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 函数作为参数
+    // function test(num1) {
+    //   num1();
+    // }
+
+    // test(function () {
+    //   console.log('函数作为参数传入');
+      
+    // });
+    
+    // 2. 函数作为返回值
+    function test1() {
+      return function () {
+        console.log('函数作为返回值');
+        
+      }
+    }
+    var res = test1();
+    res();
+  </script>
+</body>
+</html>

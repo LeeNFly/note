@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+    // 1. js 对象或数组  =>  json字符串    JSON.stringify( obj/arr ); 
+    // 2. json 字符串  =>  js 对象或者数组  JSON.parse( json字符串 );
+
+    // var obj = {
+    //   name: "鹏儿",
+    //   age: 15,
+    //   desc: "帅"
+    // };
+    // console.log( JSON.stringify( obj ) );
+
+    
+    // json 字符串转换成 js 对象或数组
+    // {"name":"鹏儿","age":15,"desc":"帅"}
+    // var str = '{"name":"鹏儿","age":15,"desc":"帅"}';
+    // var str = '[{"name":"鹏儿","age":15,"desc":"帅"},{"name":"鹏儿","age":15,"desc":"帅"},{"name":"鹏儿","age":15,"desc":"帅"}, 赵六]';
+    // var str = '[ "张三", "李四", "王五", "赵六" ]' ps: 如果json字符串是普通数组的格式, 元素中的字符串要用双引号包裹.
+    console.log( JSON.parse( str ) );
+    
+  </script>
+  
+</body>
+</html>

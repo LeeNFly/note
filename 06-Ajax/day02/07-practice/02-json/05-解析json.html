@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table {
+      border: 1px solid #000;
+      width: 500px;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+
+    th {
+      border: 1px solid #000;
+      height: 40px;
+      line-height: 40px;
+      background-color: #ccc;
+    }
+
+    td {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button>获取数据</button>
+  <table>
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>描述</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>鹏鹏</td>
+        <td>男</td>
+        <td>18</td>
+        <td>帅</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    // 需求: 点击按钮, 发送请求, 后台响应 json 格式数据, 根据 json 格式数据渲染
+    var btn = document.querySelector('button');
+    var tbody = document.querySelector('tbody');
+
+    btn.onclick = function () {
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', './05-json.php');
+      xhr.send(null);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var jsonStr = xhr.responseText;
+            var arr = JSON.parse(jsonStr);
+            var str = '';
+            arr.forEach(function (item, index) {
+              str +=
+                '<tr>' +
+                '  <td>' + item.name + '</td>' +
+                '  <td>' + item.sex + '</td>' +
+                '  <td>' + item.age + '</td>' +
+                '  <td>' + item.desc + '</td>' +
+                '</tr>'
+            })
+            tbody.innerHTML = str;
+          }
+        }
+      }
+    }
+
+  </script>
+
+
+</body>
+
+</html>

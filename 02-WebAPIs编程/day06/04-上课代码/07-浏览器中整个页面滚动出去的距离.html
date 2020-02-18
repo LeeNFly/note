@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body{
+      height:1500px;
+      width:3000px;
+    }
+  </style>
+</head>
+<body>
+<script>
+  //浏览器整个页面滚动出去的距离
+  window.pageXOffset  //浏览器中整个页面滚动条左侧滚动出去的距离 (以最左边为原点,越往右滚动值越大,均为正值)
+  window.pageYOffset  //浏览器中整个页面滚动条顶部滚动出去的距离 (以最上边为原点,越往下滚动值越大,均为正值)
+  //也不可以被赋值 只能获取 获取的值是数字类型没有单位,但是参考的是px单位
+  
+  //监听浏览器的滚动条
+  window.onscroll = function(){
+//    console.log(1);
+//    console.log(window.pageXOffset);
+    console.log(window.pageYOffset);
+  }
+</script>
+</body>
+</html>

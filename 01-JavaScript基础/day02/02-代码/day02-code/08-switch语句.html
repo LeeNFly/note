@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 分支语句 三  switch 语句
+      // // switch 语句 结束后,才会执行switch 语句之后的代码
+      // 场景 : 判断某个具体值是否相等
+      // 结构 : 
+      // switch (变量) {
+
+      //   case 值1 : 
+      //     // 代码1 (变量值等于值1,执行代码1)
+      //     break;
+
+      //   case 值2 : 
+      //     // 代码2 (变量值等于值2,执行代码2)
+      //     break;  
+
+      //   default :  
+      //     //代码3 其他情况执行代码3
+      //     break;
+      // }
+
+      var num = 12;
+      switch (num) {
+        // 根据这个变量值,,先找 case 
+        // 根据case执行下面的代码,,直到 break中止,不执行下面的代码
+
+        case 14:
+          console.log('对了');
+          break;
+        case 12:
+          console.log('不对');
+           break; 
+        default:
+          console.log('其他');
+          break;
+      }
+
+      //注意 :
+      //1. ★ 说明,siwtch 判断的是 全等(===) (内容 + 类型)
+      //2. break; 中止/中断中止/中断
+      // 一般不要省略 ,除非真有这个需求 
+      //3. 根据这个变量值,,先找 case 
+      // 根据case执行下面的代码,,直到 break中止,不再执行下面的代码
+
+
+      
+    </script>
+</body>
+</html>

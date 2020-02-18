@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- action method name -->
+
+  <!-- 
+    checkbox
+    1. 指定 name, 可以用于提交 和 分组
+    2. 需要指定value值
+    3. 需要写成 name[] 的形式, 后台才能以数组的方式接受数据
+  -->
+
+  <form action="get.php" method="get">
+    兴趣爱好 <br>
+    <input type="checkbox" name="hobby[]" value="eat" > 吃饭
+    <input type="checkbox" name="hobby[]" value="sleep" > 睡觉
+    <input type="checkbox"  name="hobby[]" value="dadoudou" > 打豆豆
+
+    <input type="submit">
+
+  </form>
+  
+</body>
+</html>

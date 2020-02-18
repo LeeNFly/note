@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+
+    //3 -将数据用饼图展示
+    var sum = 0; //记录总和
+    var angles = []; //用于存放数据对应角度
+    var start = -90; //记录起始角度
+
+    // 1-24期各组 体重数据（权威）
+    var datas = [600, 800, 600, 1000,  1200, 800,  1600];
+    var colors = ['hotpink', 'skyblue', '#daa520', '#f99', '#123456', 'orange', 'red'];
+    // 2-将数据转成对应角度
+    //  当前数据/总和  = 角度 / 360
+    //角度 = 当前数据/总和 * 360
+    // 3-求总和
+    datas.forEach(function (v) {
+        sum += v;
+    })
+
+    // 4- 求出数据对应角度
+    datas.forEach(function (v, i) {
+        angles[i] = v / sum * 360;
+    })
+    //console.log(angles);
+    //遍历angles数组 将对应角度画出来
+    angles.forEach(function (v, i , arr) {
+        //开启新路径
+        ctx.beginPath();
+        //1-移动到圆心
+        ctx.moveTo(300, 200);
+        //2-绘制圆弧
+        ctx.arc(300, 200, 150, getRadian(start), getRadian(start + v))
+        //3-闭合路径
+        ctx.closePath();
+        //4-描边
+        ctx.stroke();
+        //5-填充
+        ctx.fillStyle = colors[i];
+        ctx.fill();
+
+        //更新下次圆弧起点 (本次绘制终点是下次圆弧起点）
+        start += v;
+    })
+
+
+    //获取弧度
+    function getRadian(deg) {
+        return deg / 180 * Math.PI;
+    }
+    //获取颜色
+    //    function getColor () {
+    //        return 'hsla(' + parseInt(Math.random() * 360)
+    //                + ', '
+    //                + parseInt(Math.random() * 100) +'%, '
+    //                + parseInt(Math.random() * 100) +'%, 1)';
+    //    }
+</script>
+</body>
+</html>

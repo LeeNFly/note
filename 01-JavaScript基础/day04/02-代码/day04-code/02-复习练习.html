@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      var arr = ["a", "bb","ccc","dddd"]; 
+//1.让一个数组倒叙保存另一个数组中的每一项
+  // var arr = ['dddd','ccc','bb','a'];
+  var newArr = [];
+  for (var i = arr.length-1 ; i >=0 ; i--) {
+    console.log(arr[i]);
+    newArr.push(arr[i]);
+  }
+
+  console.log(newArr);
+  
+
+//2 将字符串数组用|或其他符号分割
+var arr = ["a", "bb","ccc","dddd"]; 
+
+// var str = 'a|bb|ccc|dddd' ;
+
+// 第三种方式 : 
+//1. 初始的字符串 = a
+//2. 从第一个遍历拼接
+
+var str = arr[0];  // 'a'
+
+for (var i = 1 ; i < arr.length; i++) {
+  str += '|' + arr[i];
+}
+
+console.log(str);
+
+
+
+
+
+//第二种 : 
+// 1. '|' + 元素
+//2. 处理第一个
+
+var  str = '';
+for (var i = 0 ; i < arr.length; i++) {
+
+    if (i == 0) {
+      str += arr[i];
+    }else {
+
+    str += '|' + arr[i];
+    }
+
+}
+
+console.log(str);
+
+
+
+
+
+
+//第一种 : 
+//1. 元素 + |
+//2. 处理最后一个元素
+var  str = ''; // 字符串的初始值  var sum = 0; var pro = 1
+for(var i = 0; i < arr.length;i++) {
+  console.log(arr[i]);
+
+  if (i == arr.length-1) {
+    
+    str += arr[i];
+
+  }else {
+
+    str += arr[i] + '|';
+
+    // str =  str + arr[i] + '|'
+  }
+
+}
+
+// console.log(str); // a|bb|ccc|dddd|
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1. 计算1-n之间所有数的和
+      //1.1 声明函数
+      //1.2 n参数
+      //1.3 求和
+    function sum1 (n) {
+      var sum = 0;
+      for (var i = 1; i <= n; i++) {
+         sum += i;
+      }
+      console.log(sum);
+      
+    }
+    sum1(10)
+    //2. 计算两个数的和
+      //2.1 函数
+      //2.2 两个参数
+      //2.3 求和
+     function sum2(a,b) {
+       console.log(a+b);
+       
+     }
+     sum2(1,2)
+    //3. 计算m-n之间所有数的积
+      //3.1 声明函数 
+      //3.2 参数 m,n
+      //3.3 *=
+    function product(m,n) {
+      var product = 1;
+      for (var i = m; i <= n; i++) {
+         product *= i;
+      }
+      console.log(product);
+      
+    }
+    product(1,5)
+  </script>
+</body>
+</html>

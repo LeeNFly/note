@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text" id="txt">
+<script>
+//  keydown   键盘按下时触发  
+//  keyup     键盘抬起时触发
+//  keypress  键盘按下时触发  区分大小写
+
+//  keydown 和 keypress 的区别：
+//  keydown : 该事件的事件对象中 keyCode不区分大小写 都是大写的ASCII码
+//  keypress : 该事件的事件对象中 keyCode 区分大小写 大小写不同,keyCode也不同
+//  keyCode返回的是对应的按下的键的数字,是数字类型,对应的是按下键的字符对应的ASCII码
+//  通过keyCode可以判断鼠标按下的是哪个键
+
+  var txt = document.getElementById('txt');
+  txt.onkeydown = function(e){
+    console.log('keydown:' + e.keyCode); //keyCode返回的是对应的按下的键的数字,是number类型 即便是标准里移除的,但是浏览器都支持,放心使用
+//      e.key这个属性,在mdn中推荐使用,但是由于是新标准,所以存在兼容性问题,很多浏览器不支持
+//    console.log(e);
+  }
+
+  txt.onkeypress = function(e){
+    console.log('keypress:' + e.keyCode);
+  }
+  
+  //把ASCII码转换成对应的字符
+  console.log(String.fromCharCode(81));
+  console.log(String.fromCharCode(113));
+</script>
+</body>
+</html>

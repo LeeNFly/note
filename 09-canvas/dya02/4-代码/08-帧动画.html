@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<canvas width="1200" height="600" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+
+    // 3- 获取需要图片 绘制在canvas中
+    var bgImg = new Image();
+    var fishImg = new Image();
+
+    bgImg.onload = function () {
+        //加载鱼图片
+        fishImg.onload = function (){
+            //当鱼的图片加载完成，说明所有图片都加载完成， 开始绘制
+            var x = 100;
+            var y = 100;
+            var index = 0;
+            //鱼 w 174, h 126
+            setInterval(function (){
+                //清空画布
+                ctx.clearRect(0, 0, cs.width, cs.height);
+                //绘制背景
+                ctx.drawImage(bgImg, 0, 0, cs.width, cs.height);
+
+                index++; // 切换背景 数据动引起效果动画
+                x += 8;
+
+                //验证数据是否越界
+                if (index > 7) {
+                    index = 0;
+                }
+
+                if(x > 1300) {
+                    x = - 200;
+                }
+                ctx.drawImage(fishImg, 0, index *126, 174, 126, x, y, 174, 126);
+                ctx.drawImage(fishImg, 0, index *126, 174, 126, x - 40, y - 40, 174 * 0.5, 126 * 0.5);
+                ctx.drawImage(fishImg, 0, index *126, 174, 126, x - 40, y + 80, 174 * 0.7, 126 * 0.7);
+                ctx.drawImage(fishImg, 0, index *126, 174, 126, x - 100, y + 10, 174 * 0.3, 126 * 0.3);
+                //ctx.drawImage(fishImg, 0, index *126, 174, 126, x + 150, y + 10, 174 *1.5, 126 * 1.5);
+            }, 80)
+
+
+        }
+        fishImg.src = 'img/fish.png';
+    }
+    bgImg.src = 'img/bg.jpg';
+
+
+</script>
+</body>
+</html>

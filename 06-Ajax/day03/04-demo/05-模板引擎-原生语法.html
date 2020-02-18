@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/html" id="tpl">
+    <div class="lt_size item_box">
+        尺码:
+        <%
+        var arr = size.split("-");   // ["36", "50"]
+        var start = arr[0];  // 36
+        var end = arr[1];    // 50
+        for ( var i = start; i <= end; i++ ) {
+        %>
+        <span>{{ i }}</span>
+        <span><%=i%></span>
+        <% } %>
+    </div>
+    <!--
+        <% %> 中可以写js代码, 可以直接通过数据对象的属性名访问数据对象中的属性, 也可以写js注释
+        <% %> 和标准语法{{}}可以混用
+        <% %> 里的代码不会被输出到最后返回的html字符串中,
+        <% %> 外的代码会被输出到最后返回的html字符串中
+        <%= %> 里的最终结果会被输出到最后返回的html字符串中
+        会执行js代码, 并且让<% %> 外的部分输出到最后返回的html字符串中
+    -->
+</script>
+</body>
+</html>

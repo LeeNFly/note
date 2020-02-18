@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /* 转成块级 */
+    header {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      display: block;
+    }
+    span {
+      background-color: yellow;
+    }
+  </style>
+
+  <!-- 解决方案
+       1. 在浏览器解析标签前, 动态创建一次这个标签元素, 要在html body结构前创建
+       2. 动态创建的元素是行内元素, 还需要转成块级
+          document.createElement("标签名"), 如果标签名浏览器不认识, 则默认创建的元素是行内元素
+  -->
+  <script>
+
+    document.createElement("header");
+
+    // 问题: 将来有很多 html5 语义化标签 header, nav, footer, section, aside ....
+
+  </script>
+</head>
+<body>
+
+<!-- 现象: IE8 以下版本不支持 html5 语义化标签 -->
+<header>我是header标签, 独占一整行</header>
+<span>我是span标签</span>
+
+</body>
+</html>

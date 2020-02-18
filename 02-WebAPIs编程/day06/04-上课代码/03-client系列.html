@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+   
+    
+    #son{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      padding:10px;
+      border:10px solid green;
+    }
+  </style>
+</head>
+<body>
+  <div id="son"></div>
+<script>
+  // client系列属性 一般要求元素在dom树上才能获取
+//  元素.clientWidth  元素盒子可视区的宽 content + padding,即盒子的width/height + padding 若内容有超出,则不包括内容的超出部分
+//  元素.clientHeight  元素盒子可视区的高  content + padding,即盒子的width/height + padding 若内容有超出,则不包括内容的超出部分
+//  client系列同样也不可以赋值,只能获取,获取的值是数字类型没有单位,但是参考的是px单位
+  var son = document.getElementById('son');
+  console.log(son.clientWidth);
+  console.log(son.clientHeight);
+
+//son.clientWidth = 300;
+son.clientWidth = '300px';
+</script>
+</body>
+</html>

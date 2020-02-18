@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: #f99;
+            margin: 10px;
+        }
+        .basic{
+            background-color: lime;
+            font-size: 20px;
+        }
+        .big{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <button>添加basic类</button>
+    <button>移除类</button>
+    <button>添加big类</button>
+    <button>判断是否有basic类</button>
+    <button>切换basic类</button>
+
+    <div class="one two three basic">这是div内的文字</div>
+    <div class="one two three">这是div内的文字</div>
+    <div class="one two three">这是div内的文字</div>
+    <div class="one two three">这是div内的文字</div>
+    <div class="one two three">这是div内的文字</div>
+    <div class="one two three">这是div内的文字</div>
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // class方法 提供操作jq对象, 来达到操作页面标签的类名的目的
+            // className
+            $("button").eq(0).click(function(){
+                // $("div").get(0).className = "one two basic";
+
+                // 添加类: jq对象.addClass('类名') 
+                // 会给获取到的所有元素都添加上 相同 的类名 若元素已存在该类,则不会重复添加
+                // 不会覆盖掉之前的类,而是直接在后面加上添加的类 (在原来的基础上添加类)
+                // 这里不能带上.
+                $("div").addClass("basic"); // class="one two three" => class="one two three basic"
+            })
+
+            $("button").eq(1).click(function(){
+                // 删除类: jq对象.removeClass('类名') 
+                //会把获取到的所有元素都移除 相同 的类名
+                //移除指定的类名,保留其他的类名 
+                // 如果元素没有这个类, 也不会报错, 相当于什么都不做
+                $("div").removeClass("basic"); // class="one two three basic" => class="one two three"
+            })
+
+            $("button").eq(2).click(function(){
+                $("div").addClass("big");
+            })
+
+            $("button").eq(3).click(function(){
+                // 判断元素是否有指定类名: jq对象.hasClass('类名');  返回布尔值，true，有 ; false, 没有
+                // 获取到的元素中只要有一个元素有指定的类名，就返回true
+                console.log($("div").hasClass("basic"));
+            })
+
+            $("button").eq(4).click(function(){
+                // 切换类 jq对象.toggleClass('类名')
+                // 会给获取到的所有元素都进行切换相同的类
+                /*// 有，就删除掉这个类(相当于removeClass移除指定的类名,保留剩下的类名), 没有,就添加上这个类(相当于addClass,不会覆盖掉之前的类,而是直接在后面加上添加的类)
+                // toggleClass会实现差异化操作,比如获取到的元素中,有的有该类名,有的没有该类名,这时候toggleClass会实现差异化操作,对有该类名的元素,进行removeClass操作,对没有该类名的元素,执行addClass操作
+                if($("div").hasClass("basic")){
+                    // true , 有这个类名，删除
+                    $("div").removeClass("basic")
+                }else{
+                    $("div").addClass("basic");
+                }*/
+
+                // toggleClass(name)
+                $("div").toggleClass("basic");
+            })
+
+
+            // console.log($("div").hasClass("basic"));
+
+
+            // 小结：
+            // 类名的操作
+            // 增：addClass(name)
+            // 删：removeClass(name)
+            // 判断： hasClass(name), 返回布尔值
+            // 切换： toggleClass(name)
+            // ps: 如果元素在dom树上, 且类名有相关的css, 则浏览器会重新渲染,
+            // ps: 增删类名 浏览器会根据操作后的标签的类名, 重新渲染标签及其css样式
+        })
+    </script>
+</body>
+</html>

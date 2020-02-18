@@ -1,0 +1,228 @@
+1-移动web开发
+    目标： 能够写出适配移动端设备的网页， 响应式网页
+    技术： 前面学习 html + css + js 都可以继续使用
+          移动端 也会大量使用 H5C3技术
+
+    注意：移动端布局 和 pc端布局差异
+    1- 屏幕尺寸和系统差异
+    2- 兼容处理 移动端 不需要考虑低版本浏览器兼容， 考虑高版本的兼容即可  只需兼容webkit内核
+    3- 考虑移动端 各个屏幕的兼容(使用自适应布局或者 流式布局)
+    4- 做pc布局 如何兼容不同屏幕 ： 用版心, 百分比
+       做移动布局   兼容不同屏幕：自适应布局或者 流式布局 , 实际上就是用百分比布局
+       百分比布局: 盒子的宽高如果设置成百分比, 则会随着页面的缩放、父盒子(百分比参考盒子)的宽高的变化而跟着自动缩放、变化, 达到自适应的效果,
+                  一般在百分比的基础上, 还会给外部盒子设置一个最大宽和最小宽, 用来兼容不同的屏幕
+                  一般只给宽度设置百分比, 高度不设置百分比, 因为不确定具体的高度有多少。
+       移动端web布局, 一般兼容 最大宽度 max-width: 640px, 最小宽度 min-width: 320px 即可
+
+       在pc页面做移动页面, 可以把最外部的容器 max-width 640 min-width 320 看作是手机设备， 视口, 因为当前的手机屏幕最小宽度320px, 最大宽度640px, 会自动适配, 都会充满整个屏幕的
+
+       在pc端, 浏览器的滚动条通过鼠标滚轮就可以滚动, 在移动端, 浏览器的滚动条通过手指滑动就可以滚动了
+2-移动端分类：
+    QQ聊天工具
+    原生app（native app）
+        IOS 安卓 windows
+        优点： 用户体验好
+        缺点： 开发成本很高
+
+    web应用（webApp）
+        所有的系统都有浏览器
+        H5的程序员  写基于网页的聊天工具
+        优点： 开发成本低, 在各个设备都可以使用浏览器访问
+        缺点： 用户体验不太好
+
+    混合app（Hybrid app）
+        整个应用 先用H5的技术将应用功能 开发出来
+        在通过ios 安卓语言将写好H5页面 包装成原生APP   .apk
+
+3-  视口 viewport
+    1-什么是视口
+        移动端一个虚拟布局区域，
+    2-有什么用
+        在移动端基于视口进行布局
+    3-怎么用
+    meta:vp
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <!--
+        width=device-width : 视口的宽度等于设备宽度
+        user-scalable=no：   禁止用户手动缩放
+        initial-scale=1.0：  初始缩放比例1.0
+        maximum-scale=1.0：  最大缩放比例1.0
+        minimum-scale=1.0：  最小缩放比例1.0
+        -->
+
+    尺寸: 设备对角线的长度, 1英寸 = 2.54厘米
+4- 分辨率：
+    1366*768  屏幕横向有1366个像素点构成, 屏幕竖向有768个像素点构成  每个小点都是1像素, 简称物理像素
+    物理像素: 不同的设备, 1像素的大小不同, 在生产屏幕的时候就决定了, (物理像素) 比如都是15.6寸的设备, 但是分辨率不同, 说明像素点个数不同, 像素点越多, 代表每个像素点越小, 屏幕更细腻, 更好
+    相同尺寸下, 分辨率更高, 越清晰
+
+
+                物理像素        css像素
+    iphone4     640*980        320*480       1css像素 = 4 物理像素  像素比2
+    iphone6     750*1334       375*667       1css像素 = 4 物理像素  像素比2
+                1242*2208      414*736       1css像素 = 9 物理像素  像素比3
+
+     设备像素比： 物理像素/css像素  (一般只比较宽或高, 如物理像素640 * 960, css 像素 320 * 480, 像素比为2)        window.devicePixelRatio
+     当像素比为1:1时，使用1个物理像素显示1个css像素；当像素比为2:1时，使用4个物理像素显示1个css像素。
+
+     ps: pc端 像素比为1, 即1物理像素 = 1 css像素
+
+     ★ 视口的大小参考的是css像素大小, 在移动端布局, 是基于视口布局, 大小的是基于css像素
+
+
+5 less
+     用来生成css的一种语言， 在less中 变量 函数  作用域  运算 ，有很多编程语言能力；
+     less 本身并不是css,浏览器也不认识less, 要将写好less 编译 成css ,在交给浏览器去解析, 最终浏览器引入的还是css文件；
+     写好.less之后, 使用工具, 编译成.css文件, 然后再引入到页面, 最终浏览器引入和解析的还是css文件
+
+     优点： 用less 来写css 代码复用性提高，代码简洁，方便代码维护；
+
+     在less文件中可以直接开始写less语法, .less文件已经是less的书写环境了
+
+
+  less的基本语法：
+  1-注释：
+  less注释：//
+  less+css注释： /**/
+  区别, /* */ 的注释, 将来编译时, 会编译到css文件里, //则不会
+
+  2-变量： less中定义变量使用@
+  @变量名： 值；
+
+  3-混入(代码复用), 将.box, .box2, .box3的css样式复用
+  .box4 {
+    .box;
+    .box2;
+    .box3;
+  }
+
+  4- 函数 一次声明, 多次调用
+  定义函数
+  .setPosition(@type, @l, @t){
+    position: @type;
+    left:@l;
+    top: @t;
+  }
+  定义函数 带有默认参数
+  .setborder(@w:3px, @c: pink, @r: 0){
+    border: @w solid @c;
+    border-radius: @r;
+  }
+  调用函数, 返回函数中的css样式
+    1. 使用默认参数
+  .box7 {
+    .setborder();
+  }
+    2. 传参
+  .box5 {
+    .setborder(2px, red, 20px);
+  }
+
+  5-计算, less中, 支持计算
+    .box8 {
+      width:  100/7 + 100px;
+      height: 79/4px;
+    }
+
+  6-嵌套, 翻译成css就代表后代
+    .nav{
+      border: 1px solid #000;
+      overflow: hidden;
+      ul { // 相当于 .nav ul
+        position: relative;
+        width: 1000px;
+        li{ // 相当于 .nav ul li
+          float: left;
+          width: 100%;
+          a{ // 相当于 .nav ul li a
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            &:hover {  // &表示自己, 相当于this, 在这里就是a:hover, 相当于 .nav ul li a:hover, 如果不加&相当于.nav ul li a :hover, 语法错误
+              color: red;
+            }
+            &:nth-child(3) { // 相当于a:nth-child(3), 相当于 .nav ul li a:nth-child(3), 如果不加&相当于.nav ul li a :nth-child(3), 语法错误
+              background-color: pink;
+            }
+          }
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+   7. less导入
+   index.less文件:
+
+   @import "header";
+   @import "banner";
+   @import "nav";
+   @import "footer";
+
+   index.less中导入了header.less, banner.less, nav.less, footer.less, index.less中包含了导入的4个less文件, 将来只要编译index.less文件即可, 导入的less文件内容也会被进行编译, 编译进index.css, 最后编译出一个index.css, 引入页面使用即可
+   less导入, 有利于模块化的书写css, 利于开发
+
+   8. less内置函数 (了解)
+   参考:
+   http://www.1024i.com/demo/less/reference.html
+  复习
+  口： 在移动端用于给网页进行布局的一个虚拟区域  默认值980px
+  我们要做移动开发,需要设置视口 viewport    ,让视口宽 = 手机屏幕宽
+  <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" >
+
+  二倍图：
+    让每个物理像素对应着图片1像素；
+  less:
+   通过less可以快速书写css：
+   // less的注释
+   /* css注释 */
+   变量： @color: red;
+   函数： .setbg(@c: blue ) {
+    background: #c
+   }
+   混入
+   .box{
+      .box1;
+      .box2;
+   }
+
+   嵌套：
+   .nav{
+     ul {
+        li{
+            &:hover{}
+        }
+        li:hover{
+            width: 777 * 7 px;
+        }
+     }
+   }
+
+
+<div>
+    <p></p>
+    <!-- <a href="03.php">
+        <!-- 包一切  but self -->
+        <a href="01.php"></a>
+    </a> -->
+    <input type="text">
+    <!-- <span>
+        <div></div>
+    </span>
+
+    <span>
+        <img src="" alt="">
+    </span> -->
+</div>
+
+
+
+
+
+
+
+
+
+
+

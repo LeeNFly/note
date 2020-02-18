@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      
+      // 创建对象 4种方式
+      // 单独创建 字面量  构造函数 Object 
+      // 批量创建  工厂函数  自定义构造函数
+      // 命名建议采用驼峰,动词
+      // 工厂函数
+      function createPerson( name ,age) {
+
+        //1. 创建一个新对象
+        // * 每次创建虽然属性都是一样的,但是分配的空间地址不一样
+        // * 不是同一个对象
+        var obj = {};
+
+        //2. 给这个新对象添加属性/方法
+        // obj.name 和 形参name不会冲突,一个是对象的name属性,一个是形参,两个不是一个东西,不会冲突
+        obj.name = name;
+        obj.age = age;
+        obj.sayHi = function () {
+          console.log('哈哈'+this.name);
+        }
+
+        //3. 返回出去
+        return obj;
+      }
+
+
+      //创建一个 zs 对象
+      // 用一个变量接收一下工厂返回的对象,相当于赋值了
+    var zs =   createPerson('zs',18);
+    console.log(zs);
+
+    var ls =   createPerson('ls',19);
+    console.log(ls);
+
+    //王五 ww
+    var ww = createPerson('ww',20);
+    console.log(ww);
+    
+    console.log(typeof ww); //object
+    console.log( ww.constructor.name ) //Object
+    //注意: 工厂函数的缺点: 使用工厂函数创建对象,返回的对象的数据类型都是Object
+
+
+
+
+
+    </script>
+</body>
+</html>

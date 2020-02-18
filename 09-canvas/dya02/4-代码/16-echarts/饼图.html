@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box" style="width: 600px;height:400px; border: 1px solid red;"></div>
+    <script src="echarts.min.js"></script>
+    <script>
+        //初始化
+        //1- 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('box'));
+
+        //2-设置图表的配置项
+       var  option = {
+            title : {
+                text: '传智播客毕业薪资',
+                subtext: '都是凭良心的',
+                x:'right'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['大前端','java','php','python','UI设计'] // 要与series中每组数据中的data里的name值一一对应
+            },
+            series : [
+                {
+                    name: '',
+                    type: 'pie',
+                    radius : '70%', // 饼图的直径
+                    center: ['50%', '50%'], // 饼图的圆心位置, 百分比参考的是canvas画布的宽高
+                    data:[
+                        {value:15330, name:'大前端'},
+                        {value:10000, name:'java'},
+                        {value:9000, name:'php'},
+                        {value:12000, name:'python'},
+                        {value:9000, name:'UI设计'}
+                    ], // 饼图的数据需要传一个对象, value值为数据值, name值该数据对应的说明
+                    // 添加阴影效果
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        //3-让图表根据配置项 生成图标
+        myChart.setOption(option);
+
+    </script>
+</body>
+</html>

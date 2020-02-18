@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 转化 number
+      //1. 构造函数 Number(值)
+      //2. parseInt(值)/ parseFloat(值)
+      //3. + /-0-0
+
+
+
+      // 转化为字符串 
+
+      //1. 构造函数 String() 
+      var age = 9;
+      var str1 =  String(age);
+      console.log(str1);
+      console.log( typeof str1);
+
+      //2. 方法  toString()
+      // 值.toString()
+      var str2 = age.toString();
+      console.log(str2);
+      console.log(typeof str2);
+
+      //3. + ''  (推荐)
+      var age = 666;
+      var s = '';
+      console.log( age + s);
+      console.log(typeof (age + s)); //666 => string
+      console.log((age+s).length); //3 不会改变长度
+      
+      
+      
+      
+      
+      
+      
+
+    </script>
+</body>
+</html>

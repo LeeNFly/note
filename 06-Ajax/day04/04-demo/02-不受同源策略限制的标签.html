@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="http://www.api.com/ajax-day04/02-test.css">
+</head>
+<body>
+
+  <!-- 1. 同源网站: 协议 域名 端口 都一致
+       2. ajax 受到了同源策略的限制, 如果在两个不同源的网站进行 ajax 请求, 会报错, ajax无法跨域请求数据
+       3. 有一些标签, 不受 同源策略的限制
+          script 标签  src
+          link 标签 href 
+          img 标签 src
+      
+      补充说明:
+        1)这些标签都会向各自的src或href地址发起请求, 且这些请求不受同源策略的限制, 可以跨域请求数据
+  -->
+
+  <img src="http://img.taopic.com/uploads/allimg/121019/234917-121019231h258.jpg" alt="">
+
+
+  <script src="http://www.api.com/ajax-day04/02-test.js"></script>
+
+  
+</body>
+</html>

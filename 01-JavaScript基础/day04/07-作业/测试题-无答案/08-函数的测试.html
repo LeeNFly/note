@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  //封装一个函数，传入一个数组，返回数组中所有元素的和。
+  //比如  传入[1,2,3,4] 能够返回10
+  //比如  传入[10,20,30,40] 能够返回100
+  function sumArr(arr) {
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+       sum += arr[i];
+    }
+    return sum;
+  }
+  var res = sumArr([1,2,3,4]); 
+  console.log(res); // 10
+  var res1 = sumArr([10,20,30,40])
+  console.log(res1); // 100
+  
+
+</script>
+
+</body>
+</html>

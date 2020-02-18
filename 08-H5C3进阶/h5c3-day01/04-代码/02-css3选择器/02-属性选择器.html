@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /* 选中所有有 skill 属性的元素 */
+    li[skill]{
+      /*background-color: pink;*/
+    }
+
+    /* 有 skill 属性, 且skill值为 veryMeng, 必须完全等于 */
+    li[skill='veryMeng'] {
+      /*background-color: blue;*/
+    }
+
+    /* 有 skill 属性, 且 skill 值, 以 sell 开头 */
+    li[skill^="sell"] {
+      /*background-color: green;*/
+    }
+
+    /* 有 skill 属性, 且 skill 值, 以 Meng 结尾 */
+    li[skill$='Meng'] {
+      /*background-color: red;*/
+    }
+
+    /* 有 skill 属性, 且 skill 值, 只要包含 sell 就生效 */
+    li[skill*='sell'] {
+      /*background-color: blue;*/
+    }
+
+
+    input[type='text'] {
+      background-color: yellow;
+    }
+    input[name="password"] {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+
+
+<ul>
+  <li skill="sellMeng">鹏鹏</li>
+  <li skill="veryMeng">芳芳...</li>
+  <li>飞飞</li>
+  <li skill="smallsell">小马哥</li>
+  <li skill="sellFriends">罗雷雷</li>
+</ul>
+
+
+<input type="text" name="username" />
+<input type="password" name="password" />
+<input type="submit" />
+
+
+</body>
+</html>

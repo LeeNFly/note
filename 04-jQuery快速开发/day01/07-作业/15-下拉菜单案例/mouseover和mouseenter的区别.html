@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="../jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+    //计数
+    x = 0;
+    y = 0;
+    $(document).ready(function() {
+        $("div.over").mouseover(function() {
+            $(".over span").text(x += 1);
+        });
+        $("div.enter").mouseenter(function() {
+            $(".enter span").text(y += 1);
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="over" style="background-color:lightgray;padding:20px;width:40%;float:left">
+        <h2 style="background-color:white;">被触发的 Mouseover 事件：<span></span></h2>
+    </div>
+    <div class="enter" style="background-color:lightgray;padding:20px;width:40%;float:right">
+        <h2 style="background-color:white;">被触发的 Mouseenter 事件：<span></span></h2>
+    </div>
+
+
+    <!-- 
+        mouseover事件的触发，会在当前元素和其子元素上触发，，(子元素上触发,通过事件冒泡,触发了父元素的mouseover事件)    mouseout
+        mouseenter事件的触发，只会在当前元素上触发，，(阻止了子元素的事件冒泡)  mouseleave
+
+        mouseover事件会不停的触发，会影响网页的性能
+     -->
+</body>
+
+</html>

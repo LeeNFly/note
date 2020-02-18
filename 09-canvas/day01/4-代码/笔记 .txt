@@ -1,0 +1,138 @@
+1- XMLHttpRequest2.0 
+	1- 超时
+		xhr.timeout = 1000;
+		xhr.ontimeout = function () {}
+	2- FormData
+		快速数据
+		jq  $('form').serialize();  //直接将表单 name  和 value  获取进行拼接， 只能获取文本数据 ， 获取不到文件
+		FormData 管理表单数据 
+		1- 必须post方法  2 - 不需要设置请求头 
+		var formData = new FormData(form);
+		xhr.open('post', '01.php');
+		xhr.send(formData);
+
+	3- 上传进度 
+		xhr.upload.onprogress = function (e) {
+			var value = e.loaded / e.total; 
+		}
+2- 同源：
+	协议 域名 端口 都相同 是同源， 不同源则跨域  
+	跨域的限制：
+		不能操作DOM
+		不能操作cookie  
+		不能发送ajax请求  用jsonp来解决 
+
+		$.ajax({
+		...
+		dataType: josnp //跨域  
+		})
+
+3-jsonp的原理：
+	用$.ajax时 ，将dataType: josnp ， $.ajax的内部不在使用XMLHttpRequest对象请求服务器
+	内部是用script标签的src属性请求服务器 
+	前端：
+
+	function say (obj) {
+		alert(obj.name);
+	}
+
+
+	<script src="01.php?callback=say"></script>
+	后台：
+	jsopnp 用json数据进行填充
+
+	$callback = $_GET['callback'];
+
+	echo $callback.'()';   //say({"name":"zs", "age":18});
+
+	//jsonp 必须前后端配合完成
+	//jsonp 只能用get方式 
+
+
+	实现步骤：
+	1- 前端定义好一个方法， 通过script标签的src 将方法名传递给后台
+	2- 后台获取传递方法名，在方法名后面拼接括号，在括号中填充josn格式数据，最后将填充好参数方法调用进行返回
+	3- 前端接受到返回方法调用，会立即执行，就可以获取到方法参数中数据；
+
+	jsonp只能发送get请求，有局限性
+
+
+
+4- 服务端跨域： 
+	header('Access-Control-Allow-Origin:*'); //允许所有人访问这个服务器
+	header('Access-Control-Allow-Origin:http://localhost'); //指定的用户可以访问我们服务器
+
+	前后端交互：
+		$.ajax({
+			type: 
+			url:
+			data:
+			success: function () {
+
+			}
+		})''
+
+
+
+
+	图灵机器人：
+	网址： tuling123.com
+	秘钥： b095be9017754cf28470b3b7e6627c21
+
+5-项目开发流程（大致相同，并且完全一样）
+
+	1-需求设计
+		为什么做这个项目： 用户量很大， 客户的需求 ， 盈利 
+		负责人： leader  和 产品经理 ---> 想法 商机  转换成产品 
+
+	2-原型设计
+		打草稿，将需求以形象的方式展示出来
+		负责人：产品经理
+
+	3-UI设计
+		UI设计来美化布局， 切图工作： 从psd切图并且完成静态页面布局  
+		负责人：UI设计师 
+
+	4-技术选型
+		前端：html+css  html5 + css3  jquery  vue.js  ...
+		后台：php    java  python 
+		数据库：mysqli sql_Server
+
+		选型的标准： 开发成本 考虑团队技术水平  
+		负责人： 项目经理 技术总监
+
+	5-数据库设计
+		把数据库表 数据库结构设计
+		负责人： 数据库管理员（DBA)   后台
+
+	6-项目框架设计
+		文件结构规范
+		代码结构规范
+		负责人： 项目经理 技术总监
+
+	7-迭代开发
+		开发
+		测试
+		开发
+		测试
+		开发 ---> 需求
+		测试
+		。。
+
+	8-集中测试
+		内测： 用内网进行测
+		公测： 游戏 进行公测
+
+	9-部署上线
+		将写好项目有公司内网，部署到互联网上
+
+	越坚硬越脆弱！
+
+
+
+
+
+
+
+
+

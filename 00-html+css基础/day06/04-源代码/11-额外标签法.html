@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/* 定高法：直接给父级元素追加一个固定的高度  但是这个做法不推荐 不利于后期代码的维护 */
+
+		/* 额外标签法：css在初始设计的时候就解决了这个问题：clear:both; 
+			
+			如何使用：在浮动元素的后面添加一个新的块级标签，这个标签啥事不干 专门 clear:both;
+			
+			弊端：每次解决这个问题都需要添加一个空盒子
+
+		*/
+
+		.box {
+			width: 500px;
+			
+			/* height: 500px; */
+			border: 1px solid #000;
+		}
+		
+		/* 浮动元素撑不开父级容器 */
+
+		.info {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			float: left;
+		}
+		.gebilaowang {
+			width: 250px;
+			height: 100px;
+			background-color: lime;
+		}
+		.clear {
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="info"></div>
+		<div class="clear"></div>
+	</div>
+	<div class="gebilaowang"></div>
+</body>
+</html>

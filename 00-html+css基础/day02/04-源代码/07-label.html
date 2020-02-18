@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<!-- label将文件和表单关联起来  点击文字相当于点击了表单 -->
+
+	<label><input type="radio"> 男</label>
+
+	<label><input type="checkbox"> 骑车 </label>
+
+	<label>用户名：<input type="text"></label>
+
+	<!-- 或者通过label标签的for属性 通过id 将label和表单元素关联起来 点label就相当于 ★ 点击了对应的表单元素
+		  一般可结合input:file, 使用, 点击label, 相当于点击上传按钮, 弹出上传控件
+	-->
+	<input type="radio" id="sex">
+	<label for="sex">男</label>
+</body>
+</html>

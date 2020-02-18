@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>版心</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.w1280 {
+			width: 1280px;
+			margin: 0 auto;
+		}
+		header {
+			height: 60px;
+			background-color: red;
+		}
+		nav {
+			height: 32px;
+			background-color: lime;
+		}
+		section {
+			/*height: 500px;*/
+			background-color: pink;
+		}
+		aside {
+			background-color: blue;
+			height: 500px;
+			width: 500px;
+			float: left;
+		}
+		article {
+			background-color: yellow;
+			height: 500px;
+			width: 780px;
+			float: left;
+		}
+		.clearfix:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		footer {
+			height: 100px;
+			background-color: #333;
+		}
+		.big-banner {
+			height: 340px;
+			background: url(images/big-banner.jpg) center center no-repeat;
+		}
+	</style>
+	
+</head>
+<body>
+	<header class="w1280"></header>
+	<nav class="w1280"></nav>
+	<div class="big-banner">
+		<!-- <img src="images/big-banner.jpg"> -->
+	</div>
+	<section class="w1280 clearfix">
+		<aside></aside>
+		<article></article>
+	</section>
+	<footer class="w1280"></footer>
+</body>
+</html>

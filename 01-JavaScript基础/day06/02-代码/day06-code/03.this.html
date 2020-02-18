@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      
+      function test() {
+
+
+
+        console.log(this);
+
+        // 谁调用this所在的函数,,this就指向谁
+        
+       
+        console.log(this.age)
+      }
+
+      test(); 
+      // 直接调用的
+      // test() => window.test(); => this 就指向window
+            
+
+            var str = '123456';
+            var res = str.slice(1);
+            console.log(res);
+            
+
+    </script>
+</body>
+</html>

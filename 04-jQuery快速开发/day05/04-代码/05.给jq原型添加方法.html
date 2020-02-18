@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+
+    <script>
+    (function(window, undefined) {
+        var jQuery = function(selector) {
+            // 获取元素
+            var elements = document.querySelectorAll(selector);
+            console.log(elements);
+
+            [].push.apply(this, elements);
+        }
+
+        // 往jq的原型上添加方法
+        // html、css、attr、width、innerWidth
+        /*jQuery.prototype.html = function() {
+
+        }
+        jQuery.prototype.css = function() {
+
+        }*/
+
+        // 原型替换 
+        // ★ 将jQuery的原型赋值给jQuery函数的fn属性, 这样jQuery函数的fn属性 和 jQuery函数的原型对象prototype 和 jQuery实例的__proto__ 都指向同一个地址
+        //  这样  jQuery.fn  就能访问和改变jQuery的原型了
+        jQuery.fn = jQuery.prototype = {
+            // 添加constructor属性，指向构造函数
+            constructor: jQuery,
+
+            html: function() {
+                console.log("这是jq的html方法");
+            },
+            css: function() {
+                console.log("这是jq的css方法");
+            },
+            width: function(){
+
+            }
+        };
+
+        // jq的原型：
+        // jQuery.prototype
+        // jQuery.fn
+
+        window.jQuery = window.$ = jQuery;
+    })(window)
+
+    var divs = new $("div");
+    console.log(divs);
+    divs.html();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body {
+        height: 8000px;
+    }
+
+    a {
+        color: #FFF;
+    }
+
+    .actGotop {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        width: 150px;
+        height: 195px;
+        display: none;
+        z-index: 100;
+    }
+
+    .actGotop a,
+    .actGotop a:link {
+        width: 150px;
+        height: 195px;
+        display: inline-block;
+        background: url(images/gotop.png) no-repeat;
+        outline: none;
+    }
+
+    .actGotop a:hover {
+        width: 150px;
+        height: 195px;
+        background: url(images/gotop.gif) no-repeat;
+        outline: none;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 返回顶部小火箭 -->
+    <div class="actGotop"><a href="javascript:;" title="Top"></a></div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+        // 分析：
+        // 1. 控制小火箭的显示与隐藏
+        //      1.1 给window注册scroll
+        //      1.2 拿到页面垂直方向卷曲的距离
+        //      1.3 拿到距离与指定的值 800 ，做比较
+        //      1.4 距离 大于 800，  显示
+        //      1.5 距离 小于 800，  隐藏
+
+        $(window).scroll(function(){
+            var scrollTop = $(window).scrollTop();
+
+            if(scrollTop > 800){
+                // 显示
+                $(".actGotop").fadeIn(1000);
+            }else{
+                $(".actGotop").fadeOut(1000);
+            }
+        })
+
+
+        // 2. 给actGotop注册click
+        //  2.1 让页面垂直方向的卷曲距离为0，效果为缓慢的
+        $(".actGotop").click(function(){
+            //没有动画效果
+            // $(window).scrollTop(0);
+
+            // 做动画的效果，自定义动画去实现
+            // 这样给window做自定义动画还是不行，没效果
+            /*$(window).animate({
+                scrollTop: 0
+            }, 1000);*/
+
+            // $(window).scrollTop(0)； 这句话做了啥？
+            // window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            // window.pageYOffset 是只读的
+            // document.documentElement  ,html
+            // document.body, body
+            // 也就是说$(window).scrollTop(0) ， 其实jq内部还是改的 document.documentElement.scrollTop
+
+
+            /*$(document.documentElement, document.body).animate({
+                scrollTop: 0
+            }, 1000)*/
+
+            // 更简洁
+            $("html, body").animate({
+                scrollTop: 0
+            }, 1000)
+        })
+
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <ul>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+    </ul>
+
+    
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+           /* $("li").click(function(){
+                console.log($(this).index());
+            })*/
+
+            // jq对象.index() 方法获取的是jq对象中第一个元素 ★★★ 在html结构中所有兄弟元素中的索引 从0开始
+            $("a").click(function(){
+                // console.log($(this).index());  // 都是0
+                console.log($(this).parent().index());
+            })
+        })
+    </script>
+</body>
+</html>

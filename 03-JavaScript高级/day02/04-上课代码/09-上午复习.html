@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        1. 内置函数的原型上定义了我们之前学习的那些常用的方法. 
+        目的: 是为了节省内存
+        2. 函数.prototype = {}  因为函数的原型是谁,是由函数的prototype属性指向决定的
+            建议在新的对象上,手动加上constructor属性
+        3. instanceof 的作用: 判断一个函数的原型是否在前面对象的原型链上
+          对象  instanceof 函数
+        4. 原型链不可变的问题: 一个实例创建完成之后,那么这个实例的原型链就固定.不会随着
+        函数原型的变化而变化
+
+        5. 上下文调用模式: 
+           call 调用函数 后面的参数,按照函数实际需要的参数传递
+           apply  调用函数    要求第二个参数传的是数组,数组中包含函数需要的实参
+           bind  不会调用函数,会克隆一个新的函数  后面的参数,按照函数实际需要的参数传递
+           这三个方法:第一个参数都是控制函数中this的指向,传谁,函数中this就指向谁
+
+        //    让伪数组,使用数组的方法: 比如用forEach方法
+        //    Array.prototype.forEach.call(伪数组,function(){
+
+        //    })
+
+        // Array.prototype.forEach.apply(伪数组,[function(){
+
+        // }])
+
+        // Array.prototype.forEach.apply(伪数组,[fn]);
+        // function fn(){
+
+        // }
+    </script>
+</body>
+</html>

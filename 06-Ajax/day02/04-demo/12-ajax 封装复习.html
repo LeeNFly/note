@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <button id="get">发送get请求</button>
+  <button id="post">发送post请求</button>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    var get = document.getElementById("get");
+    var post = document.getElementById("post");
+
+    // 发送请求, 要求传参 username=pp&password=123456
+    get.onclick = function () {
+      $.ajax({
+        type: "get",
+        url: "05-json.php",
+        dataType: "json",
+        data: {
+          username: "pp",
+          password: "123456"
+        },
+        success: function( info ) {
+          console.log( info )
+        },
+        error: function() {
+          alert( "服务器繁忙" );
+        }
+      })
+    };
+
+    post.onclick = function () {
+      $.ajax({
+        type: "post",
+        url: "01-xml.php",
+        dataType: "xml",
+        data: {
+          username: "pp",
+          password: "123456"
+        },
+        success: function( info ) {
+          console.log( info )
+        },
+        error: function() {
+          alert( "服务器繁忙" );
+        }
+      })
+    };
+  </script>
+
+
+</body>
+
+</html>

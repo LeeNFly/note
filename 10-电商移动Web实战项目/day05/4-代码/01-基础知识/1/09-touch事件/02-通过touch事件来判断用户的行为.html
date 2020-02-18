@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+
+        //绑定touch事件
+        //定义变量记录触屏数据
+        var  startX = 0; //记录手指接触时坐标值
+        var  moveX = 0; //记录手指当前移动坐标值
+        var  distancX = 0; //记录当前手指位置 和 起始位置差值
+
+        box.addEventListener('touchstart', function (e) {
+            console.log('start');                      
+            startX = e.targetTouches[0].clientX;
+            // console.log(startX); 
+        })
+
+        box.addEventListener('touchmove', function (e) {
+            console.log('move');
+            //触屏移动式获取当前手指移动距离
+            moveX = e.targetTouches[0].clientX; 
+            // console.log(moveX);
+            //计算距离差值
+            distancX = moveX - startX;
+            // console.log(distancX);
+            
+
+        })
+
+        box.addEventListener('touchend', function (e) {
+            console.log('end');
+            //触屏结束是判断 用户滑动方向 
+            if (distancX > 0) {
+                console.log('右滑动');
+            }
+
+            if(distancX < 0) {
+                console.log('左滑动');
+            }
+
+             //数据重置 
+             startX = 0; 
+             moveX = 0; 
+             distancX = 0; 
+        })
+    </script>
+</body>
+</html>

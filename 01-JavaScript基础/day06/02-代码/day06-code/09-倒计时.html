@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 2018年6月8日 
+
+      // 距离还有多少天 多少小时 多少分 多少秒 
+
+      // 1. 拿到 未来的这个时间,,把这个时间转化为时间戳
+      var end = +new Date('2018-06-08');
+      // console.log(end);
+
+      //2. 当前时间
+      var now = +new Date();
+
+      //3. 时间差
+      var time =  parseInt((end-now)/1000); //秒
+      console.log(time);
+
+      //4. 天
+      // 60s => 1分钟 60/60 
+      // 3600s => 360/60/60  = 1个小时   /24=>天
+      var day =  parseInt(time/60/60/24) ;
+      console.log(day);
+      
+      //5. 小时 
+      // 41小时 = 1天 17小时  41-24= 17
+      // 48小时 = 2天 0小时
+      // 不满 24小时的
+      // 思路 : 
+      //  parseInt(time/60/60) 先求小时
+      // 不足的拿到,,,多余的不用管,,因为上面的那个已经表现出来了
+      var hour = parseInt(time/60/60) % 24;
+      console.log(hour);
+
+      //6. 分   拿到不足60分的
+      var minute = parseInt(time/60) % 60;
+      console.log(minute);
+
+      //7. 秒 拿到不足 60s的
+      var second = time % 60;
+      console.log(second);
+
+     var str = '距离抽奖日期还有 :' + day + '天' + hour +'小时' + minute + '分钟' + second + '秒' ;
+     console.log(str);
+     
+      
+      
+      
+
+      
+      
+
+    </script>
+</body>
+</html>

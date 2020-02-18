@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 5! =  1*2*3*4*5;
+      // 3! = 1*2*3
+      // n! = 1*2....*n  
+
+
+
+      //1. 封装一个函数，求阶乘
+      //1.1 函数
+      //1.2 参数 n
+      //1.3 for 1->n 累乘
+      function jieCheng( n ) {
+          var num = 1;
+          for (var i = 1; i <= n; i++) {
+              num *= i;
+          }
+          return num;
+      }
+
+     var res =   jieCheng(5);
+     console.log(res);
+     
+     //2. 封装一个函数，求阶乘和  1!+2!+3!+4!+5!
+     function sum() {
+       var num = 0;
+        for (var i = 1; i <= 5; i++) {
+          console.log( jieCheng(i) );
+          num += jieCheng(i);
+        }
+        return num;
+     }
+
+    var res =   sum();
+    console.log(res);
+    
+
+     // 2.1 函数
+     // 2.2 for (1=> 5)  => i
+     // 2.3 把i 调用 jieCheng(i) 
+     // 2.4 累加
+    </script>
+</body>
+</html>

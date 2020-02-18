@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--a标签默认行为 : 页面跳转-->
+<a href="" id="link">点击在控制台打印一句话</a>
+<script>
+  var link = document.getElementById('link');
+  //由于a标签的超链接功能,导致事件触发之后,还会默认刷新页面/跳转页面,我们不能到达我们最终的目的
+  //a标签如果不写href 则失去了超链接功能,这样和普通标签没区别了,这不是我们想要的。 所以a标签一般都加上href属性
+  link.onclick = function(){
+    console.log('a被点击了');
+    
+    return false; //在事件处理函数的最后一行,写一个return false,就可以阻止a的默认行为,
+  }
+  // 在事件处理函数中 return false, 可以阻止浏览器的默认行为
+  // 只是阻止浏览器的默认行为, 并不是阻止事件和事件处理函数, 事件还是会触发, 事件处理函数还是会执行
+</script>
+</body>
+</html>

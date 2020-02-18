@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+            border: 10px solid #ccc;
+            margin: 10px;
+            background-color: #f99;
+        }
+    </style>
+</head>
+<body>
+
+    <div></div>
+    <div></div>
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // css():   获取元素的宽高会把单位px带上，这样不利于计算
+            // console.log($("div").css("width"));
+            
+            // width/height 方法
+            // width/height()  width
+
+            // 获取的时候, 不需要元素在dom树上
+
+            // 一 width/height方法
+                // 此处width/height 对应的是元素盒子模型的css属性里的width和height, 即内容的宽高
+
+                // 获取元素的宽高, 获取元素当前的宽和高, 就算不设置css的宽和高, 也能获取默认的宽度和撑大的高度
+                // jq对象.width()/height();
+                // 返回jq对象中第一个元素的宽度/高度, 返回的是 ★ 数字类型, 不带单位, 但是参照px
+                // console.log($("div").width());  
+                // console.log($("div").height());
+
+                // 设置元素的宽高 
+                // jq对象.width(数值)/height(数值)
+                // 参数直接写数字类型即可, 单位不用写默认px
+                // 会把jq对象中的所有元素设置上相同的宽度/高度
+                // $('div').width(500);
+            
+            // 二 innerWidth/innerHeigh方法
+                // API解析和用法同width/height,
+                // 只不过innerWidth()/innerHeight()方法设置和获取的是元素的 width + padding / height + padding 部分, 即内容宽高 + padding部分
+                // 此方法一般只用于获取, 不用于设置
+
+                // innerWidth();   padding + width
+                // console.log($("div").innerWidth());
+            
+            // 三 outerWidth/outerHeight方法
+                // API解析和用法同width/height,
+                // 只不过outerWidth()/outerHeight()方法设置和获取的是元素的 width + padding + border / height + padding + border部分, 即盒子的总大小
+                // 此方法一般只用于获取, 不用于设置 
+                // 若传参数true, 则获取元素的 width + padding + border + margin
+                // 参数默认值为false, 即不传参数, 获取的是  width + padding + border / height + padding + border
+
+            // outerWidth()；   border + padding + width
+            // 可以传参，参数为true， 默认值是false
+            // console.log($("div").outerWidth());     
+
+            // outerWidth(true);   margin + border + padding + width       
+            // console.log($("div").outerWidth(true));
+
+            // 设置的
+            // $("div").width(500);
+            // 
+            // 
+            // 补充：
+            // 获取浏览器可视区的宽高 返回的也是数字类型, 不带单位, 但是参照px
+            // console.log($(window).width());
+            // console.log($(window).height());
+
+        })
+    </script>
+</body>
+</html>

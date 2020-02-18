@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      transition: all 1s;
+    }
+
+    div:hover {
+      width: 400px;
+      height: 400px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div></div>
+
+<script>
+
+  // transitionend事件, 可以添加 transition 动画完成的事件监听
+  // 在元素的transition过渡动画 执行完成 时, 会触发transitionend事件, 会调用transitionend的事件处理函数, 且每有一个过渡属性, 就会调用一次
+  // 盒子只要有状态发生改变, (2个状态), 若盒子有添加过渡transition, 就会执行过渡动画, 完成时就会触发transitonend, 就会调用transitonend的事件处理函数
+  // 
+  // 定时器和transitionend一起使用时, 要让定时器的时间间隔 大于 transition的过渡时间, 这样才有时间来调用执行transitionend里的回调函数,
+  // 否则如果定时器时间间隔大于transition过渡时间, 则元素的状态会一直发生改变, 元素一直处于过渡状态, 不会调用transitionend里的回调函数
+  var div = document.querySelector("div");
+  // div.addEventListener( "事件名称", function() { ... })
+  // transitionend事件, 是h5新增的事件, h5新增的事件, dom中不能使用on + 事件名来注册, 要使用addEventListener来注册
+
+  div.addEventListener("transitionend", function() {
+    console.log("呵呵");
+  })
+
+
+</script>
+
+</body>
+</html>

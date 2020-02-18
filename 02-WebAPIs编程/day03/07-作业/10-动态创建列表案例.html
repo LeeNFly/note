@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <button id="btn"> 点击按钮,假装去服务器拿数据</button>
+  <div id="container">
+
+  </div>
+
+  <script>
+    var arr = ['html', 'css', 'es5.0js', 'dom']
+    var container = document.querySelector('#container');
+    var btn = document.querySelector('#btn');
+    var lis;
+    btn.onclick = function () {
+      var str = '<ul>';
+      for (var i = 0; i < arr.length; i++) {
+        str += '<li>' + arr[i] + '</li>';
+      }
+      str += '</ul>';
+      container.innerHTML = str;
+
+      lis = document.querySelectorAll('#container li');
+      if (lis !== undefined) {
+        for (var i = 0; i < lis.length; i++) {
+           lis[i].onmouseover = fn;
+        }
+      }
+      
+      function fn() {
+      for (var i = 0; i < lis.length; i++) {
+         lis[i].style.backgroundColor = '';
+      }
+      this.style.backgroundColor = 'gray';
+      }
+    }
+    
+    
+    
+  </script>
+</body>
+
+</html>

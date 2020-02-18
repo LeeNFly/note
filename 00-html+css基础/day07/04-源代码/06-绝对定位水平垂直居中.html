@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wrapper {
+			width: 800px;
+			height: 800px;
+			border: 1px solid #000;
+			margin:100px auto 0;
+			position: relative;
+		}
+		
+		/* 让一个绝对定位盒子在参照盒子中水平垂直居中：
+		绝对定位偏移量的百分比大小参照的是移动出发点参照的那个元素的宽(left\right)和高(top\bottom)
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-left: -自身宽度的一半;
+		margin-top: -自身高度的一半; 
+		left,margin-left 可以控制水平居中
+		top,margin-top 可以控制垂直居中
+		对除静态定位以外的元素都可以使用此方法对定位元素居中
+		*/
+
+		.box {
+			width: 300px;
+			height: 300px;
+			background-color: lime;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -150px;
+			margin-top: -150px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="box"></div>
+	</div>
+</body>
+</html>

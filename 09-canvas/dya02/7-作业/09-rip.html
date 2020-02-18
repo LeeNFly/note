@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        canvas{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<canvas width="320" height="480" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+    // 思路：获取鼠标在图一上坐标点， 去图二中去对应区域图片，绘制在图一上
+    //1- 先准备需要图片
+    var up = document.createElement('img');
+    var back = document.createElement('img');
+    up.addEventListener('load', function () {
+        ctx.drawImage(up, 0, 0, 320, 480);
+        back.src = './img/g15_back.jpg';
+    })
+    back.addEventListener('load', function () {
+        cs.addEventListener('mousedown', function () {
+            cs.onmousemove =  function (e) {
+                ctx.drawImage(back, e.offsetX - 10, e.offsetY - 10, 20, 20, e.offsetX - 10, e.offsetY - 10, 20, 20 );
+            }
+        })
+        cs.addEventListener('mouseup', function () {
+            cs.onmousemove = null;
+        })
+    })
+    up.src = './img/g15_up.jpg';
+
+</script>
+</body>
+</html>

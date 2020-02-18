@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 350px;
+			height: 300px;
+			border: 1px solid #000;
+		}
+		.info {
+			width: 100px;
+			height: 100px;
+			float: left;
+			background-color: red;
+		}
+		.info3 {
+			height: 90px;
+			background-color: lime;
+		}
+		.info4 {
+			background-color: blue;
+		}
+		.info1 {
+			height: 110px;
+		}
+		.block {
+			width: 130px;
+			height: 130px;
+			background-color: purple;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+	1. 浮动是在盒子内容区域width/height里浮动，不会超出padding区域（水平方向）
+	2. 浮动的盒子一排装不下的时候会掉下来（掉下来的位置会根据上一个浮动盒子的高度决定, 会以上一个盒子的底边线为基准线水平移动，如果在移动的过程里面被挡住了，那么就会卡在这里地方）
+	3. 右浮动会颠倒盒子顺序
+	4. 浮动的盒子压不住文字和图片, 但是 ★ 可以盖住标准流盒子
+	5. 尽量在标准流的盒子里面浮动 (保证外部标准流不受影响)
+	6. 浮动的盒子里嵌套其他标签，则嵌套的标签同样是在浮动盒子的内容区域里进行嵌套和展示 默认也是按标准流排列
+
+	ps: 要保证浮动的盒子不要超出父容器, 否则可能会因为 浮动的盒子压不住文字和图片 这个特性, 影响父盒子后面的标准流盒子内的布局
+	-->
+
+	<div class="box">
+		<div class="info info1">1</div>
+		<div class="info">2</div>
+		<div class="info info3">3</div>
+		<div class="block"></div>
+		<div class="info info4">4</div>
+	</div>
+	
+
+	<style>
+		.box1 {
+			width: 500px;
+			height: 300px;
+			border: 1px solid #000;
+		}
+		.test {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			float: right;
+		}
+	</style>
+
+	<div class="box1">
+		<div class="test">1</div>
+		<div class="test">2</div>
+		<div class="test">3</div>
+	</div>
+
+	
+	<style>
+		.box2 {
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+		}
+		.test2 {
+			width: 50px;
+			height: 50px;
+			background-color: red;
+		}
+		.test2-1 {
+			float: left;
+		}
+	</style>
+	<div class="box2">
+		<div class="test2  test2-1">1</div>
+		<!-- <img src="images/happy.gif" alt=""> -->
+	</div>
+</body>
+</html>

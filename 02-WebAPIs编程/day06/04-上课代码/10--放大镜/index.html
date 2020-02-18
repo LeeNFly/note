@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<link rel="stylesheet" href="css/index.css">-->
+    <style>
+        img {
+            display: block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .big img {
+            position: absolute;
+
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="small" id="small" >
+            <img src="images/small.jpg" width="350" alt="" />
+            <div class="mask" id="mask"></div>
+        </div>
+        <div class="big" id="big" >
+            <img src="images/big.jpg" width="800" alt="" id="img" />
+        </div>
+    </div>
+</body>
+
+
+<script>
+    
+    
+    //获取元素
+    var box = document.getElementById('box');
+    var small = document.getElementById('small');
+    var mask = document.getElementById('mask');
+    var big = document.getElementById('big');
+    var img = document.getElementById('img');
+    
+    //需求:
+//    1. 鼠标移入到小盒子里面,黄色盒子和大盒子出现,移出,则黄色盒子和大盒子消失
+//    1.1 鼠标移入到small中mask和big展示
+        small.onmouseenter = function(){
+            mask.style.display = 'block';
+            big.style.display = 'block';
+        }
+//    1.2 鼠标移出small,mask和big隐藏
+        small.onmouseleave = function(){
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        }
+//    2. 黄色盒子在小盒子范围内活动,鼠标在黄色盒子中间
+//        2.1 small注册鼠标移动事件
+          small.onmousemove = function(e){
+//        2.2 在事件处理函数中,获取到鼠标在可视区的坐标
+              var x = e.clientX;
+              var y = e.clientY;
+//        2.3 在事件处理函数中,获取相对于body的左,上偏移量
+              var offLeft = box.offsetLeft;
+              var offTop = box.offsetTop;
+//        2.4 计算鼠标在small里面的坐标  可视区坐标 - box的偏移量
+              var targetX = x - offLeft;
+              var targetY = y - offTop;
+//
+//        2.6 让鼠标到mask中间(其实是mask在鼠标坐标的基础上,往左,往上,自己宽高的一半)
+              targetX -= mask.offsetWidth/2;
+              targetY -= mask.offsetHeight/2;
+              
+//        2.7 限制mask的位置
+//              2.7.1 获取最大,最小距离
+                var maxX = small.offsetWidth - mask.offsetWidth //small的宽 - mask的宽
+                var maxY = small.offsetHeight - mask.offsetHeight //small的宽 - mask的宽
+//              2.7.2 判断有没有超出最大/最小距离
+              targetX = targetX < 0 ? 0 : targetX;
+              targetX = targetX > maxX ? maxX : targetX;
+              targetY = targetY < 0 ? 0 : targetY;
+              targetY = targetY > maxY ? maxY : targetY;
+//        2.5 给mask赋值,渲染
+              mask.style.left = targetX + 'px';
+              mask.style.top = targetY + 'px';
+              
+//        3. 黄色盒子覆盖到哪里,对应的大盒子里图片展示哪里
+//              mask移动的距离 / mask移动的最大距离 == img移动的距离 / img移动的最大距离
+//
+//              img移动的距离 = mask移动的距离 / mask移动的最大距离 * img移动的最大距离
+//              3.1 计算img移动的最大距离  img的宽 - big的宽
+                var imgMaxX = img.offsetWidth - big.offsetWidth;
+                var imgMaxY = img.offsetHeight - big.offsetHeight;
+//              3.2 根据公式计算img应该移动多少
+                var imgX = targetX / maxX * imgMaxX;
+                var imgY = targetY/ maxY * imgMaxY;
+//              3.3 给img赋值,负值
+                img.style.left = -imgX + 'px';
+                img.style.top = -imgY + 'px';
+              
+          }
+
+            
+
+    
+   
+
+
+   
+   
+</script>
+
+</html>

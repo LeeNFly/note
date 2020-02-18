@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #content {
+      width: 400px;
+      height: 400px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="btn">发送get请求</button>
+
+  <div id="content"></div>
+
+  <script>
+    // xhr 的状态, readyState 标记 xhr 的状态
+    // xhr.readyState = 0时，UNSENT open尚未调用
+    // xhr.readyState = 1时，OPENED open已调用
+    // xhr.readyState = 2时，HEADERS_RECEIVED 接收到头信息
+    // xhr.readyState = 3时，LOADING 接收到响应主体
+    // xhr.readyState = 4时，DONE 响应完成, 此时后台已经处理完请求, 后台代码已经执行完毕, 并且将响应返回回来了, 数据存储在响应体中。 
+    //                                        ps: 响应完成不代表响应成功, 还要判断状态码, 当状态码为200时, 响应成功
+                                              // 只有响应完成了, 响应体中才有数据返回, 才可以获取数据
+                                              // 只要响应完成, 不管响应是否成功, 响应体中都有数据返回, 
+                                              // 就可以获取到响应体中返回回来的数据了
+                                              // 1) 如果响应成功, 响应码为200, 响应体的数据为请求返回的数据
+                                              // 2) 如果响应不成功, 响应码异常, 响应体为服务器输出的错误信息
+
+
+    // 点击按钮, 发送 get 请求
+    var btn = document.getElementById("btn");
+    var content = document.getElementById("content");
+
+    btn.onclick = function() {
+      // 1. 创建 xhr 对象
+      var xhr = new XMLHttpRequest();
+      console.log( xhr.readyState + ", xhr.readyState = 0时，UNSENT open尚未调用" );
+
+      // 2. 发送请求, 请求行, 请求头, 请求体
+      xhr.open( "get", "03-get.php?username=pp&password=123456" );
+      console.log( xhr.readyState + ",xhr.readyState = 1时，OPENED open已调用" );
+      // 发送 ajax请求, 发送的是一个异步的请求, 不会阻塞代码的执行
+      // 请求时是需要时间的
+      xhr.send( null );
+
+      // onreadystatechange 可以监听 readyState 的变化
+      // 每次readyState发生改变, 都会调用一次该函数
+      // 一共会调用三次, 每次调用的readyState都不同, 为2, 3, 4
+      xhr.onreadystatechange = function() {
+        console.log( xhr.readyState );  // 2 3 4 都会打印
+        // xhr.readyState === 4 响应才完全完成
+        if ( xhr.readyState === 4 ) {  // 响应完成
+          // 获取响应  responseText 表示响应文本
+          // ps: 以文本格式, 获取响应体中的所有内容, 得到的是字符串
+          var result = xhr.responseText;
+          // 将文本设置到 盒子中
+          content.innerHTML = result;
+        }
+      }
+    }
+  
+  
+  </script>
+  
+</body>
+</html>

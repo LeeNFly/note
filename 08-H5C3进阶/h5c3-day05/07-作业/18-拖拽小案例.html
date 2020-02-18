@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .source {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+    .target {
+      width: 800px;
+      height: 600px;
+      margin: 100px auto;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="source" draggable="true"></div>
+  <div class="target"></div>
+
+  <script>
+    var target = document.querySelector('.target');
+    var source = document.querySelector('.source');
+    target.addEventListener('dragover', function (e) {
+      e.preventDefault();
+    });
+    target.addEventListener('drop', function () {
+      target.appendChild(source);
+    })
+
+  </script>
+</body>
+</html>

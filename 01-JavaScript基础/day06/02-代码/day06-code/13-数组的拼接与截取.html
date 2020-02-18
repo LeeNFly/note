@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+    //  数组的拼接与截取
+
+    //1. concat
+    // 把两个数组拼接到一起 , 组成一个新数组,返回
+    // 不会改变原来的数据
+    var arr1 = [1,2,3];
+    var arr2 = ['zs','ls'];
+
+    var newArr = arr2.concat(arr1); //["zs", "ls", 1, 2, 3] => 把arr1拼接到arr2后面
+    console.log(newArr);
+
+    //2. 截取 slice() 和 splice()  
+    var arr = [1,4,7,2,5,8];
+    //一.  slice() 截取出来 
+    // ★ 注意: slice截取 不会改变原数组,因为是截取出来,返回一个新的数组 
+    //1.1 slice(start,end) 
+    //★  包括start 不包括end start和end都是下标  ★
+    // 截取数组中 ★下标 从start开始(包括start) 到 end (不包括end) 的元素 复制一份,组成一个 新的数组 返回这个新数组
+    var newArr = arr.slice(2,5); 
+    console.log(newArr); // [7,2,5]
+    console.log(arr); // [1, 4, 7, 2, 5, 8] 截取不会改变原数组
+    
+    //1.2 slice(start)
+    // 没有end,,就不知道截到哪,,所以就一直截下去
+    // 从start下表开始 (包括start) 一直截取到数组的最后一个元素(包含最后一个元素) 复制一份 , 组成一个新数组, 返回这个新数组
+    //  var newArr =  arr.slice(2);
+    //  console.log(newArr); //[7,2,5,8]
+     
+    //1.3 slice()
+    // 不知道从哪开始,也不知道到哪结束,,干脆都截取了 即截取整个数组(包含头尾) 复制一份 , 组成一个新的数组, 返回这个新数组
+    // var newArr = arr.slice();
+    // console.log(newArr); //[1,4,7,2,5,8]
+    
+
+  // 二 , splice()  删除或者添加数组中的元素
+  // ★ splice 删除或者添加数组中的元素 会改变原来的数组 没有返回值
+  var arr = [1,2,3,4,5,6];
+  //1.1 splice(start,deleteCount) 
+  // 数组 从下标start开始 (包括start),删除deleteCount个元素, ★ 数组中其他元素自动缩进,没有返回值。
+  // 可以实现在数组中的任意位置删除元素
+  // arr.splice(2,2); [1,2,5,6]
+
+  // arr.splice(1,1);
+  // console.log(arr); [1,3,4,5,6]
+
+  //1.2 splice(start, deleteCount, item)
+  //    splice(start, deleteCount, 添加的项1, 添加的项2, ...) 支持添加多个项目, 其他元素自动缩进或后退
+  // item 是添加的元素 
+  // 从下标start开始 (包括start),删除deleteCount个元素,之后在删除的位置上添加一个元素item, ★ 数组中其他元素自动缩进或后退,没有返回值
+  // 添加的item可以是任意类型
+  // 一次只能添加一个元素item
+  // arr.splice(2,2,'mg');
+  console.log(arr); // [1, 2, "mg", 5, 6]
+  
+  //1.3 特殊 : 
+
+  // splice(start,0,item)
+  //  splice(start, 0, 添加的项1, 添加的项2, ...) 支持添加多个项目, 其他元素自动缩进或后退
+  // 在数组下标为 start处 添加一个元素item, ★ 其他元素自动往后退一个,没有返回值
+  // 可以实现在数组中的任意位置添加一个元素
+  // 一次只能增加一个item元素,item元素可以是任意类型
+  arr.splice(2,0,'马哥');
+  console.log(arr); // [1, 2, "马哥", 3, 4, 5, 6]
+  
+
+
+  
+    
+
+
+
+
+
+
+
+    //2.2 splice() 删除和添加 
+    
+
+    </script>
+</body>
+</html>

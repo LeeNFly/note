@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    123456
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script src="12.jQuery.bgc.js"></script>
+
+    <script>
+        $(function(){
+            // jq插件的原理：
+            // 在jQuery(构造函数)的原型上添加了插件提供的方法, 这样jq对象就可以访问和使用了 (jq对象是jq构造函数的实例)
+            // 在jq原型上添加自己的方法之后, 再获取的jq对象就可以使用我们添加的方法了
+            // 由于插件是在jq对象的原型上添加的方法, 所以我们是通过jq对象来调用原型上的方法来使用插件
+
+            /*function Person(name, age){
+                this.name = name;
+                this.age = age;
+            }
+            Person.prototype.sayHi = function(){
+                console.log("hi");
+            }
+
+            var p1 = new Person("li", 19);
+            console.log(p1);
+            p1.sayHi();*/
+
+            // $("body").css("backgroundColor", "#f99");
+
+            // 插件： jQuery.bgc.js
+            $("body").bgc("#f99").css("color", "#fff");
+        })
+    </script>
+</body>
+</html>

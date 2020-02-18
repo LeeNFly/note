@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body> 
+  
+  <!-- 需求: 点击按钮, 从 pp.com 向 api.com 发送一个 ajax 请求 -->
+  <!-- 通过在自己的电脑中 hosts中 配置了两个域名, www.pp.com  www.api.com -->
+  
+  <button id="btn">发送请求</button>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+
+    $('#btn').click(function() {
+
+      $.ajax({
+        type: "get",
+        url: "http://www.api.com/ajax-day04/01-get.php",
+        data: {
+          username: "pp",
+          password: "123456"
+        },
+        success: function( info ) {
+          console.log( info )
+        }
+      })
+
+    })
+    
+  
+  </script>
+  
+</body>
+</html>

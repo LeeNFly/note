@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  offset系列:  不能被赋值
+  offsetLeft 距离定位父元素左偏移量
+  offsetTop  距离定位父元素上偏移量
+  offsetHeight 元素的高度 content + padding + border
+  offsetWidth 元素的宽度 content + padding + border
+  offsetParent 离自己最近的定位父元素
+  
+  client系列:
+  clientWidth  元素可视区的宽度 content + padding
+  clientHeight  元素可视区的高度 content + padding
+  
+  scroll系列:
+  scrollLeft  元素内容左边滚动出去的距离  可以赋值,并且直接赋值为数字就行
+  scrollTop  元素内容顶部滚动出去的距离   可以赋值,并且直接赋值为数字就行
+  scrollWidth 元素内容的宽度
+  scrollHeight 元素内容的高度
+  
+  获取浏览器可视区的宽度:
+  window.innerWidth / window.innerHeight
+  
+  获取整个页面滚动出去的距离
+  window.pageXOffset  /  window.pageYOffset
+  
+  
+  监听元素的滚动条: 元素.on+scroll
+  监听浏览器的滚动条: window.on + scroll
+  
+</script>
+</body>
+</html>

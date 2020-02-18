@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="user">
+    <p>姓名: xx</p>
+    <p>年龄: xx</p>
+    <p>性别: xx</p>
+    <p>描述: xx</p>
+  </div>
+
+  <!--  使用模板引擎 -->
+  <!-- 1. 引包 -->
+  <script src="template-web.js"></script>
+
+  <!-- 2. 准备模板, 指定 type = "text/html", 告诉浏览器当前这个是 html 模板, 不需要被解析执行 -->
+  <script type="text/html" id="tpl">
+    <p>姓名: {{ name }} </p>
+    <p>年龄: {{ age }}</p>
+    <p>性别: 
+      <!-- {{}}中可以直接通过属性名 访问到数据对象中的属性 -->
+      <!-- 将满足条件的内容输出到返回的字符串中, 不满足条件的内容不会输出到返回的字符串中 -->
+      <!--
+        if 语法中 还可以嵌套if语法, 也可以嵌套后面的each语法.
+      -->
+      {{ if sex === 1 }}
+        男
+      {{ /if }}
+      {{ if sex === 0 }}
+        女
+      {{ /if }}
+
+
+      {{ if sex === 1 }}
+        男
+      {{ else }}
+        女
+      {{ /if }}
+
+
+      {{ if sex === 1 }}
+        男
+      {{ else if sex === 0 }}
+        女
+      {{ else }}
+        未知
+      {{ /if }}
+
+
+      <!--
+        支持三元运算符
+      -->
+      {{ sex === 1 ? "男" : "女" }}
+
+    </p>
+    <p>描述: {{ desc }}</p>
+  </script>
+
+  <script>
+    // 找对象
+    var user = document.getElementById("user");
+    
+    // 3. 准备数据
+    // 从后台通过 ajax 获取数据
+    var obj = {
+      name: "小王",
+      age: 18,
+      sex: 1,   // 1 表示 男,  0 表示 女
+      desc: "猥琐"
+    };
+
+    // 4. 将模板和数据相结合
+    //    template( "模板id", 数据对象 ); 返回值是一个 html 字符串
+    //    在模板中可以使用数据对象的属性, 对象的属性都将成为模板中的变量
+    //    注意: 参数2必须是一个对象
+    var htmlStr = template( "tpl", obj );
+
+    // 将字符串模板渲染到 页面中
+    user.innerHTML = htmlStr;
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/* 
+		
+		定位元素偏移量: left 左边框为参考 top 上边框为参考 right 右边框为参考 bottom下边框为参考
+		水平和垂直方向各只设置一个, 其中水平方向left权重<right权重, 垂直方向top权重>bottom权重
+		可以给left, top, right, bottom设置auto, 自适应, 相当于none, 该偏移量不起作用, 呆在原来标准流的位置上
+
+		偏移量说明: 不管是相对定位, 绝对定位, 还是固定定位, 偏移量都会改变盒子在脱标的定位流中的位置.
+
+		相对定位：
+		如果偏移量是像素值，相对于自己原来的位置进行移动 (X方向右为正方向，Y方向下边为正方向)  不写偏移量则保持原来标准流的位置
+
+		如果偏移量是百分比，则偏移量百分比大小参照的是父级容器的宽和高，然后再自己原来的位置上移动偏移量的大小
+		
+		没有脱标
+		这个盒子在标准流的位置还是原来的位置, 并且标签的渲染模式还是和原来一样 （肉体不在 灵魂永驻）   可以盖住标准流  可以撑开父级容器
+
+		相对定位不改变原来的标签显示模式
+		
+		说明：浮动元素也可以使用定位  
+		      子元素会随着父盒子的移动而移动
+			  偏移量left right top bottom 可以是负值
+		*/
+		
+		/* 定位元素如果位置重叠了, 就会叠在一起, 不会排一排, 因为是定位元素, 就是用来定位任意位置的 */
+
+		.box {
+			width: 200px;
+			height: 200px;
+			/* margin: 100px auto; */
+			background-color: lime;
+			position: relative;
+			/*left: 100px;*/
+			top: 100px;
+		}
+		.box1 {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box1"></div>
+</body>
+</html>

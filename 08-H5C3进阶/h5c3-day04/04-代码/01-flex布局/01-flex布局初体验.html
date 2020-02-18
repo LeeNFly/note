@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /*
+      弹性布局
+      伸缩布局
+      flex布局
+      指的都是flex布局, flex布局是CSS3在布局方面做的非常大的改进,
+      但是兼容性较差, 不兼容IE 6 7 8
+    */
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    ul {
+      width: 600px;
+      height: 400px;
+      border: 1px solid #000;
+      margin: 100px auto;
+      /*
+        display: 设置元素的显示模式
+        1. none 隐藏
+        2. block 块级, 独占一整行, 可设宽高
+        3. inline-block 行内块, 一行可以显示多个, 可设宽高
+        4. inline: 行内, 一行可以显示多个, 宽高内容撑开, 不可设宽高
+        5. flex 让盒子变成一个伸缩盒子
+      */
+
+      /* 设置了 display: flex 的盒子, 就拥有主轴和侧轴的概念
+         主轴, 类似于程序坐标系的X轴, 默认水平往右,
+         侧轴, 类似于程序坐标系的Y轴, 默认垂直向下,
+         默认轴心在左上角
+         主轴和侧轴都是开始于轴心, 在超出盒子的内容区域content时结束
+
+         内部的子盒子, 默认在主轴上从轴心开始, 往主轴方向排布, 且不会超出外部盒子内容区域content的范围
+      */
+      display: flex;
+
+      /* 设置主轴的对齐方式 */
+      justify-content: space-between;
+
+      /* 设置侧轴的对齐方式 */
+      align-items: center;
+    }
+    li {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border: 1px solid #000;
+      /* CSS3 盒子模型, 如果设置border或者padding自动内减 */
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+
+
+</body>
+</html>

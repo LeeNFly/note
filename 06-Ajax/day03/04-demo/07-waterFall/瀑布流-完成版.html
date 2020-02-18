@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>封装jquery插件</title>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: "Microsoft Yahei";
+	}
+	
+	.box {
+		position: relative;
+		width: 1200px;
+		margin: 0 auto;
+	}
+	
+	.item {
+		width: 232px;
+		position: absolute;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+		overflow:hidden;
+	}
+	
+	.item > img {
+		width: 100%;
+		display: block;
+	}
+	
+	.item > p {
+		margin: 0;
+		padding: 10px;
+    background: #eee;
+	}
+	
+	.btn {
+		width: 280px;
+		height: 40px;
+		margin: 30px auto;
+		text-align: center;
+		line-height: 40px;
+		background-color: #CCC;
+		border-radius: 6px;
+		font-size: 24px;
+		cursor: pointer;
+	}
+	
+	.loading {
+		background-color: transparent;
+	}
+</style>
+</head>
+
+<body>
+	<div class="box">
+		<!-- 挖个坑 -->
+	</div>
+
+<div class="btn">加载更多</div>
+</body>
+
+<!-- 2. 准备模板 -->
+<script type="text/html" id="tpl">
+  {{ each items v i }}
+    <div class="item ">
+      <img src="{{ v.path }}" height="{{ v.height }}" alt="">
+      <p>{{ v.text }}</p>
+    </div>
+  {{ /each }}
+</script>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery.waterfall.js"></script>
+<!-- 1. 引包 -->
+<script src="js/template-web.js"></script>
+<script>
+
+  $(function() {
+    // $('.box').waterFall();
+
+    var currentPage = 1; // 当前页
+    var pageSize = 10; // 每页多少条
+    
+    // 一进入页面, 就调用一次
+    render();
+    function render() {
+      // 发送 ajax 获取数据
+      $.ajax({
+        type: "get",
+        url: "data.php",
+        data: {
+          page: currentPage,
+          pageSize: pageSize
+        },
+        dataType: "json",
+        beforeSend: function() {
+          $('.btn').html("正在加载中...").addClass("loading");
+        },
+        success: function( info ) {
+          var htmlStr = template( "tpl", info );
+          $('.box').append( htmlStr );
+          $('.box').waterFall();
+          $('.btn').html("加载更多").removeClass("loading");
+          // 更新页码
+          currentPage = info.page;
+
+          if ( info.items.length < pageSize ) {
+            $('.btn').html("没有更多数据了").addClass("loading");
+          }
+        }
+      });
+    }
+
+    // 按钮被点击时, 请求下一页数据
+    $('.btn').click(function() {
+      // 如果当前按钮, 有 loading 类, 说明正在加载中, 不能再次请求
+      if ( $('.btn').hasClass("loading") ) {
+        return;
+      }
+      render();
+    });
+
+
+    // 滚动加载更多数据
+    $(window).scroll(function() {
+      // 如果当前按钮, 有 loading 类, 说明正在加载中, 不能再次请求
+      if ( $('.btn').hasClass("loading") ) {
+        return;
+      }
+
+      var scrollTop = $(window).scrollTop(); // 页面卷去的高度
+      var height = $(window).height(); // 可视区域的高度
+      // offset() 返回一个对象, 获取到页面顶端的距离
+      var lastTop = $(".box .item:last-child").offset().top;  
+
+      if ( scrollTop + height > lastTop ) {
+        // 说明最后一张图片, 在可视区了
+        console.log( "最后一张都在可视区了, 该加载了" );
+        // 会有重复加载的问题
+        render();
+      }
+
+    })
+  });
+
+</script>
+
+</html>

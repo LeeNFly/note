@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button id="btn">点击跳转</button>
+<script>
+  console.log(window.location);
+  console.log(location); //操作浏览器地址栏中的地址(url)
+  // location对象, 是一个对象 可以 看作是浏览器地址栏中抽象出来的对象, 用来操作浏览器地址栏的
+  
+//什么是url:统一资源定位符  (网络中的地址)
+//url是由什么组成的?
+//  协议://主机名(域名)(ip地址):端口号/路径?查询字符串#锚点
+  // ps: ?查询字符串  不会影响页面跳转, 这个是用来传参的
+
+//  location对象的属性 (以下属性均为字符串):
+//    href : 地址栏中的相对完整的url的字符串,包括 协议://主机名(域名)(ip地址):端口号/路径?查询字符串#锚点 全部信息
+//    search: url中查询字符串的部分 比如?name=zs&age=lisi
+//    location.search 说明: 如果地址栏中查询字符串含有中文, 则location.search中中文会被转码, 通过decodeURI(location.search), 可以重新转为中文
+//    host : 主机名 + 端口号 => 主机名:端口号
+//    hostname : 主机名 
+//    hash : 锚点 比如#aaa
+//    location的对象的方法:
+//    location.assign('url字符串')  用于页面跳转  可以记录页面跳转的历史
+//    location.replace('url字符串')  用于页面跳转  不记录历史
+//    url字符串支持相对路径 和 绝对路径, 都是在当前页面跳转, 不会打开一个新的标签页
+//    location.reload()  刷新页面 如果传入一个true, 强制刷新页面
+  
+//    btn.onclick= function(){
+////      location.assign('http://www.baidu.com');
+////      location.replace('http://www.baidu.com');
+////        location.reload(); //普通刷新 ,有可能去拿缓存的数据
+////        location.reload(true); //强制刷新,一定去服务器拿最新的数据'
+//
+////      如果给href属性赋值,也可以是想页面跳转的新效果,跟assign类似
+//      location.href = 'http://www.itheima.com';  // 支持相对路径和绝对路径, 在当前页面跳转, 不会打开一个新的标签页
+//    }
+
+//    注意: 跳转页面, 之后的js代码就不会再执行了, 直接跳转到对应的页面, 执行对应页面的代码和js代码
+
+//  ps: 页面跳转, 刷新页面 都会重新请求页面, 重新渲染页面
+   
+</script>
+</body>
+</html>

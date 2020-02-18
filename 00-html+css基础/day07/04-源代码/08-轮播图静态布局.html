@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    .box {
+        width: 520px;
+        height: 280px;
+        border: 1px solid #000;
+        margin: 100px auto;
+        position: relative;
+    }
+
+    .arrow {
+        width: 24px;
+        height: 36px;
+        /* 设置定位盒子垂直居中 */
+        position: absolute;
+        top: 50%;
+        margin-top: -18px;
+    }
+
+    .arrow-l {
+        left: 0;
+        background: url(images/left.png) 0 0 no-repeat;
+    }
+
+    .arrow-r {
+        right: 0;
+        background: url(images/right.png) 0 0 no-repeat;
+    }
+
+    .box ol {
+        width: 80px;
+        height: 20px;
+        background-color: rgba(255, 255, 255, .5);
+        position: absolute;
+        left: 50%;
+        margin-left: -40px;
+        bottom: 15px;
+        border-radius: 10px;
+    }
+    .box ol li {
+    	width: 10px;
+    	height: 10px;
+    	background-color: #fff;
+    	border-radius: 50%;
+    	float: left;
+    	margin-left: 5px;
+    	margin-top: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="images/taobao.jpg" alt="">
+        <span class="arrow arrow-l"></span>
+        <span class="arrow arrow-r"></span>
+        <ol>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+</body>
+
+</html>

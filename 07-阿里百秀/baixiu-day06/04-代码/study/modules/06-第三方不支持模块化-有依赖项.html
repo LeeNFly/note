@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script src="./require.js"></script>
+  <script>
+    // 加载第三方模块, 不支持模块化, 有依赖项  jquery.pagination.js 依赖于 jquery
+
+     require.config({
+       // 公共基础路径, 项目推荐使用绝对路径
+      baseUrl: "/study/modules/",
+      paths: {
+        // 配置别名
+        jquery: './lib/jquery/jquery',
+        pagination: './lib/jquery-pagination/jquery.pagination'
+      },
+      // ★ 垫片, 专门给不支持模块化插件用的
+      shim: {
+        pagination: {
+          // 配置第三方模块的依赖项
+          deps: [ 'jquery' ]
+        }
+      }
+     });
+     
+     // 第三方插件, 不支持模块化, 如果有依赖项, 在 js 中没有定义依赖项的
+     // 不会自动加载 jquery, 需要我们通过垫片手动配置依赖项, 
+     // 加载第三方不支持模块化的模块,  pagination
+     require(['pagination'], function(){
+        console.log( 'pagination加载完成' );
+     })
+     
+     // 要使用第三方不支持模块化的模块, 有依赖项
+     //  1) 在require.config里给模块配置别名路径
+     //  2) 若有依赖项, 通过垫片, 配置deps[依赖项1, 依赖项2, ... ], 给第三方不支持模块化的插件模块配置依赖项, (依赖项要先通过别名进行配置)
+     //  3) 可以在主体函数中使用第三方的模块了
+
+
+     require(['jquery', 'pagination'], function($){
+        // 在主体函数中就可以使用jq和jq的pagination插件了
+        console.log( 'pagination加载完成' );
+     })
+
+     define(['jquery', 'pagination'], function($){
+        // 在主体函数中就可以使用jq和jq的pagination插件了
+        console.log( 'pagination加载完成' );
+     })
+     
+  
+    
+  </script>
+  
+</body>
+</html>

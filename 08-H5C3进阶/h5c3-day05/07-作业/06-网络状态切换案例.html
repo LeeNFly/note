@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- 主要用于适配手机端的显示 -->
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style>
+    div {
+      width: 200px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 5px;
+      background-color: pink;
+      margin: 0 auto;
+    }
+    .online {
+      background-color: green;
+    }
+    .offline {
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div>监控网络状态</div>
+  <script>
+    var div = document.querySelector('div');
+    if (navigator.onLine) {
+      div.className = 'online';
+      div.innerText = '大兄弟, 你连上网了';
+    }
+    else {
+      div.className = 'offline';
+      div.innerText = '大兄弟, 你断网了';
+    }
+
+    window.addEventListener('online', function () {
+      div.className = 'online';
+      div.innerText = '大兄弟, 你连上网了';
+    });
+
+    window.addEventListener('offline', function () {
+      div.className = 'offline';
+      div.innerText = '大兄弟, 你断网了';
+    });
+  </script>
+</body>
+</html>

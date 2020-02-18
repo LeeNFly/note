@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    
+    <input type="text" value="25期牛逼，很牛逼">
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // onfocus
+            // onblur
+
+            // 分析：placeholder
+            // 1. 给input注册focus（聚焦）
+            // 2. 清空input的value的值
+            // 3. 给input注册blur（失焦）
+            //      3.1 判断，input是不是有值，有就不去操作
+            //                 如果没有值，恢复成默认的值
+
+            $("input").focus(function(){
+                $(this).val("");
+            })
+
+            $("input").blur(function(){
+                if($(this).val().trim() === "" ){
+                    // 恢复成默认的
+                    $(this).val("25期牛逼，很牛逼");
+                }
+            })
+
+        })
+    </script>
+</body>
+</html>

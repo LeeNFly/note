@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 1500px;
+        }
+        /*div{*/
+            /*width: 300px;*/
+            /*height: 300px;*/
+            /*background-color: pink;*/
+        /*}*/
+    </style>
+</head>
+
+<body>
+    <!--<div id='box'></div>-->
+    <img src="images/tianshi.gif" alt="" id="img">
+
+    <script>
+//        var box = document.getElementById('box');
+////        注册鼠标移动事件 mousemove
+////        box.onmousemove = function(){
+////            console.log(1);
+////        }
+//        //如果要监听鼠标在页面上移动就要把事件注册给document.document代表整个页面
+//        document.onmousemove = function(){
+//            console.log(1);
+//        }
+        
+        
+//        需求: 鼠标到哪,小天使跟着到哪
+//            获取img
+            var img = document.getElementById('img');
+            img.style.position = 'absolute';
+//        1. 给document注册鼠标移动的事件
+            document.onmousemove = function(e){
+                //2. 在事件处理函数中,获取鼠标的坐标 client
+//                var x = e.clientX;
+//                var y = e.clientY;
+                
+                // 因为此处的定位偏移量参照的是整个页面,所以要用pageX,pageY.否则出现滚动条,则达不到效果
+
+                var x = e.pageX;
+                var y = e.pageY;
+                //3. 把鼠标的坐标赋值给img的left和top
+                
+                img.style.left = x + 'px';
+                img.style.top = y + 'px';
+            }
+
+
+    </script>
+</body>
+
+</html>

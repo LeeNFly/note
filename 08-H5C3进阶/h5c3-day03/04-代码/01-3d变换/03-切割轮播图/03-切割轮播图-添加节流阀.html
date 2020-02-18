@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .box {
+      width: 560px;
+      height: 380px;
+      border: 1px solid #000;
+      margin: 100px auto;
+      position: relative;
+    }
+    ul {
+      width: 20%;
+      height: 100%;
+      position: relative;
+      /* 辅助布局 */
+      /* perspective: 1000px; */
+      /* 让子元素进行 3d 布局*/
+      transform-style: preserve-3d;
+      transform: rotateX(0deg);
+      float: left;
+    }
+    ul li {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    /* 第2个ul, 里面所有的li, 每个面都要调整背景定位 */
+    ul:nth-child(2) li {
+      background-position: -112px 0;
+    }
+    ul:nth-child(3) li {
+      background-position: -224px 0;
+    }
+    ul:nth-child(4) li {
+      background-position: -336px 0;
+    }
+    ul:nth-child(5) li {
+      background-position: -448px 0;
+    }
+
+    /* 准备四个面 */
+    ul li:nth-child(1) {
+      background-image: url("images/01.jpg");
+      transform: translateZ(190px);
+    }
+    ul li:nth-child(2) {
+      background-image: url("images/02.jpg");
+      transform: rotateX(90deg) translateZ(190px);
+    }
+    ul li:nth-child(3) {
+      background-image: url("images/03.jpg");
+      transform: rotateX(180deg) translateZ(190px);
+    }
+    ul li:nth-child(4) {
+      background-image: url("images/04.jpg");
+      transform: rotateX(270deg) translateZ(190px);
+    }
+    .arrow-left,
+    .arrow-right {
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      background-color: orange;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      color: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+    .arrow-left {
+      left: -100px;
+    }
+    .arrow-right {
+      right: -100px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <!-- 左右箭头 -->
+  <a href="javascript:;" class="arrow-left">上一页</a>
+  <a href="javascript:;" class="arrow-right">下一页</a>
+</div>
+
+<script>
+
+  // 获取左右箭头
+  var left = document.querySelector(".arrow-left");
+  var right = document.querySelector(".arrow-right");
+  var uls = document.querySelectorAll("ul");
+
+
+  // 定义节流阀(标记), 标记当前动画是否可以执行, 标记按钮是否可以点击
+  var flag = true;
+  var index = 0;
+
+  // 节流阀关闭了, 但是永久的关闭了, 需要在动画执行完成的时候开启
+  // 在 最后一个 ul 动画(transition)完成时, 开启
+
+
+  // 左箭头
+  left.onclick = function() {
+    if ( flag ) {
+      // 关闭节流阀, 保证当前动画在执行的过程中, 按钮不可以再次被点击
+      flag = false;
+
+      index++;
+      // 让所有的 ul 旋转, 需要遍历
+      uls.forEach(function( v, i ) {
+        // 每个 ul 延时不一样
+        v.style.transition = "all 1s "+ 0.2 * i +"s";
+        v.style.transform = "rotateX(" + index * 90 + "deg)";
+      })
+    }
+  }
+  // 右箭头
+  right.onclick = function() {
+    if ( flag ) {
+      flag = false;
+      index--;
+      uls.forEach(function( v, i ) {
+        v.style.transition = "all 1s "+ 0.2 * i +"s";
+        v.style.transform = "rotateX(" + index * 90 + "deg)";
+      })
+    }
+  }
+
+  // 在最后一个 ul 动画执行结束, 开启节流阀
+  uls[uls.length - 1].addEventListener("transitionend", function() {
+    // 开启节流阀
+    flag = true;
+  });
+
+</script>
+
+</body>
+</html>

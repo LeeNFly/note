@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  1. 为什么要学习原型?
+//  function fn(){
+//    this.name = name;
+//    this.say = fn;
+//  }
+//  function fn(){
+//
+//  }
+//    2. 什么是原型? 每一个函数创建出来,浏览器就会创建一个对应的原型对象
+//  3. 如何找到这个原型对象?
+//    函数.prototype -- > 函数的原型对象
+//  4. 原型对象身上有一个constructor属性 ,找到原型对象对应的函数
+//  5. 什么是实例?实例是对象数据类型, 这个对象是被某个构造函数new出来的,所以这个对象是对应的构造函数的实例
+//  6. 实例默认能不能访问到自己构造函数的原型上的属性? 能!!!!!!!
+//    函数.prototype -- > 函数的原型
+//    函数的原型.constructor -- > 函数
+//    实例.__proto__ -- > 函数的原型
+  
+//  7. 原型对象 也是一个对象,也是被其他函数new出来的,所以也有__proto__,最终找到的是null
+//    从实例 ---> null 原型之间的关系,我们把他们称之为是原型链
+//  8. 对象查找属性的规则:
+//      先在自己身上找,如果没有,沿着原型链往上找,找到了就使用,找不到就继续往上找,一直找到null为止,
+//          如果找到null都没有的话,就返回undefined
+  
+   function fn(){
+     this.one = 1;
+     this.two = 2;
+   }
+   
+   fn.prototype.three = 3;
+    
+   var f = new fn();
+   var f1 = new fn();
+    
+
+//    console.log(fn.prototype.constructor); //fn
+//    console.log(fn.prototype.constructor.prototype == f.__proto__); //true
+//    console.log(fn.prototype == f.__proto__); //true
+//    console.log(f.__proto__.__proto__); //Object的原型
+//    console.log(f.__proto__.__proto__.__proto__); //null
+  
+//      f.toString();//1
+//      console.log(f.toString());//1 和 undefined
+//      console.log(f.haha);//undefined
+//      console.log(f.haha());//报错 --> undefined()
+  
+//      console.log(f);
+//      console.log(f1);
+//      console.log(f.__proto__);
+  
+  
+     
+</script>
+</body>
+</html>

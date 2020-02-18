@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 300px;
+			height: 500px;
+			border: 1px solid #000;
+			position: relative;
+			/* 溢出隐藏 */
+			overflow: hidden;
+		}
+		.info {
+			/* 当元素脱标之后，不会继承父级的宽度 所以需要强制添加一个宽度 */
+			width: 300px;
+			height: 100px;
+			/* background-color: rgba(255,68,0,0); */
+			background-color: #f40;
+			position: absolute;
+			left: 0;
+			bottom: -100px;
+			/* transition:all 1s; */
+			/* 	opacity: 0; */
+		}
+		/* 
+		opacity 控制整个盒子的透明度 包括里面的内容 取值为0-1 0完全透明 1 不透明
+		
+		background:rgba() 控制的是背景透明 里面的内容不透明  
+		*/
+		.box:hover .info {
+			bottom: 0;
+			/* opacity: 1; */
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="info">111111</div>
+	</div>
+</body>
+</html>

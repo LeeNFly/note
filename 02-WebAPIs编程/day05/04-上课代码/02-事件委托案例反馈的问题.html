@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      border: 1px solid blue;
+    }
+
+    ul {
+      padding: 20px;
+    }
+
+    li {
+      list-style: none;
+      margin-top: 10px;
+      background-color: skyblue;
+      height: 30px;
+      line-height: 30px;
+    }
+
+    button {
+      width: 100%;
+      height: 50px;
+      background-color: white;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div>
+    <ul id="ul">
+      <li>你见，或者不见我　</li>
+      <li>我就在那里　</li>
+      <li>不悲不喜　　</li>
+      <li>你念，或者不念我　</li>
+      <li>情就在那里　　</li>
+      <li>不来不去　　</li>
+      <li>你爱，或者不爱我　</li>
+      <li>爱就在那里　</li>
+      <li>不增不减　</li>
+    </ul>
+    <button id="btn">点击加载更多..</button>
+  </div>
+  <script>
+    var arr = [
+      '你跟，或者不跟我',
+      '我的手就在你手里',
+      '不舍不弃',
+      '来我的怀里',
+      '或者',
+      '让我住进你的心里',
+      '默然　相爱',
+      '寂静　喜欢',
+    ]
+    var ul = document.querySelector('ul');
+    btn.addEventListener('click',fn , false)
+    function fn() {
+      for (var i = 0; i < arr.length; i++) {
+        var li = document.createElement('li');
+        ul.appendChild(li);
+        li.innerText = arr[i];
+      }
+    }
+    ul.addEventListener('click' , fx , false)
+    function fx(e) {
+      e = e || window.event
+      //判断事件目标是谁. 如果事件目标是ul,则不执行下面的代码
+      if(e.target == ul){
+        return ;
+      }
+      var txt = e.target.innerText;
+      console.log(txt);
+    }
+
+
+
+  </script>
+</body>
+
+</html>

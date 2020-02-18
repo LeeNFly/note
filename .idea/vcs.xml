@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/04-代码/02-git初体验" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/04-代码/03-git命令详解" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/04-代码/04-git-diff" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/04-代码/05-git-reset" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/04-代码/06-git-忽视文件" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/04-代码/08-git分支操作" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/04-代码/09-分支操作强化" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/04-代码/10-分支冲突" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/04-代码/11-github01/xiaowang" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/04-代码/12-github02/laowang" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/04-代码/13-免密提交/myfirst" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/11-git/7-作业/01-初体验" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/12-电商全端/MY-LETAO" vcs="Git" />
+  </component>
+</project>

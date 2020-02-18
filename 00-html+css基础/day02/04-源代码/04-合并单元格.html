@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	单元格的合并： 
+	跨行合并  rowspan （属性） 上下合并  写在上面的单元格上  合并几个这个值就是几  一旦合并了  那么多余的那个单元格需要干掉
+	跨列合并  colspan （属性）  左右合并  写在左边的单元格上  合并几个这个值就是几  一旦合并了  那么多余的那个单元格需要干掉
+
+	<table border="1" width="800" height="800" cellspacing="0" cellpadding="0" align="center">
+		
+		<caption>25期成绩管理系统</caption>
+
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年纪</th>
+				<th>成绩</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>芳芳</td>
+				<td>女</td>
+				<td rowspan="3">18</td>
+				<td rowspan="2">100</td>
+			</tr>
+			<tr>
+				<td>飞飞</td>
+				<td rowspan="2">男</td>
+			</tr>
+			<tr>
+				<td>班长</td>
+				<td>99</td>
+			</tr>
+			<tr>
+				<td>备注：</td>
+				<td colspan="3">飞飞进步了！！</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

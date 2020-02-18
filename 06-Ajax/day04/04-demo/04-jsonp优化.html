@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="btn">点击按钮后获取数据</button>
+
+  <script>
+    function func( data ) {
+      console.log( data );
+    }
+
+    var btn = document.getElementById("btn");
+
+    btn.onclick = function() {
+      // 之前存在的问题:
+      //     之前通过script标签已经可以跨域请求数据了, 但是有一个问题, 就是页面一加载就请求数据了, 能不能控制一下请求的时机?
+      //     比如点击某个按钮, 才去跨域请求数据
+      // 思路: 点击的时候, 动态创建 script 标签, 然后给标签设置src属性, 最后把标签加入到dom树上, 这样就可以发起请求了, 并且会把响应体中的代码当作js来执行  
+      // 优化: 现在jsonp都会将前端需要调用的函数名, 作为参数传递给后台(参数名一般统一使用callback)
+      //       将来后台就在响应体中返回这个函数名的调用, 这样函数名就可以统一了, 方便了开发
+
+      var script = document.createElement("script");
+      script.src = "http://www.api.com/ajax-day04/data.php?callback=func";
+      document.body.appendChild( script );
+    }
+  </script>
+
+
+  <!-- 如果直接写这个标签, 来获取数据, 就会直接解析执行 -->
+  <!-- <script src="http://www.api.com/ajax-day04/data.php"></script> -->
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="user">
+    <p>姓名: xx</p>
+    <p>年龄: xx</p>
+    <p>性别: xx</p>
+    <p>描述: xx</p>
+  </div>
+
+  <script>
+    
+    // 找对象
+    var user = document.getElementById("user");
+
+    // 从后台通过 ajax 获取数据
+    var obj = {
+      name: "小王",
+      age: 18,
+      sex: "男",
+      desc: "猥琐"
+    }
+    // 字符串拼接
+    var htmlStr = " <p>姓名: " + obj.name + "</p> " +
+                  " <p>年龄: " + obj.age + "</p> " +
+                  " <p>性别: " + obj.sex + "</p> " +
+                  " <p>描述: " + obj.desc + "</p> ";
+    user.innerHTML = htmlStr;
+
+    // 缺点:
+    // 1. html标签代码 和 js 代码混在一起, 代码冗余
+    // 2. 字符串拼接非常麻烦, 维护起来不方便
+
+  </script>
+  
+</body>
+</html>

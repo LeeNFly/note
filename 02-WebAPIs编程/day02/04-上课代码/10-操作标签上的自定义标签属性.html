@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="box" hehe="123"></div>
+<script>
+  var box = document.getElementById('box');
+
+  // 通过操作元素的属性,来操作页面上标签的属性
+  // 在JS中,元素就是HTML标签
+  // 以下操作主要用于操作 标签 属性
+
+// 标签中,w3c中标准的属性 可以使用元素.属性名 获取属性值 ; 元素.属性名 = 值 来设置/修改 标签的属性值 而非w3c中标准的自定义属性,则不能通过此方式获取和设置标签的属性值
+  
+//  console.log(box.id); //box 
+//  console.log(box.index); // undefined
+//  console.log(box.a); //undefined
+//  注意: w3c中标准的属性,可以通过 元素.属性名的方式直接操作,但是自定义的属性,不能这样操作
+  
+  // 元素.getAttribute('属性名') 返回对应的属性的值 (字符串) 可以获取 标签上 所有(w3c中标准的属性 + 自定义属性) 的属性的值
+//  console.log(box.getAttribute('index')); 
+//  console.log(box.getAttribute('a'));
+//  console.log(box.getAttribute('id'));
+  
+//  自定义的属性用元素.属性名 仍然无法赋值/设置  需通过以下方式设置/赋值 标签上的自定义属性 
+//    元素.setAttribute('属性名', '属性值'); //给元素添加属性,即在标签上添加自定义属性 (w3c中标准的属性 + 自定义属性)
+//    不会影响元素(标签)中的其他属性, 对于标签中已有属性,后设置的值会覆盖之前设置的值
+//  box.setAttribute('B', '呵呵');
+//  box.setAttribute('title', '哈哈');
+  
+//  元素.removeAttribute('属性名'); 移除元素的属性 (标签属性)  (w3c中标准的属性 + 自定义属性)
+  
+//  box.removeAttribute('id');
+//  box.removeAttribute('hehe');
+
+
+
+//  注意: 以上设置属性值,对于相同的属性,后设置的值会覆盖之前设置的值
+//  ★★★ 注意: value属性只有在表单标签里才算w3c标准的属性,在非表单标签里value属性属于自定义属性 
+//  表单标签的value值都是字符串 对于type="text"的表单标签 输入框中的内容 <=> value值 一一对应 ; 对于checkbox,radio,select  value值与选中项 一一对应 对于按钮 value值为按钮中显示的内容
+//  对于★ 表单标签 获取和设置表单标签的value属性只能用元素.value 获取和设置, 元素.getAttribute('value') 获取和设置不了表单标签的value属性
+//  对于★ 非表单标签, value属于自定义属性, 可以使用元素.getAttribute('value')获取和设置  元素.value就获取和设置不了
+//  自定义属性的作用: 存数据,取数据.
+
+    var num = '123';
+    box.setAttribute('xixi',num);
+    
+</script>
+</body>
+</html>

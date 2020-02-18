@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /*
+      弹性布局
+      伸缩布局
+      flex布局
+\
+      参数整理
+      1. 控制主轴方向: flex-direction:row/column
+      2. 控制主轴对齐方式: justify-content: flex-start/flex-end/center/space-between/space-around
+      3. 控制侧轴对齐方式:
+         (1) 控制单行侧轴对齐方式
+             align-items: flex-start/flex-end/center/stretch
+             如果没有换行, 则一个盒子就视作一行, 此时通过align-items来控制侧轴对齐方式没有问题,
+
+            如果换行了, 假设现在盒子有三行, 则会将一个盒子平均拆分成三行, 然后在每行里,
+            通过align-items来控制当前行盒子在当前行中的侧轴的对齐方式
+            很明显, 这样不符合我们的需求
+         (2) 控制多行侧轴对齐方式
+             align-content: flex-start/flex-end/center/space-between/space-around/stretch
+      4. 换行: 默认flex-wrap: nowrap不换行, flex-wrap: wrap; 在子盒子超出父盒子内容宽度时才会进行换行
+    */
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    ul {
+      width: 600px;
+      height: 400px;
+      border: 1px solid #000;
+      margin: 100px auto;
+
+      display: flex;
+      /* 伸缩盒子内部子盒子默认不换行, 都在一行显示, 如果子元素内容溢出, 会压缩子元素的宽/高
+         就算设置了宽/高, 也会被压缩, 除非设置了最小宽/高, 压缩至最小宽/高后, 不会继续压缩
+      */
+      /* 设置给父盒子, 控制内部子盒子的换行
+         默认值nowarp: 不换行, 盒子内只有一行, 行高为整个父盒子的高度
+         wrap: 换行, 在子盒子超出父盒子内容宽度时才会进行换行
+         ★ 换行, 每行的高度为父盒子的大小 / 行数, 即换行, 每行的高度是平均分配的
+       */
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      /* 设置侧轴对齐方式
+         1. align-items 控制单行对齐方式
+         2. align-content 设置给父盒子, 控制内部所有子盒子多行时的对齐方式, 设置多行时, 子盒子在侧轴方向的对齐方式
+              同样也只是设置子盒子在多行时, 在侧轴方向上的对齐方式, 并不能改变盒子的排布方向
+              align-content, 在盒子对齐之前, 已经先沿着主轴指向的方向排列好盒子了, 然后才开始对齐, 即在对齐之前, 已经先排列好盒子了, 然后才对齐
+
+              flex-start: 往侧轴开始的开始位置对齐, 并且行与行之间不留缝隙
+              flex-end: 往侧轴结束的位置对齐, 且行与行之间不留缝隙
+              center: 在多行侧轴方向上居中对齐, 且行与行之间不留缝隙
+              space-between: 在侧轴方向上平均分配, 将侧轴方向上多余的空间平均分配给每行的两侧, (中间行的间距是占2份, 侧轴方向两端有空隙)
+              space-around:  在侧轴方向上平均排列, 侧轴方向上两端没有空隙, 将侧轴方向剩余的空间在行与行之间平均分配
+              stretch: 在侧轴方向上拉伸 (了解)
+      */
+      /*align-items: flex-start;*/
+      align-content: stretch;
+    }
+    li {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border: 1px solid #000;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li>10</li>
+</ul>
+</ul>
+
+
+</body>
+</html>

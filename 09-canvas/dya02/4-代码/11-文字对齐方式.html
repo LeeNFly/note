@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="800" height="400" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+
+    //辅助线
+    ctx.moveTo(50, 100);
+    ctx.lineTo(750, 100);
+
+    ctx.moveTo(100, 50);
+    ctx.lineTo(100, 350)
+
+    ctx.stroke();//描边
+    //水平对齐方式： textAlign: left center right, 相对于描绘文字的坐标位置对齐
+    //垂直对齐方式： textBaseline  top  middle  bottom
+    // 若要完全对齐, 也可以调strokeText(str, x, y), fillText(str, x, y); 的坐标值x, y
+
+    ctx.font = '40px 微软雅黑';
+    ctx.fillStyle = 'red';
+
+    ctx.textAlign = 'left';
+    ctx.fillText('left', 100, 100);
+
+    ctx.textAlign = 'center';
+    ctx.fillText('center', 100, 150);
+
+    ctx.textAlign = 'right'
+    ctx.fillText('right', 100, 200);
+
+    ctx.strokeStyle = 'blue';
+    ctx.textAlign = 'left';  /*把文字水平对齐方式 设置为默认值*/
+
+    ctx.textBaseline = 'bottom';
+    ctx.strokeText('bottom', 200, 100);
+
+    ctx.textBaseline = 'middle';
+    ctx.strokeText('middle', 350, 100);
+
+    ctx.textBaseline = 'top';
+    ctx.strokeText('top', 500, 100);
+
+
+
+
+</script>
+</body>
+</html>

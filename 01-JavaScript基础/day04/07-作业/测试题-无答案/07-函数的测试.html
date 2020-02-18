@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  //封装一个函数，能够计算m到n之间所有数的和,并且把结果返回
+  //如果传入 1 10   能够返回55
+  //如果传入1 100   能够返回5050
+  function sum(m,n) { 
+    var sum = 0;
+    for (var i = m; i <= n; i++) {
+       sum += i;
+    }
+    return sum;
+  }
+  var res = sum(1,10);
+  console.log(res); //55
+  
+  var res1 = sum(1,100); 
+  console.log(res1); //5050
+  
+</script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .wrapper {
+        width: 298px;
+        height: 248px;
+        margin: 100px auto 0;
+        border: 1px solid pink;
+        overflow: hidden;
+    }
+
+    #left,
+    #center,
+    #right {
+        float: left;
+    }
+
+    #left li,
+    #right li {
+        background: url(images/lili.jpg) repeat-x;
+    }
+
+    #left li a,
+    #right li a {
+        display: block;
+        width: 48px;
+        height: 27px;
+        border-bottom: 1px solid pink;
+        line-height: 27px;
+        text-align: center;
+        color: black;
+    }
+
+    #left li a:hover,
+    #right li a:hover {
+        background-image: url(images/abg.gif);
+    }
+
+    #center {
+        border-left: 1px solid pink;
+        border-right: 1px solid pink;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul id="left">
+            <li><a href="#">女靴</a></li>
+            <li><a href="#">雪地靴</a></li>
+            <li><a href="#">冬裙</a></li>
+            <li><a href="#">呢大衣</a></li>
+            <li><a href="#">毛衣</a></li>
+            <li><a href="#">棉服</a></li>
+            <li><a href="#">女裤</a></li>
+            <li><a href="#">羽绒服</a></li>
+            <li><a href="#">牛仔裤</a></li>
+        </ul>
+        <ul id="center">
+            <li><a href="#"><img src="images/女靴.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/雪地靴.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/冬裙.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/呢大衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/毛衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/棉服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/女裤.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/羽绒服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/牛仔裤.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/女包.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/男靴.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/登山鞋.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/皮带.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/围巾.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/皮衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/男毛衣.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/男棉服.jpg" width="200" height="250"/></a></li>
+            <li><a href="#"><img src="images/男包.jpg" width="200" height="250"/></a></li>
+        </ul>
+        <ul id="right">
+            <li><a href="#">女包</a></li>
+            <li><a href="#">男靴</a></li>
+            <li><a href="#">登山鞋</a></li>
+            <li><a href="#">皮带</a></li>
+            <li><a href="#">围巾</a></li>
+            <li><a href="#">皮衣</a></li>
+            <li><a href="#">男毛衣</a></li>
+            <li><a href="#">男棉服</a></li>
+            <li><a href="#">男包</a></li>
+        </ul>
+    </div>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // 分析：
+            // 给左边的li注册mouseenter，获取当前li的下标
+            //  去center找到对应下标的li，让其显示，其他的兄弟li隐藏
+            $("#left li").mouseenter(function(){
+                // index()： 获取当前元素的下标  下标从0开始
+                var idx = $(this).index();
+                console.log($(this).index());
+
+                /*var abc = 12;
+                console.log("abc");*/
+                // 注意点：字符串拼接
+                $("#center li:eq("+ idx +")").show().siblings().hide();
+            })
+
+            // 实现右边的
+            $("#right li").mouseenter(function(){
+                var idx = $(this).index() + 9;
+                // console.log(idx);
+                // .eq(index)  获取到指定下标的元素，返回的是jq对象 更推荐使用这个
+                $("#center li").eq(idx).show().siblings().hide();
+
+                // eq() 和 get() 方法功能是一样的，都是通过下标去获取指定的元素，但是返回值不一样
+                // 都返回的时候一个元素
+                console.log($("#center li").eq(idx));  // 返回的是一个jq对象
+                console.log($("#center li").get(idx)); // 返回的是一个dom对象，作用是将jq对象转成dom对象
+            })
+        })
+
+        // 小结：
+        // :eq(index), 过滤选择器， 以冒号开头 写在选择器里
+        // jq对象.eq(index) ， 是一个方法 推荐使用这个 获取jq对象(伪数组)中指定下标的 ★ 元素 下标从0开始, 返回的是jq对象
+        //  index > 0, 正着找, index < 0, 倒着找 (了解)
+        // jq的容错性特别好, jq对象.eq(undefined) 返回的还是jq对象, 只不过length为0, 没有获取到元素
+        // :eq 和 .eq(index) 效果是一致的。 一个是过滤选择器 以冒号开头 一个是jq方法
+        // jq对象.index(),   获取jq对象中第一个元素的下标 是一个数字类型 下标从0开始 (获取的是当前元素 ★★★ 在所有兄弟元素中的索引)
+    </script>
+</body>
+
+</html>

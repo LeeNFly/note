@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    div {
+      width: 340px;
+      height: 150px;
+
+      margin: 100px auto;
+      border-radius: 5px;
+      /* 多重背景, 同一个盒子可以设置多个背景, 通过 , 隔开, 如果有背景色放最后 */
+      background: url("./images/paopao.png") no-repeat left top,
+                  url("./images/paopao.png") no-repeat right bottom,
+                  #f91;
+      transition: all 1s;
+    }
+    div:hover {
+      background: url("./images/paopao.png") no-repeat left bottom,
+                  url("./images/paopao.png") no-repeat right top,
+                  #f91;
+    }
+
+  </style>
+</head>
+<body>
+
+<div></div>
+
+</body>
+</html>

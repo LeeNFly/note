@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+    // 英雄对象 // name : 马哥 学习 : 马哥正在学前端 / 马哥正在学java //
+     function Hero( name,subject ) { 
+        this.name = name;
+        this.study = function () { //
+         console.log( this.name + '正在学' + subject );   // this.当前h对象 的subject属性
+        } 
+     } 
+     // this.XX xx一定要对象的属性
+     // XX 直接把形参拿过来用
+
+      var h = new Hero('马哥','java'); 
+       console.log(h); 
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .source {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+    .target {
+      width: 600px;
+      height: 600px;
+      border: 1px solid #000;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 源头, 拖拽元素 -->
+<div draggable="true" class="source"></div>
+
+<!-- 目标, 目标元素 -->
+<div class="target"></div>
+
+<script>
+  // 找对象
+  var source = document.querySelector(".source");
+  var target = document.querySelector(".target");
+
+  // 目标元素事件, 注册给目标元素 target
+  // dragover 当拖拽元素, 在目标元素上移动时触发
+  // drop     当拖拽元素, 在目标元素上, 鼠标松开时触发
+
+  target.addEventListener("dragover", function( e ) {
+    // 浏览器默认禁用了拖拽, 需要在dragover中阻止浏览器默认行为, 才可以触发下面的drop事件
+    e.preventDefault();
+    console.log( "大爷, 您来辣" );
+  })
+
+  target.addEventListener("drop", function( e ) {
+    console.log( "来啦, 坐吧");
+    target.appendChild( source );
+  })
+
+
+
+
+</script>
+
+</body>
+</html>

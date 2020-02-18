@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      background-color: #CCCCCC;
+    }
+    div {
+      width: 155px;
+      height: 219px;
+      position: relative;
+      margin: 300px auto;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: all 2s;
+      transform-origin: center top;
+    }
+    div:hover img:first-child {
+      transform: rotate(60deg);
+    }
+    div:hover img:nth-child(2) {
+      transform: rotate(120deg);
+    }
+    div:hover img:nth-child(3) {
+      transform: rotate(180deg);
+    }
+    div:hover img:nth-child(4) {
+      transform: rotate(240deg);
+    }
+    div:hover img:nth-child(5) {
+      transform: rotate(300deg);
+    }
+    div:hover img:nth-child(6) {
+      transform: rotate(360deg);
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <img src="./images/pk.png" alt="">
+  <img src="./images/pk.png" alt="">
+  <img src="./images/pk.png" alt="">
+
+  <img src="./images/pk.png" alt="">
+  <img src="./images/pk.png" alt="">
+  <img src="./images/pk.png" alt="">
+</div>
+
+</body>
+</html>

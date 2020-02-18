@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    h1 {
+      font-size: 100px;
+      text-align: center;
+      line-height: 200px;
+    }
+    /* 文字阴影:
+       text-shadow: 水平偏移 垂直偏移 模糊度 颜色;
+       水平偏移 正值向右, 负值向左
+       垂直偏移 正值向下, 负值向上
+       程序的坐标系, X轴正方向朝右 Y轴正方向朝下
+       阴影会随着文字的移动而一起移动
+    */
+    h1:first-child {
+      text-shadow: 2px 2px 2px red;
+    }
+
+    h1:nth-child(2) {
+      /* 可以设置多组文字阴影, 效果叠加, 之间用逗号隔开 */
+      text-shadow: 2px 2px 2px red, 4px 4px 4px blue, 6px 6px 6px green;
+    }
+
+    h1:nth-child(3) {
+      height: 400px;
+      line-height: 400px;
+      color: #fff;
+      background-color: #000;
+      text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+    }
+
+    h1:nth-child(4) {
+      height: 400px;
+      line-height: 400px;
+      color: #fff;
+      background-color: #000;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+    }
+  </style>
+</head>
+<body>
+
+<h1>我爱你</h1>
+<h1>我爱你</h1>
+<h1>I LOVE YOU</h1>
+<h1>I LOVE YOU</h1>
+
+</body>
+</html>

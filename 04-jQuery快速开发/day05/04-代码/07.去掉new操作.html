@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 要想得到实例对象
+        // 还不想手动new
+        // 工厂模式
+
+        (function (window, undefined) {
+            // jQuery 不在是构造函数，理解他为工厂函数
+            var jQuery = function (selector) {
+                // 工厂函数内部就是干嘛？
+                // return new 构造函数;
+                return new jQuery.fn.init(selector);
+            }
+
+            // 原型替换
+            jQuery.fn = jQuery.prototype = {
+                // 添加constructor属性，指向构造函数
+                constructor: jQuery,
+
+                html: function () {
+                    console.log("这是jq的html方法");
+                },
+                css: function () {
+                    console.log("这是jq的css方法");
+                },
+                width: function () {
+
+                },
+                // init: function (selector) {
+                //     var elements = document.querySelectorAll(selector);
+                //     [].push.apply(this, elements);
+                // } 
+            };
+            
+            // 在jQuery的原型身上添加一个属性init, 是一个函数, 专门用来创建jQuery对象
+            jQuery.fn.init = function (selector) {
+                // 这个init才是jq中真正的构造函数
+                // 获取元素
+                var elements = document.querySelectorAll(selector);
+                [].push.apply(this, elements);
+
+                // 1. 获取元素
+                // 2. dom对象转成jq对象
+                // 3. 创建元素
+                // 4. 入口函数
+                // 。。。。
+            }
+
+            // init.prototype
+
+
+            window.jQuery = window.$ = jQuery;
+        })(window)
+
+
+        var body = jQuery("body");
+        console.log(body);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // jq其实就是个函数 自调用，沙箱：
+        //  不会造成全局污染的问题
+
+        // 传参window的好处：
+        //  1. 可以减少对window的查找过程
+        //  2. 有利于代码压缩
+
+
+        // 传参undefined的目的：
+            // 解决undefined在ie678中存在被篡改的问题
+        (function(window, undefined){
+            var jQuery = function(){
+
+            }
+
+            console.log(window);
+            // 通过window. 将jQuery函数暴露到全局, 供全局使用
+            window.jQuery = window.$ = jQuery;
+        })(window);
+
+    </script>
+</body>
+</html>

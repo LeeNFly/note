@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        canvas{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<canvas width="320" height="480" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+    // 思路：获取鼠标在图一上坐标点， 去图二中去对应区域图片，绘制在图一上
+    //1- 先准备需要图片
+    var upImg = new Image();
+    var backImg = new Image();
+    var isRip = false; //是否撕
+    var size = 20;
+    backImg.onload = function () {
+        upImg.onload = function () {
+            // 等所有的图片加载完成后，使用图片
+            // 绘制上面的图片
+            ctx.drawImage(upImg, 0, 0, cs.width, cs.height);
+            //鼠标移动
+            cs.onmousemove = function (e) {
+                if(isRip) {
+                    console.log('撕...');
+                    //怎么撕
+                    console.log(e)
+                    var x = e.offsetX; //获取鼠x标坐标值
+                    var y = e.offsetY; //获取鼠y标坐标值
+                    //取下面图片对应区域绘制到canvas上面
+                    ctx.drawImage(backImg, x - size/2, y - size/2, size, size, x - size/2, y  - size/2, size, size );
+                }
+            }
+
+            //鼠标按下
+            cs.onmousedown = function () {
+                isRip = true;
+            }
+
+            //鼠标抬起
+            cs.onmouseup = function () {
+                isRip = false;
+            }
+        }
+        upImg.src = 'img/g15_up.jpg';
+    }
+    backImg.src = 'img/g15_back.jpg';
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="box">123</div>
+<script>
+  var box = document.getElementById('box');
+//  box.onclick = function(){
+//    console.log('假装这是一百行代码');
+//  }
+//
+//  box.onclick = function(){
+//    console.log('新增的逻辑代码');
+//  }
+//  使用 on + 事件名 注册事件,如果给元素注册同一类型的事件,会把之前的注册相同类型事件给覆盖  
+
+//  addEventListener 可以给同一个元素,多次注册同一类型事件,不会把之前注册的相同类型的事件覆盖,相当于在事件处理函数中追加代码
+//  语法: 元素.addEventListener('事件名', 事件处理函数, false);
+//  在IE8中不支持addEventListener方式注册事件
+//  方式1: 使用匿名函数 
+//  box.addEventListener('click', function(){
+//    console.log('假装这是一百行代码');
+//  }, false);
+//  box.addEventListener('click', function(){
+//    console.log('新增的逻辑');
+//  }, false);
+
+//  触发事件: => 
+//  假装这是一百行代码
+//  新增的逻辑  
+
+  // 方式2 : 
+  box.addEventListener('click', fn, false);
+  function fn(){
+    console.log('ahah ');
+  }
+
+  // 对于h5新增的事件, dom中不能使用on + 事件名来注册, 要使用addEventListener来注册
+</script>
+</body>
+</html>

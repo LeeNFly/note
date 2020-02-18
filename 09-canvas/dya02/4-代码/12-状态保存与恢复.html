@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="500" height="600" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+
+    //3-画线
+    //线1
+    ctx.strokeStyle = 'red';
+    ctx.setLineDash([10, 20]);
+    ctx.moveTo(100, 100);
+    ctx.lineTo(400, 100);
+    ctx.stroke();
+    ctx.save(); //保存画布当前状态和样式  (线宽、虚线、颜色, 旋转, 平移等等即只能保存画笔的样式, 不能保存绘制路径) 状态一
+
+    //线2
+    ctx.beginPath();
+    ctx.strokeStyle = 'green';
+    ctx.setLineDash([0]);
+    ctx.lineWidth = 10;
+    ctx.moveTo(100, 200);
+    ctx.lineTo(400, 200);
+    ctx.stroke();
+    ctx.save(); //保存画布当前状态和样式 状态二
+
+    //线3
+    ctx.beginPath();
+    ctx.strokeStyle = 'blue';
+    ctx.setLineDash([10, 20, 40, 10]);
+    ctx.lineWidth = 20;
+    ctx.moveTo(100, 300);
+    ctx.lineTo(400, 300);
+    ctx.stroke();
+
+    //线4
+    ctx.beginPath();
+    ctx.restore(); //将画布恢复到最近一次保存的状态, 状态弹栈
+    ctx.moveTo(100, 400);
+    ctx.lineTo(400, 400);
+    ctx.stroke();
+
+    //先5
+    ctx.beginPath();
+    ctx.restore(); //将画布恢复到最近一次保存状态
+    ctx.moveTo(100, 500);
+    ctx.lineTo(400, 500);
+    ctx.stroke();
+
+    //保存画布的状态后, 仍保持当前的状态
+
+    //画布的状态可以多次保存， 每次调用restroe() 会将画布恢复到最近一次保存的状态；
+    //保存状态采取先进后出的原则
+
+    // 状态1 -> save()           状态库: 状态1
+    // 状态2 -> save()           状态库: 状态2, 状态1
+
+    // 调用restroe(), 取出最近一次保存的状态, 恢复画笔样式,  ->  状态库:  状态2, 状态1  -> 状态1
+    // 调用restroe(), 取出最近一次保存的状态, 恢复画笔样式,  ->  状态库:  状态1  -> 空
+
+    // 即 save(), 可以保存状态, 进栈,   restroe(), 从栈中取出状态, 即弹栈
+    // 一个状态只能取一次, 然后弹栈
+    // 先进后出原则
+
+
+
+
+</script>
+</body>
+</html>

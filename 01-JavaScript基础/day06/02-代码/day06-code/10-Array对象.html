@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 数组的方法 
+      // ps: 所有会改变数组的操作, 数组的长度都会自动改变
+      // join (分隔符)
+      // 作用 :将数组的值按顺序拼接成一个字符串  ,并且 返回 这个字符串
+      // 不会改变原数组
+      var arr = [1,4,7,2,5,8];
+
+      var str =  arr.join('-'); // 常用
+      
+      console.log(str); // 1-4-7-2-5-8
+
+      var str1 = arr.join(' ');
+      console.log(str1); // 1 4 7 2 5 8
+      
+      var str2 = arr.join('');  // 常用
+      console.log(str2); // 147258
+      console.log(typeof str2);
+      
+
+      var str3 = arr.join(); // 默认给元素之间加一个,
+      console.log(str3); // 1,4,7,2,5,8
+
+      var arr = ["zs", "ls", "ww"];
+      var str = arr.join('-@');
+      console.log(str) // zs-@ls-@ww
+      
+
+    </script>
+</body>
+</html>

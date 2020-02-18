@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+        
+    <script src="itcast.js"></script>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        console.log($); // jquery
+
+        // 提供了方法，来解绑对$符号的控制, (★ 并不会解绑jQuery变量的控制权)
+        var a = jQuery.noConflict(); // 释放jQuery对变量$的控制权, 并将控制权转移到变量a身上, 之后变量a的功能就和原先的$一致, $被释放, 若有其他变量使用$, 则会将$转交给其他变量, 否则$ => undefined;
+        //或者用 var a = $.noConflict();
+        console.log(a); // 这个变量c就相当于$ 
+
+        console.log($); // 之后的$就会访问到我们自己引入的js库里的$了
+
+        a(function(){
+            console.log(111);
+
+            a("body").css("backgroundColor", "#f99");
+        });
+    </script>
+</body>
+</html>

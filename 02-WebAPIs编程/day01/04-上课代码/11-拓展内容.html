@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #wrap div{
+      
+    }
+  </style>
+</head>
+<body>
+<div id="wrap">
+  <div class="one">1</div>
+  <div class="one">2</div>
+  <div class="one">3</div>
+</div>
+<div class="one">4</div>
+<div class="one">5</div>
+<input type="text" name="one">
+
+<script>
+//  var box = document.getElementById('box');
+// 如果标签有id属性 可以直接通过id拿到标签元素 但是不推荐使用
+//  console.log(box); //不是标准的方式  不建议使用
+  
+  
+//  批量获取 ★★★当前页面 元素 (标签) 的其他方式:
+//console.log(document.getElementsByName('one')); //通过name属性批量找元素, 返回的是伪数组,找不到是空的伪数组
+
+////console.log(document.getElementsByClassName('one')); //通过类型批量获取元素.返回伪数组,找不到返回空的伪数组
+//  var wrap = document.getElementById('wrap');
+//console.log(wrap.getElementsByClassName('one')); //也可以使用element调用
+
+// console.log(document.querySelector('.one')); //通过选择器查找元素 ,返回所有符合条件里面的第一个元素 是一个具体的元素 没有则返回null
+//console.log(document.querySelectorAll('#wrap div')); //通过选择器批量查找所有满足条件的元素 ,返回一个伪数组 没有则返回空的伪数组
+
+// document.querySelector('选择器'), document.querySelectorAll('选择器') 是c5新增的获取dom元素的方法, 选择器支持所有css2和css3的选择器
+// 注意: 选择器 和 css中的一样 标签 id 类 选择器, 支持交并子后代等 ...
+
+
+</script>
+</body>
+</html>

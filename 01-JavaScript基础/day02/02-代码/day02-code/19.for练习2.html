@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      //1 计算1-100之间不能被7整除的数的和
+      
+      var  sum = 0;
+      for (var i = 1 ; i <= 100; i++) {
+
+          if (i % 7 != 0) {
+            console.log(i);
+            sum += i;
+          }
+      }
+      console.log(sum);
+      
+
+
+//2 求1-100之间所有偶数的和
+      var  sum = 0;
+      for (var i = 1; i <= 100; i++) {
+
+          if (i % 2 == 0) {
+            console.log(i);
+            sum += i;
+          }
+      }
+
+      console.log(sum);
+      
+
+
+
+//3 同时求1-100之间所有偶数和奇数的和
+
+// 偶数 : even
+// 奇数 odd
+  var sumEven = 0; //偶数和
+  var sumOdd = 0;  //奇数和 
+  for (var i = 1; i <= 100 ; i++) {
+
+      if ( i % 2 == 0) {
+          sumEven += i;
+      }else {
+          sumOdd += i;
+      }
+  }
+
+  console.log(sumEven,sumOdd);
+  
+
+
+
+    </script>
+</body>
+</html>

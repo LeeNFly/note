@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .outer {
+      width: 400px;
+      height: 50px;
+      border: 1px solid #000;
+      overflow: hidden;
+    }
+    .inner {
+      height: 100%;
+      width: 1%;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="file" id="fileInp">
+  <div class="outer">
+    <div class="inner">
+      <span>0%</span>
+    </div>
+  </div>
+
+  <script>
+    var fileInp = document.getElementById("fileInp");
+    var inner = document.querySelector(".inner");
+    var span = document.querySelector("span");
+
+    fileInp.onchange = function() {
+      console.dir( fileInp );
+      // 获取文件对象
+      var file = fileInp.files[0];
+
+      // 异步文件上传
+      var xhr = new XMLHttpRequest();
+      xhr.open( "post", "file.php" );
+      var formData = new FormData();
+      formData.append( "file", file );
+      
+      // 用于监听文件上传的进度信息
+      xhr.upload.onprogress = function( e ) {
+        // e.loaded 表示已上传的部分, e.total 表示整个文件的大小
+        // 保留两位小数, toFixed(2)
+        var percent = (e.loaded / e.total * 100).toFixed(2);
+        // 设置 inner 的宽度
+        inner.style.width = percent + "%";
+        // 设置 span 的文本
+        span.innerHTML = percent + "%";
+      }
+      xhr.send( formData );
+
+      xhr.onreadystatechange = function() {
+        if ( xhr.readyState === 4 ) {
+          if ( xhr.status === 200 ) {
+            console.log( xhr.responseText );
+          }
+        }
+      }
+
+    }
+  
+  </script>
+  
+</body>
+</html>

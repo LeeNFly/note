@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .left {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            float: left;
+        }
+
+        .right {
+            height: 300px;           
+            background-color: red;    
+            overflow: hidden;    
+            /* 当给元素设置了overflow:hidden ,此时元素会构造BFC, 触发了BFC的元素 不会和浮动元素有交集 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Block Formatting Context: 页面上一个隔离的独立渲染区域
+        触发成为 BFC 盒子的特点:
+
+        1. 触发了 BFC 的盒子, 就成为了页面上的一个隔离的独立容器,  容器里面的子元素不会在布局上影响到外面的元素
+        应用: 解决塌陷问题,  清除浮动 
+        2. 触发了BFC的普通盒子, 不会与浮动元素重叠
+        应用: 圣杯布局, 左侧固定右侧自适应
+
+        如何触发 BFC
+
+        - float: left; float: right;	
+        - overflow的值不为visible。
+        - display的值为table, table-cell
+        - position的值absolute, fixed
+     -->
+
+     <div class="left"></div>
+     <div class="right"></div>
+</body>
+</html>

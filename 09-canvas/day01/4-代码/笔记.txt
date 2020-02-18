@@ -1,0 +1,15 @@
+1-获取绘图上下文
+    var  ctx = cs.getContext('2d');
+2-绘制
+    moveTo(x,y) 移动画笔
+    lineTo(x,y) 画线
+    closePath() 闭合路径
+    stroke();  描边
+    fill(); 填充
+
+    beginPath(); 开启新路径：
+
+    lineWidth = 20 线宽
+    fillStyle  填充样式
+    strokeStyle 描边样式
+

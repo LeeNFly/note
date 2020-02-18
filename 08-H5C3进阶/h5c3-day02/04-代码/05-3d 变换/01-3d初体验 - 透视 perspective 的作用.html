@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /* 需要添加透视
+       perspective
+       1. 添加给父盒子, 让子盒子拥有近大远小的透视效果
+       2. 1000px 指的是观察者到盒子的距离
+       3. 只有添加了perspective, 子盒子才有近大远小的透视效果
+    */
+    body {
+      /*perspective: 1000px;*/
+      /*
+        (1) 如果设置太小, 打脸了, 不合适
+        (2) 如果设置太大, 又不明显了
+        (3) 一般都设置成 1000px
+      */
+
+      /* 打脸的效果, 人的脸贴着屏幕 */
+      perspective: 1000px;
+    }
+
+    img {
+      display: block;
+      margin: 100px auto;
+      transition: all 4s;
+    }
+    img:hover {
+      /* 看不出来才是对的 */
+      transform: rotateX(-45deg);
+    }
+  </style>
+</head>
+<body>
+
+<img src="./images/01.jpg" alt="">
+
+</body>
+</html>

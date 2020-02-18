@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: #f99;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <button>展示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // jq对象.show(speed, easing, callback) // 显示 会将获取到的所有元素都显示
+            // jq对象.hide(speed, easing, callback) // 隐藏 会将获取到的所有元素都隐藏
+            // jq对象.toggle(speed, easing, callback) // 切换 会将获取到的所有元素都切换, 即如果是显示的, 就隐藏; 如果是隐藏的, 就显示。 支持差异化切换, 即获取到的元素中有的是显示的, 有的是隐藏的, 则将显示的隐藏, 隐藏的显示
+            // 以下参数解析 上面三个方法通用
+            // 不传参，就没有动画效果
+            // 主要修改的是元素的width、height、opacity  (透明度)
+            // 三个参数都是可选的
+            
+            // 参数：
+            // speed： 动画时长，可以是数字类型, 单位是ms，默认还提供了三个字符串的值，speed参数可选,不传就没有动画效果
+            //          "slow": 600
+            //          "normal": 400
+            //          "fast": 200
+            //          如果传递的是除了上面三个之外的字符串，取normal
+            // easing: 动画效果，默认值是swing（秋千，慢-快-慢），linear（匀速），easing参数可选,不传就用默认值swing
+            // callback: 动画结束的时候来执行的函数,可选 不传就没有回调
+            // 以上三个参数都是可选的, 要用哪个传哪个, 不用的就不传。 不传也不会报错
+            // 可选参数不传的时候,不需要占位符 比如 show(1000, funciton{}), 中间不需要easing参数的占位符, 会有默认值
+            $('button').eq(0).click(function () {
+                $('div').show('fastaa', function () {
+                    console.log('show()结束回调');
+                });
+            })
+            $('button').eq(1).click(function () {
+                $('div').hide(1000, function () {
+                    console.log('hide()结束回调');
+                });
+            })
+            $('button').eq(2).click(function () {
+                $('div').toggle(1000, function () {
+                    console.log('toggle()结束回调');
+                });
+            })
+        })
+    </script>
+</body>
+</html>

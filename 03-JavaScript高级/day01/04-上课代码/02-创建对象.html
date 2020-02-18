@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  var obj = new Object();
+//  console.log(obj);
+//  var obj = {} // == > new Object();
+//
+    function CreatePerson(name, age){
+      return {
+        name : name,
+        age: age
+      }
+    }
+  
+//      function Person(name, age){
+//        this.name = name;
+//        this.age = age;
+//      }
+      
+//       var p = new Person('zs', 18);
+//      console.log(p);
+  
+//       var p1 =  new createPerson();
+//        console.dir(p1);
+  
+//        function fn(){
+//
+//        }
+//
+//        fn();
+//
+//        var f = new fn();
+//        console.log(f);
+  
+        //在js当中,new关键字和 任意函数配合使用,就一定会创建出一个新的对象
+  
+//        function Fn(name, age){
+//          this.name = name;
+//          this.age = age;
+//        }
+//
+//        new fn('ls', 20);
+  
+        var haha = function(){
+          
+        }
+
+        var Hehe = function(a, b){
+          this.a = a;
+          this.b = b;
+        }
+        
+//        new haha();
+//        haha()
+
+          Hehe(); // 这么调用没有意义,Hehe这个函数申明出来就是为了创建对象,所以一般都要和new配合使用,像Hehe这种,我们一般称为构造函数
+  
+          var h = new Hehe('haha', 'houhou');
+  
+  
+//  总结: 构造函数:  专门用来创建对象,并且和new 关键字配合使用的时候,才是构造函数
+//      构造函数就是函数
+//      函数不一定是构造函数
+  
+  
+  
+         
+</script>
+</body>
+</html>

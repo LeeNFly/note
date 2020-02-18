@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        // $: 哪里来，jq文件提供的
+        // $: 是个函数
+        // $的作用
+        // 功能比较强大，参数不同，作用就不同
+        // 1. 参数是函数，  $(function(){}),,   作用是入口函数
+        // 2. 参数是选择器，$("div"),,          作用是获取页面上的元素
+        // 3. 参数是dom对象  $(document)        作用是dom对象转jq对象
+
+        console.log($);
+
+        /*$(function(){
+
+        })*/
+
+        // jQuery 也可以实现和$ 一样的功能,注意区分大小写
+        console.log($ === jQuery); // true
+        //更推荐使用$
+        jQuery(function(){
+            console.log("这是jQuery的入口函数");
+
+            jQuery("body").css("backgroundColor", "#f99");
+        })
+
+    </script>
+</body>
+</html>

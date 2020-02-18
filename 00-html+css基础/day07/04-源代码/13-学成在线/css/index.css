@@ -1,0 +1,76 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+ul {
+	list-style: none;
+}
+a {
+	color: #333;
+	text-decoration: none;
+}
+a:hover {
+	color: #00a4ff;
+}
+/* 去掉input默认的边框 */
+input,
+button {
+	border: none;
+}
+/* 清除浮动公共类 */
+.clearfix::after {
+    content:'';
+    display:block;
+    clear:both;
+    height:0;
+    visibility:hidden;
+}
+.clearfix {
+    *zoom:1;
+}
+/* 版心公共类 */
+.w1200 {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+
+/* 头部区域 */
+.xc-header {
+	height: 45px;
+	padding: 30px 0 26px 0;
+	background-color: red;
+}
+.xc-header > div {
+	float: left;
+}
+.xc-header .logo {
+	width: 204px;
+	height: 44px;
+	margin-right: 65px;
+	background: url(../images/logo.png) 0 center no-repeat;
+}
+.xc-header .nav {
+	background-color: lime;
+	margin-right: 95px;
+}
+.xc-header .nav li {
+	float: left;
+	padding:0 9px;
+	margin-right: 26px;
+	line-height: 42px;
+}
+.xc-header .nav li:hover {
+	border-bottom: 2px solid #00a4ff;	
+}
+.xc-header .search {
+	width: 411px;
+	height: 44px;
+	background-color: lime;
+	margin-right: 30px;
+}
+.xc-header .user {
+	width: 125px;
+	height: 44px;
+	background-color: lime;
+}

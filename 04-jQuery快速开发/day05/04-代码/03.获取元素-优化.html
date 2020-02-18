@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        (function(window, undefined){
+            var jQuery = function(selector){
+                // 获取元素
+                var elements = document.querySelectorAll(selector);
+                console.log(elements);
+
+                /*// 通过遍历来将获取到元素添加到this实例对象上去
+                for(var i = 0; i < elements.length; i++){
+                    this[i] = elements[i];
+                }
+                // 手动添加length属性
+                this.length = elements.length;*/
+
+
+                // 借用push方法
+                // call(),  apply()
+                // call(obj, 1,2,3,4)
+                // apply(obj, 数组或者是伪数组)
+                // push(12,45)
+                // this.push(div,div)
+                // [].push  ==>  拿到push方法
+                // apply(this, elements)
+                //      this:   借用这个push方法
+                //      elements：   要添加到this上去的元素
+                // 数组的push方法会内部维护length属性
+                [].push.apply(this, elements);
+                // Array.prototype.push
+
+            }
+
+            window.jQuery = window.$ = jQuery;
+        })(window)
+
+
+        /*var body = new $("body");
+        console.log(body);*/
+
+        var divs = new $("div");
+        console.log(divs);
+    </script>
+</body>
+</html>

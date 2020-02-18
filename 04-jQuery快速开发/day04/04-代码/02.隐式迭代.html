@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    
+    <ul>
+        <li>1: 现在的你们还困吗？</li>
+        <li>2: 现在的你们还困吗？</li>
+        <li>3: 现在的你们还困吗？</li>
+    </ul>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // 隐式迭代：
+            // 隐式： 偷偷地
+            // 迭代： 遍历，循环
+            // 在进行jq对象.设置性或操作性的操作的时候，会把所有获取到的元素都设置上或操作上 ★相同的操作
+            // 但是在jq对象.获取性操作(非筛选, 选择器操作, 即获取元素除外)的时候, 只能获取第一个元素的对应值
+
+            // ps: jq中, 除了$('选择器')获取页面元素, 只能获取在dom树上的元素外, 
+            //          对于其他jq中的方法, 与jq对象是否在dom树上无关, 都可以使用, 如果元素在dom树上, 浏览器就会自动对我们的操作进行渲染, 如果元素不在dom树上, 等到元素加到dom树上, 浏览器再为我们渲染
+
+            // css(name, value);
+
+            var colors = ["red", "lime", "#f99"];
+
+            // $("li").css("color", "red");
+
+            // 如果不想设置上相同的属性, 或者需要获取jq对象中每个元素的属性, 则要进行手动遍历
+            // for 循环遍历
+            /*for(var i = 0; i < colors.length; i++){
+                $("li").eq(i).css("color", colors[i]);
+            }*/
+            
+            // each()遍历
+            // each():  遍历获取到 ★ jq对象  (jq对象是一个伪数组), each()是专门用来遍历(一个)jq对象的 (jq对象是一个伪数组)
+            // each(function(index, ele){})
+            // fn: 让 每一个jq对象中的 元素 都来执行这个函数
+                    // index： 表示当前遍历的这个元素的下标, 从0开始 是数字类型
+                    // ele：  表示当前遍历的这个元素, dom对象, 当前执行这个函数的元素, 相当于把jq中的每个dom元素依次赋值给ele进行遍历
+            // 可以对jq对象中的每个dom元素进行单独的设置和获取性操作, 操作的也是dom树上的标签节点对象
+            // 如果jq对象的长度为0, 即没有获取到元素, 则each不会进行遍历, 也不会报错
+            $("li").each(function(index, ele){
+                // console.log(index, ele);
+                // $(ele).css("color", colors[index]);
+                
+                // 在这个函数里面， 可以使用关键字 this 来表示当前遍历的dom元素,  即this 和 ele 一样, 可以用this来代替ele
+                // 关键字 this, 当前遍历的 ★ dom元素, 当前执行这个函数的元素是谁, this就是这个元素 是dom对象
+
+                console.log(this);
+                $(this).css("color", colors[index])
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /* 后代选择器 */
+    body li {
+      /*background-color: pink;*/
+    }
+    /* 子代选择器 */
+    ul > li {
+      /*background-color: pink;*/
+    }
+
+    /* 向后找 第一个 兄弟元素, 而且要是 li
+       需要同时满足以上2个条件, 1)后面第一个兄弟元素 2) 并且这个元素要满足选择器
+       缺一则选择不到元素
+
+       .now + *  向后找一个兄弟元素, 这个元素任意
+     */
+    .now + li {
+      /*background-color: pink;*/
+    }
+
+    /* 向后找所有的兄弟元素, 而且要是 li
+       需要同时满足以上2个条件, 1) 后面的所有兄弟元素 2) 并且要满足选择器
+
+       .now ~ * 找后面的所有兄弟元素
+    */
+    .now ~ li {
+      background-color: pink;
+    }
+
+    /* 交集选择器 */
+
+    /* 并集选择器 */
+
+  </style>
+</head>
+<body>
+
+<ul>
+  <li>第1个li</li>
+  <li>第2个li</li>
+  <li class="now">第3个li</li>
+  <span>123</span>
+  <li>第4个li</li>
+  <li>第5个li</li>
+  <li>第6个li</li>
+  <li>第7个li</li>
+  <li>第8个li</li>
+  <li>第9个li</li>
+  <li>第10个li</li>
+</ul>
+
+
+</body>
+</html>

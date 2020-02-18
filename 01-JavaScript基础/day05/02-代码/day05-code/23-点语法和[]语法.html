@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      var obj = {
+        name : 'zs',
+        age : 18
+      }
+
+      // 点语法  
+     // 结构 :获取属性值: 对象名.属性名 (属性名类似变量的 不是字符串)
+      // console.log( obj.name );  ok
+      // console.log( obj.'name' );  X
+      // var key = 'name';
+      // console.log( obj.key );  X  =>去找obj里的是否有key这个属性名,而不是'name'
+      
+      // [] 语法
+      // 结构 :获取对象的属性值: 对象名 [ 属性名字符串 ] 
+      //       属性存在情况下,获取属性值;属性不存在情况下,undefined;
+      // //1. 赋值  对象名 [ 属性名字符串 ] = 值 (值可以是任意类型)
+      //    1.1 属性存在的情况下 =>  修改/覆盖
+      //    1.2 属性不存在的情况下 => 添加属性和属性值
+      // []语法和点语法效果是一样的, 只不过语法不一样而已
+
+      // [] 语法可以识别变量, 点语法不能识别变量
+    var key = 'name';
+      // console.log( obj[name] );  X
+      //  console.log( obj['name'] );  // OK
+      // console.log( obj[key] ); // => obj['name']    ok
+        
+      // 总结:
+      // 1. 点语法,因为是对象名.属性名,且属性名类似于变量,所以用.语法是不能够获取 变量(的值) 的属性的(属性名是一个变量)。
+      //    var key = 'name' ; obj.key   =>  是去找对象里是否有key这个属性,而不是找是否有'name'这个属性,并且 obj.'name' 语法也是错的 
+      
+      // 2. []语法, 对象名[属性字符串] , 因为是一个字符串,而不是类似变量,所以 可以获取 变量(的值) 的属性的 (属性名是一个变量)。
+      //    var key = 'name' ; obj[key] => key是一个变量,'name', => obj['name'] => 成功获取
+      
+      // 当属性名是一个变量(的值,且变量值是字符串)的时候,使用[]语法获取属性值。 var key = 'name'; obj[key] ok
+      
+      
+
+
+      console.log(obj);
+      
+
+
+    </script>
+</body>
+</html>

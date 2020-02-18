@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script src="require.js" data-main="./js/one/two/three/"></script>
+  <script>
+    
+    // 方式1: 通过相对或者绝对路径进行引入
+    // require(['./js/one/two/three/four/zidongqiaodama', './js/one/two/three/five/zidongzhaobug'], function() {
+    //   console.log( "模块加载完成" );
+    // })
+    
+
+    // 方式2: 配置公共路径 data-main
+    // require(['./four/zidongqiaodama', './five/zidongzhaobug'], function() {
+    //   console.log( '模块加载完成' )
+    // })
+
+  
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/* display:none; 完全隐藏 不占位置的隐藏 隐藏后不占标准流位置, 但是保留html结构和所在位置、顺序不变(不会改变标签顺序),, 可以看作改节点从html中删除，不存在了*/
+			/* 隐藏盒子及盒子内部的所有内容, 只要html结构是在盒子内部的, 都会被隐藏 */
+			/* display: none; 该显示模式就是不显示该标签(保留标签的css样式, 只是不显示, 不占标准流位置), 但是该元素还在dom树上, 不影响原有的功能 所以JS能获取到该元素 */
+			/* display none 不占位置隐藏 其他标签自动缩进; block(重新显示)的时候 占标准流位置 其他标签自动后退, 浏览器会重新渲染页面 */
+			display: none;
+			/* 显示, 将标签的渲染模式display 改为 其他渲染模式即可, 比如块级显示block */
+		}
+
+		.box1 {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/* 元素隐藏  保留位置隐藏 隐藏后占标准流位置 
+				
+				visible  显示 (默认值)
+			*/
+			visibility: hidden;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span>aaa</span>
+	</div>
+	<div class="box1"></div>
+	1
+</body>
+</html>

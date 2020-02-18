@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 创建数组
+      //1. 构造函数   函数()+首字母大写
+      //1.1 创建空数组  以后用构造函数创建的对象 ( new + 构造函数() )
+      // 空数组长度length为0
+       var arr1 =  new Array();
+       console.log(arr1);  //[]
+       
+      //1.2 创建一个有内容的数组
+      var arr2 = new Array(1,4,7); 
+      console.log(arr2);  //[1, 4, 7]
+
+      //1.3 Arrar() 里面放一个值,代表的是创建一个长度为4
+      // 的空数组
+      // 特殊: 专门记一下
+      var arr3 = new Array(4); 
+      console.log(arr3); //[empty × 4]
+      
+      
+      //2. 字面量(推荐使用)   直接量: 一眼就能看出是什么类型
+      // 其实底层也是 new Array()
+      // 是我们最常用的方式 简单粗暴
+      // 字面量创建数组 核心是  []  返回创建的数组(的地址)
+      // 字面量创建数组, [ele1, ele2, ele3, ... ], 返回创建的数组的地址
+      //2.1 创建一个空数组 将数组赋值给变量
+      // 空数组长度length为0
+      var arr1 = [];
+      console.log(arr1); //[]
+
+      //2.2 创建一个有内容的数组 将数组赋值给变量
+      // 数组元素为'zs','ls'  长度length为2
+      var arr2 = ['zs','ls'];
+      console.log(arr2);  //["zs", "ls"]
+
+      //2.3 也来尝试一下一个值
+      // 与2.2一样 数组 元素为40,长度length为1
+      var arr3 = [40]; 
+      console.log(arr3); //[40]
+      
+      
+      
+
+
+
+    </script>
+</body>
+</html>

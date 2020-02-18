@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            width: 4000px;
+            height: 4000px;
+        }
+
+        button {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+
+        .father {
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+            overflow: auto;
+        }
+
+        .son {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>返回顶部</button>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 原生js获取垂直方向的页面卷曲距离
+            window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            // window.pageYOffset  现代浏览器提出的
+            // document.documentElement   ==>   html
+            // document.body              ==>   body
+
+            // ★ scrollTop和scrollLeft方法一般用于有滚动条的元素/浏览器
+            
+            // 一 scrollTop 方法
+
+            // 获取元素垂直方向卷曲的距离 
+                // jq对象.scrollTop()  
+                // 获取的是第一个元素垂直方向卷曲的距离, 是数字类型, 不带单位, 但是单位参考px,
+                // 当滚轮移动到顶部时, 卷曲距离为0
+
+            // 设置元素垂直方向卷曲的距离,
+                // jq对象.scrollTop(数值),
+                // 会把jq对象中所有的元素设置上相同的垂直方向卷曲距离, 参数直接是数字类型, 单位参考的是px
+            
+            // 二 scrollLeft 方法
+                // 用于获取和设置元素水平方向卷曲的距离 
+                // 用法及解析参考scrollTop, 滚轮在最左侧时, scrollLeft为0
+
+
+            // scrollLeft():   用来设置和获取页面水平方向卷曲的距离
+
+            // 
+            // 实时的获取到页面卷曲的距离, 监听浏览器滚动条事件
+            // window.onscroll
+            $(window).scroll(function () {
+                console.log($(window).scrollTop());
+            })
+
+
+            // 设置，做返回顶部的效果
+            $("button").click(function () {
+                // 设置浏览器卷曲的距离
+                $(window).scrollTop(0);
+            })
+
+            // 补充:
+            // 监听滚动事件 scroll, 滚动条滚动时触发 可用于监听元素的滚动条滚动事件
+            // 获取浏览器顶部卷曲的距离： $(window).scrollTop()
+            // 设置浏览器顶部卷曲的距离： $(window).scrollTop(数值)
+            // 监听浏览器的滚动事件: $(window).scroll(function(){})
+            
+            // 特殊说明:
+            // ★★★ $(window).scrollTop(数值) , 浏览器之所以可以改变 垂直/水平方向的卷曲距离, 是因为底层是
+            // window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop 
+            // 按照顺序拿到当前浏览器兼容的属性, 进行操作
+            // 而window.pageYOffset是不能被修改的, 所以设置 $(window).scrollTop(数值)的时候, 
+            // 实际上改变的是 document.documentElement.scrollTop 或 document.body.scrollTop的scrollTop, 即改变的是html元素或者body元素的scrollTop
+            // 这就是$(window).scrollTop(数值)设置数值的底层逻辑
+            // $(window).scrollLeft(数值) 也一样
+
+            // 注意: 虽然$(window).scrollTop() ★ 可以设置值,  且有效,
+            // 但是如果要做动画效果来改变浏览器的 scrollTop/ scrollLeft , $(window)会默认采用window.pageYOffset策略, 但是window.pageYOffset又是只读的, 不能更改的
+            // 所以我们一般用html元素或body元素 $('html') 来动画的改变浏览器的scrollTop, 即滚动条
+    
+            
+        })
+    </script>
+</body>
+
+</html>

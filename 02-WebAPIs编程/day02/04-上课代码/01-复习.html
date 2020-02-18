@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="box">123</div>
+<script>
+//  获取元素:
+//    直接返回元素
+//    document.getElementById('id名')
+//    document.querySelector('选择器')
+//    返回伪数组:
+//    document.getElementsByTagName('标签名')
+//    document.querySelectorAll('选择器')
+//
+//    除了byId不能用元素调用,其他三个都可以
+
+      
+//      document/element.getElementsByClassName('类名');
+//      document.getElementsByName('name属性的值')
+  
+  
+  
+//      获取body : document.body
+//      获取html : document.documentElement
+  
+  
+//  事件:
+//  事件源 : 给谁注册事件,谁就是事件源
+//  事件名  : 注册的是什么事件
+//  事件处理函数 : 触发事件调用的函数
+
+
+//  方式1:
+//  box.onclick = function (){
+//
+//  };
+    
+//  方式2:
+  var box = document.getElementById('box');
+
+  box.onclick = fn; //不要加小括号,因为加了小括号就是函数调用,会把函数执行完的结果赋值给onclick. 而我们需要的是把函数赋值给onclick (函数引用地址)
+
+  function fn(){
+    
+    //如果没有加return ,浏览器会自动帮我们加一个return undefined
+  }
+  
+//  操作元素的属性
+//    作用: 用来操作双标签里面的文本和内容
+//    都会覆盖元素原来的内容
+//    innerText : 操作文本
+//    innerHTML : 操作内容 会识别html标签
+</script>
+</body>
+</html>

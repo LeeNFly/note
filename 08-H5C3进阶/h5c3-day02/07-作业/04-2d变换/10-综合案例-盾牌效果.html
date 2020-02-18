@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #008000;
+        }
+
+        div {
+            width: 500px;
+            margin: 300px auto;
+            transform: translate();
+        }
+        img {
+          transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="打散">
+<input type="button" value="合并">
+<div>
+    <img src="./images/shield_1_01.png" alt="">
+    <img src="./images/shield_1_02.png" alt="">
+    <img src="./images/shield_1_03.png" alt="">
+    <img src="./images/shield_1_04.png" alt="">
+    <img src="./images/shield_1_05.png" alt="">
+    <img src="./images/shield_1_06.png" alt="">
+    <img src="./images/shield_1_07.png" alt="">
+    <img src="./images/shield_1_08.png" alt="">
+    <img src="./images/shield_1_09.png" alt="">
+</div>
+<script>
+    var btn1 = document.querySelectorAll('input')[0];
+    var btn2 = document.querySelectorAll('input')[1];
+    var imgs = document.querySelectorAll('img')
+
+    btn1.onclick = function () {
+        imgs.forEach(function (v, i) {
+            var randDeg = Math.random() * 360;
+            var randX = Math.random() * 800 - 400;
+            var randY = Math.random() * 400 - 200;
+            v.style.transform = 'translate(' + randX + 'px, ' + randY + 'px) rotate(' + randDeg + 'deg)'
+        })
+    }
+
+    btn2.onclick = function () {
+      imgs.forEach(function (v, i) {
+        v.style.transform = 'none';
+      })
+    }
+</script>
+
+</body>
+</html>

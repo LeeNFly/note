@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="box">123</div>
+<script>
+//  addEventListener, ie8 用attachEvent 代替
+  
+//    需求: 封装一个函数,如果浏览器能使用add...就使用,不能使用就用attachEvent
+  
+    function  addEvent(element, EventName, fn, usercapture){
+//      判断当前浏览器是否可以使用addEventListener,
+      if(element.addEventListener){
+        //证明支持addEventListener
+        element.addEventListener(EventName,fn, usercapture);
+      }else{
+        //证明不支持addEventListener
+        element.attachEvent('on' + EventName, fn);
+      }
+    }
+//
+//
+    var box  = document.getElementById('box');
+    addEvent(box,'click',function(){
+      console.log('ahhah ');
+    }, false);
+
+//  console.log(box.addEventListener);
+//  console.log(box.attachEvent);
+</script>
+</body>
+</html>

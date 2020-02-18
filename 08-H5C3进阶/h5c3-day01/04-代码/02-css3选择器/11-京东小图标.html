@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    ul {
+      height: 100px;
+      list-style: none;
+      padding: 0;
+      margin: 100px;
+    }
+    li {
+      width: 200px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      border: 1px solid #000;
+      float: left;
+      position: relative;
+    }
+    .news::before {
+      content: '';
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      width: 36px;
+      height: 23px;
+      background: url('./images/news.png');
+    }
+  </style>
+</head>
+<body>
+
+<ul>
+  <li class="news">导航1</li>
+  <li>导航2</li>
+  <li class="news">导航3</li>
+  <li>导航4</li>
+</ul>
+
+
+
+</body>
+</html>

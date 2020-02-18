@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="800" height="500" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+    //3-canvas中变换
+
+    ctx.fillRect(30, 0, 50, 50);
+
+
+    //坐标系缩放, 坐标系变大之后，绘制的所有图形都会等比例变大
+
+    ctx.scale(3,3);
+    ctx.beginPath();
+    ctx.fillStyle = 'red';
+    ctx.fillRect(30, 0, 50, 50);
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

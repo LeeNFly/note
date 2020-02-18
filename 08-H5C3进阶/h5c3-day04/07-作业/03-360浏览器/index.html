@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/jquery.fullPage.css">
+    <style>
+        .section {
+            overflow: hidden;
+        }
+        img {
+            vertical-align: middle;
+        }
+        /* -------------------------------第一屏------------------------------- */
+        .one .logo {
+            width: 251px;
+            height: 186px;
+            background-image: url(./images/1_logo.png);
+            margin: 80px auto;
+        }
+        .one .text {
+            text-align: center;
+        }
+        /* 第一个状态 */
+        .one .text img {
+            margin: 0 20px;
+            opacity: 0.2;
+            /* transition: all 1s;*/
+        }
+        .one .info {
+            width: 772px;
+            height: 49px;
+            background-image: url(./images/1_info.png);
+            margin: 20px auto;
+        }
+        /* 第二个状态 */
+        .one.now .text img {
+            margin: 0px;
+            opacity: 1;
+            transition: all 1s;
+        }
+
+        /* -------------------------------第二屏------------------------------- */
+        .two {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .two .shield {
+            width: 450px;
+        }
+        .two .info {
+            width: 635px;
+            height: 309px;
+            background-image: url(./images/2_info_2.png);
+        }
+        /* 状态一 */
+        .two img:nth-child(1) {
+            transform: translate(35px, 78px) rotate(45deg);
+        }
+        .two img:nth-child(2) {
+            transform: translate(135px, 282px) rotate(15deg);
+        }
+        .two img:nth-child(3) {
+            transform: translate(187px, 62px) rotate(15deg);
+        }
+        .two img:nth-child(4) {
+            transform: translate(10px, 162px) rotate(30deg);
+        }
+        .two img:nth-child(5) {
+            transform: translate(465px, 522px) rotate(30deg);
+        }
+        .two img:nth-child(6) {
+            transform: translate(480px, 62px) rotate(90deg);
+        }
+        .two img:nth-child(7) {
+            transform: translate(180px, -305px) rotate(80deg);
+        }
+        .two img:nth-child(8) {
+            transform: translate(300px, -22px) rotate(70deg);
+        }
+        .two img:nth-child(9) {
+            transform: translate(280px, -322px) rotate(60deg);
+        }
+        /* 状态二 */
+        .two.now img {
+            transform: none;
+            transition: all 1s;
+        }
+
+        /* -------------------------------第三屏------------------------------- */
+        .three {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .three .info {
+            width: 631px;
+            height: 278px;
+            background-image: url(./images/3_info_3.png);
+        }
+        .three .circle {
+            width: 453px;
+            height: 449px;
+            background-image: url(./images/3_circle.png);
+            border-radius: 50%;
+            position: relative;
+        }
+        .three .rocket {
+            width: 203px;
+            height: 204px;
+            background-image: url(./images/3_rocket.png);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-1500px, 800px);
+        }
+        .three.now .rocket {
+            transition: all 1s;
+            transform: translate(-50%, -50%);
+        }
+
+        /* -------------------------------第四屏------------------------------- */
+        .four {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .four .movie {
+            width: 529px;
+            height: 500px;
+        }
+        .four .search {
+            width: 100%;
+            height: 66px;
+            background-image: url(./images/4_search.png);
+            position: relative;
+            /* 状态一 */
+            transform: translateX(-1000px);
+        }
+        .four .key {
+            /*width: 99px;*/
+            height: 22px;
+            background-image: url(./images/4_key.png);
+            position: absolute;
+            left: 22px;
+            top: 22px;
+            /* 状态一 */
+            width: 0;
+        }
+        .four .result {
+            width: 100%;
+            /*height: 372px;*/
+            background-image: url(./images/4_result.png);
+            transform: translateY(-18px);
+            /* 状态一 */
+            height: 0;
+        }
+        .four .info {
+            width: 612px;
+            height: 299px;
+            background-image: url(./images/4_info_4.png);
+        }
+        .four.now .search {
+            /* 状态二 */
+            transform: none;
+            transition: all 1s;
+        }
+        .four.now .key {
+            /* 状态二 */
+            width: 99px;
+            transition: all 2s 1s steps(5);
+        }
+        .four.now .result {
+            /* 状态二 */
+            height: 372px;
+            transition: all 1s 3s;
+        }
+
+        /* -------------------------------第五屏------------------------------- */
+        .five {
+            flex-direction: column;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .five .info {
+            width: 1077px;
+            height: 134px;
+            background-image: url(./images/5_info_5.png);
+        }
+        .five .browser {
+            width: 1044px;
+            height: 443px;
+            background-color: rgba(255, 255, 255, .3);
+            position: relative;
+        }
+        .five .extra {
+            width: 394px;
+            height: 29px;
+            background-image: url(./images/5_extra.png);
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        .five .toolbar {
+            /*width: 1004px;*/
+            height: 79px;
+            background-image: url(./images/5_toolbar.png);
+            position: relative;
+            overflow: hidden;
+            /* toolbar状态一 */
+            width: 0;
+        }
+        /* 边框状态1 */
+        .five .line-left,
+        .five .line-right {
+            height: 100%;
+            width: 1px;
+            background-color: #fff;
+            position: absolute;
+        }
+        .five .line-left {
+            top: 0;
+            left: 0;
+            transform: translateY(-100%);
+        }
+        .five .line-right {
+            bottom: 0;
+            right: 0;
+            transform: translateY(100%);
+        }
+        .five .line-top,
+        .five .line-bottom {
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+            position: absolute;
+        }
+        .five .line-top {
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+        }
+        .five .line-bottom {
+            left: 0;
+            bottom: 0;
+            transform: translateX(-100%);
+        }
+
+        /* extra边框 */
+        .five .line-extra {
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+            position: absolute;
+            bottom: 29px;
+        }
+
+        /* toolbar边框盒子 */
+        .five .line-box {
+            width: 920px;
+            height: 25px;
+            position: absolute;
+            top: 31px;
+            left: 76px;
+            border: 1px solid #fff;
+        }
+        /* 边框状态2 */
+        .five.now [class^='line'] {
+            transform: none;
+            transition: all 1s;
+        }
+
+        /* toolbar状态2 */
+        .five.now .toolbar {
+            width: 1004px;
+            transition: all 2s 1s;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="section one">
+        <div class="logo"></div>
+        <div class="text">
+            <img src="./images/1_text_1.png" alt="">
+            <img src="./images/1_text_2.png" alt="">
+            <img src="./images/1_text_3.png" alt="">
+            <img src="./images/1_text_4.png" alt="">
+            <img src="./images/1_text_5.png" alt="">
+            <img src="./images/1_text_6.png" alt="">
+            <img src="./images/1_text_7.png" alt="">
+            <img src="./images/1_text_8.png" alt="">
+        </div>
+        <div class="info"></div>
+    </div>
+    <div class="section two">
+        <div class="shield">
+            <img src="./images/2_shield_1.png" alt="">
+            <img src="./images/2_shield_2.png" alt="">
+            <img src="./images/2_shield_3.png" alt="">
+            <img src="./images/2_shield_4.png" alt="">
+            <img src="./images/2_shield_5.png" alt="">
+            <img src="./images/2_shield_6.png" alt="">
+            <img src="./images/2_shield_7.png" alt="">
+            <img src="./images/2_shield_8.png" alt="">
+            <img src="./images/2_shield_9.png" alt="">
+        </div>
+        <div class="info"></div>
+    </div>
+    <div class="section three">
+        <div class="info"></div>
+        <div class="circle">
+            <div class="rocket"></div>
+        </div>
+    </div>
+    <div class="section four">
+        <div class="movie">
+            <div class="search">
+                <div class="key"></div>
+            </div>
+            <div class="result"></div>
+        </div>
+        <div class="info"></div>
+    </div>
+    <div class="section five">
+        <div class="info"></div>
+        <div class="browser">
+            <div class="line-left"></div>
+            <div class="line-top"></div>
+            <div class="line-right"></div>
+            <div class="line-bottom"></div>
+
+            <div class="toolbar">
+                <div class="line-box"></div>
+            </div>
+
+            <div class="line-extra"></div>
+            <div class="extra"></div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.fullPage.min.js"></script>
+
+<script>
+    $(function () {
+        $('.container').fullpage({
+            verticalCentered: false,
+            navigation: true,
+            sectionsColor: ['#0DA5D6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+            afterLoad: function (anchorLink, index) {
+                $('.section').eq(index - 1).addClass('now').siblings().removeClass('now');
+            }
+        });
+    })
+</script>
+
+</body>
+</html>

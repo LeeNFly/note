@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: #f99;
+        }
+    </style>
+</head>
+<body>
+
+    <div></div>
+
+    <button id="btn">点击触发div的click事件</button>
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // 1. 以事件名的方式直接调用
+                // jq对象.click()  jq对象.事件名()
+            // 2. jq对象.trigger(type);
+                //  type:  事件名  是一个字符串
+            
+            // 触发jq对象中所有元素对应类型的事件, 由于是触发事件, 所以会产生事件流 和 事件冒泡
+
+            $("div").on("click", function(){
+                console.log("div  div");
+            })
+
+            $("#btn").click(function(){
+                // $("div").click();
+
+                $("div").trigger("click");
+            })
+        })
+    </script>
+</body>
+</html> 

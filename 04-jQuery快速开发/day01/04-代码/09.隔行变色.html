@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <ul>
+        <li>老罗超级帅</li>
+        <li>老罗超级帅</li>
+        <li>老罗超级帅</li>
+        <li>老罗超级帅</li>
+        <li>老罗超级帅</li>
+        <li>老罗超级帅</li>
+        <li>老罗超级帅</li>
+        <li>老罗超级帅</li>
+        <li>老罗超级帅</li>
+        <li>老罗超级帅</li>
+    </ul>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            /*var lis = document.getElementsByTagName("li");
+
+            for(var i = 0; i < lis.length; i++){
+                if(i % 2 === 0){
+                    lis[i].style.backgroundColor = "hotpink";
+                }else{
+                    lis[i].style.backgroundColor = "yellow";
+                }
+            }*/
+
+
+            var lis = $("li"); // jq对象
+            for(var i = 0; i < lis.length; i++){
+                if(i % 2 === 0){
+                    // lis[i]： dom对象 可以使用dom对象的方法
+                    lis[i].style.backgroundColor = "hotpink";
+                }else{
+                    // lis[i].style.backgroundColor = "yellow";
+                    lis.get(i).style.backgroundColor = "yellow";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

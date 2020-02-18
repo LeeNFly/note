@@ -1,0 +1,90 @@
+//我是注释
+//定义变量
+@jdc: #e92322;
+
+/*头部模块 css注释*/
+
+.box {
+   width: 300px;
+   background-color: @jdc;
+ }
+
+.box2 {
+  padding: 10px;
+  color: @jdc;
+}
+
+.box3 {
+  font-size: 100px;
+  border-radius: 50%;
+}
+
+//混入
+.box4 {
+  .box;
+  .box2;
+  .box3;
+}
+
+//函数 带有默认参数
+.setborder(@w:3px, @c: pink, @r: 0){
+  border: @w solid @c;
+  border-radius: @r;
+}
+
+.box5 {
+  .setborder(2px, red, 20px);
+}
+
+.box6 {
+  .setborder(10px, blue, 30%);
+}
+
+.box7 {
+  .setborder();
+}
+//定义函数
+.setPosition(@type, @l, @t){
+  position: @type;
+  left:@l;
+  top: @t;
+}
+
+// 计算
+.box8 {
+  width:  100/7 + 100px;
+  height: 79/4px;
+}
+
+//嵌套
+.nav{
+  border: 1px solid #000;
+  overflow: hidden;
+  ul {
+    position: relative;
+    width: 1000px;
+    li{
+      float: left;
+      width: 100%;
+      a{
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        &:hover {
+          color: red;
+        }
+        &:nth-child(3) {
+          background-color: pink;
+        }
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.box9 {
+  //width: ceil(100/3)px;
+  width: percentage(0.5);
+}

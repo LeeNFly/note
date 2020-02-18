@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  函数的实例成员 : 写在函数体内this.xxx .这个xxx属性,最终new 函数的时候,是添加到实例身上的属性
+//  函数的静态成员 : 函数.xxx 这个属性是直接添加到函数身上的(函数也是对象的数据类型)
+  
+  function Person(){
+    this.a = 'a'; //实例成员
+    this.b = 'b'; //实例成员
+  }
+  
+  Person.c = 'c'; //静态成员
+
+  Person.prototype.d = 'd';
+  
+</script>
+</body>
+</html>

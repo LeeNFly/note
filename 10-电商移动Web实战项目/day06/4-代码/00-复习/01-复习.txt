@@ -1,0 +1,48 @@
+iscroll   触屏滚动效果   
+swiper    触屏轮播图 
+zepto     移动端类似于jQueryAPI,  新增移动端 touch相关， 事件对象中数据比较少，没有滑动相关 数据 距离 坐标点 
+          模块化： 需要哪个模块引入那个模块 
+          $('.box').on('tap', function () { .... })
+
+响应式布局布局： 
+    响应式： 一个网页能够在任何设备上完美布局；
+    用到的技术： 媒体查询 
+    媒体查询作用： 
+        动态监测设备屏幕宽度，根据不同屏幕宽度区间，给盒子添加不同的样式；
+    @media screen  and (max-width:1200px )  and (min-width: 992px) {
+
+    } 
+
+    写原生的响应布局会很繁琐，实际工作中使用bootstrap框架 ---> 栅格系统 
+
+
+
+1- bootstrap  实现响应式布局框架
+    实现响应式的技术： 媒体查询 
+    响应式布局方式： 栅格系统 
+
+   栅格系统： 
+    容器： .container  .container-fluid
+    行： .row  
+    列： .col-lg-n
+
+    前缀： lg  md  sm  xs   
+
+    列： 一行12列 
+
+    列偏移： 
+    col-lg-offset-n    整体向右偏移n列
+    col-lg-push-n   当前元素向右偏移
+    col-lg-pull-n   当前元素向左偏移
+
+    列可以嵌套
+    响应式栅格： 同一个盒子在不同屏幕上，布局方式也不一样
+    <div class="col-lg-3  col-md-4   col-sm-6 col-xs-12"></div>
+
+    响应式显示 隐藏： hidden-xs   visible-xs   
+    
+     
+
+
+
+

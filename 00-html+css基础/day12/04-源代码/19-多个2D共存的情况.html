@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			transition: all 1s;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%) rotate(0deg); 
+		}
+		.box:hover {
+			/* transform:scale(2);
+			transform:rotate(360deg); 
+			这样写下面的2D转换会覆盖上面的2D转换效果
+			*/
+			/* 当需要多个2D效果共存的时候 需要采用连写的方式 */
+			/* transform:scale(2) rotate(360deg); */
+
+
+			/* 当多个场景下面有多个2D效果共存的时候，需要复制前面已经存在的2D效果 因为之后的2D效果会覆盖之前的2D效果
+			   比如此处若只写 transform: rotate(360deg);
+			   则在hover时，transform: rotate(360deg);会覆盖掉之前的transform: translate(-50%, -50%) rotate(0deg); 导致	translate(-50%, -50%)效果消失。
+			*/
+
+			transform:translate(-50%, -50%) rotate(360deg);
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

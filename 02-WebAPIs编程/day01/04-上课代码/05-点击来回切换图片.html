@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+<!--<button id="btn">点击切换图片</button>-->
+<a href="" id="btn"> 点击来回切换图片</a>
+
+<br>
+
+<img id="img" src="images/a.jpg" alt="图片" width="500" height="350">
+
+</body>
+</html>
+<script>
+  //需求: 点击btn按钮,点击的时候来回切换图片
+  //1. 获取元素btn,img
+  var btn = document.getElementById('btn');
+  var img = document.getElementById('img');
+  var flag = true;// 默认展示的是a.jpg, flag为true的时候,表示当前展示的是a.jpg
+  //如果flag是false,就代表当前展示的是b.jpg
+  //  2. 给btn注册点击事件
+  btn.onclick = function(){
+    //  3. 在事件处理函数中,修改img图片(修改img的src属性的值)
+        console.log(img.src); //注意返回的是绝对路径
+//        判断如果是a.jpg就切换到b.jpg,否则就换回a.jpg
+    if(flag){
+      //证明当前展示的a.jpg
+      img.src = 'images/b.jpg';
+      flag = false; //图片发生变化,flag也要跟着改变状态
+    }else{
+      //证明当前展示的是b.jpg
+      img.src = 'images/a.jpg';
+      flag = true;
+    }
+    return false;
+  }
+
+
+</script>
+

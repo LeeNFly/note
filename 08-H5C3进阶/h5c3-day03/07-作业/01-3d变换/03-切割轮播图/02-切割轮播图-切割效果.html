@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      width: 560px;
+      height: 380px;
+      margin: 200px auto;
+      position: relative;
+    }
+    ul {
+      width: 20%;
+      height: 100%;
+      list-style: none;
+      position: relative;
+      transform-style: preserve-3d;
+      float: left;
+    }
+    ul:nth-child(2) li {
+      background-position: -112px 0;
+    }
+    ul:nth-child(3) li {
+      background-position: -224px 0;
+    }
+    ul:nth-child(4) li {
+      background-position: -336px 0;
+    }
+    ul:nth-child(5) li {
+      background-position: -448px 0;
+    }
+    li {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+    li:first-child {
+      background-image: url(./images/01.jpg);
+      transform: translateZ(190px);
+    }
+    li:nth-child(2) {
+      background-image: url(./images/02.jpg);
+      transform: rotateX(90deg) translateZ(190px);
+    }
+    li:nth-child(3) {
+      background-image: url(./images/03.jpg);
+      transform: rotateX(180deg) translateZ(190px);
+    }
+    li:nth-child(4) {
+      background-image: url(./images/04.jpg);
+      transform: rotateX(-90deg) translateZ(190px);
+    }
+    .arrow {
+      width: 100px;
+      height: 100px;
+      border-radius: 5px;
+      line-height: 100px;
+      text-align: center;
+      background-color: orange;
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      text-decoration: none;
+    }
+    .left {
+      left: -100px;
+    }
+    .right {
+      right: -100px;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <a href="javascript:;" class="arrow left">上一页</a>
+  <a href="javascript:;" class="arrow right">下一页</a>
+  <div id="test"></div>
+</div>
+</body>
+<script>
+  var btn1 = document.querySelectorAll('a')[0];
+  var btn2 = document.querySelectorAll('a')[1];
+  var uls = document.querySelectorAll('ul');
+  var index = 0;
+  btn2.onclick = function () {
+    index ++;
+    uls.forEach(function (v, i) {
+      v.style.transition = 'all 1s '+ i * 0.2 +'s';
+      v.style.transform = 'rotateX(' + ( -index * 90 ) + 'deg)';
+    })
+
+  }
+  btn1.onclick = function () {
+    index --;
+    uls.forEach(function (v, i) {
+      v.style.transition = 'all 1s '+ i * 0.2 +'s';
+      v.style.transform = 'rotateX(' + ( -index * 90 ) + 'deg)';
+    })
+  }
+
+</script>
+</html>

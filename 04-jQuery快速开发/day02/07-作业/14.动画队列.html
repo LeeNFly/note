@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #f99;
+            position: relative;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>swing</div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // $('div').animate({
+            //     left: '500px',
+            //     top: '300px',
+            //     borderRadius: '50px'
+            // }, 3000)
+
+            // $('div').animate({
+            //     left: '500px',
+            // }, 1000, function () {
+            //     $('div').animate({
+            //         top: '300px'
+            //     }, 1000, function () {
+            //         $('div').animate({
+            //             borderRadius: '50px'
+            //         }, 1000)
+            //     })
+            // })
+
+            $('div').animate({
+                left: '500px'
+            }).animate({
+                top: '300px'
+            }).animate({
+                borderRadius: '50px'
+            }).slideUp().slideDown();
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>
+</div>
+<input type="file">
+
+<script>
+  var inputFile = document.querySelector('input');
+  var div = document.querySelector('div');
+
+  inputFile.addEventListener('change', function () {
+    var file = inputFile.files[0];
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.addEventListener('load', function () {
+      var url = fileReader.result;
+      div.innerHTML = '<img src="' + url + '" >';
+    })
+
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/* 
+				控制鼠标移入后的样式 (仅仅只是样式)
+				cursor: 取值;
+				
+				pointer  小手
+				default  箭头
+				move  移动
+				text  文本
+				url() , 图标加载失败后的替换样式 
+			*/
+			cursor: url(images/qipao-left.png),default;
+		}
+		
+		/* outline 去掉选中之后自动生成的蓝色边框 */
+		input {
+			outline: none;
+		}
+			
+		/* 去掉textarea自动缩放 */
+		textarea {
+			resize: none;
+		}
+	</style>
+</head>
+<body>
+	
+	<a href="#">链接</a>
+
+	<div class="box"></div>
+
+	<input type="text">
+	
+	<textarea name="" id="" cols="30" rows="10"></textarea>
+</body>
+</html>

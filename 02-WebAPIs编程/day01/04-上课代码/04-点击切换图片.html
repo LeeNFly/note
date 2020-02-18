@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+<button id="btn">点击切换图片</button>
+
+<br>
+
+<img id="img" src="images/a.jpg" alt="图片" width="500" height="350">
+
+</body>
+</html>
+<script>
+  //需求: 点击btn按钮,点击的时候切换图片
+  //1. 获取元素btn,img
+      var btn = document.getElementById('btn');
+      var img = document.getElementById('img');
+//  2. 给btn注册点击事件
+      btn.onclick = function(){
+        //  3. 在事件处理函数中,修改img图片(修改img的src属性的值)
+//        console.log(img.src); //注意返回的是绝对路径
+          img.src = 'images/b.jpg';
+      }
+
+
+</script>
+

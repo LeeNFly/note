@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>效率测试</title>
+</head>
+<body>
+</body>
+<script>
+    function fn() {
+        var d1 = +new Date();
+        
+        for ( var i = 0; i < 1000; i++ ) {
+            // 每赋值一次innerHTML,浏览器都要重新渲染一次
+            // 渲染1000次,加载效率慢,不推荐一次次的赋值  (强烈不推荐)
+            document.body.innerHTML += '<div style="width:100px; height:2px; border:1px solid blue;"></div>';
+        }
+        var d2 = +new Date();
+        console.log( d2 - d1 );
+    }
+    fn();
+</script>
+
+</html>

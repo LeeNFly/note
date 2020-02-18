@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <script>
+
+    // 两种单独创建的方式
+    //1. 字面量 (推荐使用)
+    var obj = {};
+    var obj = {
+      name: 'zs',
+      age: 18
+    }
+
+    //2. 构造函数 Object (底层)
+    var obj = new Object();
+    var obj = new Object({
+      name: 'zs',
+      age: 18
+    })
+
+    // 批量创建的两种方式
+    //3. 工厂函数
+    function createPerson(name, age) {
+
+      //1. 创建一个新对象
+      var obj = {};
+
+      //2. 添加属性和方法
+      obj.name = name;
+      obj.age = age;
+      obj.sayHi = function () {
+        console.log('哈哈');
+      }
+      //3. 返回这个新对象
+      return obj;
+    }
+
+     var zs =  createPerson('zs',18);
+
+     //4. 自定义构造函数
+ 
+     function Person( name ,age) {
+
+       this.name = name;
+       this.age = age;
+       this.sayHi = function () {
+         console.log('哈哈');
+         
+       }
+     }
+
+    var p =   new Person('zs',18);
+
+    console.log( zs.constructor.name);  //Object,工厂函数创建的对象,数据类型都是Object
+    console.log( p.constructor.name);   //Person,自定义构造函数创建的对象,数据类型是自定义构造函数类型
+    
+
+  </script>
+</body>
+
+</html>

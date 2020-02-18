@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: #f99;
+            /* display: none; */
+        }
+    </style>
+</head>
+<body>
+
+    <button>展示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // jq对象.show(speed, easing, callback) // 显示 会将获取到的所有元素都显示 如果元素已显示 则什么都不做
+            // jq对象.hide(speed, easing, callback) // 隐藏 会将获取到的所有元素都隐藏 如果元素已隐藏 则什么都不做
+            // jq对象.toggle(speed, easing, callback) // 切换 会将获取到的所有元素都切换, 即如果是显示的, 就隐藏; 如果是隐藏的, 就显示。 支持差异化切换, 即获取到的元素中有的是显示的, 有的是隐藏的, 则将显示的隐藏, 隐藏的显示
+            // toggle show hide 是相互独立的3个方法, 只以自己的设置的参数为准, 与另外2个方法设置的参数无关
+            // 以下参数解析 上面三个方法通用
+            // 可以一个参数都不传, 不传参, 就没有动画效果
+            // 主要修改的是元素的width、height、opacity (透明度) 
+            // 没有动画效果的显示过程, 直接将display改为block.  没有动画效果的隐藏过程, 直接将display改为none.  
+            // 有动画效果的显示过程 display改为block(占标准流位置), 然后将width、height、opacity先设置为0,开始从小到大同时改变width、height、opacity; 有动画效果的隐藏过程 从大到小改变width、height、opacity, 最后将display 设置为 none (不占标准流位置)
+            // 三个参数都是可选的
+            
+            // 参数：
+            // speed： 动画时长，可以是数字类型, 单位是ms，默认还提供了三个字符串的值，【speed参数可选】,不传就没有动画效果
+            //          "slow": 600
+            //          "normal": 400
+            //          "fast": 200
+            //          如果传递的是除了上面三个之外的字符串，取normal 一般我们直接写数字, 直观, 不用字符串
+            // easing: 动画效果，默认值是'swing'（秋千，慢-快-慢），'linear'（匀速），【easing参数可选】,不传就用默认值swing. swing 和 linear 的动画时常一致, 只不过是动画展示时间的策略不同
+            // callback 匿名函数: 这里只是声明了一个函数, 不会自己执行, 要等到动画 结束 的时候来调用执行的函数,【callback参数可选】 不传就没有回调 
+            // 以上三个参数都是可选的, 要用哪个传哪个, 不用的就不传。 不传也不会报错
+            // 可选参数不传的时候,不需要占位符 比如 show(1000, funciton{}), 中间不需要easing参数的占位符, 会有默认值
+            // ★ 基本动画的 主要功能 动态控制元素的显示和隐藏 且可以带有动画效果
+            
+            // ps: 最终是通过display: none 来隐藏的, 所以有display: none的相关的性值
+            // 注意, 动画效果的回调函数 和定时器的回调函数一样, 都是由浏览器暂管, 然后动画结束后放入任务队列, 等到栈中空了再放入栈中去执行
+            $("button").eq(0).click(1000, function(){
+                $("div").show(function(){
+                    console.log("show 动画结束了");
+                });
+                console.log(1)
+            })
+
+            $("button").eq(1).click(function(){
+                $("div").hide(1000, function(){
+                    console.log("hide 动画结束了");
+                });
+            })
+
+            $("button").eq(2).click(function(){
+                $("div").toggle(1000, function(){
+                    console.log("toggle 动画结束了");
+                });
+            })
+        })
+    </script>
+</body>
+</html>

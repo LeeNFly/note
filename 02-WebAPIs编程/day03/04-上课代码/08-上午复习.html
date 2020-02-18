@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 1. 节点类型的属性:
+          nodeType 标签节点: 1
+          nodeName  标签节点: 大写的标签名
+          nodeValue  标签节点: null
+  // 2. 节点层级的属性:
+          找儿子:
+            children  子元素
+            childNodes  子节点
+          找父亲:
+            parentNode  父节点
+          找兄弟:
+            nextElementSibling  下一个兄弟元素
+            previousElementSibling  上一个兄弟元素
+//   3. 操作节点的方法:
+          添加节点:
+            appendChild() 往后面加   有剪切的效果
+            insertBefore(新, 旧)  在指定子节点前面加  有剪切的效果
+          替换节点:
+            replaceChild(新, 旧)  有剪切的效果
+          移除节点:
+            removeChild(子节点)
+          克隆节点:
+            cloneNode(true/false) 传true,全部复制, 不传就是只复制节点本身
+</script>
+</body>
+</html>

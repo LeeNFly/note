@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 工厂模式，设计模式当中的一种
+        function Person(name, age){
+            this.name = name;
+            this.age = age
+        }
+        /*var xiaoming = new Person("xiaoming", 20);
+        console.log(xiaoming);
+
+        var xiaohong = new Person("xiaohong", 19);
+        console.log(xiaohong);*/
+
+        // 特点：
+        // 必须通过new 构造函数,才能得到一个实例对象
+        // 这里的factory就是工厂函数， 批量创建对象
+        // 这种模式就是工厂模式
+        function factory(name, age){
+            // 工厂函数里面仅仅是 new 构造函数，
+            // 并且返回这个实例对象
+            return new Person(name, age);
+        }
+        var xiaoming = factory("xiaoming", 20);
+        console.log(xiaoming);
+
+        var xiaohong = factory("xiaohong", 19);
+        console.log(xiaohong);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /* 径向渐变, 属性名: background-image
+       需要:
+          1. 圆的大小, 圆的半径
+          2. 圆心的位置, 坐标, 默认在盒子的左上角
+             书写顺序: X坐标 Y坐标
+             支持专有名词, left top right bottom center
+             支持数值px, 坐标系原点在盒子的左上角, X轴向右为正, Y轴向下为正
+             圆心位置包含水平坐标, 垂直坐标, center center 说明圆心位置在盒子中心, 
+          3. 颜色 范围
+             颜色, 范围参考线性渐变, 理解和线性渐变一致, 需要注意的是, 径向渐变只有在半径范围内有渐变, 超出半径范围, 用最后的颜色 纯色填充
+             范围可以不写, 不写就是在半径范围内平均分配
+       语法:
+          background-image: radial-gradient(半径 at 圆心位置, 颜色 范围, 颜色 范围,...)
+          径向渐变本质上就是给盒子设置背景图片, 这个背景图片由浏览器帮我们生成的, 所以背景图片的其他设置, 比如大小, 位置, 是否平铺等, 都可以作用于线性渐变
+          一般给盒子设置渐变了, 就不会再设置背景色了, 除非真有这个需求
+
+    */
+    div {
+      width: 400px;
+      height: 400px;
+      border: 1px solid #000;
+      margin: 100px auto;
+      /* ★★★ 半径范围内, 才会有渐变, 超出半径范围, 用最外面的颜色(最后的颜色)填充 */
+      /* background-image: radial-gradient( 200px at center center, red 90%, blue 100% ); */
+
+      /* 红太阳 */
+      background-image: radial-gradient( 200px at right top, red, yellow, skyblue );
+    }
+
+  </style>
+</head>
+<body>
+
+<div></div>
+
+</body>
+</html>

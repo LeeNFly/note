@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // break : 打断 中断 中止 
+      //  作用 : 当代码执行遇到break时, ★ 立即  `结束整个 for循环 `, 跳出大括号
+      // continue : 继续
+      //  作用 : 当代码执行遇到continue时, ★ 立即 结束当前次循环 , `继续下一次循环` , 跳过去
+      // break 和 continue 作用范围是所在的最近的循环,如果出现循环嵌套的情况,里层循环的break/continue只会对里层循环起作用,对外层循环不起作用
+      // break continue 只会对当前所在的循环起作用 (距离最近的循环)
+
+      // 需求 : 打印1-5 ,效果 : 1 2 4 5 
+      for (var i = 1 ; i <= 5; i++) {
+
+       
+        // continue 一般放在 打印之前 
+        if (i ==3) {
+            continue;
+        }
+
+
+       console.log(i);
+    
+      }
+
+      
+
+    //1. 打印 1-5 , 当打印完第3个的时候,停止打印 
+    //1.1 打印 1-5
+    //1.2 打开到3的时候, 停止
+    // for (var i = 1 ; i <= 5 ; i++) {
+
+    //     console.log(i);
+
+    //     if (i == 3) {
+          
+    //       break;
+    //     }
+    // }
+
+
+
+    </script>
+</body>
+</html>

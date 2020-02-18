@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 100px auto;
+
+      /* 旋转 标准化写法 */
+      /*transform: rotate(45deg);*/
+
+      /* 私有前缀, 用来解决兼容性问题的 */
+
+      /* 兼容 chrome, safari 浏览器的 */
+      -webkit-transform: rotate(45deg);
+
+      /* 兼容 ie 浏览器的前缀 */
+      -ms-transform: rotate(45deg);
+
+      /* 火狐浏览器 */
+      -moz-transform: rotate(45deg);
+
+      /* opera 欧鹏浏览器 */
+      -o-transform: rotate(45deg);
+    }
+
+  </style>
+</head>
+<body>
+
+
+<div></div>
+
+</body>
+</html>

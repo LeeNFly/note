@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="user">
+
+  </div>
+  <!-- 1. 引包 -->
+  <script src="./template-web.js"></script>
+
+  <!-- 2. 准备模板 -->
+  <script type="text/html" id="tpl">
+    <p>姓名: {{name}}</p>
+    <p>年龄: {{age}}</p>
+    <p>性别: {{sex}}</p>
+    <p>描述: {{desc}}</p>
+    <input type="text" value="{{name}}" />
+  </script>
+  
+  <script>
+    var content = document.querySelector('#user');
+    // 3. 准备数据
+    var obj = {
+      name: 'zs',
+      age: 14,
+      sex: '男',
+      desc: '猥琐'
+    }
+    // 4. 模板与数据相结合
+    var str = template('tpl', obj);
+    console.log(str);
+    content.innerHTML = str;
+  </script>
+</body>
+</html>

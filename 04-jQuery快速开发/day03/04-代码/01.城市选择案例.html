@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    select {
+        width: 200px;
+        background-color: teal;
+        height: 200px;
+        font-size: 20px;
+    }
+
+    .btn-box {
+        width: 30px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>城市选择：</h1>
+    <select id="src-city" name="src-city" multiple>
+        <option value="1">北京</option>
+        <option value="2">上海</option>
+        <option value="3">深圳</option>
+        <option value="4">广州</option>
+        <option value="5">西红柿</option>
+    </select>
+    <div class="btn-box">
+        <!--实体字符-->
+        <button id="btn1"> &gt;&gt; </button>
+        <button id="btn2"> &lt;&lt; </button>
+        <button id="btn3"> &gt;</button>
+        <button id="btn4"> &lt; </button>
+    </div>
+    <select id="tar-city" name="tar-city" multiple>
+    </select>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+        // 分析
+        // 1. 左边的到右边去（全选）
+        $("#btn1").click(function(){
+            $("#tar-city").append( $("#src-city option") );
+        })
+
+        // 2. 右边的到左边（全选）
+        $("#btn2").click(function(){
+            $("#tar-city option").appendTo( $("#src-city") );
+        })
+
+        // 3. 左边选中的到右边去（选中的）
+        $("#btn3").click(function(){
+            // 过滤选择器   :checked  单选、多选过滤
+            // 对于select 下拉框 selected 
+            // 过滤选择器   :selected 下拉框option过滤
+            $("#tar-city").append( $("#src-city option:selected") );
+        })
+
+        // 4. 右边选中的到左边去（选中）
+        $("#btn4").click(function(){
+            $("#tar-city option:selected").appendTo( $("#src-city") );
+        })
+    });
+    </script>
+</body>
+
+</html>

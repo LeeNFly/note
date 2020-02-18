@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <ul>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+        <li><a href="#">你们很帅</a></li>
+    </ul>
+
+    
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+           /* $("li").click(function(){
+                console.log($(this).index());
+            })*/
+
+            // index() 方法获取的是当前元素在所有兄弟元素中的索引
+            // $("a").click(function(){
+            //     // console.log($(this).index());
+            //     console.log($(this).parent().index());
+            // })
+
+            // $('li').click(function () {
+            //     console.log($(this).index());
+            // })
+            $('a').click(function () {
+                // console.log($(this).index());
+                console.log($(this).parent().index());
+            })
+        })
+    </script>
+</body>
+</html>

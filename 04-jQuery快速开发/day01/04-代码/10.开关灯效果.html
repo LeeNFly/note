@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 944px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <button id="btn1">开灯</button>
+    <button id="btn2">关灯</button>
+
+    <div>
+        <img src="06.jpg" alt="">
+    </div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            $("#btn1").click(function(){
+                // 改变的是body的样式
+                document.body.style.backgroundColor = "#fff";
+            })
+
+
+            $("#btn2").click(function(){
+                // 改变的是body的样式
+                // document.body.style.backgroundColor = "#000";
+
+                // css() : 设置和获取元素的样式
+                // css(name, value); name 是样式， value是样式值
+                $("body").css("backgroundColor", "#000");
+            })
+        })
+    </script>
+</body>
+</html>

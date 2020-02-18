@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/*
+			我们在量一个盒子的时候 有时候很难直接量盒子的内容区域的大小  于是更多的是直接量整个盒子的大小(border+padding+width/height) 然后直接赋给width  后期添加左右padding、border的时候会撑大盒子, 需要在width的基础上手动减去padding/border值 保证盒子的总大小不变
+
+			如果一个盒子本身没有width  而是通过继承得到的宽度 那么这个盒子在添加左右padding、border的时候 不会撑大当前盒子的宽度 （此时浏览器会自动减去padding值，保证盒子总大小不变）
+
+			由于高度不能被继承，所以在添加上下padding,border的时候，都会撑大盒子，视情况可以减去对应的高度
+
+
+		*/
+
+
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		ul {
+			/* 清除ul的小圆点 */
+			list-style: none;
+		}
+		.wrapper {
+			width: 298px;
+			border: 1px solid #ccc;
+			margin:100px auto 0;
+			padding: 15px;
+		}
+		.wrapper h4 {
+			border-bottom: 1px solid #ccc;
+			line-height: 2;
+			margin-bottom: 10px;
+		}
+		.wrapper li {
+			height: 30px;
+			line-height: 30px;
+			border-bottom: 1px dashed #ccc;
+			padding-left: 20px;
+		}
+		.wrapper li a {
+			color: #666;
+			font-size: 12px;
+			text-decoration: none;
+		}
+		.wrapper li a:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<h4 class="title">最新文章/New Articles</h4>
+		<ul>
+			<li><a href="#">北京招聘网页设计，平面设计，php</a></li>
+			<li><a href="#">北京招聘网页设计，平面设计，php</a></li>
+			<li><a href="#">北京招聘网页设计，平面设计，php</a></li>
+			<li><a href="#">北京招聘网页设计，平面设计，php</a></li>
+			<li><a href="#">北京招聘网页设计，平面设计，php</a></li>
+		</ul>
+	</div>
+</body>
+</html>

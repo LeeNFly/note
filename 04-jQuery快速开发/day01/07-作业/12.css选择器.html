@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    
+    <ul>
+        <li class="shuai laoluo">
+            老罗好，骚
+            <ol>
+                <li>小王</li>
+                <li>大王</li>
+            </ol>
+        </li>
+        <li id="weiwei" class="weiwei">玮哥</li>
+        <li class="shuai feifei">大飞哥</li>
+    </ul>
+
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // 页面中html标签 在jq中也叫做元素
+            // jq通过$("选择器")获取页面 满足条件 的所有元素,得到的是 ★jq对象,是一个 ★ 伪数组
+          
+            // css选择器: 与css类似
+            // 1. 标签选择器
+            // $("li").css("backgroundColor", "hotpink");
+              //  $('li').css('backgroundColor', 'hotpink');
+            // 2. id
+            // $("#weiwei").text("玮玮真漂亮，可爱");
+              //  $('#weiwei').text('玮玮真漂亮,可爱')
+            // 3. 类名
+            // $(".laoluo").css("backgroundColor", "lime");
+              //  $('.laoluo').css('backgroundColor', 'lime');
+            // 4. 后代
+            // $("ul li").css("fontSize", 30);
+              //  $('ul li').css('fontSize', '30px');
+            // 5. 子代
+            // $("ol>li").text("老罗孩子真调皮");
+              // $('ol > li').text('老罗的孩子真调皮');
+            // 6. 并集（s1,s2）
+            // $(".laoluo, .weiwei").css("backgroundColor", "lime");
+              // $('.laoluo, .weiwei').css('backgroundColor', 'lime');
+            // 7. 交集（s1s2, 连写）
+            // $(".shuai.laoluo").css("list-style", "none");
+            // $('.shuai.laoluo').css('list-style', 'none');
+        })
+    </script>
+</body>
+</html>

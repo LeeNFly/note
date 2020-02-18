@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      background-color: skyblue;
+    }
+    .fish {
+      width: 174px;
+      height: 126px;
+      background: url(fish-12-126.png) 0 0;
+
+      /* 组合动画, 逗号隔开 */
+      animation: dou 1s steps(12) infinite, swim 6s infinite;
+
+      /* 第二条鱼 */
+      /*background-position: 0 -126px;*/
+      /*background-position: 0 -252px;*/
+      /*background-position: 0 -378px;*/
+    }
+
+    .fish:nth-child(1),
+    .fish:nth-child(5) {
+      /* 鱼的速度, 控制的动画时间 */
+      animation-duration: 1.2s, 10s;
+    }
+    .fish:nth-child(2),
+    .fish:nth-child(4) {
+      animation-duration: 0.8s, 8s;
+    }
+
+    /* 定义抖动的动画 */
+    @keyframes dou {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 0 -1512px;
+      }
+    }
+
+    /* 定义游的动画 */
+    @keyframes swim {
+      /* 开始的位置, 设计动画要一一对应 */
+      0% {
+        transform: translateX(0) rotate(0deg);
+      }
+      /* 移动到最右边 */
+      25% {
+        transform: translateX(800px) rotate(0deg);
+      }
+      /* 转身 */
+      50% {
+        transform: translateX(800px) rotate(180deg);
+      }
+      /* 移动到最左边 */
+      75% {
+        transform: translateX(0px) rotate(180deg);
+      }
+      /* 转身 */
+      100% {
+        transform: translateX(0px) rotate(360deg);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="fish"></div>
+<div class="fish"></div>
+<div class="fish"></div>
+<div class="fish"></div>
+<div class="fish"></div>
+
+</body>
+</html>

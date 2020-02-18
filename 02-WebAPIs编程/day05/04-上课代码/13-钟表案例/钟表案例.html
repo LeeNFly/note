@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .clock {
+      width: 600px;
+      height: 600px;
+      margin: 100px auto;
+      background: url(images/clock.jpg) no-repeat;
+      position: relative;
+    }
+    
+    .clock div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(images/hour.png) no-repeat center center;
+    }
+    
+    #m {
+      background-image: url(images/minute.png);
+      /*transform: rotate(90deg);*/
+    }
+    
+    #s {
+      background-image: url(images/second.png);
+      /*让盒子旋转*/
+      /* transform: rotate(30deg); */
+    }
+    
+    #h {
+      /*transform: rotate(30deg);*/
+    }
+  </style>
+</head>
+
+<body>
+<div class="clock">
+  <div id="h"></div>
+  <div id="m"></div>
+  <div id="s"></div>
+</div>
+<script>
+  //需求: 根据当前时间,让我们的时钟展示当时间的角度
+//  1. 获取元素
+  var h = document.getElementById('h');
+  var m = document.getElementById('m');
+  var s = document.getElementById('s');
+  fn();//为了解决刚加载页面闪一下的问题,先调用一次代码,让时钟指向当前的位置
+  setInterval(fn, 1000);
+  function fn(){
+    //  2. 获取当前时间
+    var date = new Date();
+//  3. 根据当前时间,获取到具体的小时,分钟,秒
+    var hT = date.getHours();
+    var mT = date.getMinutes();
+    var sT = date.getSeconds();
+    console.log(hT, mT, sT);
+    //由于获取到的小时是24小时制的,而表盘是12小时的,所以需要转换一下
+    hT = hT > 12 ? hT - 12 : hT;
+//  4. 根据小时,分,秒,让h,m,s转动对应角度
+//    4.1 先计算角度
+      //增加时针和分针的便偏移的角度
+//    分针转动的角度/ 分钟一个小时转动的角度 ==  时针应该偏移的角度 / 时针一个小时走的角度
+//    时针应该偏移的角度 = 分针转动的角度/ 分钟一个小时转动的角度 * 时针一个小时走的角度
+//        x =  360 / 60 * mT / 360 * (360 / 12);
+//     时针偏移的角度   x = mT * 0.5
+//      分针偏移的角度  x = sT * 0.1
+    var hDeg = (360 / 12 * hT) + (mT * 0.5);
+    var mDeg = (360 / 60 * mT) + (sT * 0.1);
+    var sDeg = 360 / 60 * sT;
+//    4.2 给元素赋值
+    h.style.transform = 'rotate('+hDeg+'deg)';
+    m.style.transform = 'rotate('+mDeg+'deg)';
+    s.style.transform = 'rotate('+sDeg+'deg)';
+  
+  }
+</script>
+</body>
+
+
+</html>

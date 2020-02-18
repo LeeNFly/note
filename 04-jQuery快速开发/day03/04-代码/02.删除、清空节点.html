@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #f99;
+        }
+
+        p {
+            padding: 10px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        aaa
+        <p class="innerP">这是div内的p元素</p>
+    </div>
+    <p class="outerP">这是div外的p元素</p>
+
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // jq对象.empty():  清空元素，自身会保留，清理门户 会将jq对象中获取到的所有元素的 内容部分删除(自身文本, 子代及后代元素及其内容和文本都删除, 从html结构和dom树移除), 保留自身元素及标签的属性和注册的事件
+
+            $("div").empty();
+
+        
+            // jq对象.remove()  :   自身删除掉， 自杀  会将jq对象中的获取到的所有元素删除, 包括自己和内容及其后代, 全部从dom树上、html结构中删除 
+            $("div").remove();
+
+
+            //    $(".outerP").click(function(){
+            //      alert("大家困吗");
+            //    })
+
+            //jq对象.clone() 克隆节点：  会克隆jq对象中的 所有 元素(克隆元素及元素的所有内容, 和标签上的属性), 返回一个 ★ 新的jq对象 
+            // 参数： 布尔值，如果为true，表示克隆的元素的事件也会被克隆 (执行克隆操作的时刻, 元素身上的事件会被克隆, 元素身上没有的事件, 不会被克隆. 克隆结束后在母体身上加事件, 已克隆的元素不会继承该事件)
+            //           默认值是false, 不传的话默认值就是false
+            //    $(".outerP").clone(true).appendTo("div");
+
+
+           // ps:  如果jq对象中元素在dom树上, 参考dom树的结构, 如果元素不在dom树上, 是新建的元素, 则参考自身的结构
+            
+        })
+    </script>
+</body>
+
+</html>

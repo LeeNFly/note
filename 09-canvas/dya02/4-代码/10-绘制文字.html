@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+
+    //3-绘制文字
+    //1- strokeText(str, x, y); // 描边文字, 文字内部为空心的, 描边文字只会描当前参数str, 不会对对之前的文字进行描边
+    //2- fillText(str, x, y); // 填充文字, 文字内部为实心的, 填充文字只会描当前参数str, 不会对对之前的文字进行填充
+    // str: 文本内容,  x,y 绘制文字的坐标位置
+    //3-设置文字样式
+    // font = '20px 宋体'; 语法同css
+    //4-获取文本宽度
+    //ctx.measureText(str);  //返回是对象 通过width属性获取文本宽度  str, 文本内容
+
+
+
+    ctx.moveTo(100, 200);
+    ctx.lineTo(200, 200);
+    ctx.stroke();
+
+
+    //设置字体样式
+    ctx.font = '50px  "Microsoft Yahei"'; //语法同css
+
+    var str1 = '天道酬勤!!';
+    console.log(ctx.measureText(str1)); // 200 ->  50 * 4
+    var w = ctx.measureText(str1).width; //获取文本宽度
+
+    //根据宽度进行画线
+    ctx.moveTo(100, 100);
+    ctx.lineTo(100 + w, 100);
+    ctx.stroke(); //描边
+
+
+    ctx.strokeText(str1, 100, 93); //描边文字
+    ctx.fillText('自强不息', 100, 193);   //填充文字
+
+</script>
+</body>
+</html>

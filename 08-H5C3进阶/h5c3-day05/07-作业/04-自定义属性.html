@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div data-name="product" data-price="50">我是商品</div>
+
+<script>
+  var div = document.querySelector('div');
+  console.log(div.dataset);
+  div.dataset.name = 'apple';
+  console.log(div.dataset.price, div.dataset.name);
+
+</script>
+
+</body>
+</html>

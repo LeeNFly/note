@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    
+    <img src="./img01.jpg" alt="我也想这样开发" zdy="3" title="老罗在家就这么编程3">
+    <img src="./img01.jpg" alt="我也想这样开发" zdy="2" title="老罗在家就这么编程2">
+    <img src="./img01.jpg" alt="我也想这样开发" zdy="1" title="老罗在家就这么编程1">
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+        //    $('img').attr('title', 'aaa')
+        //    $('img').eq(2).attr({
+        //        title: 'bbb'
+        //    })
+            // console.log($('img').attr('title'));
+            // $('img').removeAttr('title');
+            // $('img').attr('zdysx', '111');
+            // $('img').attr({
+            //     zdysx: '1',
+            //     zxdsa: '2',
+            //     value: '22'
+            // })
+            // console.log($('img').attr('zdy'));
+            // console.log(typeof $('img').attr('zdy'));
+            // $('img').removeAttr('zdy');
+            // $('img').removeAttr('zdysx');
+            // $('img').removeAttr('title');
+            console.log($('img').eq(0).attr('title'));
+            $('img').eq(0).attr('title','改变了');
+            console.log($('img').eq(0).attr('title'));
+            
+            
+        })
+    </script>
+</body>
+</html>

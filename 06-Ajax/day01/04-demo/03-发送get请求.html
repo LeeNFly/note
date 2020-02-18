@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="btn">发送请求</button>
+
+  <script>
+    // 需求： 发送一个 get 请求, 并且传参 username=pp&password=123456
+
+    var btn = document.getElementById( "btn" );
+
+    btn.onclick = function() {
+      // 发送请求
+      // 1. 创建 xhr 对象
+      var xhr = new XMLHttpRequest();
+
+      // 2. 基于 http 协议, 请求行, 请求头, 请求体
+      // 2.1 请求行, open( type, url, true )
+      //     由之前知道, http, get请求在地址栏进行传参
+      xhr.open( "get", "03-get.php?username=pp&password=123456" );
+
+      // 2.2 请求头, get请求没有请求体, 不用设置请求头
+
+      // 2.3 请求体, get 没有请求体
+      xhr.send( null );
+
+    }
+  
+  </script>
+  
+</body>
+</html>

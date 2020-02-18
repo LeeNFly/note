@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 浮点数 == 小数 也是数字类型
+      var num = 2.4;
+      console.log(num) // 2.4
+      console.log(typeof num) // number
+      //1. 精度丢失 (只出现在浮点数 . )
+
+      // 3.1415926 - 3.1415927 
+      var num1 = 0.1;  // 大部分出现在奇数 
+      var num2 = 0.2;
+      console.log(num1  + num2); //0.30000000000000004
+
+      // 解决 : 后面学到的 往上取整,,往下取整  四舍五入
+      // 转化为整数进行计算
+
+      // console.log((0.1*10 +  0.2*10)/10);
+
+      console.log((0.01*100+0.02*100)/100); //0.03
+      console.log((0.001*1000+0.02*1000)/1000); //0.021
+
+      //2. 科学计数法 e  : 10的多少此方
+      var num = 5e+3; //5乘以10的正三次方 => 5*10^+3   //5000
+      //      = 5000
+      var num1 = 4e-2;//4乘以10的-2次方 => 4*10^-2 = 4* 0.01 = 0.04 
+      //       = 0.04
+      // console.log(num1);
+
+      var num2 = 23423423423423423000000000000000000000000000000000000000000000000000000000000000000000;
+      console.log(num2);
+
+      // 数值范围 ; 也属于数字类型
+      console.log( Number.MAX_VALUE );  // 最大值
+      console.log( Number.MIN_VALUE);  // 最小值
+      console.log(1/0); //Infinity 无穷大
+      console.log(typeof (1/0)); //number
+      console.log(typeof Infinity); //number
+      
+      
+
+      // 数字类型  number
+      //1. 进制
+      //2. 浮点数
+      //3. 范围
+
+      // 查看类型  typeof => 能够查看基本数据类型
+      var  num = 2000;
+      console.log( typeof  num); //number
+      // console.log(typeof(13));
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+
+    </script>
+</body>
+</html>

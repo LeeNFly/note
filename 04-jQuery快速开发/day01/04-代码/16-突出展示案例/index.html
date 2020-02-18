@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    body {
+        background: #000;
+    }
+
+    .wrap {
+        margin: 100px auto 0;
+        width: 630px;
+        height: 394px;
+        padding: 10px 0 0 10px;
+        background: #000;
+        overflow: hidden;
+        border: 1px solid #fff;
+    }
+
+    .wrap li {
+        float: left;
+        margin: 0 10px 10px 0;
+    }
+
+    .wrap img {
+        display: block;
+        border: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul>
+            <li><a href="#"><img src="images/01.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/02.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/03.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/04.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/05.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/06.jpg" alt=""/></a></li>
+        </ul>
+    </div>
+
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+        // 分析：
+        // 获取到所有的li，给li注册mouseenter事件，让当前的li的opacity=1，
+        //      其他的兄弟元素li的opacity=0.4；
+        $(".wrap li").mouseenter(function(){
+            // $(this).css("opacity", 1);
+            // $(this).siblings().css("opacity", 0.4);
+
+            // 链式编程，jq中特有,就是通过.可以一直写下去
+            // opacity: 透明度
+            $(this).css("opacity", 1).siblings().css("opacity", .4);
+        })
+
+        // 给整个的大盒子wrap注册mouseleave，让所有的li的opacity=1
+        $(".wrap").mouseleave(function(){
+            // $(".wrap li").css("opacity", 1);
+            // $(this).children();
+            
+            // find(): 获取当前元素(们)的所有后代 ★ 元素, 返回的是jq对象 可以传参，参数是选择器，根据参数，过滤出指定的后代 ★元素 返回的是jq对象
+            // console.log($(this).find("li"));
+            $(this).find("li").css("opacity", 1);
+        })
+
+
+        // 小结：
+        // jq对象.find(): 找后代  获取jq对象中所有元素的所有后代 ★ 元素 (重复的元素只返回一个), 返回的是jq对象 可以传参，参数是选择器，根据选择器，在所有的后代元素中过滤出指定的后代元素 返回的是jq对象
+        // jq对象.children(): 找子代
+        // jq对象.siblings(): 找兄弟
+        // 链式编程
+    });
+    </script>
+</body>
+
+</html>

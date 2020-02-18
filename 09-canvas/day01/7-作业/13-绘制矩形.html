@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+        ctx.moveTo(50, 50);
+        ctx.lineTo(50, 100);
+        //绘制矩形的方法：
+        // ctx.rect(100, 100, 200, 100);
+        // ctx.stroke()
+
+        // ctx.strokeRect(100, 100, 200, 100);
+
+        ctx.fillRect(100, 100, 200, 100);
+        ctx.beginPath();
+
+        ctx.lineWidth = 20;
+        ctx.stroke();
+
+
+    </script>
+</body>
+</html>

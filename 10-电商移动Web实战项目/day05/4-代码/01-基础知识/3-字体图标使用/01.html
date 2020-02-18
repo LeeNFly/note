@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 1. 将图标字体引入到页面中  */
+        @font-face {
+            font-family: 'my-font';
+            src: url('font/iconfont.eot');
+            src: url('font/iconfont.eot?#iefix') format('embedded-opentype'),
+            url('font/iconfont.woff') format('woff'),
+            url('font/iconfont.ttf') format('truetype'),
+            url('font/iconfont.svg#iconfont') format('svg');
+        }
+
+        /* 第二步, 设置特殊的字体样式 */
+        h1,p {
+            font-family: 'my-font';
+        }
+    </style>
+</head>
+<body>
+    <!-- 第三步, 书写内容, 内容为字体图标对应unicode编码, 可以被改字体解析成字体图标 -->
+    <h1>&#xe726;</h1>
+    <p>&#xe66b;</p>
+</body>
+</html>

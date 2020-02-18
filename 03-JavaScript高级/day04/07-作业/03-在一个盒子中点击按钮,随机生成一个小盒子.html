@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 600px;
+      height: 600px;
+      background-color: #ccc;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script>
+    // 需求: 点击盒子,在盒子内部随机生成一个小盒子
+    // 面向对象
+    var box = document.getElementById('box');
+    // new一次
+    var smallBox = new SmallBox(20,20,'red');
+    box.onclick = function () {
+      // new多次
+      // var smallBox = new SmallBox(20,20,'red');
+      smallBox.render();
+    }
+
+    function SmallBox(width, height, bgc) {
+      this.width = width;
+      this.height = height;
+      this.bgc = bgc;
+      // new多次
+      // this.x = getRandom(0, box.offsetWidth - this.width);
+      // this.y = getRandom(0, box.offsetHeight - this.height);
+    }
+
+    SmallBox.prototype.render = function () {
+      var div = document.createElement('div');
+      div.style.width = this.width + 'px';
+      div.style.height = this.height + 'px';
+      div.style.backgroundColor = this.bgc;
+      div.style.left = getRandom(0, box.offsetWidth - this.width) + 'px';
+      div.style.top = getRandom(0, box.offsetWidth - this.width) + 'px';
+      div.style.position = 'absolute';
+      box.appendChild(div)
+    }
+
+    function getRandom(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // ==================================================================
+    // 需求: 点击盒子,在盒子内部随机生成一个小盒子
+    // 面向过程
+    // 获取box元素
+    // var box = document.querySelector('#box');
+    // // 注册点击事件
+    // box.onclick = function () {
+    //   // 随机生成小盒子
+    //   var smallBox = document.createElement('div')
+    //   smallBox.style.width = '20px';
+    //   smallBox.style.height = '20px';
+    //   smallBox.style.backgroundColor = 'red';
+    //   maxX = box.offsetWidth - 20
+    //   maxY = box.offsetHeight - 20
+    //   smallBox.style.left = getRandom(0, maxX) + 'px';
+    //   smallBox.style.top = getRandom(0, maxY) + 'px';
+    //   smallBox.style.position = 'absolute'
+    //   box.appendChild(smallBox);
+    // }
+
+    // function getRandom(min, max) {
+    //   return Math.floor(Math.random() * (max - min + 1)) + min;
+    // }
+  </script>
+</body>
+
+</html>

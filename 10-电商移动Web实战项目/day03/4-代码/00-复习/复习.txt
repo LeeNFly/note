@@ -1,0 +1,36 @@
+1-倒计时 
+    var t= 5000;
+
+    var h =  t / 3600;  //1小时
+    var m =  5000 % 3600 / 60;  //分钟
+    var s =  t % 60;  //秒
+
+2- 头部滚动 
+    window.onscroll = function () {
+        var value = window.pageYoffset / banner.offsetHeight; 
+        header.style.background = 'rgba(0,0,0, value)';
+    }
+
+3- 轮播图
+    1- 定时器切换轮播图  
+        index++;   根据index的值让图片移动
+    2- 在每次ul过渡结束之后，判断index在值是否越界，如果越界 瞬间跳转
+       小圆点同步
+    3-小圆点切换函数：
+        图片 10张  小圆点 8个  
+        小圆点index = 图片index - 1
+
+4 - touch 移动端触屏事件
+    touchstart 触屏开始
+    touchmove  触屏移动
+    touchend   触屏结束
+    touchcancel 触屏取消
+
+    获取触屏的数据，判断用户行为 事件对象event
+    touches  记录当屏幕上所有触点数据
+    targetTouches 记录当前元素上的触屏数据
+    changedTouches  记录触屏状态改变时数据， 在触屏结束后，chagnedTouches 任然可以使用；
+
+    //获取触屏的数据
+    e.targetTouches[0].clientX  
+    e.targetTouches[0].clientY

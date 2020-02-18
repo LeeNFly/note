@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="user">
+
+  </div>
+
+  <!--  使用模板引擎 -->
+  <!-- 1. 引包 -->
+  <script src="template-web.js"></script>
+
+  <!-- 2. 准备模板 -->
+  <script type="text/html" id="tpl">
+    <p>姓名: {{name}}</p>
+    <p>年龄: {{age}}</p>
+    <p>性别: 
+      <!-- {{if sex === 1}}
+        男
+      {{ /if}}
+      {{if sex === 0}}
+        女
+      {{ /if}} -->
+
+      <!-- {{sex === 1 ? '男' : '女'}} -->
+      <!-- {{ if sex === 1}}
+        男
+      {{ else }}
+        女
+      {{/if}} -->
+
+      <!-- {{ if sex === 1}}
+        男
+      {{ else if sex === 0}}
+        女
+      {{else}}
+        未知
+      {{/if}} -->
+    </p>
+    <p>描述: {{desc}}</p>
+  </script>
+
+  <script>
+    var content = document.querySelector('#user');
+    var obj = {
+      name: '张三',
+      age: 14,
+      sex: 2,
+      desc: '猥琐'
+    }
+
+    var str = template('tpl', obj);
+    console.log(str);
+    content.innerHTML = str;
+
+
+  </script>
+</body>
+
+</html>

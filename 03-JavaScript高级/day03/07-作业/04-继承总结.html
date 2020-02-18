@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 单个对象继承
+    //  方式1：拷贝
+    // var my = {
+    //   name: '马云',
+    //   age: 65,
+    //   money: 1000000000000
+    // }
+    // var me = {
+    //   name: '本人'
+    // }
+    // for(var key in my) {
+    //   if (!me.hasOwnProperty(key)) {
+    //     me[key] = my[key]
+    //   }
+    // }
+
+    // console.log(me);
+
+    //  方式2：Object.create(被继承的对象)
+    // var me = Object.create(my)
+    // console.log(me);
+    // me.name = '本人';
+    // console.log(me.name, me.age, me.money);
+
+
+    // 构造函数继承
+    //  1、 借用构造函数继承 继承私有属性
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    
+    Person.prototype.sayHi = function () {
+      console.log('你好我是' + this.name);
+      
+    }
+
+    function Student(name, age, score) {
+      Person.call(this, name, age);
+      this.score = score;
+    }
+    
+    Student.prototype = new Person();
+
+    var zs = new Student('zs', 18, 98)
+    console.log(zs);
+    zs.sayHi()
+  </script>
+</body>
+
+</html>

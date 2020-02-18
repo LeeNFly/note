@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 类型转换  
+      // => number
+      var age = '18'; 
+      console.log(age);
+      
+
+      //1. 通过构造函数 Number() 
+      //Number()  变量名() => 函数名 =>函数的方法 
+      // 首字母大写 => 构造函数 (第四天)
+      var num1 = Number(age);
+      console.log(num1);
+      console.log( typeof num1);
+
+      //2. 两个方法 parseInt()  parseFloat() (推荐使用后者)
+      // parseInt() : parse:解析 int:整数/整型  => 数字类型
+      //            如果是整数 => 整数
+      //            如果是浮点数 => 整数 (小点数以后全部省略，会丢失数据，慎用)  '3.56' => 3
+      var str1 = '3.14';
+      console.log( parseInt(str1) );
+
+      // parseFloat();
+      // float : 浮点数 => 数字类型
+      //   如果是整数 => 整数  '3' => 3
+      //   如果是浮点数 =>浮点数 '3.14' => 3.14
+      var str2 = '3.14';
+      console.log( parseFloat(str2) );
+
+      //3. + (正) -0  (简单粗暴)
+      var str3 = +'123';   // => 123
+      //var str4 = -'123'; //改变了结果，不推荐使用 , 可以在取相反数时使用
+      //console.log(str4);
+      //console.log(typeof str4); //number
+      
+      
+      var str5 = +'-123';
+      console.log(str5); //-123
+      console.log(typeof str5); //number
+      
+      
+      var str4 = '123';
+      console.log(str4 - 0);
+      
+      var str5 = +'123.5556';
+      console.log(str5);  // => 123.5556
+      console.log(typeof str5); // => number
+      
+      // 推荐使用 + 将字符串转化为数字类型，不会改变结果和丢失精度且简单粗暴。
+       
+      // 字符串 => 数字类型的几种方式
+
+      //1. 使用构造函数  Number() 
+      //2. 使用 方法  parseInt() 和  parseFloat() 
+      //3. 简单粗暴 :  + (推荐)   - 0  
+
+       var str = 'xmg';
+       // 非要把它转为数字   
+       // NaN  not a number
+       // js中,,遇到这种情况,不给报错,,=> NaN 
+       console.log( +str );
+       console.log( typeof +str);
+       console.log( NaN == NaN );
+
+       console.log( isNaN('abc') ); true
+       console.log( isNaN('12') ); false
+       
+       //总结 : 
+       //1. NaN not a number 不是一个数字
+       //2. 但是它又是一个数字类型 
+       //3. 非正常的值 
+       //4. NaN 的比较 , 它不等于任何一个值,,连自己都不等于  
+       //5. isNaN() 是否  不是一个数字 (不可以转化为数字)
+       // true => 不是一个数字
+       // false =>是一个数字
+       
+      //  ps: ''转数字 是为0
+       
+      
+
+
+
+
+
+      // => string
+      // => boolean
+
+    </script>
+</body>
+</html>

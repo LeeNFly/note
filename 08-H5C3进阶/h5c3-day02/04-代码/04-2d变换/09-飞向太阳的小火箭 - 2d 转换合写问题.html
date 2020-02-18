@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    body {
+      /* 太阳的背景
+         径向渐变:
+         background-image: radial-gradient( 半径 at 圆心位置, 颜色 范围, 颜色 范围 )
+      */
+      background-image: radial-gradient( 200px at right top, red, yellow, skyblue );
+    }
+
+    /* 小火箭要飞: 平移, 缩放, 旋转 */
+    /* 小火箭一开始应该定位到屏幕外面 */
+    /*
+      2d转换合写问题
+      1. 一个盒子如果写了多个 transform, 后面的 transform 会层叠(覆盖)前面的transform
+         解决, 如果需要写多个transform效果, 采用连写, 之间用空格隔开, 所有的transform属性都可以连写, 包括2D和3D, 可以混合连写
+         transform: translate(1500px, -800px) scale(0) rotate(45deg);
+
+         ps: 当多个场景下同一个盒子有多个transform连写共存时, 后面的会覆盖前面的, 若不想被覆盖, 则要将前面的transform连写里设置的参数都加上
+
+      2. ★ 旋转会改变坐标轴的方向, 因为坐标轴的也会跟着一起旋转, 小技巧, 一般将旋转的变换放最后
+            盒子内部的所有元素也会跟着一起转, 所以盒子内部的所有元素的坐标轴也会改变, 也会跟着一起旋转
+      3. transform: none; 可以将盒子的所有2d转换, 3d转化效果清空
+    */
+
+    img {
+      position: absolute;
+      left: -101px;
+      bottom: -190px;
+    }
+
+    body:hover img {
+      transition: all 5s;
+      transform: translate(1500px, -800px) scale(0) rotate(45deg) ;
+    }
+  </style>
+</head>
+<body>
+
+
+<img src="./images/rocket.png" alt="">
+
+
+</body>
+</html>

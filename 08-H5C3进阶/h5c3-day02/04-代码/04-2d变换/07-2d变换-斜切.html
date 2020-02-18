@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 100px auto;
+      transition: all 2s;
+    }
+    div:hover {
+      /* 斜切 skew(x,y) */
+      /* 如果角度是正的, 就是往另外一根轴靠的方向 */
+
+      /* 水平方向上的倾斜 */
+      transform: skewX(45deg);
+      /* 垂直方向上的倾斜 */
+      /*transform: skewY(45deg);*/
+      
+      /* 特殊, x, y 轴重叠, 最后斜切成一根线重叠了 */
+      /* transform: skew(45deg, 45deg); */
+    }
+
+  </style>
+</head>
+<body>
+
+<div></div>
+
+</body>
+</html>

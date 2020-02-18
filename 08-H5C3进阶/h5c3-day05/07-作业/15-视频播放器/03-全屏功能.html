@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+
+  <script>
+    var div = document.querySelector('div');
+    div.addEventListener('click', function () {
+      console.log(111)
+      div.webkitRequestFullScreen();
+    })
+  </script>
+</body>
+</html>

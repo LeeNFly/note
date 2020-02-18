@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btn">点击让box从0移动到400</button>
+  <button id="btnBack">点击让box从400移动到0</button>
+  <div id="box"></div>
+  <script>
+    var btn = document.querySelector('#btn');
+    var box = document.querySelector('#box');
+    // var timeid;  不可取,这样每次调用函数还要求用户在外面声明一个timeid,降低了函数的可用性
+    // 1 需求: 点击btn,让box从0移动到400
+    btn.onclick = function () {
+      animate(box,400,7);
+    }
+
+    // 2 需求: 点击btnBack,让box从400移动到0
+    var btnBack = document.querySelector('#btnBack');
+    btnBack.onclick = function () {
+      animate(box,0,3);
+    }
+
+    /*
+    * element: 要移动的元素
+    * target: 移动后的位置
+    * step: 移动的步进
+    */
+    function animate(element, target, step) {
+      // var timeid 预解析问题
+      // 保证每次点击只能有一个定时器操作元素
+      if (element.timeid) {
+        clearInterval(element.timeid);
+      }
+      // 将timeid注册在元素对象的属性身上,保证只有一个定时器在操控元素
+      // 此处用自定义标签属性也可以,自定义属性在标签上能看到,而上面是直接给对象设置属性(非W3C标准),在标签上看不到
+      element.timeid = setInterval(function () {
+        var current = element.offsetLeft;
+        var pos;
+        if (current > target) {
+          // 向左移 -step
+          pos = current - step;
+        } else {
+          pos = current + step;
+        }
+        // 如果元素到达目标位置后,再点击按钮,则会出现闪一下情况。将<改为<=即可。
+            // 分析 若是 <  400后再点击按钮407 => pos - target = 7 不进入if, 元素移动至407,下次进来 407 - 7 = 400, 400-400 = 0 < step ,进入if , 元素移动至400 , 移除定时器,所以出现到达位置后再点击按钮会闪一下情况。
+            // 改为 <= 到达位置再点击按钮 , 407 => pos -target = 7  进入if , 设置为400 , 关闭定时器,元素位置永远在400,并且移除了定时器。
+        if (Math.abs(pos - target) <= step) {
+          // 马上要到目标位置了
+          pos = target;
+          clearInterval(element.timeid);
+        }
+        element.style.left = pos + 'px';
+      }, 15)
+    }
+  </script>
+</body>
+
+</html>

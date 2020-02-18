@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+          // 1. 学生对象
+          // name : 张三  age: 18岁 打招呼:大家好我是张三
+          // name : 李四  age: 19岁 打招呼:大家好我是李四
+          // var stu1 = {
+          //   name:'张三',
+          //   age: 18,
+          //   sayHi: function () {
+          //     console.log('大家好,我是' + this.name);
+          //   }
+          // }
+          // console.log(stu1);
+          // stu1.sayHi();
+          
+          // var stu2 = {
+          //   name:'李四',
+          //   age: 19,
+          //   sayHi: function () {
+          //     console.log('大家好,我是' + this.name);
+          //   }
+          // }
+
+          // console.log(stu2);
+          // stu2.sayHi();
+
+          // 2. 老师对象
+          // name : 玮哥  爱好:篮球  打: 玮哥正在打篮球
+          // name : 马哥  爱好:台球  打: 马哥正在打台球
+          var teacher1 = {
+            name:'玮哥',
+            hobby: '篮球',
+            play : function () {
+              console.log(this.name + '正在打篮球');
+            }
+          }
+          
+          console.log(teacher1);
+          teacher1.play();
+          
+
+          var teacher2 = {
+            name:'马哥',
+            hobby: '篮球',
+            play : function () {
+              console.log(this.name + '正在打篮球');
+            }
+          }
+          
+          console.log(teacher2);
+          teacher2.play();
+  </script>
+</body>
+</html>

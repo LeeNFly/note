@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 200px auto;
+      transition: all 1s;
+    }
+
+    div:hover {
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+<div></div>
+<script>
+  var div = document.querySelector('div');
+  div.addEventListener('transitionend', function() {
+    console.log('过渡执行完毕');
+  },false)
+</script>
+
+</body>
+</html>

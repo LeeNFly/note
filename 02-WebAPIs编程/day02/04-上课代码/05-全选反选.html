@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="j_cbAll" />
+                    </th>
+                    <th>商品</th>
+                    <th>价钱</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>iPhone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>iPad Pro</td>
+                    <td>5000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>iPad Air</td>
+                    <td>2000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>Apple Watch</td>
+                    <td>2000</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <input type="button" value="  反 选  " id="btn">
+    </div>
+
+    <script>
+//        需求:
+//        1. 全选选中,下面的复选框都选中,否则,下面的都不选中
+//            1.1 获取元素
+                var j_cbAll = document.getElementById('j_cbAll');
+                var j_tb = document.getElementById('j_tb');
+                var cbs = j_tb.getElementsByTagName('input');
+//            1.2 点击全选的时候,全选的状态变成了什么样
+                j_cbAll.onclick = function(){ // 只有j_cbAll被点击时会执行函数体,否则不会执行函数体
+//                    console.log(this.checked); //★ 获取的是点击之后的checked状态
+//                    1.3 根据全选的状态啊,给下面四个赋值
+                   
+//                      if(this.checked){
+//                          //如果是true
+//                          for(var i = 0; i < cbs.length; i++) {
+//                              cbs[i].checked = true;
+//                          }
+//                      }else{
+//                          //证明全选没选中
+//                          for(var i = 0; i < cbs.length; i++) {
+//                              cbs[i].checked = false;
+//                          }
+//                      }
+    
+//                    if(this.checked){
+//                        //如果是true
+//                        for(var i = 0; i < cbs.length; i++) {
+//                            cbs[i].checked = this.checked;
+//                        }
+//                    }else{
+//                        //证明全选没选中
+//                        for(var i = 0; i < cbs.length; i++) {
+//                            cbs[i].checked = this.checked;
+//                        }
+//                    }
+    
+                    for(var i = 0; i < cbs.length; i++) {
+                        cbs[i].checked = this.checked;
+                    }
+                   
+                }
+//
+//        2. 下面每一个选中,或者不选中的时候,都应该判断一下,是否下面都选中, 如果都选中了,全选也选中,如果有一个没选中,全选不选中
+//            2.1 获取元素
+//            2.2 给下面的每一个复选框注册点击事件
+                for(var i = 0; i < cbs.length; i++) {
+                  cbs[i].onclick = cbClick;//这样写可以节省内存
+                }
+                //下面的复选框点击时触发的事件
+//               判断当前四个复选框是否都选中,如果都选中,就让全选也选中,否则,全选不选中
+                function cbClick(){
+                    //2.3 判断下面四个是否都选中,如果选中,全选选中,如果有没选中的,全选不选中
+                    var flag = true;//先假设四个都是选中的
+                    for(var i = 0; i < cbs.length; i++) {
+                        //判断有没有未选中的
+                      if(cbs[i].checked == false){
+                          //证明有没选中的
+//                          如果有没选中的就将flag修改为false
+                          flag = false;
+                        }
+                    }   
+                    //当for循环执行完了之后,就可以通过flag判断是否都选中了
+//                    如果flag是true,证明都选中了,否则,有未选中的
+//                    2.4 根据flag的状态,给全选赋值
+//                    if(flag){
+//                        j_cbAll.checked = true;
+//                    }else{
+//                        j_cbAll.checked = false;
+//                    }
+    
+//                    if(flag){
+//                        j_cbAll.checked = flag;
+//                    }else{
+//                        j_cbAll.checked = flag;
+//                    }
+                        j_cbAll.checked = flag;
+                }
+
+                  
+//        3. 点击反选按钮下面这个四个复选框,取反他们的状态. 取反之后,判断四个复选框的状态,如果都选中,全选也选中,否则,全选不选中
+        
+//        3.1 获取元素
+          var btn = document.getElementById('btn');
+//        3.2 给反选按钮注册点击事件
+            btn.onclick = function(){
+                //   3.3 在事件 处理函数中,给下面四个取反, 取反之后,判断4个复选框的状态,修改全选的状态
+//                3.3.1 取反四个复选框
+                    for(var i = 0; i < cbs.length; i++) {
+//                      if(cbs[i].checked){
+//                          //能够进来,证明是选中,应该取消
+//                          cbs[i].checked = false;
+//                      }else{
+//                          //证明原本是取消的状态
+//                          cbs[i].checked = true;
+//                      }
+//                        if(cbs[i].checked){
+//                            //能够进来,证明是选中,应该取消
+//                            cbs[i].checked = !cbs[i].checked;
+//                        }else{
+//                            //证明原本是取消的状态
+//                            cbs[i].checked = !cbs[i].checked;
+//                        }
+    
+                        cbs[i].checked = !cbs[i].checked;
+                    }
+//                3.3.2 取反之后,根据他们的状态,修改全选的状态
+                    cbClick();
+            }
+            
+
+    </script>
+</body>
+
+</html>

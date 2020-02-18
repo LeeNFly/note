@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      border: 30px dashed #000;
+      padding: 30px;
+      box-sizing: border-box;
+      background-image: url("./images/bg.jpg");
+      background-repeat: no-repeat;
+      /* background-origin 只能用来设置背景图片(background-image)显示的原点, 不能用来设置背景色的显示原点
+         背景图片将从设置的原点处开始显示
+         取值: border-box  从 border 左顶点开始显示
+              padding-box  从 padding 左顶点开始显示,  默认值
+              content-box  从 content 左顶点开始显示
+
+         注意: background-origin只是用来设置背景图片的显示原点, 并不能设置背景的显示范围, 背景的显示范围只能通过background-clip来设置
+      */
+      background-origin: content-box;
+    }
+
+  </style>
+</head>
+<body>
+
+<div>1231232</div>
+
+</body>
+</html>

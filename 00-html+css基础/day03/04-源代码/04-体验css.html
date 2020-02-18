@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*
+			css的书写是无序的, 都会进行渲染
+		*/
+		div {
+			width: 500px;
+			color: red;
+			font-size: 80px;
+			background-color: green;
+			border-radius: 10px;
+			transform: rotate(10deg);
+			margin: 100px auto;
+			transition: all 1s;
+
+		}
+		div:hover {
+			transform:rotate(360deg);
+			box-shadow: 0 0 10px 10px;
+		}
+	</style>
+</head>
+<body>
+	<div>纸短情长，数不尽太多涟漪</div>
+</body>
+</html>

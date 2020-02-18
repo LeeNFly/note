@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      height: 2000px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    /* 当对象获取到焦点时的样式 */
+    input:focus {
+      background-color: red;
+    }
+
+    ul {
+      margin: 50px;
+      border: 1px solid #000;
+    }
+    li {
+      height: 50px;
+    }
+    /* :not 排除括号选中的元素 */
+    li:not(:last-child) {
+      border-bottom: 1px solid #000;
+    }
+
+    /* 匹配内容为空的元素 */
+    div:empty {
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+    }
+    input[type="checkbox"]{
+      transition: all 1s;
+    }
+    input[type="checkbox"]:checked {
+      width: 200px;
+      height: 200px;
+    }
+    
+    /* 锚点跳转, 并且地址栏里的锚点 #后面的, 作为选择器选中的元素为h1的 */
+    h1:target {
+      font-size: 100px;
+      color: red;
+    }
+
+  </style>
+</head>
+<body>
+
+<a href="#pp">点我跳转</a>
+
+<input type="text">
+<ul>
+  <li>1122</li>
+  <li>1122</li>
+  <li>1122</li>
+  <li>1122</li>
+</ul>
+
+<div></div>
+<input type="checkbox">
+
+
+<h1 id="pp">我是鹏鹏</h1>
+
+</body>
+</html>

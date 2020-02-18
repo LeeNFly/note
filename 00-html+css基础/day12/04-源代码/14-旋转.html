@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        transition: all 1s;
+        margin: 100px auto;
+
+		/* 控制中心点
+        transform-origin 水平方向 垂直方向;
+        起始点是自身的左上角位置 程序坐标系，水平向右为正方向，垂直向下为正方向
+		值可以是方位名词
+		还可以是像素
+		 */
+
+        transform-origin: 50px 50px;
+    }
+    /* 旋转 */
+    .box:hover {
+    	transform: rotate(360deg);
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">111</div>
+</body>
+
+</html>

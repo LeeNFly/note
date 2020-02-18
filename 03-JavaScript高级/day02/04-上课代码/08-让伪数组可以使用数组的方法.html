@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="one">1</div>
+    <div class="one">2</div>
+    <div>3</div>
+    <script>
+    //    让伪数组可以使用数组的方法
+    var divs = document.getElementsByTagName('div');
+    // divs.forEach(function(item){
+    //         console.log(item);
+    // })
+
+    // console.log(Array.prototype.forEach);
+    // Array.prototype.forEach.call(divs,function(item,index,arr){
+    //     console.log(item, index, arr);
+    // });
+    // 或者 [].forEach.call(divs,function(item,index,arr){ } ); 也可以获取到数组原型上的函数
+    // 之前数组对象.forEach 实际上是对象调用函数模式,调用数组原型上的forEach函数并让函数中的this指向了调用他的对象。
+    // 这里我们类似，也是调用数组原型上的forEach函数,只不过让this指向我们的伪数组了
+    var result = Array.prototype.filter.call(divs,function(item,index,arr){
+        return item.className === 'one';
+    });
+
+    console.log(result);
+
+    // var arr = [1,2,3];
+    // arr.forEach = function(){
+    //     for(var i = 0; i < divs.length; i++){
+
+    //     }
+    // }
+    </script>
+</body>
+</html>

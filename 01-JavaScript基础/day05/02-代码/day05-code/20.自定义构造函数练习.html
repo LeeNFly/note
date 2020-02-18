@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+
+<body>
+
+  <!-- <p></p>
+    <div></div>
+  <p></p> -->
+
+  <script>
+
+    // 1. 学生对象
+    // name : 张三  age: 18岁 打招呼:大家好我是张三
+    // name : 李四  age: 19岁 打招呼:大家好我是李四
+
+    // 2. 老师对象
+    // name : 伟哥  爱好:篮球  打: 伟哥正在打篮球
+    // name : 马哥  爱好:台球  打: 马哥正在打台球
+
+    function Teacher(name, hobby) {
+
+
+      // this 指向这个新对象
+      this.name = name;
+      this.hobby = hobby;
+
+      this.play = function () {
+        // this 谁调用this所在的这个函数,this就是谁
+        console.log(this.name + ' 正在打 ' + this.hobby);
+      }
+    }
+    var wg = new Teacher('玮哥', '篮球');
+    console.log(wg);
+    wg.play();
+
+
+
+
+    // 英雄对象
+    // name : 马哥  学习 : 马哥正在学前端 / 马哥正在学java
+
+
+    // function Hero( name,subject ) {
+         // 形参可以在函数内任意位置使用
+    //   this.name = name;
+    //   this.study =  function () {
+    //     console.log( this.name + '正在学' + subject );
+    //   }
+    // }
+
+    // var h = new Hero('马哥','java');
+    // console.log(h);
+    // h.study();
+
+
+    function Hero(name) {
+
+      this.name = name;
+      // 对象的属性值为函数时,是可以带参数的
+      this.study = function (subject) {
+        console.log(this.name + '正在学' + subject);
+      }
+    }
+
+    var h = new Hero('马哥');
+    console.log(h);
+    h.study('前端');
+    h.study('java');
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			/* position: absolute; */
+			/* left: 0; */
+			/* top: 0; */
+			transition: all 1s;
+		}
+		.box:hover {
+			/* left: 800px; */
+			
+			/*
+				
+				transform:translate的移动类似于相对定位 (相对于当前位置移动，并且不脱标 这个盒子在标准流的位置还是原来的位置 （肉体不在 灵魂永驻）);
+
+				单一方向：translateX  translateY 
+				多方向  ：translate(x,y);
+				值可以是像素，也可以是百分比  百分比参照的是自身的宽和高
+
+			*/
+
+			transform: translate(-50%, -50%);
+		}
+		.middle {
+			width: 500px;
+			height: 500px;
+			background-color: lime;
+			/* margin-left: -125px;
+			margin-top: -125px; */
+		}
+		/* 居中公共类 手机端使用 */ 
+		.center {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	111111
+
+	<div class="middle center"></div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+
+        //绘制圆弧语法：
+        //arc(x, y, r, startAngle, endAngle, isNi);   (内部原理, 前后都不包含beginPath )
+        // ★ 只是绘制路径, 并没有进行描边, 需要stroke(), 才会进行描边, 或需要fill(), 才会进行填充
+        //x 圆心x坐标
+        //y 圆心y坐标
+        //r 半径
+        //startAngle  起始弧度
+        //endAngle  终止弧度
+        //isNi 描边时, 是否逆时针, true| 逆时针, false| 顺时针, 默认是false, 即顺时针描边
+
+        // 0弧度的位置在圆心水平向右处, 顺时针方向, 弧度为正, 逆时针方向, 弧度为负
+
+        //角度和弧度关系
+        // 角度 / 180 = 弧度 /  PI
+        // 弧度 = 角度 / 180 * PI
+
+        ctx.arc(100, 100, 60, 0, 270 / 180 * Math.PI);
+        ctx.stroke();//描边
+
+        ctx.beginPath();//开启新路径
+        ctx.arc(300, 100, 60, getRadain(90), getRadain(360));
+        ctx.stroke();//描边
+
+        ctx.beginPath();//开启新路径
+        ctx.arc(500, 100, 60, 0, 2* Math.PI);
+        ctx.stroke();//描边
+
+
+        //将角度转弧度的方法
+        function getRadain(deg) {
+            return  deg / 180  * Math.PI;
+        }
+
+
+        //在绘制圆弧之前，如果有移动过画笔，在绘制圆弧时，
+        //圆弧绘制的起点 会自动和上次画笔终点进行连线, 这是arc绘制圆弧的默认行为
+        // 解决方式, 在绘制圆弧前, beginPath
+
+
+    </script>
+</body>
+</html>

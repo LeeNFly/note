@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="wrap">
+  <p>兄弟</p>
+  <div id="box">
+    文本啊
+    <span>span</span>
+    <p>
+      这是p
+      <span>这是span</span>
+    </p>
+    <!--这是注释-->
+  </div>
+  <span>span兄弟</span>
+</div>
+
+
+<script>
+  //主要讨论的就是 ★ 标签节点 的层级,标签节点就是元素 (其实就是标签的兄弟标签,父子标签关系=>也就是元素的兄弟元素,父子元素关系)
+  // 以下节点就是指的标签节点,就是元素,以下都是标签节点,即元素的属性
+  // 以下属性,节点不能使用伪数组,要将伪数组中的元素(标签节点\标签元素)一个一个取出,才是节点,才可以调用API  
+  // ★ 以下都是属性 且都是标签节点(即元素)的属性. 必须是标签节点才有, 伪数组没有
+  // var box = document.getElementById('box');
+//  找儿子元素(亲儿子,不包括孙子):
+//   元素.childNodes 返回所有子节点 (包括标签节点,文本节点,注释节点等) , 是一个伪数组
+//    元素.children 返回的所有的子元素(直接子代)(子标签节点) , 是一个伪数组 
+//  console.log(box.childNodes); //返回伪数组,存储了所有的子节点
+//  console.log(box.children); 
+//    找父亲元素:
+//    元素.parentNode 返回直接父节点 (父元素/父标签节点) 是一个具体的元素 
+//  console.log(box.parentNode); 
+
+//    找兄弟元素:
+//    元素.nextElementSibling //返回下一个兄弟元素(标签节点) 是一个具体的元素
+//    元素.previousElementSibling //返回上一个兄弟元素(标签节点) 是一个具体的元素
+//  console.log(box.nextElementSibling);
+
+  // ps: 如果元素在dom树上, 参考dom树的结构, 如果元素不在dom树上, 是新建的元素, 则参考自身的结构
+  console.log(box.previousElementSibling);
+</script>
+</body>
+</html>

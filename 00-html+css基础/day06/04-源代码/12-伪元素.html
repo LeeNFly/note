@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/* 伪元素本质上是一个元素（标签，节点）
+		概念：伪元素是在当前元素的内容(即内部)的前面或者后面追加一个"虚拟的"标签, 不会覆盖原来的内容
+		
+		特点:由css渲染(添加的虚拟标签不在DOM树上, JS获取不到)  所以不会增大页面的开销
+
+		1. 伪元素默认是行内元素   但是可以进行转换
+		2. content这个属性不能省略 即使里面没有内容也要写一个空, 不能识别标签, 这里直接写文本即可
+		3. 在伪元素中写css样式, 是给伪元素这个虚拟标签添加css样式
+		*/
+		.box:before {
+			/*
+				给伪元素这个虚拟标签添加css样式
+			*/
+			content: '';
+			color: red;
+			font-size: 30px;
+			width: 100px;
+			height: 100px;
+			background-color: lime;
+			display: block;
+		}
+		.box:after {
+			content: '18';
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div class="box"><span>飞飞</span>的年纪为<span>18</span></div> -->
+	<div class="box">的年纪为</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+     什么是原型? 
+    函数创建出来的时候,浏览器就会自动创建一个函数对应的对象,这个对象我们称为原型对象(简称原型) 
+    如何获取到原型呢?
+     函数.prototype 
+     原型的属性: 
+        constructor 可以访问到自己对应的函数
+    
+     实例: 通过new 构造函数创建出来的对象,可以默认默认自己对应构造函数的原型
+     实例的身上有一个属性: __proto__ 可以访问到对应的函数的原型 但是不是标准属性,不建议在生产环境下使用
+
+     原型链: 实例 -> 原型 - >原型的原型...-->null
+     对象查找属性的规则: 
+        先在自己身上找属性,如果没有就顺着原型链往上找,如果找到了,就使用,如果找不到就继续往上找,
+        直到null,如果还是没有返回的是undefined
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+这是a页面页面
+<a href="b.html">点击跳转到b页面</a>
+<button id="btn">点击跳转到b页面</button>
+<script>
+  var btn = document.getElementById('btn');
+  btn.onclick = function(){
+    history.forward();//往前走一步
+  }
+</script>
+</body>
+</html>

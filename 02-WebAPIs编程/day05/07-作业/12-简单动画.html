@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            background-color:red;
+            position:absolute;
+        }
+    
+    </style>
+</head>
+<body>
+    <button id="btn">点击盒子移动到400</button>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    
+    //需求: 点击按钮,让box从左往右移动400px
+      var btn = document.querySelector('#btn');
+      var box = document.querySelector('#box');
+      var pos = 400; //最终位置
+    //   btn.onclick = function () {
+    //       var timeId = setInterval(function () {
+    //         var current = box.offsetLeft;
+    //         var pos = current + 7;
+    //         box.style.left = pos + 'px';
+    //         if (pos >= 400) {
+    //             console.log(pos);
+    //             box.style.left = '400px';
+    //             console.log(box.style.left);
+    //             clearInterval(timeId);
+    //         }
+    //       },15);
+    //   }
+      // 以上代码可以实现需求,但是有一个问题
+      // 如果多次点击按钮,则设置多个定时器,而这些定时器同时操作box元素的位置,这样导致本来说匀速移动的box移动速度越来越快
+      // 解决: 方法1: 在点击之后禁用按钮,不让再点击
+      //       方法2: 在设置定时器之前,先将原来的定时器清除
+      
+      // 方法2: 改造
+    
+      var timeId; // 3.
+      btn.onclick = function () {
+        // 1. var timeId;
+        if (timeId) {
+            clearInterval(timeId)
+        }
+        // 由于预解析的原因,会把变量的声明提升到当前作用域的最前面
+        // var timeId = setInterval(function(){},15)经过预解析变为 1. 和 2.
+        // 2. timeId = setInterval(function(){},15)
+        // 这样导致上述的if判断中timeId永远都说undefined,永远不会注销定时器,无法达到我们的目的
+        // 解决: 定义一个全局变量,将定时器id赋值给全局变量,可以解决问题 即改为 3. 和 4.
+        // var timeId = setInterval(function () {
+        timeId = setInterval(function () {  // 4.
+        var current = box.offsetLeft;
+        current = current + 7;
+        box.style.left = current + 'px';
+        if (current >= pos) {
+            console.log(pos);
+            box.style.left = pos + 'px';
+            console.log(box.style.left);
+            clearInterval(timeId);
+        }
+        },15);
+      }
+      
+</script>

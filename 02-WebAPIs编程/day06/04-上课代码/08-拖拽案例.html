@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav {
+      height: 30px;
+      background: #036663;
+      border-bottom: 1px solid #369;
+      line-height: 30px;
+      padding-left: 30px;
+    }
+    
+    .nav a {
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      text-decoration: none;
+      
+    }
+    
+    .d-box {
+      width: 400px;
+      height: 300px;
+      border: 5px solid #eee;
+      box-shadow: 2px 2px 2px 2px #666;
+      position: absolute;
+      top: 40%;
+      left: 40%;
+      background-color: white;
+      
+      /* 不让文字被选中 */
+      -webkit-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select:none;
+      user-select:none;
+    }
+    
+    .hd {
+      width: 100%;
+      height: 25px;
+      background-color: #7c9299;
+      border-bottom: 1px solid #369;
+      line-height: 25px;
+      color: white;
+      cursor: move; /*将鼠标编程移动标示*/
+    }
+    
+    #box_close {
+      float: right;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="nav">
+  <a href="javascript:void(0);" id="register">注册信息</a>
+</div>
+<div class="d-box" id="d_box">
+  <div class="hd" id="drop">注册信息 (可以拖拽)
+    <span id="box_close">【关闭】</span>
+  </div>
+  <div class="bd"></div>
+</div>
+</body>
+</html>
+<script>
+
+   //需求: 鼠标在drop上按下的时候,鼠标移动d-box跟着移动
+//  1. 获取元素 drop d-box
+    var drop = document.getElementById('drop');
+    var d_box = document.getElementById('d_box');
+//  2. 给drop注册鼠标按下事件  mousedown
+    drop.onmousedown = function(e){
+//      4.2 获取鼠标按下的时候的坐标
+        var downX = e.clientX;
+        var downY = e.clientY;
+      
+        //4.4 获取鼠标按下的一瞬间,d_box所处的位置
+        var posX = d_box.offsetLeft;
+        var posY = d_box.offsetTop;
+      
+      //  3. 在按下的事件中注册鼠标移动的事件 mousemove
+      document.onmousemove = function(e){
+        console.log(1);
+        //  4. 在鼠标移动的事件处理函数中,给d-box设置位置
+//        4.1 获取到鼠标浏览器可视区的坐标
+          var x = e.clientX;
+          var y = e.clientY;
+        
+//        4.3 计算鼠标移动了多少  鼠标移动的坐标 - 鼠标按下的坐标
+          var instanceX = x - downX;
+          var instanceY = y - downY;
+        
+//        4.5 计算d_box移动时,应该处于的位置  按下时的初识位置 + 鼠标移动的距离
+          var targetX = posX + instanceX;
+          var targetY = posY + instanceY;
+        
+          d_box.style.left = targetX + 'px';
+          d_box.style.top = targetY + 'px';
+      }
+    }
+    
+    
+    //5.鼠标松开,d_box不在移动  mouseup
+    
+    document.onmouseup = function(){
+      document.onmousemove = null;
+    }
+
+
+
+       
+</script>

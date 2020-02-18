@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      //1. 截取字符串"我爱中华人民共和国"，中的"中华"
+      
+      var str1 = "我爱中华人民共和国";
+       str1 =  str1.substr(2,2);
+       console.log(str1);
+       
+      //2. "abcoefoxyozzopp"查找字符串中所有o出现的位置
+      var str2 = "abcoefoxyozzopp";
+      for ( var i = 0 ; i < str2.length ; i++) {
+
+          if (str2[i] == 'o') {
+            console.log(i);
+          }
+      }
+
+      //3. 把字符串中所有的o替换成!
+      
+      var str3 = "abcoefoxyozzopp";
+      str3 = str3.replace(/o/g,'!');
+      console.log(str3);
+      
+
+
+      //4. 把一个字符串中所有的空格全部去掉
+      var str4 = 'i am a  atm';
+      str4 =  str4.replace(/ /g,'');
+      console.log(str4);
+      
+
+      //5. 统计一个字符串中每个字符出现的次数
+      var str5 = 'abcdeabc';
+      var obj = {};
+      for ( var i = 0 ; i < str5.length ; i++) {
+
+          if ( str5[i]  in obj ) {
+            
+            obj[ str5[i] ] += 1;
+          }else {
+            obj[ str5[i] ] = 1;
+          }
+      }
+
+      console.log(obj);
+      
+            
+
+
+
+    </script>
+</body>
+</html>

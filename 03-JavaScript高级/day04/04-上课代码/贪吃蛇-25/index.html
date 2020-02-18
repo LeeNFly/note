@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #map{
+      width: 800px;
+      height: 600px;
+      background-color: #ccc;
+      position:relative;
+    }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+<button id="btn">点击假设蛇吃到食物了</button>
+<button id="btn1">点击让蛇移动一步</button>
+<!-- food.js中用到了tools.js,所以先引入tools.js -->
+<script src="tools.js"></script>
+<script src="food.js"></script>
+<script src="snake.js"></script>
+<script src="game.js"></script>
+<script>
+  // 上面引入的js文件与本文件共享一个全局作用域 
+  var map = document.getElementById('map');
+  var game = new Game();
+  game.start();
+  
+//  var food = new window.Food();
+//  window.   window可以省略
+//  var food = new Food();
+//  food.render();
+//
+//  var snake = new Snake();
+//  snake.render();
+//
+//  var btn = document.getElementById('btn');
+//  btn.onclick = function(){
+//    //假设蛇吃到了食物,那么食物应该消失,然后重新渲染一个
+//    food.render();
+//  }
+//
+//  var btn1 = document.getElementById('btn1');
+//  btn1.onclick = function(){
+//    //假设蛇吃到了食物,那么食物应该消失,然后重新渲染一个
+//   snake.move();
+//    snake.render();
+//  }
+</script>
+</body>
+</html>

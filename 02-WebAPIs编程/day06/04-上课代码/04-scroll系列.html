@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #far{
+      width: 100px;
+      height: 100px;
+
+      border:1px solid blue;
+      overflow: auto;
+    }
+    
+    #son{
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+<div id="far">
+  <div id="son">
+    文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本
+    文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本
+    文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本
+    文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本
+    文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本
+   
+  </div>
+</div>
+
+
+<script>
+  // scroll系列属性 一般要求元素在dom树上才能获取
+//  元素.scrollWidth  元素 内容 的宽 // 包括内容溢出部分
+//  元素.scrollHeight  元素 内容 的高 // 包括内容溢出部分
+//  元素.scrollLeft   元素内容中滚动条左侧滚动出去的距离 (以最左边为原点,越往右滚动值越大,均为正值)
+//  元素.scrollTop    元素内容中滚动条顶部滚动出去的距离 (以最上边为原点,越往下滚动值越大,均为正值)
+  
+    var far = document.getElementById('far');
+   console.log(far.scrollWidth); 
+   console.log(far.scrollHeight);
+//
+// console.log(far.scrollLeft);
+// console.log(far.scrollTop);
+//
+//  //scroll事件 ,监听元素滚动条滚动的事件
+//  far.onscroll = function(){
+// //    console.log(1);
+//    console.log('left :' + far.scrollLeft);
+//    console.log('top :' + far.scrollTop);
+//  }
+  
+//  far.scrollWidth = 600;
+//  far.scrollWidth = '600px';
+//console.log(far.scrollWidth);
+//   far.scrollLeft  = 100;
+//   far.scrollTop  = 100;
+// console.log(far.scrollLeft);
+// console.log(far.scrollTop);
+  
+  
+  //结论:scrollWidth 和 scrollHeight 只能获取,不能赋值   scrollLeft 和 scrollTop 可以获取 也 可以赋值,并且直接写数字不需要写单位,但是参考的单位是px
+  // 获取的值是数字类型没有单位,但是参考的是px单位
+</script>
+</body>
+</html>

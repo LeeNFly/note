@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F7F7F7;
+    }
+    
+    h3 {
+      text-align: center;
+    }
+    
+    .chatbox {
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+      border: 1px solid #CCC;
+      background-color: #FFF;
+      border-radius: 5px;
+    }
+    
+    .messages {
+      height: 350px;
+      padding: 20px 40px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #CCC;
+      overflow: scroll;
+    }
+    
+    .messages h5 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    
+    .messages p {
+      font-size: 18px;
+      margin: 0;
+    }
+    
+    .self {
+      text-align: left;
+    }
+    
+    .other {
+      text-align: right;
+    }
+    
+    .form {
+      height: 150px;
+    }
+    
+    .form .input {
+      height: 110px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    
+    .form .btn {
+      height: 40px;
+      box-sizing: border-box;
+      border-top: 1px solid #CCC;
+    }
+    
+    .form textarea {
+      display: block;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border: none;
+      resize: none;
+      outline: none;
+      font-size: 20px;
+    }
+    
+    .form input {
+      display: block;
+      width: 100px;
+      height: 30px;
+      margin-top: 5px;
+      margin-right: 20px;
+      float: right;
+    }
+  </style>
+</head>
+<body>
+<h3>简单的Ajax实例</h3>
+<div class="chatbox">
+  <!-- 聊天内容 -->
+  <div class="messages">
+    <div class="self">
+      <h5>我说</h5>
+      <p>你好</p>
+    </div>
+    <div class="other">
+      <h5>对方说</h5>
+      <p>你好</p>
+    </div>
+  </div>
+  <div class="form">
+    <div class="input">
+      <textarea></textarea>
+    </div>
+    <div class="btn">
+      <input type="button" value="发送" id='btn'>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  // 聊天机器人思路:
+  // 1. 给发送按钮, 添加点击事件
+  // 2. 获取 textarea 里面内容, 动态创建 "我说" 结构, div 类名 self, 追加到 messages 中
+  // 3. 发送请求到后台, 后台返回一个随机的文本
+  // 4. 前端处理响应, 动态创建 "他说" 结构, div 类名 other, 追加到 messages 中
+
+  var btn = document.getElementById("btn");
+  // document.querySelector( "选择器" ); 返回一个 dom 对象
+  // html5 中新增的获取元素方法
+  var textarea = document.querySelector(".input > textarea"); // 获取到 textarea
+  var messages = document.querySelector(".messages"); // 获取到 messages
+
+  btn.onclick = function() {
+    // 获取 textarea 的内容, 表单元素, 通过 value 来获取内容
+    var content = textarea.value;
+
+    // 动态创建我说结构, div 类名 self, 追加到 messages 中
+    var div = document.createElement( "div" );
+    div.className = "self";
+    div.innerHTML = "<h5>我说</h5><p>" + content + "</p>";
+    messages.appendChild( div );
+    
+    // 让 dom 元素滚动到可视区域内, 要求元素在dom树上
+    div.scrollIntoView();
+    // 清空 textarea 内容
+    textarea.value = "";
+
+    
+    // 1. 发送 get 请求, 将 content 传递过去 (可不传)
+    var xhr = new XMLHttpRequest();
+    xhr.open( "get", "09-talking.php?content=" + content );
+    xhr.send( null );
+    
+    // 2. 监听处理响应
+    xhr.onreadystatechange = function() {
+      if ( xhr.readyState === 4 ) {
+        if ( xhr.status === 200 ) {
+          // 响应成功
+          // xhr.responseText 获取响应文本
+          var result = xhr.responseText;
+          // 动态创建他说结构, div 类名 other, 追加到 messages 中
+          var div = document.createElement("div");
+          div.className = "other";
+          div.innerHTML = "<h5>对方说</h5><p>" + result + "</p>";
+          messages.appendChild( div );
+
+          // 让 dom 元素滚动到可视区域内, 要求元素在dom树上
+          div.scrollIntoView();
+        }
+      }
+    }
+
+
+  }
+
+
+
+  
+</script>
+
+
+
+</body>
+</html>

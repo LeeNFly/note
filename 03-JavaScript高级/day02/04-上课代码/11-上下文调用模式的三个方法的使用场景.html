@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 当我们需要自己调用函数,并且要修改函数中this的指向的时候, 用call / apply
+        // 当我们不需要自己调用函数,要浏览器帮我们调用(事件处理函数, 定时器的回调函数),
+        // 并且要修改函数中this的指向,我们就可以用bind
+
+
+        // bind的注意点:
+        function fn(){
+            console.log(this);
+        }
+
+        var f = fn.bind([1,2,3]);
+        f(); //this --> [1,2,3]
+        var obj = {};
+        obj.f = f;
+        obj.f(); //this --> [1,2,3]
+
+         //当new 和 bind返回的函数一起使用的时候,函数中this指向的还是new新创建出来的对象 (实例)
+        var newf = new f(); //this --> 实例
+       
+
+    
+    </script>
+</body>
+</html>

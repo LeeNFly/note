@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  //需求：给数组的每一项都求平方，存入一个新的数组
+  //最终需要得到的结果是：  [1,4,9,16]
+  var arr = [1, 2, 3, 4];
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+     var squ = Math.pow(arr[i],2);
+     newArr.push(squ);
+  }
+  console.log(newArr);
+  
+</script>
+
+</body>
+</html>

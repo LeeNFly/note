@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <button id="btn">点击切换</button>
+  <br>
+  <img src="images/0.jpg" alt="" id="img">
+  <script>
+    //需求: 点击按钮,修改img的src路径
+    //1. 获取元素
+      var btn = document.getElementById('btn');
+      var img = document.getElementById('img');
+      var index = 0; //标记当前展示的是第几张
+//    2. 给按钮注册点击事件
+      btn.onclick = function(){
+        //    3. 在事件处理函数中,判断当前是哪一张,修改展示下一张
+        index++;
+        img.src = 'images/'+index+'.jpg';
+        //判断是否是第9张,如果是第几张,就把index变成-1.
+//        因为下一次在点击进来的时候,会先index++, -1就变成了0
+        if(index==9){
+          index = -1;
+        }
+      }
+
+   
+    
+  </script>
+</body>
+</html>

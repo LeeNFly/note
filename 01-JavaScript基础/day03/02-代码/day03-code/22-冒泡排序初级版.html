@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 冒泡排序,将数组从小到大排列
+  
+      var arr = [5,4,3,2,1];
+      console.log(arr);
+      // 通过冒泡排序 =>[1,2,3,4,5];
+
+  // 遍数 : 5遍 每遍确定一个最大值: 5 4 3 2 1 
+   for ( var j = 0; j < arr.length ; j++ ) {
+
+        //每遍的比较次数 : 两两比较 找到最大值
+        //每遍的目的都是把最大值放到最后 
+        //以下循环就是把最大值放到最后
+        for (var i = 0; i < arr.length ;i++) {
+        
+          if (arr[i] > arr[i+1]) {
+
+              var  temp = arr[i];
+                  arr[i] =  arr[i+1];
+                  arr[i+1] = temp;
+          }
+        }
+   }   
+
+    console.log(arr);
+
+    //总结：
+    //1.遍数: 每遍确定一个最大值,即需要确定几个最大值,遍数就为几。
+    //2.每遍的比较次数: 目的是为了将最大值排到最后
+
+
+
+      // //第二遍 : 确立了4
+      // for (var i = 0; i < arr.length ;i++) {
+      
+      //     if (arr[i] > arr[i+1]) {
+
+      //         var  temp = arr[i];
+      //             arr[i] =  arr[i+1];
+      //             arr[i+1] = temp;
+      //     }
+      //   }
+
+      // console.log(arr);
+      
+        
+      // //第三遍 : 确立了3
+      // for (var i = 0; i < arr.length ;i++) {
+      
+      //     if (arr[i] > arr[i+1]) {
+
+      //         var  temp = arr[i];
+      //             arr[i] =  arr[i+1];
+      //             arr[i+1] = temp;
+      //     }
+      //   }
+
+      // console.log(arr);
+
+      // //第四遍 : 确立了2
+      // for (var i = 0; i < arr.length ;i++) {
+      
+      //     if (arr[i] > arr[i+1]) {
+
+      //         var  temp = arr[i];
+      //             arr[i] =  arr[i+1];
+      //             arr[i+1] = temp;
+      //     }
+      //   }
+
+      // console.log(arr);
+
+
+      // //第五遍 : 确立了1
+      // for (var i = 0; i < arr.length ;i++) {
+      
+      //     if (arr[i] > arr[i+1]) {
+
+      //         var  temp = arr[i];
+      //             arr[i] =  arr[i+1];
+      //             arr[i+1] = temp;
+      //     }
+      //   }
+
+      // console.log(arr);
+
+
+
+    </script>
+</body>
+</html>

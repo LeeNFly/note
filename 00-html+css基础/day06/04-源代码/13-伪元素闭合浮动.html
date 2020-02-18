@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box,
+		.box1,
+		.box2,
+		.feifei {
+			width: 500px;
+			border: 1px solid #000;
+		}
+		.info {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			float: left;
+		}
+		/* .clear {
+			clear: both;
+		} */
+		/* .box:after,
+		.box1:after,
+		.box2:after {
+			这个不能省略
+			content: '';
+			闭合浮动核心属性
+			clear: both;
+			因为闭合浮动必须是块级 而伪元素默认是行内 所以 需要转换成块级元素
+			display: block;
+		} */
+
+		.clearfix:after {
+			/* 这个不能省略 */
+			content: '';
+			/* 闭合浮动核心属性 */
+			clear: both;
+			/* 因为闭合浮动必须是块级 而伪元素默认是行内 所以 需要转换成块级元素 */
+			display: block;
+			height:0;
+    		visibility:hidden;
+		}
+
+		/* .clearfix::after {
+		    content:'';
+		    display:block;
+		    clear:both;
+		    height:0;
+		    visibility:hidden;
+		}
+		.clearfix {
+		    *zoom:1;
+		} */
+	</style>
+</head>
+<body>
+	<div class="box clearfix">
+		<div class="info"></div>
+		<div class="info"></div>
+		<div class="info"></div>
+		<div class="info"></div>
+		<!-- <div class="clear"></div> -->
+	</div>
+	<div class="box1 clearfix">
+		<div class="info"></div>
+		<div class="info"></div>
+		<div class="info"></div>
+		<div class="info"></div>
+		<!-- <div class="clear"></div> -->
+	</div>
+	<div class="box2 clearfix">
+		<div class="info"></div>
+		<div class="info"></div>
+		<div class="info"></div>
+		<div class="info"></div>
+		<!-- <div class="clear"></div> -->
+	</div>
+
+	<div class="feifei clearfix">
+		<div class="info"></div>
+		<div class="info"></div>
+		<div class="info"></div>
+		<div class="info"></div>
+		<!-- <div class="clear"></div> -->
+	</div>
+</body>
+</html>

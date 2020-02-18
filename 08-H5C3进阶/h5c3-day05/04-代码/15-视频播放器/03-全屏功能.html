@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div>我是盒子</div>
+
+<script>
+  var div = document.querySelector("div");
+  // dom元素.requestFullScreen(), 可以让dom元素全屏显示
+  // 需求: 点击div, 让div全屏
+  div.addEventListener("click", function() {
+    // div.requestFullScreen(); // 标准里还未实现该方法, 将来会实现
+    // div.webkitRequestFullScreen();   // 谷歌里先实现了这个方法, 兼容谷歌, 在谷歌里可以实现全屏
+
+    div.mozRequestFullScreen(); // 火狐里先实现了这个方法, 兼容火狐, 在火狐里可以实现全屏
+
+    // div.msRequestFullScreen(); // ie兼容写法, 就算这么写, 也不能全屏, ie里没有实现该方法
+  })
+
+
+</script>
+
+
+
+
+</body>
+</html>

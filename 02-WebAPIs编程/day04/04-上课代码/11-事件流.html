@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #grandfar{
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+
+    #far{
+      width: 200px;
+      height: 200px;
+      background-color: green;
+    }
+
+    #son{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="grandfar">
+  <div id="far">
+    <div id="son"></div>
+  </div>
+</div>
+<script>
+//  事件的内部原理 -> 事件流
+
+//  1. ★★★ 只要点击/移入...发生了,就一定触发了元素的对应的事件,触发事件跟我们有没有注册事件没有关系。触发事件, 若有注册对应的事件处理函数, 就会调用对应的事件处理函数, 没有注册事件相当于没有事件处理函数,就是什么都不做而已,
+//           元素只要触发了事件,浏览器就会自动帮我们生成触发事件的元素的事件对象,和元素有没有注册事件没有关系
+//     ★★★  注意:触发事件的元素 和 执行事件处理的函数的元素 可能不是同一个元素. 比如我点击了元素A,但是最终通过事件冒泡执行了元素B的事件处理函数,触发事件的元素还是元素A
+//  2.一旦,触发了事件,就会产生一个事件流.
+//  3.然后马上要确定下来一个事件路径
+  
+//  假如点击了grandfar,那么事件路径就是: window - > document - > body > grandfar  沿着父级往下
+//  假如点击了son,那么事件路径就是: window - > document - > body > grandfar  --> far --> son 沿着父级往下
+
+/// 4.然后开始事件传播:
+//    比如点击的是son
+      // 4.1 进入捕获阶段(从window 一直到 事件目标前一个元素;从外到里,到达目标之前) window -> document -> body -> grandfar -> far 
+      // 4.2 进入目标阶段(事件目标就是我们触发事件的那个元素,和这个元素是否注册该事件无关;到达目标) 比如这里 事件目标就是son 并且询问 son 是否有 该事件类型 的事件的事件处理函数 如果有 则执行该类型事件处理函数
+      // 4.3 进入冒泡阶段(从事件目标后一个元素 一直到 window;从里往外,离开目标) far -> grandfar -> body -> document -> window 并且在冒泡的每个过程,都会询问经过的(父)元素是否有 相同事件类型 的事件处理函数,如果有,则调用 相同事件类型 的事件处理函数 (仅仅是调用父元素的事件处理函数, 没有触发父元素对应的事件, 父元素是没有触发对应的事件的)
+      // 注意: 在事件冒泡阶段 所有的事件处理函数中拿到的都是同一个事件对象,都是事件目标对应的事件对象,也就是触发事件的那个元素对应的事件对象。和这个事件目标(触发事件的那个元素)有没有注册该类型的事件无关
+    
+//  注意：一旦触发了事件，就会产生一个事件流，然后就会确定事件路径，然后开始传播。 与有没有注册事件无关
+    var son = document.getElementById('son');
+    var far = document.getElementById('far');
+    var grandfar = document.getElementById('grandfar');
+  
+  //  son.onclick  = function(){
+  //    console.log('son的点击事件');
+  //  }
+    // far.onclick  = function(){
+    //   console.log('far的点击事件');
+    // }
+    grandfar.onclick  = function(){
+      console.log('grandfar的点击事件');
+    }
+    document.body.onclick = function(){
+      console.log('body的点击事件');
+    }
+</script>
+</body>
+</html>

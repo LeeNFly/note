@@ -1,0 +1,48 @@
+/* 480  1rem : 75px 
+414  1rem : 64.6875px
+375  1rem:  58.59375px
+360  1rem : 56.25px
+320  1rem:  50px  */
+
+/* 动态检测屏幕的宽度，根据不同宽度设置rem的值 */
+
+@media screen and (min-width: 640px) {
+    html {
+        font-size: 100px;
+    }
+}
+/* 诺基亚 */
+@media screen and (max-width: 639px) and (min-width: 480px) {
+    html {
+        font-size: 75px;
+    }
+}
+
+/* ip6/7/8p */
+@media screen and (max-width: 479px) and (min-width: 414px) {
+    html {
+        font-size: 64.6875px
+    }
+}
+
+/* ip6/7/8 */
+@media screen and (max-width: 413px) and (min-width: 375px) {
+    html {
+        font-size:  58.59375px
+    }
+}
+
+/* 三星 */
+@media screen and (max-width: 374px) and (min-width: 360px) {
+    html {
+        font-size:  56.25px
+    }
+}
+
+/* ip3/4/5 */
+
+@media screen and (max-width: 359px) {
+    html {
+        font-size:  50px
+    }
+}

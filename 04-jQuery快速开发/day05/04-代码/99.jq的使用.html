@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            var body = $("body");
+            // 通过jq对象.jquery这个属性获取到当前正在使用的jq版本
+            // query属性在jq原型上
+            console.log(body.jquery);
+        })
+    </script>
+</body>
+</html>

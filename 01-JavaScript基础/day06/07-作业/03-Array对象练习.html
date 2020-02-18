@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1.join 
+    // var arr = [1,4,7,2,5,8];
+    // var res = arr.join();
+    // console.log(res);
+    // var res1 = arr.join('');
+    // console.log(res1);
+    // var res2 = arr.join('-');
+    // console.log(res2);
+
+    // 2.数组的增删操作 , 会改变原数组
+
+    // unshift shift  push pop
+
+    //练习1
+    // var arr = ["刘备"];
+    //添加数据后变成：["赵云","马超","刘备","关羽","张飞"]
+    //删除数据后变成：["关羽","张飞"]
+    // var arr = ["刘备"];
+    // console.log(arr);
+    // arr.unshift("赵云","马超");
+    // arr.push("关羽","张飞");
+    // console.log(arr);
+    // arr.shift();
+    // arr.shift();
+    // arr.shift();
+    // console.log(arr);
+    
+    //练习2
+    //var arr = ["赵云","马超","刘备","关羽","张飞"];
+    //把数组的最后一个元素变成数组的第一个元素
+    //1. 删除最后一个 , => 这个删除的元素
+    //2. 添加到前面
+    
+    // var arr = ["赵云","马超","刘备","关羽","张飞"];
+    // var last = arr.pop();
+    // arr.unshift(last);
+    // console.log(arr);
+
+    //把数组的第一个元素变成数组的最后一个元素
+    
+    // var arr = ["赵云","马超","刘备","关羽","张飞"];
+    // var first = arr.shift();
+    // arr.push(first);
+    // console.log(arr);
+
+    // 3. 数组的翻转与排序
+    // 翻转
+    // var arr = [1,4,7];
+    // arr.reverse();
+    // console.log(arr);
+
+    // 排序
+    // 按照字符排序 适合英文字母
+    // var arr = ['1','4','7','20','30','4','21'] // arr.sort() => ["1", "20", "21", "30", "4", "4", "7"]
+    // var arr = [1,4,7,20,30,4,21];  // arr.sort() => [1, 20, 21, 30, 4, 4, 7]
+    // arr.sort();
+    // console.log(arr); // 按照字符排序 
+
+    // 按照数字大小排序
+    // var arr = ['1','4','7','20','30','4','21']  //  ["1", "4", "4", "7", "20", "21", "30"]
+    // var arr = [1,4,7,20,30,4,21]  // [1, 4, 4, 7, 20, 21, 30]
+    // arr.sort(function (a,b) {
+    //   return a-b;
+    // })
+    // console.log(arr);
+    
+    // 练习
+    //将[3, 6, 1, 5, 10, 2,11]从小到大排列
+    // var arr = [3, 6, 1, 5, 10, 2,11];
+    // arr.sort(function (a,b) {
+    //   return a - b;
+    // })
+    // console.log(arr);
+
+    //将字符串数组按照字符长度从小到大排列
+    // var arr = ['b','a','c','u','z','e'];
+    // arr.sort();
+    // console.log(arr);
+    
+    //将学生数组按照年龄从大到小排列
+    // var arr = [18,34,21,20,66];
+    // arr.sort(function (a,b) {
+    //   return b - a;
+    // })
+    // console.log(arr);
+
+    // 4. 数组的拼接与截取
+    // 拼接:
+    // var arr1 = [1,2,3];
+    // var arr2 = ['zs','ls'];
+    // var res = arr1.concat(arr2);
+    // console.log(res);
+    
+    // 截取:
+    // var arr = ["赵云","马超","刘备","关羽","张飞"];
+
+    // //截取["刘备","关羽"]
+
+    // var res = arr.slice(2,4);
+    // // console.log(res);
+    
+    
+    // //在刘备前面增加 马腾  (splice)
+    // arr.splice(2,0,'马腾');
+    // console.log(arr);
+    
+    // //删除关羽  (splice)
+    // arr.splice(4,1);
+    // console.log(arr);
+
+    // 5. 数组查找元素
+    
+    // var arr = [1,2,3,5,6,3,1,3,4];
+    // var first = arr.indexOf(3);
+    // var last = arr.lastIndexOf(3);
+    // console.log(first);
+    // console.log(last);
+    // var index = arr.indexOf('3');
+    // console.log(index);
+
+    // 6. 清空数组 
+    // var arr = [1,2,3,5,6,3,1,3,4];
+    // console.log(arr);
+    // arr.splice(0,arr.length);
+    // console.log(arr);
+
+    // arr.length = 0;
+    // console.log(arr);
+    
+    // arr = [];
+    // console.log(arr);
+    
+    // 7. 数组的综合练习
+    var arr = ["c", "a", "z", "a", "x", "a", "a", "z", "c", "x", "a", "x"]
+    //1. 找到数组中第一个a出现的位置
+    var firstIndex = arr.indexOf('a');
+    console.log(firstIndex);
+    
+    //2. 找到数组中最后一个a出现的位置
+    var lastIndex = arr.lastIndexOf('a');
+    console.log(lastIndex);
+    //3. 找到数组中每一个a出现的位置
+    var indexArr = []
+    for (var i = 0; i < arr.length; i++) {
+       if (arr[i] === 'a') {
+          indexArr.push(i)
+       }
+    }
+   console.log(indexArr);
+    
+    
+    
+    
+    
+    
+  </script>
+</body>
+</html>

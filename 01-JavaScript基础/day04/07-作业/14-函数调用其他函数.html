@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function chiJi() {
+      console.log('开始吃鸡了');
+      console.log('落地成盒了');
+    }
+    function coding() {
+      console.log('开始敲代码了');
+      chiJi();
+      //等待上面调用其他函数结束之后,才继续往下执行
+      console.log('回来敲代码了');
+    }
+    coding();
+    // 开始敲代码了
+    // 开始吃鸡了
+    // 落地成盒了
+    // 回来敲代码了
+  </script>
+</body>
+</html>

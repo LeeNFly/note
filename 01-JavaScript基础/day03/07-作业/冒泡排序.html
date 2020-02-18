@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var arr = [5, 4, 1, 2, 3];
+    // 冒泡排序初级版
+    // for (var i = 0; i < arr.length; i++) {
+
+    //   for (var j = 0; j < arr.length; j++) {
+
+    //     if (arr[j] > arr[j+1]) {
+    //       var temp = arr[j];
+    //       arr[j] = arr[j+1];
+    //       arr[j+1] = temp;
+    //     }
+
+    //   }
+
+    // }
+
+    //冒泡排序中级版
+    // for (var i = 0; i < arr.length - 1; i++) {
+    //   for (var j = 0; j < arr.length -1 - i; j++) {
+    //     if (arr[j] > arr[j+1]) {
+    //       var temp = arr[j];
+    //       arr[j] = arr[j+1];
+    //       arr[j+1] = temp;
+    //     }
+    //   }
+
+    // }
+
+    //冒泡排序优化版
+    // for (var i = 0; i < arr.length - 1; i++) {
+    //   var isChange = false;
+    //   for (var j = 0; j < arr.length - 1 - i; j++) {
+    //     if (arr[j] > arr[j+1]) {
+    //       isChange = true;
+    //       var temp = arr[j];
+    //       arr[j] = arr[j+1];
+    //       arr[j+1] = temp;
+    //     }
+
+    //   }
+
+    //   if (!isChange) {
+    //     break;
+    //   }
+
+    // }
+    // console.log(arr);
+
+    //------------------------------------------------------------------------------
+    var arr = [5, 4, 1, 2, 3];
+
+    // 冒泡排序初级版
+    // for (var i = 0; i < arr.length; i++) {
+    //    for (var j = 0; j < arr.length; j++) {
+    //       if (arr[j] > arr[j+1]) {
+    //         var temp = arr[j];
+    //         arr[j] = arr[j+1];
+    //         arr[j+1] = temp;
+    //       }
+    //    }
+    // }
+    // console.log(arr);
+
+
+    // 冒泡排序中级版
+    // for (var i = 0; i < arr.length - 1; i++) {
+    //    for (var j = 0; j < arr.length - 1 - i; j++) {
+    //       if (arr[j] > arr[j+1]) {
+    //         var temp = arr[j];
+    //         arr[j] = arr[j+1];
+    //         arr[j+1] = temp;
+    //       }
+    //    }
+    // }
+    // console.log(arr);
+
+    // 冒泡排序优化版
+    // for (var i = 0; i < arr.length - 1; i++) {
+    //    var flag = true // 每遍进来,先默认已经排序好了
+    //    for (var j = 0; j < arr.length -1 - i; j++) {
+    //       if (arr[j] > arr[j+1]) {
+    //         // 如果发生交换,则说明还没排序完
+    //         flag = false;
+    //         var temp = arr[j];
+    //         arr[j] = arr[j+1];
+    //         arr[j+1] = temp;
+    //       }
+    //    }
+    //    if (flag) {
+    //      //说明已经排序好了
+    //      break;
+    //    }
+    // }
+    // console.log(arr);
+
+// --------------------------------------------------------------------------
+
+    // var arr = [5, 4, 1, 2, 3];
+    // for (var i = 0; i < arr.length; i++) {
+    //    for (var j = 0; j < arr.length; j++) {
+    //       if (arr[j] > arr[j+1]) {
+    //         var temp = arr[j];
+    //         arr[j] = arr[j+1];
+    //         arr[j+1] = temp;
+    //       }
+    //    }
+    // }
+    // var index = 0;
+    // for (var i = 0; i < arr.length - 1; i++) {
+    //   index ++ ;
+    //    for (var j = 0; j < arr.length -1 - i; j++) {
+    //       if (arr[j] > arr[j+1]) {
+    //         var temp = arr[j];
+    //         arr[j] = arr[j+1];
+    //         arr[j+1] = temp;
+    //       }
+    //    }
+    // }
+
+    //   var index = 0;
+    // for (var i = 0; i < arr.length - 1; i++) {
+    //   index ++;
+    //   var isChange = false;
+    //   for (var j = 0; j < arr.length - 1 - i; j++) {
+    //     if (arr[j] > arr[j + 1]) {
+    //       var temp = arr[j];
+    //       arr[j] = arr[j + 1];
+    //       arr[j + 1] = temp;
+    //       isChange = true;
+    //     }
+    //   }
+    //   if (!isChange) {
+    //     break;
+    //   }
+    // }
+
+    // console.log(arr);
+    // console.log(index);
+    
+
+
+
+  </script>
+</body>
+
+</html>

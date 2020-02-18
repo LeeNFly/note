@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./form.css">
+</head>
+<body>
+  <!-- 表单三大属性 action method name -->
+
+  <!-- 
+    文件上传注意点:
+    1. 表单提交类型, 必须是 post
+    2. 必须给 input:file 指定 name 属性, 将来后台才能获取文件 (不需要给input:file 指定value值)
+    3. enctype="multipart/form-data"   
+       multipart 多种多样的, 指定提交的 表单 数据是多样的, 
+       就是说: 该表单 除了基本的表单信息, 还有文件要提交;
+       既该表单 可以提交基本的表单信息, 也可以提交文件
+
+    ps: ★ 文件上传除了上传图片, ★ 还可以上传其他任意类型的文件
+    ps: 文件上传的3个注意点, 是指如果是通过表单提交的方式提交文件, 即通过input:submit按钮进行提交文件, 
+        则必须设置表单的三大属性以及提交文件的3大注意点; 如果是通过其他的方式提交文件, 则不需要设置文件的3大注意点和表单的三大属性 -->
+   -->
+
+  <form action="01-file.php" method="post" enctype="multipart/form-data">
+    用户名: <input type="text" name="username">
+    密码: <input type="password" name="password">
+
+    头像: <input type="file" name="photo" id="">
+    <input type="submit" value="登陆">
+  </form>
+  
+</body>
+</html>

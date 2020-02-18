@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		img {
+			display: block;
+			margin: 0 auto;
+		}
+		body {
+			border:1px solid #CCC;
+		}
+		.top {
+			position: fixed;
+			top: 0;
+			left: 50%;
+			margin-left: -759px;
+		}
+		.main {
+			margin-top: 44px;
+		}
+		/* 不管当前的浏览器窗口多大 都是仅仅贴在版心左边
+			提示：跟定位水平居中很类似
+		 */
+		.ad {
+			position: fixed;
+			/* 走整个屏幕的一半 */
+			left: 50%;
+			/* 走版心的一半加上整个盒子自身的全部 */
+			margin-left: -621px;
+			top: 50%;
+			margin-top: -144px;
+		}
+	</style>
+</head>
+<body>
+	<img class="top" src="images/top.png" alt="">
+	<img class="main" src="images/box.png" alt="">
+	<img class="ad" src="images/ad-l.png" alt="">
+</body>
+</html>

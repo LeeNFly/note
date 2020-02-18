@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 练习 : rgb(255,255,255) 
+    // rgb(255,255,255)   [0,255]
+    // rgb(12,34,67) 
+    // function getRGB() {
+    //   return Math.floor(Math.random() * 256)
+    // }
+    // var rgb = 'rgb(' + getRGB() + ',' + getRGB() + ',' + getRGB() + ')';
+    // console.log(rgb);
+
+    function getColor() {
+      var red = Math.floor(Math.random() * 256); 
+      var green = Math.floor(Math.random() * 256); 
+      var blue = Math.floor(Math.random() * 256); 
+      return 'rgb(' + red + ',' + green + ',' + blue + ')';
+    }
+    console.log(getColor());
+    
+    
+  </script>
+</body>
+</html>

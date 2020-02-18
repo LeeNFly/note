@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <button id="btn">点击切换</button>
+  <br>
+  <img src="images2/0.jpg" alt="" id="img">
+  <script>
+    var btn = document.getElementById('btn');
+    var img = document.getElementsByTagName('img')[0];
+    var index = 0;
+    btn.onclick = function () {
+      index ++ ;
+      if (index >= 10) {
+        index = 0;
+      }
+      img.src = 'images2/'+index+'.jpg';
+    }
+  </script>
+</body>
+</html>

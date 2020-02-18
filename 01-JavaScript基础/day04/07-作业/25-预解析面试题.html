@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+      //1. 
+      // var num = 10;
+      // fn1();
+      // function fn1() {
+      //   console.log(num);
+      //   var num = 20;
+      // }
+
+      
+      // 预解析
+      // var num;
+      // 函数的声明不执行,可以先不看,等调用的时候再看
+      // function fn1() {
+      //   var num;
+      //   console.log(num);  //undefined
+      //   num = 20;
+      // }
+      // num = 10;
+      // fn1();
+
+
+      //2.
+      // var a = 18;
+      // fn2();
+      // function fn2() {
+      //     var b = 9;
+      //     console.log(a);
+      //     console.log(b);
+      // }
+
+      // 预解析
+      // var a;
+      // // 函数的声明不执行,可以先不看,等调用的时候再看
+      // function fn2() {
+      //     var b;
+      //     b = 9;
+      //     console.log(a); //18
+      //     console.log(b); //9
+      // }
+      // a = 18;
+      // fn2();
+
+       //3.
+      // fn3();
+      // console.log(c);
+      // console.log(b);
+      // console.log(a);
+      // function fn3() {
+      //   var a = b = c = 9;
+      //   console.log(a);
+      //   console.log(b);
+      //   console.log(c);
+      // }
+
+      // 预解析
+      // 函数的声明不执行,可以先不看,等调用的时候再看
+      // function fn3() {
+      //   // var a = b = c = 9;
+      //   var a;
+      //   a = 9;
+      //   b = 9;
+      //   c = 9;
+      //   console.log(a); // 9
+      //   console.log(b); // 9
+      //   console.log(c); // 9
+      // }
+      // fn3();
+      // console.log(c); //9
+      // console.log(b); //9
+      // console.log(a); //报错
+
+
+      //4. 
+      // var a = 4;
+      // console.log(a);
+      // a = 6;
+      // console.log(a);
+      
+      // function a() {
+      //   console.log('哈');
+      // }
+
+      // a();
+
+      // a = 10;
+      // console.log(a);
+
+      // 预解析
+      // // 函数的声明不执行,可以先不看,等调用的时候再看
+      // 函数与变量同名,函数优先
+      function a() {
+        console.log('哈');
+      }
+      var a;
+      a = 4;
+      console.log(a); // 4
+      a = 6;
+      console.log(a); // 6
+      a(); //报错. 虽然函数优先,但是后面a 又通过赋值 从函数 变成number类型了. var 声明的变量可以接收任意类型的赋值
+      // 报错之后,代码不再往下执行.
+      a = 10; // 不执行
+      console.log(a); // 不执行 不会打印
+
+  </script>
+</body>
+</html>

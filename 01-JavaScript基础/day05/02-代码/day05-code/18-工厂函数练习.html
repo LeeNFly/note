@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 1. 学生对象
+// name : 张三  age: 18岁 打招呼:大家好我是张三
+// name : 李四  age: 19岁 打招呼:大家好我是李四
+      
+      function createStudent( name ,age) {
+        //1. 创建新对象
+        var obj = {};
+        //2. 添加属性和方法
+        obj.name = name;
+        obj.age = age;
+        obj.sayHi = function () {
+          console.log('大家好,我是' + this.name);
+        }        
+        //3. 返回
+        return obj;
+      }
+
+      // 张三
+    var zs =    createStudent('张三',18);
+    console.log(zs);
+    zs.sayHi();
+    
+// 2. 老师对象
+// name : 伟哥  爱好:篮球  打: 伟哥正在打篮球
+// name : 马哥  爱好:台球  打: 马哥正在打台球
+
+
+      function createTeacher( name , hobby) {
+
+        //1. 创建新对象
+        var obj = {} 
+
+        //2. 添加属性和方法
+        obj.name = name;
+        obj.hobby = hobby;
+        obj.play = function () {
+          
+          console.log( this.name + '正在打' + this.hobby);
+        }
+
+        
+        //3. 返回对象
+        return obj;
+      }
+
+    var wg =   createTeacher('玮哥','篮球');
+    console.log(wg);
+    wg.play();
+
+
+// 单独创建对象  字面量 + 构造函数
+
+// 字面量 单独创建对象
+
+//     var obj1 = {} ; // 地址 001
+//     var obj2 = {};  // 地址  002
+
+// console.log( obj1 == obj2);
+
+// 创建对象
+// 单独创建 
+// 字面量
+var obj = {}  // { ..}
+
+
+var obj1 = {
+  name :'zs'
+}
+
+var obj2 = {
+  name : 'ls'
+}
+
+
+//工厂函数  
+function test() {
+
+  //1. 对象
+
+  //2. 返回对象
+}
+
+test('zs',18);
+test('ls',19)
+
+function  createTeacher(name,age) {
+
+  var obj = {
+  }
+
+  return obj;
+}
+
+    </script>
+</body>
+</html>

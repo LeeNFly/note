@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /* li {
+            color: #9c27b0;
+            width: 200px;
+        } */
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li>今天你们犯困吗</li>
+        <li>明天呢，休息了吧</li>
+        <li>项目做的怎么样了</li>
+    </ul>
+
+
+    <script src="./jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="css操作.css">
+    <script>
+        $(function(){
+            // $('li').css('backgroundColor', 'lime');
+            // $('li').css('fontSize', '30px');
+            $('li').css({
+                backgroundColor: 'lime',
+                fontSize: '30px'
+            })
+            $('li').eq(0).css({
+                backgroundColor: 'red'
+            })
+            // console.log($('li').css('backgroundColor'));
+            // console.log($('li').css('fontSize'));
+            $('li').css('color', '#000');
+            console.log($('li').css('backgroundColor'));
+            console.log($('li').css('color'));
+            console.log($('li').css('width'));
+        })
+    </script>
+</body>
+</html>

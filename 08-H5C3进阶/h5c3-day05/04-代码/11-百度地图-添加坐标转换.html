@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <style type="text/css">
+    body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+  </style>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=e8ELWLSP4SMqNtD9i7H4Bcrcjpn7IBiT"></script>
+  <title>地图展示</title>
+</head>
+<body>
+
+<!-- 准备容器, 用于显示地图 -->
+<div id="allmap"></div>
+
+</body>
+</html>
+<script type="text/javascript">
+  // 121.6009080625076
+  // 31.02400542553159
+
+  // demo示例 -> 坐标转换 -> google坐标转成百度坐标
+
+  // 百度地图API功能
+  var map = new BMap.Map("allmap");    // 创建Map实例
+  var point = new BMap.Point(121.6009080625076, 31.02400542553159);
+  // 根据经度纬度初始化地图
+  map.centerAndZoom(point, 17);  // 初始化地图,设置中心点坐标和地图级别
+  //添加地图类型控件
+  map.addControl(new BMap.MapTypeControl({
+    mapTypes:[
+      BMAP_NORMAL_MAP,
+      BMAP_HYBRID_MAP
+    ]}));
+  map.setCurrentCity("上海");          // 设置地图显示的城市 此项是必须设置的
+  map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+
+  // ---------------------------------------- 谷歌坐标转百度坐标 ------------------------------
+
+  // 1秒后执行, 进行坐标转换
+  setTimeout(function(){
+    // 创建一个转换器, 用于转换坐标
+    var convertor = new BMap.Convertor();
+    // 存放需要转换的点的数组
+    var pointArr = [];
+    pointArr.push(point);
+    // 进行转换, 转换成功调用回调函数
+    convertor.translate(pointArr, 3, 5, translateCallback)
+  }, 1000);
+
+  // 坐标转换完之后的回调函数
+  function translateCallback(data){
+    // data.status === 0 说明转换成功
+    if(data.status === 0) {
+      var newPoint = data.points[0]; // 获取转换后的坐标, 同上, 也是一个point对象
+
+      // 根据正确点坐标点创建小狐狸
+      var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
+      // 根据点, 根据图标创建标注
+      var marker2 = new BMap.Marker(newPoint,{icon:myIcon});  // 创建标注
+      map.addOverlay(marker2);              // 将标注添加到地图中
+
+      // 设置新的点为地图中心点即可
+      map.setCenter(newPoint);
+
+    }
+  }
+
+
+
+</script>

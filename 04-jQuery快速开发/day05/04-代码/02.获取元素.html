@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        (function(window, undefined){
+            var jQuery = function(selector){
+                // 获取元素
+                var elements = document.querySelectorAll(selector);
+                console.log(elements);
+
+                /*this[0] = elements[0];
+                this[1] = elements[1];
+                this[2] = elements[2];*/
+
+                // 通过遍历来将获取到元素添加到this实例对象上去
+                for(var i = 0; i < elements.length; i++){
+                    this[i] = elements[i];
+                }
+                // 手动添加length属性
+                this.length = elements.length;
+            }
+
+            window.jQuery = window.$ = jQuery;
+        })(window)
+
+
+        /*var body = new $("body");
+        console.log(body);*/
+
+        var divs = new $("div");
+        console.log(divs);
+    </script>
+</body>
+</html>

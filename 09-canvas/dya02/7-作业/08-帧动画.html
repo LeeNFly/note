@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<canvas width="1200" height="600" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+
+    // 3- 获取需要图片 绘制在canvas中
+    var bg = document.createElement('img');
+    var fish = document.createElement('img');
+    var index = 0;
+    var x = 100;
+    bg.addEventListener('load', function () {
+        fish.src = './img/fish.png';
+    });
+    fish.addEventListener('load', function () {
+        setInterval(function () {
+            ctx.clearRect(0, 0, cs.width, cs.height);
+            ctx.drawImage(bg, 0, 0, 1200, 600);
+            index ++;
+            x += 10;
+            if (index >= 12) {
+                index = 1;
+            }
+            if (x > 1300) {
+                x = -174;
+            }
+            ctx.drawImage(fish, 0, index * 126, 174, 126, x, 100, 174, 126);
+            ctx.drawImage(fish, 0, index * 126, 174, 126, x - 7, 200, 87, 63);
+            ctx.drawImage(fish, 0, index * 126, 174, 126, x - 30, 50, 87, 63);
+        }, 50)
+    });
+    bg.src = './img/bg.jpg';
+
+
+</script>
+</body>
+</html>

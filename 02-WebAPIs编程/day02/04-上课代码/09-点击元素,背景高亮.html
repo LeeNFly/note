@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+</ul>
+
+<!--ul>li{第$个li}*8-->
+<script>
+// 需求: 点击li,点击谁,谁高亮
+//  1. 获取元素
+    var lis = document.getElementsByTagName('li');
+//  2. 给每一个li注册点击事件
+    for(var i = 0; i < lis.length; i++) {
+      lis[i].onclick = fn;
+    }
+    //li被点击时,调用的函数
+    function fn(){
+      //  3. 在事件处理函数中,让当前点击的那个li高亮(设置背景颜色)
+//      console.log(this);
+      //排他
+      for(var i = 0; i < lis.length; i++) {
+        lis[i].style.backgroundColor = '';
+      }
+      this.style.backgroundColor = 'yellow';
+    }
+
+  
+</script>
+</body>
+</html>

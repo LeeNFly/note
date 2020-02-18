@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 匹配 一般配合^$使用
+    // var reg = /字符规则/
+    // reg.test('字符串')
+
+    // 提取 字符串.match(正则对象); 是字符串的方法
+    //提取字符串中的数字部分
+    // var str = "张三：1000，李四：5000，王五：8000。";
+    // var reg = /\d+/;
+    // // var reg = /\d+/g;
+    // console.log(str.match(reg));
+
+    // 替换 字符串.replace(正则/被替换的字符, 替换的字符串);
+    var str = "abc,efg,123，abc,123，a";
+    // var newStr = str.replace(',','|'); // 只能替换第一个,  abc|efg,123，abc,123，a
+    // var newStr = str.replace(/,/g,'|'); // abc|efg|123，abc|123，a 可以替换全部英文,  中文，没有替换
+    var newStr = str.replace(/,|，/g,'|'); // abc|efg|123|abc|123|a 将所有的,和， 替换成|
+    console.log(newStr);
+    
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    
+    <ul>
+        <li>1: 现在的你们还困吗？</li>
+        <li>2: 现在的你们还困吗？</li>
+        <li>3: 现在的你们还困吗？</li>
+    </ul>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            var colors = ["red", "lime", "#f99"];
+            $('li').each(function (index, ele) {
+                $(this).css('color', colors[index]);
+            })
+        })
+    </script>
+</body>
+</html>

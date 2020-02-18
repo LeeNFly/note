@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div></div>
+<input type="file">
+
+<script>
+
+  var input = document.querySelector("input");
+  var div = document.querySelector("div");
+
+  input.addEventListener("change", function() {
+    // 1. 获取文件对象
+    var file = this.files[0];
+
+    // 2. 创建一个读取器
+    var fileReader = new FileReader();
+
+    // 3. 利用读取器进行读取文件 (读取需要时间)
+    // readAsText() 以文本的方式读取文件
+    // readAsDataURL() 以DataURL形式读取文件, 文件和图片都用此进行读取
+    fileReader.readAsDataURL( file );
+
+    // 4. 读取需要时间, 要监听读取的过程
+    // 当读取器读取完成时, 调用函数
+    // 或者使用fileReader.addEventListener('load', function () { ... }) 来注册事件
+    fileReader.onload = function() {
+      console.log( "文件读取完成" );
+
+      // 5. 拿到图片读取结果, 是图片dataUrl的base64位地址, 可以直接在地址栏预览, 浏览器可以进行解析的 直接设置给 img的src, 就可以展示图片了
+      var result = fileReader.result;
+      div.innerHTML = '<img src="' + result + '">';
+    }
+
+  })
+
+
+</script>
+
+
+</body>
+</html>

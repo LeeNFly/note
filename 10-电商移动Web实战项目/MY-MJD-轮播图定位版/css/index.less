@@ -1,0 +1,248 @@
+@jdc: #F23030;
+@color: #969696;
+
+.jd-layout {
+  min-width: 320px;
+  max-width: 640px;
+  height: 1000px;
+  margin: 0 auto;
+  .jd-header {
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    z-index: 2;
+    min-width: 320px;
+    max-width: 640px;
+    top: 0;
+    padding-left: 70px;
+    padding-right: 50px;
+    .logo {
+      width: 60px;
+      height: 23px;
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      background-position: 0px -108px;
+    }
+    .login {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 40px;
+      width: 50px;
+      line-height: 40px;
+      text-align: center;
+      color: #fff;
+    }
+    .search {
+      height: 100%;
+      position: relative;
+      line-height: 40px;
+      input {
+        height: 30px;
+        width: 100%;
+        border-radius: 20px;
+        text-indent: 40px;
+      }
+      .search-icon {
+        position: absolute;
+        left: 5px;
+        top: 10px;
+        width: 24px;
+        height: 20px;
+        background-position: -58px -111px;
+      }
+    }
+  }
+
+  .jd-banner {
+    position: relative;
+    ul {
+      width: 100%;
+      position: relative;
+      height: 290px;
+      overflow: hidden;
+      li {
+        float: left;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(120%);
+        img {
+          width: 100%;
+          display: block;
+        }
+      }
+    }
+    ol {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      li {
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        border: 1px solid #fff;
+        float: left;
+        margin: 0 3px;
+        &.current {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  .jd-nav {
+    li {
+      margin: 15px 0;
+      width: 20%;
+      float: left;
+      text-align: center;
+      img {
+        width: 40px;
+      }
+      p {
+        color: @color;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .jd-news {
+    height: 30px;
+    padding-left: 73px;
+    padding-right: 50px;
+    position: relative;
+    .logo {
+      position: absolute;
+      width: 73px;
+      height: 16px;
+      background-image: url(../images/jd-news-tit.png);
+      background-size: 73px 16px;
+      left: 0;
+      top: 7px;
+    }
+    .more {
+      position: absolute;
+      right: 0;
+      top: 5px;
+    }
+    div {
+      height: 30px;
+      overflow: hidden;
+      padding-left: 10px;
+      ul {
+        li {
+          height: 30px;
+          line-height: 30px;
+          color: @color;
+        }
+      }
+    }
+  }
+
+  .jd-seckill {
+    .sec-header {
+      height: 30px;
+      .logo {
+        width: 24px;
+        height: 22px;
+        background-position: -82px -109px;
+        margin-top: 4px;
+      }
+      .title {
+        height: 30px;
+        line-height: 30px;
+        margin-left: 5px;
+        color: @jdc;
+      }
+      .more {
+        height: 30px;
+        line-height: 30px;
+      }
+      .time {
+        margin-top: 5px;
+        span {
+          float: left;
+          &:nth-child(odd) {
+            text-align: center;
+            width: 18px;
+            height: 18px;
+            background-color: #000;
+            color: #fff;
+          }
+          &:nth-child(even) {
+            margin: 0 2px;
+          }
+        }
+
+      }
+    }
+    .sec-content {
+      overflow: auto;
+      ul {
+        width: 880px;
+        li {
+          text-align: center;
+          float: left;
+          width: 10%;
+          font-size: 12px;
+          border-right: 1px solid #333;
+          &:last-child {
+            border-right: none;
+          }
+          img {
+            width: 60px;
+          }
+          p:nth-child(2) {
+            color: @jdc;
+            font-weight: 700;
+          }
+          p:nth-child(3) {
+            color: @color;
+          }
+        }
+      }
+
+    }
+  }
+
+  .jd-major {
+    a {
+      float: left;
+      width: 33.33%;
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+
+  .jd-product {
+    ul {
+      li:nth-child(1) {
+        a {
+          float: left;
+          width: 33.33%;
+          img {
+            width: 100%;
+            display: block;
+          }
+        }
+      }
+      li:nth-child(2),
+      li:nth-child(3) {
+        a {
+          float: left;
+          width: 50%;
+          img {
+            width: 100%;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

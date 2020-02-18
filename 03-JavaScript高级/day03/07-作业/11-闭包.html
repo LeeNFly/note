@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="money">
+  <input type="button" id="query" value="查询余额">
+  <input type="button" id="add" value="充值">
+  <input type="button" id="pay" value="付款">
+  <script>
+    // (function outer() {
+    //   var i = 1;
+    //   function inner() {
+    //     console.log(i);
+    //   }
+    //   inner()
+    // })()
+
+    function fn (params) {
+      var money = 1000;
+      return {
+        query: function () {
+          return money;
+        },
+        add: function (num) {
+          money += num;
+        },
+        pay: function (num) {
+          money -= num;
+        }
+      }
+    }
+
+    var moneyManagement = fn();
+
+    var queryBtn = document.querySelector('#query')
+    var addBtn = document.querySelector('#add')
+    var payBtn = document.querySelector('#pay')
+    var money = document.querySelector('#money')
+    
+
+    queryBtn.onclick = function () {
+      console.log(moneyManagement.query());
+    }
+    addBtn.onclick = function () {
+      moneyManagement.add(+money.value);
+    }
+    payBtn.onclick = function () {
+      moneyManagement.pay(+money.value);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+传智的邮箱: <input type="text" id="txt"> <span id="des"></span>
+
+<script>
+//  需求: 当input失去焦点的时候,验证input中输入的是不是传智的邮箱,如果是,就展示一个绿色的字,表示通过,如果不是,则展示红色的字,提示用户
+//  1.获取元素
+    var txt = document.getElementById('txt');
+    var des = document.getElementById('des');
+//  2.给input注册失去的焦点的事件 blur  获得焦点事件focus
+    txt.onblur = function(){
+      //  3.在事件处理函数中,验证是不是传智的邮箱
+//      3.1 获取用户输入
+      //一般在公司开发中,获取用户输入要trim一下,去掉两边的空格
+        var value = this.value.trim();
+//
+//      3.2 确定正则规则
+//      xxx@itcast.cn
+        var reg = /^\w+@itcast\.cn$/;
+//      3.3 测试
+        if(reg.test(value)){
+          //证明是正确的
+          //  4. 是就展示绿色的文字
+          des.innerText = '格式正确';
+          des.style.color = 'green';
+        }else{
+          //证明不正确的
+          //  5. 不是就展示红色的文字
+          des.innerText = '格式不正确';
+          des.style.color = 'red';
+        }
+      
+
+
+    }
+
+</script>
+</body>
+</html>

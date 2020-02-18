@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			/* 行内元素(不包括行内块)不要写上下的padding值(虽生效,但是不被浏览器承认)  左右的可以写(被浏览器承认) 一般控制文字的上下 用行高即可 */
+			background-color: red;
+			padding: 30px;
+		}
+		
+		/* 块元素宽度的继承继承的是width(盒子内容宽度)的大小 */
+		.father {
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			padding:0 50px;
+		}
+		.son {
+			height: 100px;
+			background-color: green;
+			padding: 10px;
+			border: 10px solid #ccc;
+		}
+		/* span {
+			display: inline-block;
+		} */
+	</style>
+</head>
+<body>
+	<span class="box">啦啦啦啦啦！！快下课了</span>2222222222
+	<div>111111111111</div>
+
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

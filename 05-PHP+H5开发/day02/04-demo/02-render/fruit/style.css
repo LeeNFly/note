@@ -1,0 +1,50 @@
+*{ 
+    margin:0;
+    padding:0;   
+    list-style: none; 
+}
+
+a {
+    text-decoration: none;
+}
+
+.header{
+    height: 120px;
+    background: pink;
+    font-size: 60px;
+    text-align: center;
+    line-height: 120px;      
+}
+
+.container{
+    width: 80%;
+    background: rgb(204, 231, 204);
+    margin:0 auto;
+}
+
+.container>p{
+    background:#daa520;
+}
+
+.container ul{
+    overflow: hidden;
+}
+
+.container ul>li{
+    float: left;
+    width: 25%;
+    padding:10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.container ul>li img{
+    width: 100%;
+}
+
+.footer{
+    height: 120px;
+    background: pink;   
+    text-align: center;
+    line-height: 120px;      
+}

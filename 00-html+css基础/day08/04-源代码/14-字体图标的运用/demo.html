@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- 引用css文件 注意路径 -->
+	<link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
+	<style>
+		/* 调整字体图标一般要用类选择器，因为字体图标本身的渲染大小就是类选择器，否则权重不足，无法覆盖, 一般自己设置一个类名, 然后给字体图标设置样式
+			字体图标若与文字不对其，试着调整字体图标的vertical-align: middle;可以把字体图标看作img  (或者用display:inline-block转为行内块后再使用vertical-align，对于字体图标可转可不转)
+			或者使用相对定位进行微调 结合着vertical-align: middle; 可以保证微调不影响文字的位置
+
+			调整字体图标的大小会影响字体图标与文字的对齐。可以通过对字体图标设置vertical-align: middle，来避免字体图标的大小，位置改变影响到同一行的文本。
+		*/
+		/*
+			字体图标也可以看作文本和文字，可以给字体图标设置文本的一些相关样式，字体图标可以受文本的相关样式控制。
+		 */
+		.meinv {
+			font-size: 30em;
+			color: skyblue;
+			/* font-weight: 700; */
+		}
+	</style>
+</head>
+<body>
+	<!--一般使用任意的行内元素来使用字体图标-->
+	<i class="iconfont icon-meinv meinv"></i>
+	<i class="iconfont icon-afdcb meinv"></i>
+</body>
+</html>

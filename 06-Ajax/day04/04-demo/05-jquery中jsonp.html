@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+
+<!-- 使用 jquery 发送 jsonp 请求 
+     明确: ajax 和 jsonp 的关系, 没有半毛钱关系,  ajax是通过xhr对象来发请求的, 而jsonp是用script标签的特性来请求数据的
+-->
+
+<button id="btn">发送请求</button>
+<script src="jquery-1.12.4.js"></script>
+
+<script>
+  $(function() {
+
+    // 将 jsonp 封装到了 ajax 中, 只需要设置 dataType为 jsonp 即可
+    // 注意: jsonp和ajax半毛钱关系都没有,  ajax是通过xhr对象来发请求的, 而jsonp是用script标签的特性来请求数据的
+    // jsonp 只能通过 get 方式请求, 因为script标签的src发的都是get请求, 所以jsonp无法做文件上传
+    $('#btn').click(function() {
+
+      $.ajax({
+        type: "get", // jsonp只能发送get请求
+        url: "http://www.api.com/ajax-day04/data.php",
+        // dataType: json xml text    jsonp: 要与前面3个区分开来, jsonp说明发送的不是ajax请求, 而是jsonp, 使用的是jsonp原理, script标签特性
+        dataType: "jsonp",
+        data: { // 由于是get请求, 最后jQuery会把参数拼接到地址栏上进行传递
+          name: 'pp'
+        },
+        success: function( info ) {
+          console.log( info );
+        }
+      })
+    });
+    // jQuery封装的jsonp做了什么?
+    //   1)底层原来还是和之前一样的, 通过srcipt标签的特性
+    //   2)jQuery会自动为我们创建一个script标签, 并且把url地址赋给src属性, 并且会在url后自动拼上?callback=jQuery12123... (jQuery自动生成的一个函数名), 同时也会把我们写的参数也拼接到地址栏上(因为jsonp都是get请求, get请求是通过地址栏传参)
+    //     ps: 后台: php文件将一个函数的调用输出到响应体中, 并且将需要传递的数据作为函数的实参, 即后台要返回一个函数的调用, 并且把需要传递的数据作为实参, 返回这个函数的调用
+    //   3)jQuery会在前端 ★ 全局作用域 自动为我们声明jQuery12123...这个函数, 并且在这个函数里, ★ 把后台返回的json数据转成JS数组或对象, 然后调用回调函数success, 把转化后的数组或对象作为实参传入
+    //     这样我们在回调函数success中就可以拿到后台传递的数据了
+    //   4)在请求结束后, 会自动把创建的script标签删除, 并且在调用结束后, 会把之前帮我们声明的jQuery12123...函数给销毁
+
+    //   ps: 由于函数名是通过参数callback进行传递的, 所以后端要使用callback进行接收函数名, 将来返回这个函数的调用
+
+    // jsonp 原理:
+    // 前端:
+    // 1. 声明一个全局函数
+    // 2. 动态创建 script 标签, 将 函数名 通过 callback 传递给 后台
+
+    // 后台:
+    // 1. 根据 callback 获取函数名
+    // 2. 返回函数调用, 调用参数就是 json 数据
+
+  })
+
+
+</script>
+
+</body>
+</html>

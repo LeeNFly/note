@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+    <input type="text" value="25期牛逼，很牛逼">
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            $('input').focus(function () {
+                $(this).val('');
+            })
+            $('input').blur(function () {
+                if (!$(this).val().trim()) {
+                    $(this).val('25期牛逼，很牛逼');
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

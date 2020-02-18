@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    header {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+    span {
+      background-color: skyblue;
+      font-size: 16px;
+    }
+  </style>
+  <!--[if lte IE 8]>
+    <script src="./html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<header>我是header, h5语义化标签, 块级</header>
+<span>我是span</span>
+
+<!--[if lte IE 8]>
+<script>
+  alert('ie8及ie8以下会执行');
+</script>
+<![endif]-->
+</body>
+</html>

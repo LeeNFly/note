@@ -1,0 +1,14 @@
+1-BFC 
+    给盒子设置一些属性会触发BFC():
+        overflow: hidden; 
+        position:absolut;
+        position:fixed;
+        float: left;
+        display: table,table-cell;
+ BFC会构造一个独立渲染的区域：
+    这个区域中子元素的不会影响到外面元素
+应用场景：
+    清除浮动  
+    自适应布局：
+    iscroll.js 插件  实现 触屏滚动效果
+

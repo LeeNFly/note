@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    .time-item {
+      width: 430px;
+      height: 45px;
+      margin: 0 auto;
+    }
+    
+    .time-item strong {
+      background: orange;
+      color: #fff;
+      line-height: 49px;
+      font-size: 36px;
+      font-family: Arial;
+      padding: 0 10px;
+      margin-right: 10px;
+      border-radius: 5px;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    
+    .time-item > span {
+      float: left;
+      line-height: 49px;
+      color: orange;
+      font-size: 32px;
+      margin: 0 10px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .title {
+      width: 260px;
+      height: 50px;
+      margin: 200px auto 50px auto;
+    }
+  </style>
+
+</head>
+
+<body>
+<h1 class="title">距离毕业，还有</h1>
+
+<div class="time-item">
+        <span>
+            <span id="day">00</span>天</span>
+  <strong>
+    <span id="hour">00</span>时</strong>
+  <strong>
+    <span id="minute">00</span>分</strong>
+  <strong>
+    <span id="second">00</span>秒</strong>
+</div>
+
+<script>
+ 
+  //需求: 每个一秒钟,就展示距离目标还差多长时间
+  
+//  获取元素
+    var d = document.getElementById('day');
+    var h = document.getElementById('hour');
+    var m = document.getElementById('minute');
+    var s = document.getElementById('second');
+
+//  5. 让1-4步每隔一秒钟执行一次
+    fn(); //为了避免一打开页面出现00的问题,在设置定时器之前,先调用一次
+    setInterval(fn,1000);
+
+  function fn(){
+    //  1. 获取到当前时间
+    var date = +new Date();
+//  2. 获取到目标事件
+    var target = +new Date('2018-10-20 00:00:00');
+//  3. 计算当前和目标的事件差
+    var time = target - date; //毫秒
+    time /= 1000;  //把毫秒转换成秒
+//  4. 根据时间差,计算还差多少天,小时,分,秒
+    var day = Math.floor(time / 60 / 60 / 24);
+    var hour = Math.floor(time / 60 / 60 % 24);
+    var minute = Math.floor(time / 60 % 60 );
+    var second = Math.floor(time % 60);
+
+//      给元素的文本重新赋值
+    d.innerText = day;
+    h.innerText = hour;
+    m.innerText = minute;
+    s.innerText = second;
+  
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //  计算时间差的代码
+  //  先获得总共还要多少秒,然后计算天,小时,分,秒
+  //    day = Math.floor(interval / 60 / 60 / 24);
+  //    hour = Math.floor(interval / 60 / 60 % 24);
+  //    minute = Math.floor(interval / 60 % 60);
+  //    second = Math.floor(interval % 60);
+
+
+</script>
+</body>
+
+</html>

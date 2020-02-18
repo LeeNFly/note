@@ -1,0 +1,178 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+ul {
+	list-style: none;
+}
+a {
+	color: #333;
+	text-decoration: none;
+}
+a:hover {
+	color: #00a4ff;
+}
+/* 去掉input默认的边框 */
+input,
+button {
+	border: none;
+}
+/* 清除浮动公共类 */
+.clearfix::after {
+    content:'';
+    display:block;
+    clear:both;
+    height:0;
+    visibility:hidden;
+}
+.clearfix {
+    *zoom:1;
+}
+/* 版心公共类 */
+.w1200 {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+
+/* 头部区域 */
+.xc-header {
+	padding: 30px 0 26px 0;
+}
+.xc-header > div {
+	float: left;
+}
+.xc-header .logo {
+	width: 204px;
+	height: 44px;
+	margin-right: 65px;
+	background: url(../images/logo.png) 0 center no-repeat;
+}
+.xc-header .nav {
+	margin-right: 95px;
+}
+.xc-header .nav li {
+	float: left;
+	padding:0 9px;
+	margin-right: 26px;
+	line-height: 42px;
+}
+.xc-header .nav li:hover {
+	border-bottom: 2px solid #00a4ff;	
+}
+.xc-header .search {
+	margin-right: 30px;
+}
+.search input {
+	width: 360px;
+	height: 38px;
+	border: 1px solid #00a4ff;
+	float: left;
+	text-indent: 20px;
+}
+.search button {
+	width: 50px;
+	height: 40px;
+	float: left;
+	background:#00a4ff url(../images/fa-search.png) center no-repeat;
+}
+.xc-header .user {
+	height: 44px;
+}
+.user .user-pic {
+	float: left;
+	margin-right: 10px;
+}
+.user .user-pic img {
+	margin-top: 5px;
+	border-radius: 50%;
+}
+.user .user-name {
+	float: left;
+	line-height: 44px;
+	max-width: 90px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+}
+/* banner区域 */
+.banner {
+	height: 420px;
+	background: url(../images/banner1.png) center no-repeat;
+}
+.banner-info {
+	position: relative;
+}
+.banner-info img {
+	display: block;
+}
+.aside-nav {
+	width: 190px;
+	height: 420px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,.3);
+}
+.aside-nav ul {
+	padding: 16px 0;
+}
+.aside-nav li {
+	height: 43px;
+	position: relative;
+	line-height: 43px;
+	text-indent: 20px;
+}
+.aside-nav li .arrow {
+	width: 6px;
+	height: 10px;
+	background:  url(../images/arrow.png) 0 0 no-repeat;
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	margin-top: -5px;
+}
+.aside-nav li a {
+	color: #fff;
+	display: block;
+}
+.aside-nav li a:hover {
+	color: #00b4ff;
+}
+.aside-nav li a:hover span {
+	background-image: url(../images/arrow-b.png);
+}
+.class-schedule {
+	width: 230px;
+	height: 300px;
+	position: absolute;
+	right: 0;
+	top: 50px;
+}
+.class-title {
+	height: 48px;
+	line-height: 48px;
+	color: #fff;
+	text-align: center;
+	font-weight: 700;
+	font-size: 18px;
+	background-color: #9bceea;
+}
+.class-info {
+	padding: 10px 18px;
+	background-color: #fff;
+}
+.class-item {
+	height: 50px;
+	padding-top: 10px;
+	border-bottom: 1px solid #ccc;
+}
+.class-btn {
+	height: 38px;
+	border: 1px solid #00a4ff;
+	display: block;
+	margin-top: 10px;
+	text-align: center;
+	line-height: 38px;
+	color: #00a4ff;
+}

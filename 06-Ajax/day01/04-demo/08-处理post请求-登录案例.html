@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  用户名:
+  <input type="text" id="userInp"> 密码:
+  <input type="password" id="pwdInp">
+  <button id="btn">登录</button>
+
+  <script>
+    // 明确需求:
+    // 点击登录, 发送请求, 提示用户, 是否登录成功
+    // (1) 如果登陆成功, 跳转到首页
+    // (2) 如果登陆失败, 提示用户, 用户名或者密码错误
+
+    // 找对象
+    var userInp = document.getElementById("userInp");  // 用户名
+    var pwdInp = document.getElementById("pwdInp");  // 密码框
+    var btn = document.getElementById("btn");  // 按钮
+
+    btn.onclick = function () {
+      // 获取 用户名 和 密码, 提交给后台
+      var username = userInp.value;  // 用户名
+      var password = pwdInp.value;  // 密码
+
+      // 发送 post 请求到后台
+      // 1. 创建 xhr 对象
+      var xhr = new XMLHttpRequest();
+
+      // 2. 基于http协议, 请求行, 请求头, 请求体
+      xhr.open("post", "08-login.php");
+      // post 请求需要在请求头中, 设置请求体的编码方式
+      xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+      // 发送请求体, post 请求参数在请求体中
+      xhr.send("username=" + username + "&password=" + password);
+
+      // 3. 处理响应, 监听 readyState
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {  // 响应完成
+          if (xhr.status === 200) {  // 响应成功
+            // console.log( xhr.responseText );
+            var result = xhr.responseText; // 获取响应结果
+
+            if (result === 'yes') {
+              // 登录成功, 跳转到首页
+              // location.href = "地址"; 跳转到地址
+              location.href = "08-index.html";
+            }
+            else {
+              // 登录失败, 提示用户, 用户名或者密码错误
+              alert("用户名或者密码错误");
+            }
+
+          }
+        }
+      }
+    }
+
+
+
+  </script>
+
+
+</body>
+
+</html>

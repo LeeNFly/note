@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    /* 统一重置 img 标签 */
+    img {
+      width: 100%;
+      /* 解决下边留白的问题 */
+      display: block;
+    }
+
+    .container {
+      /*height: 1000px;*/
+      width: 100%;
+      margin: 0 auto;
+      /*background-color: pink;*/
+
+      /* 最大宽度 */
+      max-width: 640px;
+      /* 最小宽度 */
+      min-width: 320px;
+
+      /*
+      通过设置最大宽度和最小宽度, width=100%, 可以实现伸缩布局, 自己拉伸匹配
+      max-width: 640px;
+      min-width: 320px;
+      width: 100%; // 此项可以不设置, 因为块级元素默认的宽度就是父级容器的宽度
+      */
+    }
+
+    .nav_item {
+      height: 90px;
+      margin-top: 10px;
+      background-color: red;
+      border-radius: 5px;
+      display: flex;
+    }
+    .nav_item .title {
+      flex: 1;
+    }
+    .nav_item .content {
+      flex: 2;
+      /* flex 可以嵌套 */
+      display: flex;
+      /* 指定换行 */
+      flex-wrap: wrap;
+    }
+    .nav_item .content a {
+      width: 50%;
+      text-align: center;
+      line-height: 45px;
+      color: #fff;
+      text-decoration: none;
+      border-left: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      box-sizing: border-box;
+    }
+    /* 最后两个 a 标签的下边框 不要
+       n取值, 0,1,2,3,4....
+    */
+    .nav_item .content a:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+
+
+
+
+    .nav_item:first-child {
+      background-color: #FF697A;
+    }
+    .nav_item:nth-child(2) {
+      background-color: #3D98FF;
+    }
+    .nav_item:nth-child(3) {
+      background-color: #00FF00;
+    }
+    .nav_item:nth-child(4) {
+      background-color: #FF9911;
+    }
+
+    /* 第 4 个导航不同, 需要定制 */
+    .nav_item:nth-child(4) a {
+      width: 33.3%;
+    }
+    .nav_item:nth-child(4) a:nth-child(1) {
+      border-left: none;
+    }
+    .nav_item:nth-child(4) a:nth-child(4) {
+      border: none;
+    }
+    
+    
+    .xc_product {
+      display: flex;
+    }
+    .xc_product a {
+      flex: 1;
+    }
+
+    .xc_footer ul {
+      display: flex;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+    }
+    .xc_footer ul li {
+      flex: 1;
+    }
+    .xc_footer ul li a {
+      color: #000;
+      text-decoration: none;
+    }
+    .xc_footer p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="xc_banner">
+    <a href="#"><img src="./images/banner.jpg" alt=""></a>
+  </div>
+  <div class="xc_nav">
+    <div class="nav_item">
+      <div class="title"></div>
+      <div class="content">
+        <a href="#">海外酒店</a>
+        <a href="#">团购</a>
+        <a href="#">特价酒店</a>
+        <a href="#">民宿客栈</a>
+      </div>
+    </div>
+
+    <div class="nav_item">
+      <div class="title"></div>
+      <div class="content">
+        <a href="#">海外酒店</a>
+        <a href="#">团购</a>
+        <a href="#">特价酒店</a>
+        <a href="#">民宿客栈</a>
+      </div>
+    </div>
+
+    <div class="nav_item">
+      <div class="title"></div>
+      <div class="content">
+        <a href="#">海外酒店</a>
+        <a href="#">团购</a>
+        <a href="#">特价酒店</a>
+        <a href="#">民宿客栈</a>
+      </div>
+    </div>
+
+    <div class="nav_item">
+      <div class="content">
+        <a href="#">海外酒店</a>
+        <a href="#">团购</a>
+        <a href="#">海外酒店</a>
+        <a href="#">团购</a>
+        <a href="#">特价酒店</a>
+        <a href="#">民宿客栈</a>
+      </div>
+    </div>
+  </div>
+  <div class="xc_product">
+    <a href="#"><img src="./images/extra_1.png" alt=""></a>
+    <a href="#"><img src="./images/extra_2.png" alt=""></a>
+  </div>
+  <div class="xc_footer">
+    <ul>
+      <li><a href="#">电话预订</a></li>
+      <li><a href="#">下载客户端</a></li>
+      <li><a href="#">我的</a></li>
+    </ul>
+
+    <p>网站地图 | ENGLISH | 电脑版</p>
+    <p>©2015 携程旅行</p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 数组去重
+    // 方法一,利用对象
+    // var arr = ['a','b','c','d','a','b','c','a','z']
+    // function way1(arr) {
+    //   var obj = {};
+    //   for (var i = 0; i < arr.length; i++) {
+    //      if (arr[i] in obj) {
+    //        obj[arr[i]] += 1;
+    //      } else {
+    //        obj[arr[i]] = 1;
+    //      }
+    //   }
+    //   console.log(obj);
+    //   return Object.keys(obj)
+    // }
+    // var res = way1(arr);
+    // console.log(res);
+
+    // 方法二,利用数组
+    // var arr = ['a','b','c','d','a','b','c','a','z'];
+    // function way2(arr) {
+    //   var newArr = [];
+    //   for (var i = 0; i < arr.length; i++) {
+    //      var flag = true; //默认数组中不存在arr中的元素
+    //      for (var j = 0; j < newArr.length; j++) {
+    //         if (arr[j] == arr[i]) {
+    //           flag = false;
+    //           break;
+    //         }
+    //      }
+    //      if (flag) {
+    //         newArr.push(arr[i]);
+    //      }
+    //   }
+    //   return newArr;
+    // }
+    
+    // var res = way2(arr);
+    // console.log(res);
+
+    // 方法三,利用indexOf判断元素是否在数组中
+    // var arr = ['a','b','c','d','a','b','c','a','z'];
+    // function way3(arr) {
+    //   var newArr = [];
+    //   for (var i = 0; i < arr.length; i++) {
+    //      if (newArr.indexOf(arr[i]) == -1) {
+    //        newArr.push(arr[i])
+    //      }
+    //   }
+    //   return newArr;
+    // }
+    // var res = way3(arr);
+    // console.log(res);
+    
+  </script>
+</body>
+</html>

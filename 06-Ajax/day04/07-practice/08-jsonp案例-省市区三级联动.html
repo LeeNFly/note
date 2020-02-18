@@ -1,0 +1,109 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    div {
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+
+
+<div>
+  <select id="s1">
+    <option>请选择</option>
+  </select>
+  <select id="s2">
+    <option>请选择</option>
+  </select>
+  <select id="s3">
+    <option>请选择</option>
+  </select>
+</div>
+
+<script src="template-web.js"></script>
+<script src="jquery-1.12.4.js"></script>
+
+<script type="text/html" id="tpl">
+  <option>请选择</option>
+  {{each result item index}}
+  <option value="{{item.id}}">{{item.name}}</option>
+  {{/each}}
+</script>
+  
+<script>
+
+  // 两个核心点
+  // 1. 监听 select 变化, 用change
+  // 2. 获取选中的内容 id, 通过 select 的 value 来获取
+  
+
+  // 思路:
+  // 1. 一进入页面, 请求省的数据
+  // 2. 用户选择了省, 请求市的数据
+  // 3. 用户选择了市, 请求区的数据
+  $(function () {
+    $.ajax({
+      type: 'get',
+      url: 'https://api.jisuapi.com/area/province',
+      dataType: 'jsonp',
+      data: {
+        appkey: '1a1009d880b3105e'
+      },
+      success: function (info) {
+        console.log(info);
+        var jsonStr = template('tpl', info);
+        console.log(jsonStr);
+        $('#s1').html(jsonStr)
+      }
+    });
+
+    $('#s1').change(function () {
+      $('#s2').html('<option>请选择</option>');
+      $('#s3').html('<option>请选择</option>');
+      $.ajax({
+      type: 'get',
+      url: 'https://api.jisuapi.com/area/city',
+      dataType: 'jsonp',
+      data: {
+        parentid: $('#s1').val(),
+        appkey: '1a1009d880b3105e'
+      },
+      success: function (info) {
+        console.log(info);
+        var jsonStr = template('tpl', info);
+        console.log(jsonStr);
+        $('#s2').html(jsonStr)
+      }
+    })
+    })
+
+    $('#s2').change(function () {
+      $.ajax({
+      type: 'get',
+      url: 'https://api.jisuapi.com/area/city',
+      dataType: 'jsonp',
+      data: {
+        parentid: $('#s2').val(),
+        appkey: '1a1009d880b3105e'
+      },
+      success: function (info) {
+        console.log(info);
+        var jsonStr = template('tpl', info);
+        console.log(jsonStr);
+        $('#s3').html(jsonStr)
+      }
+    })
+    })
+  })
+
+  
+</script>
+
+
+</body>
+</html>

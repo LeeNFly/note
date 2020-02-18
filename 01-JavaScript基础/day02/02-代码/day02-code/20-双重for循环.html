@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+      // 双重for循环,外层用i,里层就用j,防止干扰
+
+
+      //1  网页打印5*5方形★阵  document.write();
+      //for循环 
+
+    //   //外层for循环 : 行数
+     for ( var j = 1; j <= 5 ; j++)  {
+       
+          // 打印出来了5个
+          // 里层for循环 决定的是列数 决定的是每行的个数
+          for (var i = 1 ; i <= 5; i++) {
+
+            document.write('★');
+          }
+          document.write('<br>');
+     }
+
+     document.write('---------------------');
+     document.write('<br>');
+
+
+
+     // 外层决定的是行数  j 
+     for (var j = 1; j <= 5; j++) {
+
+        // 里层 for 决定的列数 / 每行个数
+          for (var i = 1 ; i <= j ; i++) {
+
+              document.write('★');
+          }
+          document.write('<br>')
+     }
+
+
+     document.write('---------------------');
+     document.write('<br>');
+     
+
+     document.write('<table width="800">');
+     for (var i = 1; i <= 9 ; i++) {
+
+       document.write('<tr>');
+
+       for (var j = 1; j <= i ; j++) {
+
+          // document.write(i*j = i*j)
+          document.write('<td style="border:1px solid #ccc">');
+          document.write ( j + '*' + i  + '=' + i*j +' ');
+          document.write('</td>');
+
+       }
+       document.write('</tr>');
+
+     }
+     document.write('</table>');
+
+
+     var  num1 = 12;
+     var  num2 = 21;
+     var  num3 = 10;
+
+      // 3 > 2 ? console.log(12) ;
+      
+
+    //  (num1 > num2 ? num1 : num2) > num3 ? (num1 > num2 ? num1 : num2) : num3
+
+    
+     num1.toString
+     // 转化为字符串  
+
+
+
+  
+     
+
+
+
+
+    </script>
+</body>
+</html>

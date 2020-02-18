@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <form id="form">
+    用户名: <input type="text" name="username"> <br> <br>   
+    密码: <input type="text" name="password"> <br> <br>   
+    确认密码: <input type="text" name="repass"> <br> <br>   
+    <input type="button" value="提交" id="btn">
+  </form>
+
+  <!-- xhr2.0 也是使用XMLHttpRequest对象进行发送请求的, ★ 所以xhr2.0发送的也是ajax请求, formData发送的也是ajax请求
+      xhr2.0 有兼容性问题, 不兼容低版本浏览器, 所以formData也不兼容低版本浏览器
+  -->
+  <script>
+    // formData 可以用于收集管理表单form中的数据(包括from中的文件数据也可以管理), 同时也可以用于异步文件上传
+    // 1. formData 仅支持 post 请求
+    // 2. formData 不需要设置请求头, 浏览器会自动检测帮我们设置
+    // 3. 通过 new Formdata() 来创建formData实例
+    //    参数: form 表单 ★ dom元素
+    //    (1) 没有传参, 表示没有收集 form 表单数据
+    //    (2) 如果传了 form元素, 将来就会收集form表单中 所有的设置了 name 属性的表单元素的value值(包括input:file文件表单, 即formData也可以收集from表单内的文件数据), key为表单标签的name属性值, 值为表单标签的value属性值, 进行提交
+    // 4. 这个 formData 可以作为 send 的参数, 
+    // 5. 通过以 append('key', 'value') 可以追加提交的数据
+    // ps: 使用formData管理收集表单数据, 因为不是通过表单进行提交的, 即不是通过input:submit进行提交
+    //     所以不需要指定form的action, methods, 如果涉及文件的, 也不需要指定form的enctype, 因为不是通过表单(input:submit)方式来提交文件请求.
+    var btn = document.getElementById("btn");
+    btn.onclick = function() {
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("post", "02-formData.php");
+      
+      // 获取 form 元素
+      var form = document.getElementById("form");
+      var formData = new FormData( form );
+      formData.append("id", "111");
+      
+      xhr.send( formData );
+
+      xhr.onreadystatechange = function() {
+        if ( xhr.readyState === 4 ) {
+          if ( xhr.status === 200 ) {
+            console.log( xhr.responseText );
+          }
+        }
+      }
+
+
+    }
+    
+
+  
+  </script>
+    <!-- 
+      ps: formData 可以作为 send 的参数, 所以formData也可以作为$.ajax里的data参数的值, 即jQuery的ajax和formData配合可以进行配合
+          若formData作为$.ajax里的data参数的值, 则需要将$.ajax的参数设置以下1>, 2>, 3>
+           1> contentType: false, 
+            由之前封装知道, jq ajax发送post请求会自动为我们设置请求头, xhr.setRequestHeader( "content-type", "application/x-www-form-urlencoded");
+            formData不需要设置请求头, 浏览器会自动检测设置, 
+            设置contentType: false, 不进行设置请求头
+           2> processData: false,
+            不进行编码 (true 会将对象编码成字符串)
+            默认为 true, 由之前封装知道, 就会将传入的对象转成字符串格式key=value&key=value..进行提交, 而formData是二进制的, 不需要进行编码
+           3> type必须是post, formData只支持post请求
+      示例： 
+            var formData = new FormData( $('#editForm')[0] );
+              // 结合着jquery ajax 发送 formData
+              $.ajax({
+                type: "post",
+                url: "./posts/postsUpdate.php", 
+                data: formData,
+                contentType: false, // 不进行设置请求头 (formData不需要设置请求头, 浏览器会自动检测设置)
+                processData: false, // 不进行编码 (true 会将对象编码成字符串)
+                success: function( info ) {
+                  
+                }
+              })
+     -->
+</body>
+</html>

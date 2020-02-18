@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin:100px auto;
+			position: relative;
+		}
+		.box img {
+			position: absolute;
+			top: 0;
+			left: 200px;
+			display: none;
+		}
+		/* 鼠标经过box 让box里面的图片显示出来 (必须是后代关系才可以使用这种写法)*/
+		.box:hover img {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/erweima.png" alt="">
+	</div>
+</body>
+</html>

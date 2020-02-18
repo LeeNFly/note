@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  
+  <script src="./jquery-1.12.2.js"></script>
+  <script src="./jquery.cookie.js"></script>
+  <script>
+    
+    // cookie 可以多个页面共享
+    // ps: 同一个网站中的多个页面可以共享cookie, 不同浏览器的cookie不能共享,
+    // 同一个网站(同源网站)的多个页面多个窗口, cookie共享, 获取和操作的cookie都是同一块内存里的cookie数据, 不同网站, cookie不共享, 所以获取和操作的都是不同内存的cookie
+    // 通过 插件, jquery.cookie.js 可以辅助我们操作 cookie, 该插件依赖于jq, 所以要先引入jq
+    // 前端操作cookie
+
+    // 1. 设置 cookie:  $.cookie('key', value), 默认是会话级别的, 关闭浏览器, 就会被销毁 (会话级别: 关闭整个浏览器才会被销毁, 关闭标签页不会被销毁)
+    // ps: 设置cookie时, 如果key值已存在, 就会进行覆盖, 否则不会
+    // $.cookie( "name", "dapp" );
+    // $.cookie("age", 18);
+
+    // 2. 获取:  $.cookie('key')
+    // console.log( $.cookie( "name" ) ); 
+
+    // 3. 删除: $.removeCookie( 'key' )
+    // $.removeCookie( "age" );
+
+    // 4. 过期时间, 如果不设置过期时间, 默认 cookie 是会话级别的, 关闭浏览器, 就会被销毁 (会话级别: 关闭整个浏览器才会被销毁, 关闭标签页不会被销毁)
+    //    ps: 如果过期时间设为负数, 也可以删除cookie
+    //    $.cookie( key, value, { expires: 过期天数 } );
+    // $.cookie( "name", "pengpeng" );
+    // $.cookie( "name", "pengpeng", { expires: 7 });
+
+    // $.cookie('name', 'pp');
+  
+  
+  </script>
+
+
+  
+</body>
+</html>

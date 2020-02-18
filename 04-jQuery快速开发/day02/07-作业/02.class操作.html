@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: #f99;
+            margin: 10px;
+        }
+        .basic{
+            background-color: lime;
+            font-size: 20px;
+        }
+        .big{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <button>添加basic类</button>
+    <button>移除类</button>
+    <button>添加big类</button>
+    <button>判断是否有basic类</button>
+    <button>切换basic类</button>
+
+    <div class="one two three basic">这是div内的文字</div>
+    <div class="one two three">这是div内的文字</div>
+    <div class="one two three">这是div内的文字</div>
+    <div class="one two three">这是div内的文字</div>
+    <div class="one two three">这是div内的文字</div>
+    <div class="one two three">这是div内的文字</div>
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            $('button').eq(0).click(function () {
+                $('div').addClass('basic');
+            })
+
+            $('button').eq(1).click(function () {
+                $('div').removeClass('basic');
+            })
+
+            $('button').eq(2).click(function () {
+                $('div').addClass('big');
+            })
+
+            $('button').eq(3).click(function () {
+                console.log($('div').hasClass('basic'))
+            })
+
+            $('button').eq(4).click(function () {
+                // if ($('div').hasClass('basic')) {
+                //     $('div').removeClass('basic');
+                // } else {
+                //     $('div').addClass('basic');
+                // }
+                $('div').toggleClass('basic');
+            })
+        })
+    </script>
+</body>
+</html>

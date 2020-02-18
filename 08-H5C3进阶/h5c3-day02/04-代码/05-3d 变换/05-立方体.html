@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    body {
+      /* perspective 只是给子元素, 添加了近大远小的视觉效果 */
+      perspective: 1000px;
+    }
+    ul {
+      width: 200px;
+      height: 200px;
+      margin: 100px auto;
+      position: relative;
+      /* 真 3d */
+      transform-style: preserve-3d;
+      transition: all 10s;
+    }
+    ul:hover {
+      /* 让 ul 转 */
+      transform: rotateX(360deg) rotateY(360deg);
+    }
+    li {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    
+    /* 通过3D旋转, ★ 保证每一面的正面都朝盒子的外部, 保证文字能显示在立方体的每个面上
+       先通过3d旋转将正面旋转至朝外, 然后再平移.
+       旋转会改变坐标轴的方向, 因为坐标轴的也会跟着转
+
+       先将6个面固定定位重叠在一起, 然后再开始3d布局, 构建立方体
+    */
+
+    /* 正面 */
+    li:nth-child(1) {
+      background-color: yellow;
+      transform: translateZ(100px);
+    }
+    /* 上面 */
+    li:nth-child(2) {
+      background-color: blue;
+      transform: rotateX(90deg) translateZ(100px);
+    }
+    /* 后面 */
+    li:nth-child(3) {
+      background-color: brown;
+      transform: rotateX(180deg) translateZ(100px);
+    }
+    /* 下面 */
+    li:nth-child(4) {
+      background-color: green;
+      transform: rotateX(270deg) translateZ(100px);
+    }
+    /* 左面 */
+    li:nth-child(5) {
+      background-color: red;
+      transform: rotateY(-90deg) translateZ(100px);
+    }
+    /* 右边 */
+    li:nth-child(6) {
+      background-color: pink;
+      transform: rotateY(90deg) translateZ(100px);
+    }
+  </style>
+</head>
+<body>
+
+
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+
+</body>
+</html>

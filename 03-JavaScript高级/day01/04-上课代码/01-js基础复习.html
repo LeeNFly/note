@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  1. 变量: 存储数据
+//  申明: var 变量名;
+//  变量名的命名规范: 合法的字符,包含数字,字母,下划线,$. 不能以数字开头,不能用关键字和保留字
+//  赋值: 变量名 = 值;
+  
+//    声明和赋值合并:  var 变量名 = 值;
+//    声明多个变量并且赋值合并:  var 变量名 = 值, 变量名 = 值, ..;
+//                             var 变量名1 = 变量名2 = 变量名3 = .. = 值;
+
+//      var 变量名 = 值, 变量名 = 值, ..;
+//      var 变量名 = 值;
+//      var 变量名 = 值;
+//      var 变量名 = 值;
+//
+//      var 变量名1 = 变量名2 = 变量名3 = .. = 值;
+//      var 变量名1 = 值;
+//      变量名2 = 值;
+  
+//      如何存储数据: 存储基本数据类型存储的是值, 存储引用数据类型存储的是地址
+  
+//  2. 数据类型:
+//      数字  整数,浮点数
+//      字符串  '' ""
+//      布尔   false true
+//      null
+//      undefined
+//      对象  {},  数组,  函数, 元素, 伪数组
+
+//  3. 操作符:
+//    && || ! +
+      
+//      1 && 2  // 2
+//      1 && 0  // 0
+//      0 && 2  // 0  第一个值已经是false了,后面的就不需要再看了,这个就是短路
+  
+//        1 || 2  // 1
+//        1 || 0  // 1
+//        0 || 2  // 2
+//        0 || ''  // ''
+  
+//        !1 // false
+//        !!1 // true
+  
+//          + 什么时候是加的逻辑,什么时候是拼接字符串:
+//         1. 如果 + 号只有一个操作数,那么就是把这个操作数转换成数字类型
+//         2. 如果 + 号 有两个操作数,并且其中一个是字符串,那么就一定是拼接字符串
+  
+  
+//  4.数据类型的转换
+//    其他类型转字符串:
+//      String(其他类型);
+//      其他类型.toString();
+//      + 拼接字符串
+//    其他类型转数字:
+//        Number()
+//            1. 可以转除字符串外的其他数据类型
+//            2. 如果字符串中有非数字类型,那么转的是NaN
+//        parseInt()
+//
+//        parseFloat()
+
+//          parse系列的相同点:
+//           1. 只能把字符串类型转换成数字类型
+//           2. 如果字符串中有非数字字符,根据非数字字符的位置去转换
+//              '123a456'  -- > 123
+//              'a123'  -- > NaN
+//            parse系列的不同点:
+//              parseInt() 转换成整数
+//              parseFloat() 可以转换成浮点数
+//        +
+        
+//        其他类型转布尔:
+//          Boolean(其他类型)
+//          !!
+  
+//          字符换转布尔: 空字符串是false, 其他都是true
+//          数字转布尔: 0是false, NaN是false, 其他都是true
+//          null转布尔 : false
+//          undefined转布尔: false
+//          对象转布尔: true
+  
+//
+//    5. 流程控制
+//      顺序结构
+////    分支结构 : switch里面用的是全等
+//      循环结构 : for while do..while for..in
+//        var i = 0;
+//        while(i < 100){
+//          console.log('haha');
+//          i++;
+//        }
+//
+//
+//        for(;true ; ){
+//          if(){
+//            break;
+//          }
+//        }
+  
+//  6. 数组: 存储数据(有序的存储方式)
+//      创建数组:
+//        var arr = new Array();
+//        var arr = [];
+  
+//      获取数组里面的元素:
+//          数组[下标]
+//      添加元素:
+//          数组[下标] = 值;
+//          push()
+  
+//        数组常用的方法: (伪数组不能使用以下方法)
+//            数组.concat(另外一个数组) 把两个数组合并成一个
+////            join() 把数组转换成字符串
+////            slice(开始的下标, 结束的小标) 包含头,不包含尾 返回一个新的数组 原来的数组没有发生变化
+////            splice(开始的下标, 截取的长度) 返回一个新的数组,原来的数组发生了变化
+////              push() 从后面加
+////              pop()从后面删除
+////              shift() 从前面删
+////              unshift() 从前面加  数组都发生变化了
+////              forEach(function(item, index, arr){// 遍历数组中每个元素, 每个元素执行一次函数体}) 专门用来遍历数组  , 参数按照顺序, 
+////                第一个参数: 数组中的每一项, 当前遍历数组中的元素, 当前遍历的数组中的元素值是什么, item就是什么, 相当于把数组中的每一项依次赋值给item进行遍历
+////                第二个参数: 每一项对应的下标 (0开始), 是数字类型
+////                第三个参数: 数组本身
+//                  参数按照顺序一一对应接收, 需要占位符, 对于后面不需要的参数, 可以选择不接收. 不如不要arr, 则形参写 item, index 即可
+//                  如果数组没有元素, 即是一个空数组, 则forEach不会进行遍历, 也不会报错.
+//                  如果元素是引用类型的, 可以对引用类型进行获取和赋值操作, 操作和修改的是引用类型指向的那块地址里的数据
+//                  ★ 若多个引用变量指向同一个引用地址,只要某一个引用变量对引用地址里的任意类型数据做出改变,因为指向的是同一个地址,同一份数据,则所有指向同一个地址的引用变量的属性也会发生改变 (再访问数据时对应的值也会发生改变,因为所指地址中的数据已经发生改变了).
+
+//                   ps: 只要变量存储的是引用地址 就可以访问和使用地址里的数据 与地址里的数据在哪里存储 在哪个作用域存储 无关
+
+//                  ps: 用querySelectorAll获取元素的伪数组, 可以使用forEach方法, 因为这个api是h5新增的, 内部帮我们实现了forEach方法
+////               filter(function(item, index, arr){}) 过滤器 返回过滤后的数组  不改变原数组
+////               every(function(item, index, arr){}) 如果数组中每一项都符合要求就返回true,否则返回false
+////               some(function(item, index, arr){})  如果数组中有一项符合要求就返回true,都不符合才返回false
+//              var arr = [11,10,9];
+//              var result = arr.every(function(item){
+//                  return item >= 12;
+//              });
+
+            var result = arr.some(function(item){
+              return item >= 12;
+            });
+              
+              console.log(result);
+
+                
+  
+//          var arr = ['a','b','c','d', 'a', 'b','d','a','e'];
+            
+//            var flag = true;
+//            for(var i = 0; i < arr.length; i++){
+//              if(arr[i] < 12){
+//                flag = false;
+//              }
+//            }
+//            console.log(flag);
+//
+//          var result = arr.filter(function(item){
+//            return item === 'a';  // ['a','a','a']
+//          });
+//
+//          console.log(result);
+
+//          var newArr = [];
+//          for(var i = 0; i < arr.length; i++) {
+//            if(arr[i] === 'a'){
+//              newArr.push(arr[i])
+//            }
+//          }
+//        console.log(newArr);
+
+//          arr.forEach(function(item, index){
+//           console.log(index);
+//          })
+//          console.log(arr.join());
+//          console.log(arr.join('-'));
+
+//        console.log(arr.slice(0, 2)); //a,b
+//        console.log(arr.slice(1, 2)); //b
+//        console.log(arr);
+
+//          console.log(arr.splice(0, 3));
+//          console.log(arr);;
+//            arr.unshift('e');
+//            console.log(arr);
+
+</script>
+</body>
+</html>

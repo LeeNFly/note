@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    a {
+      font-size: 50px;
+    }
+    /* a链接 未被访问的样式 */
+    a:link {
+      color: orange;
+    }
+    /* a链接 访问过的样式 */
+    a:visited {
+      color: blue;
+    }
+    /* 鼠标移上去的样式, 鼠标移入盒子, hover中的样式就会追加在盒子上 或 盒子的子元素上
+       鼠标移出盒子, 则hover添加的样式就会从盒子上 或 盒子的子元素上 移除 */
+    /*
+      div:hover { ... }, 则鼠标移入div时, 给★ div盒子追加hover中的样式, 鼠标移出div, 则将hover的样式从div盒子中移除
+      div:hover span { ... }, 则鼠标移入div时, 给 ★ div的后代中的所有span追加hover中的样式, 鼠标移出div, 则将hover的样式从div后代的所有span中移出
+      div:hover::before { ... }, 则鼠标移入div时, 给 ★ div内部的伪元素虚拟标签before追加hover中的样式, 鼠标移出div, 则将hover的样式从div盒子中的伪元素虚拟标签before上移出
+    */
+    a:hover {
+      color: red;
+    }
+    /* 被点击时激活的样式 */
+    a:active {
+      color: purple;
+    }
+
+    /* 将 a 标签各种状态下面的下滑线全部去掉, 权重高一点*/
+    a:hover {
+      text-decoration: underline;
+    }
+    /* 虽然通过a {text-decoration: none } 也可以去掉a链接及其所有状态的下划线,
+       但是 如果人家是通过 a:hover 添加的下滑线, 权重会比较高, 需要我们手动重置, 就需要通过以下方式重置 */
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<a href="#">哈哈</a>
+
+</body>
+</html>

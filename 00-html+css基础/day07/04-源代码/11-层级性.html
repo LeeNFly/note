@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box ,
+		.box1 {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: relative;
+		}
+		/* z-index 控制的是定位元素(不包括静态定位)的层级性  值是数值 越大 层级越高 
+		   z-index 默认是auto,可以看作0;
+		*/
+		.box {
+			top: 20px;
+			z-index: 999;
+		}
+		.box1 {
+			background-color: lime;
+			/* z-index: 4; */
+		}
+	</style>
+</head>
+<body>
+	<div class="box">1</div>
+	<div class="box1">2</div>
+</body>
+</html>

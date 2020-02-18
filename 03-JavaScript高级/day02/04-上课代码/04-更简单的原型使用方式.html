@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+
+        }
+
+        // fn.prototype.one = function(){
+        //     console.log(1);
+        // }
+
+        // fn.prototype.two = function(){
+        //     console.log(2);
+        // }
+
+        // fn.prototype.three = function(){
+        //     console.log(3);
+        // }
+
+        // 以上代码每次都要写fn.prototype,有点麻烦,想要用更简单的方式
+        // 函数的prototype指向谁,那么谁就是函数的原型对象
+        var f1 = new fn();
+        fn.prototype = {
+            // 如果使用简单方式的话,会丢失constructor属性,为了保持关系完整,建议自己手动加上constructor
+            // 字面量创建对象的原型默认都是Object原型,和原来原型的原型一致,都是Object原型,__proto__属性创建对象的时候浏览器也会帮我们创建
+            constructor: fn,
+            one: function () {
+                console.log(1);
+            },
+            two: function () {
+                console.log(2);
+            },
+            three: function () {
+                console.log(3);
+            }
+        }
+
+        var f = new fn();
+        //    f.one(); //1
+        //    f.two(); //2
+        //    f.three(); //3
+        //    console.log(f.__proto__); // {constructor: ƒ, one: ƒ, two: ƒ, three: ƒ, __proto__: Object} => 新建的对象也是Object实例,也可以访问到Object原型
+        //    console.log(f.__proto__.__proto__.__proto__); // null
+
+        //    console.log(f1.__proto__); // {constructor: ƒ, __proto__: Object}
+        //    f1.one(); //报错
+        //    console.log(f1.__proto__.__proto__.constructor); // ƒ Object() { [native code] }
+
+
+        //    console.log(fn.__proto__);  // ƒ () { [native code] } 函数原型
+        //    console.log(fn.__proto__.constructor);  // ƒ Function() { [native code] } 函数构造函数
+        //    console.log(fn.__proto__.__proto__);  // Object原型 {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+        //    console.log(fn.__proto__.__proto__.constructor); // Object对象 ƒ Object() { [native code] }
+        //    console.log(fn.__proto__.__proto__.__proto__);    // null 
+
+        // 函数在声明时,浏览器自动创建一个对象 并将该对象的地址赋予函数的prototype属性(函数其实也是对象),这个是每个函数的默认原型
+        // 浏览器为每个函数分配的默认原型对象是 {constructor: ƒ, __proto__: Object} constructor指向函数自己  __proto__指向Object原型,对应的构造函数是Object,Object原型的原型是null
+        // 函数的原型对象实际上是以函数的prototype属性为准,函数的prototype属性指向谁,谁就是函数的原型对象。即函数的原型是会变的 可以是任意对象
+        // 实例对应的原型 以new时构造函数的prototype属性所指的对象 就是该时刻创建实例的原型 以实例的__proto__属性可以访问到原型      
+        // 实例在被new的那一刻 对应的原型就定下来了 不会再变了  即使后面构造函数的原型(prototype属性)发生改变, 已经创建的实例的原型也不会发生改变     以实例的__proto__属性可以访问到原型 
+
+
+        // 总结：函数的原型是可变的 实例的原型以new时函数的原型为准 实例一旦创建 原型就固定了 即使后面构造函数的原型变了, 已经创建的实例的原型也不会改变 
+
+        // 注意： 
+        // 实例创建后, 可以往实例对应的原型身上加属性或方法, 加上后, 实例可以访问到新增的方法. 因为实例的原型是一个对象, 往对象的引用地址里加方法, 实例查找属性的时候, 可以查找到, 所以可以访问, 这个符合原型链不变问题, 不会冲突
+        // function Person(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // var zs = new Person('zs', 14);
+
+        // // zs.sayHi() // 会报错, 此时原型上没有sayHi方法
+        // Person.prototype.sayHi = function () {
+        //     console.log('say,hi');
+        // }
+
+        // zs.sayHi() // say,hi  在原型上添加sayHi方法后, 实例可以访问
+        // f1在
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function fn() {
+      console.log(this);
+    }
+    // fn()
+    // var obj = {name: 'haha'}
+    // obj.f = fn;
+    // obj.f()
+
+    var newFn = fn.bind([1,2,3])
+    // obj.f = newFn;
+    // obj.f()
+
+    var f1 = new newFn()
+    console.log(f1);
+
+    function Person() {
+      
+    }
+    var f2 = new Person();
+    console.log(f2);
+    
+    
+  </script>
+</body>
+
+</html>

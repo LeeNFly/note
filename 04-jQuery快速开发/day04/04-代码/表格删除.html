@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .wrap {
+        width: 410px;
+        margin: 100px auto 0;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #c0c0c0;
+    }
+
+    th,
+    td {
+        border: 1px solid #d0d0d0;
+        color: #404060;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #09c;
+        font: bold 16px "Î¢ÈíÑÅºÚ";
+        color: #fff;
+    }
+
+    td {
+        font: 14px "Î¢ÈíÑÅºÚ";
+    }
+
+    td a.get {
+        text-decoration: none;
+    }
+
+    a.del:hover {
+        text-decoration: underline;
+    }
+
+    tbody tr {
+        background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+        cursor: pointer;
+        background-color: #fafafa;
+    }
+
+    .btnAdd {
+        width: 110px;
+        height: 30px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .form-item {
+        height: 100%;
+        position: relative;
+        padding-left: 100px;
+        padding-right: 20px;
+        margin-bottom: 34px;
+        line-height: 36px;
+    }
+
+    .form-item>.lb {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 100px;
+        text-align: right;
+    }
+
+    .form-item>.txt {
+        width: 300px;
+        height: 32px;
+    }
+
+    .mask {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0.15;
+        display: none;
+    }
+
+    .form-add {
+        position: fixed;
+        top: 30%;
+        left: 50%;
+        margin-left: -197px;
+        padding-bottom: 20px;
+        background: #fff;
+        display: none;
+    }
+
+    .form-add-title {
+        background-color: #f7f7f7;
+        border-width: 1px 1px 0 1px;
+        border-bottom: 0;
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .form-add-title span {
+        width: auto;
+        height: 18px;
+        font-size: 16px;
+        font-family: ËÎÌå;
+        font-weight: bold;
+        color: rgb(102, 102, 102);
+        text-indent: 12px;
+        padding: 8px 0px 10px;
+        margin-right: 10px;
+        display: block;
+        overflow: hidden;
+        text-align: left;
+    }
+
+    .form-add-title div {
+        width: 16px;
+        height: 20px;
+        position: absolute;
+        right: 10px;
+        top: 6px;
+        font-size: 30px;
+        line-height: 16px;
+        cursor: pointer;
+    }
+
+    .form-submit {
+        text-align: center;
+    }
+
+    .form-submit input {
+        width: 170px;
+        height: 32px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <input type="button" value="清空内容" id="btn">
+        <input type="button" value="添加" id="btnAdd">
+        <table>
+            <thead>
+                <tr>
+                    <th>课程名称</th>
+                    <th>所属学院</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <!-- <td><input type="checkbox"/></td> -->
+                    <td>JavaScript</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">DELETE</a></td>
+                </tr>
+                <tr>
+                    <!-- <td><input type="checkbox"/></td> -->
+                    <td>css</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">DELETE</a></td>
+                </tr>
+                <tr>
+                    <!-- <td><input type="checkbox"/></td> -->
+                    <td>html</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">DELETE</a></td>
+                </tr>
+                <tr>
+                    <td>jQuery</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><span><a href="javascrip:;" class="get">DELETE</a></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // 分析：
+            // 1. 清空内容
+            $("#btn").click(function(){
+                $("#j_tb").empty();
+                // $("#j_tb").remove();
+            })
+
+            // 2. 添加节点（tr）
+            $("#btnAdd").click(function(){
+                // 创建元素
+                var str = '<tr> <td>jQuery is so easy</td> <td>传智播客-前端与移动开发学院111</td> <td><a href="javascrip:;" class="get">DELETE</a></td> </tr>';
+
+                $(str).appendTo( "#j_tb" );
+            })
+
+
+            // 3. 删除整行功能
+            //      注册的是委托事件
+            $("#j_tb").on("click", "a.get", function(){
+                // this
+                // $(this).parent().parent().remove();
+
+
+                //小优化：
+                // jq对象.parents(): 获取当前jq对象中所有元素所有的父级链元素(亲爸爸, 亲爷爷, ... , 只找亲字备的, 不找兄弟姐妹) , 重复的只返回一个 可以加参数 选择器 进行过滤,  返回一个jq对象
+                
+                // 1. 如果元素在dom树上, 会找到元素在dom树上的所有爸爸元素
+                // 2. 如果元素不在dom树上, 则只会找到元素不在dom树上的爸爸  比如自己手动创建但是没有加到dom树上的元素, 只会找到创建结构里的所有爸爸元素, 不会去dom树上找, 因为元素没有在dom树上
+                // 以上2条同样适用于其他筛选器 
+                // console.log($(this).parents());
+                // console.log($(this).parents("tr"));
+                $(this).parents("tr").remove();
+            })
+        })
+    </script>
+</body>
+
+</html>

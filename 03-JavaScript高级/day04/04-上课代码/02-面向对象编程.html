@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  面向过程的思想: 一步一步的具体去做这个事情
+//  面向对象的思想: 需要哪个对象,调用这个对象的某个方法,帮助我们实现具体的需求'
+//    面向对象是对面向过程的封装 (我需要什么对象,这个对象身上有什么方法)  面向对象不会使代码变的更简单 但是别人使用起来更方便
+//    面向对象编程的好处: 1. 维护起来更方便 (代码更规范,一个模块一个模块) 2.团队协作更加的便捷
+  
+//  面向过程:
+//  function max(x,y){
+//    if(x > y){
+//      return x;
+//    }else{
+//      return y;
+//    }
+//  }
+  
+//    function max(){
+////      arguments 是函数中的一个对象,是函数中的一个关键字,而 arguments是一个 伪数组 ,里面存储了所有传进来的实参
+////      console.log(arguments);
+//      var max = 0; //用于和数组每一项做比较,如果数组中的值更大,则把数组中的值赋值给max
+//      for(var i = 0; i < arguments.length; i++) {
+//        if(arguments[i]>max){
+//          max = arguments[i];
+//        }
+//      }
+//      return max;
+//    }
+//
+//console.log(max(1, 2, 3, 4, 4, 5, 65, 6));;
+  
+//  面向对象: 找对象,调用对象的方法
+console.log(Math.max(3, 6, 9, 12, 89));
+
+</script>
+</body>
+</html>

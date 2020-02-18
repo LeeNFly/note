@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <script>
+// 1.两个for循环   2. -1 -1 -j
+    var arr = [5, 4, 3, 2, 1];
+    console.log(arr);
+    // 通过排序 =>[1,2,3,4,5];
+    // 遍数 (每遍确定一个最大值) : 5遍 : 5 4 3 2 
+    // 注意1:  5个值,,确立了4个,,最后一个必须给留下了
+    // 遍数 : 5-1 = arr.length-1 次
+    var ci = 0;
+    for (var j = 0; j < arr.length-1; j++) {
+      // 每遍比较次数 : 两两比较 找到最大值
+      // 5个数 : 比较4次就可以了
+      // 每遍的目的都是把最大值放到最后
+      // 以下循环就是把最大值放到最后
+      for (var i = 0; i < arr.length-1; i++) {
+        ci++;
+        if (arr[i] > arr[i + 1]) {
+
+          var temp = arr[i];
+          arr[i] = arr[i + 1];
+          arr[i + 1] = temp;
+        }
+      }
+    }
+    console.log(ci);
+    console.log(arr);
+
+    
+      
+      // 通过排序 =>[1,2,3,4,5];
+      // 遍数 (每遍确定一个最大值): 5遍 : 5 4 3 2 
+      // 注意1:  5个值,,确立了4个,,最后一个必须给留下了
+      // 遍数 : 5-1 = arr.length-1 次
+      for (var j = 0; j < arr.length-1; j++) {
+      //每遍的比较次数 : 两两比较 找到最大值
+      //每遍的目的都是把最大值放到最后
+      // -j : 
+      // j=0; 确定了5 
+      // j=1;  已经确定了5 可以少1次
+      // j=2  已经确定了4 和 5 , 可以少2次
+      // j=3  已经确定了 3 4 5 可以少 3次了
+      // 以下循环就是把最大值放到最后      
+      for (var i = 0; i < arr.length-1-j; i++) {
+        ci++;
+        if (arr[i] > arr[i + 1]) {
+
+          var temp = arr[i];
+          arr[i] = arr[i + 1];
+          arr[i + 1] = temp;
+        }
+      }
+    }
+    console.log(ci);
+    console.log(arr);
+
+
+    //总结：
+    //1.遍数: 每遍确定一个最大值,即需要确定几个最大值,遍数就为几。
+    //2.每遍的比较次数: 目的是为了将最大值排到最后
+  </script>
+</body>
+
+</html>

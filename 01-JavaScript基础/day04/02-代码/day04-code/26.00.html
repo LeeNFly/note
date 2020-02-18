@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+  // 1. var 变量提升 
+  //2. 函数提升
+  //4. 函数名与变量名同名,,函数优先 覆盖
+
+    
+     function a() {
+        console.log('哈');
+      }
+
+      a = 4;
+      console.log(a);//4
+      a = 6;
+      console.log(a); //6
+      
+      // function a() {
+      //   console.log('哈');
+      // }
+
+      a(); 
+
+      a = 10;
+      console.log(a);
+
+
+
+      // var a = 4;
+      // console.log(a);
+      // a = 6;
+      // console.log(a);
+      
+      // function a() {
+      //   console.log('哈');
+      // }
+
+      // a();
+
+      // a = 10;
+      // console.log(a);
+
+    </script>
+</body>
+</html>

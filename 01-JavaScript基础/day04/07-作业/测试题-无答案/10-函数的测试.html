@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  //封装一个函数，传入一个字符串数组，能够返回一个字符串，使用-将每个元素拼接
+  //比如  传入["a", "b", "c", "d"] 能够返回a-b-c-d
+  //比如  传入["aa", "bb", "cc", "dd"] 能够返回aa-bb-cc-dd
+  
+  // 方法1:
+  // function addStr(arr) {
+  //   return arr.join('-');
+  // }
+
+  // 方法2:
+  function addStr(arr) {
+    var str = arr[0];
+    for (var i = 1; i < arr.length; i++) {
+       str += '-' + arr[i]
+    }
+    return str;
+  }
+  var res = addStr(["a", "b", "c", "d"]);
+  console.log(res);
+  var res1 = addStr(["aa", "bb", "cc", "dd"])
+  console.log(res1);
+  
+</script>
+
+</body>
+</html>

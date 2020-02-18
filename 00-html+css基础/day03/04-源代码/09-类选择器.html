@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/* 类选择器：
+			1、声明类选择器
+			2、调用类选择器 (给标签加上对应的class属性,就是调用类选择器, 标签只要包含这个类, 就会被选中)
+			
+			一次声明,多次调用
+			一次声明, 可以被多个标签调用(使用)
+			页面中的类名可以重复, 一个类名可以被多个标签使用
+		 */
+
+         /* 声明类选择器 */
+		 .box {
+		 	color: red;
+		 }
+
+	</style>
+</head>
+<body>
+	
+	<div class="box">文字内容</div>
+	<div>我也是一个div标签</div>
+	<span class="box">我是span标签</span>
+	<a class="box" href="">链接</a>
+	
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            background-color:red;
+            position:absolute;
+        }
+    
+    </style>
+</head>
+<body>
+    <button id="btn">点击盒子移动到400</button>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    
+    //需求: 点击按钮,让box从左往右移动400px
+//    1. 获取元素 btn, box
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        var pos = 400; //最终位置
+        var timeid; //一定要写在外面.用于存储定时器的id
+//    2. 给btn注册点击事件
+        btn.onclick = function(){
+            
+                //为了避免添加多个定时器的问题,所以每一次设置新的定时器之前,要先把原来的 清除掉
+                //保证每次点击按钮,只能有一个定时器操作元素
+            if(timeid){
+                clearInterval(timeid);
+            }
+            
+            //    3. 在事件处理函数中让box动起来
+               //如果要让box自己动起来,需要把代码放到定时器里执行
+            timeid = setInterval(function(){
+                //     3.1 先获取当前的位置在哪
+                var current =  box.offsetLeft;
+                //     3.2 在当前位置的基础上加几个像素
+                var target = current + 7;
+                box.style.left = target + 'px';
+                
+                //3.3 判断一下是否到达了目标位置,如果到达了目标位置,就清除定时器
+                if(target >= pos){
+                    clearInterval(timeid);
+                    //如果超出了目标就直接拉回去(直接设置最终位置)
+                    box.style.left = pos + 'px';
+                    console.log(box.offsetLeft);
+                }
+                
+            }, 15);
+        }
+
+    
+   
+   
+    
+    
+
+
+   
+</script>

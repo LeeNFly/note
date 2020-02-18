@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>五角星评分案例</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .comment {
+        font-size: 40px;
+        color: red;
+    }
+
+    .comment li {
+        float: left;
+    }
+
+    ul {
+        list-style: none;
+        /*overflow: hidden;*/
+    }
+    </style>
+</head>
+
+<body>
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 分析
+            // 1. 鼠标移入事件
+            //  1.1 让当前的五角星和当前前面所有的五角星都变成了实心的五角星
+            //  1.2 让当前后面的五角星变成空心的
+
+            var wjx_k = "☆";
+            var wjx_s = "★";
+
+            $(".comment li").mouseenter(function(){
+
+                /*// 当前前面的
+                $(this).text(wjx_s).prevAll().text(wjx_s);
+                // 当前后面的
+                $(this).nextAll().text(wjx_k);*/
+
+
+                // 链式编程
+                console.log($(this).text(wjx_s).prevAll().text(wjx_s).prevObject);
+                // prevObject 是一个属性，作用：找到上一次返回的jq对象
+                // end();   将prevObject属性进行封装了
+                // $(this).text(wjx_s).prevAll().text(wjx_s).prevObject.nextAll().text(wjx_k);
+                $(this).text(wjx_s).prevAll().text(wjx_s).end().nextAll().text(wjx_k);
+            })
+
+
+            // 2. 鼠标离开事件
+            //  2.1 给comment 注册mouseleave
+            //  2.2 让所有的li都变成空心的五角星
+            //  2.3 让点击的那个li，变成实心，前面的变成实心
+            $(".comment").mouseleave(function(){
+                $(this).children().text(wjx_k);
+                
+                // 鼠标离开的时候，找到带current的那个li（click的那一个li）
+                $(".comment li.current").text(wjx_s).prevAll().text(wjx_s);
+            })
+
+
+            // 3. 添加click事件
+            //  3.1 给li注册click
+            //  3.2 做了标记，标记了当前点击的是谁
+            //  3.3 用下标来记录当前点击的那个li
+            //  （使用类名来做标记）
+            //  这个类名是起标记的作用，不需要有样式
+            $(".comment li").click(function(){
+                $(this).addClass("current").siblings().removeClass("current");
+            })
+        })
+    </script>
+</body>
+
+</html>

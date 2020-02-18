@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+		表单域作用：收集“内部”的所有的表单信息 整体提交给后台 
+		需要配合submit按钮, submit按钮用来提交表单 
+		
+		action:提交的后台地址
+		form表单提交需要添加上name属性 才可以将表单里面的内容提交出去
+	-->
+
+
+	<form action="demo.php">
+		<h1>25期班长征婚网站</h1>
+
+		用户名：<input type="text" name="username" value="请输入用户名">
+		<br>
+		<br>
+		<br>
+		密码：<input type="password" name="password">
+		<br>
+		<br>
+		<br>
+		性别：<input name="gender" type="radio" value="男" checked="checked" > 男 <input name="gender" type="radio" value="女" >女  <input name="gender"  value="保密" type="radio"> 保密
+		<br>
+		<br>
+		<br>
+		爱好：<input type="checkbox" name="hobby" value="骑行" checked> 骑行  <input type="checkbox" name="hobby" checked  value="旅游"> 旅游  <input type="checkbox" name="hobby" value="学习" checked > 学习 <input type="checkbox" name="hobby" value="唱歌" checked> 唱歌
+		<br>
+		<br>
+		<br>
+		上传图片：<input type="file" >
+		<br>
+		<br>
+		<br>
+		籍贯：
+			<select name="province">
+				<option value="上海">上海</option>
+				<option value="北京">北京</option>
+				<option selected value="江西">江西</option>
+				<option value="安徽">安徽</option>
+				<option value="江苏">江苏</option>
+				<option value="浙江">浙江</option>
+				<option value="河南">河南</option>
+				<option value="黑龙江">黑龙江</option>
+			</select>
+			<select name="city">
+				<option value="上海">上海</option><option></option>
+				<option value="北京">北京<option>
+				<option value="江西">江西<option>
+				<option value="安徽">安徽<option>
+				<option value="江苏">江苏<option>
+				<option value="浙江">浙江<option>
+				<option value="河南">河南<option>
+				<option value="黑龙江">黑龙江</option>
+			</select>
+		<br>
+		<br>
+		<br>
+		请介绍自己 字数100-200：<textarea name="selfIntroduction" style="width:300px;height:300px;"></textarea>
+		<!-- 普通按钮 -->
+		<input type="button" value="按钮">  
+		<button>按钮</button>
+		<!-- 提交按钮 -->
+		<input type="submit">
+	</form>
+</body>
+</html>

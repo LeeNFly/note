@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      div{
+          width: 300px;
+          height: 300px;
+          background-color: #f99;
+          display: none;
+      }
+  </style>
+</head>
+
+<body>
+  <button id="btn">展示div</button>
+  <div>11</div>
+  <div>222</div>
+  <div>333</div>
+  <div>444</div>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    var div = document.getElementsByTagName('div');
+    var btn = document.getElementById('btn');
+    // console.log(div);
+    // console.dir(btn);
+    // console.log($('div'));
+    // console.log($('#btn'));
+
+    btn.onclick = function () {
+      // $('div').show()
+      // $('div').style.display = 'block';
+      // console.dir(div[0]);
+      // div[0].show();
+      console.log($(div[0]));
+      // $(div[0]).show();
+      // console.log($(div));
+      // $(div).show();
+      // $('div')[0].style.display = 'block';
+      console.dir(div[0]);
+      console.dir($('div')[0]);
+      console.log($('div'));
+      
+      
+      // $('div').get(0).style.display = 'block';
+    }
+    
+    
+  </script>
+</body>
+
+</html>

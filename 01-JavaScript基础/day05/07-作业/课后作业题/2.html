@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 值类型与引用类型的题目：
+
+      //思考1
+      // var x = 10;
+      // var y = 20;
+      // function fn(x, y){
+      //   x = x + 1;
+      //   y = y + 1;
+      //   console.log(x);
+      //   console.log(y);
+      // }
+      // fn(x, y);
+      // console.log(x, y);
+        
+      // 解：
+
+      // function fn(x, y){
+      //   x = x + 1; // 11
+      //   y = y + 1; // 21
+      //   console.log(x); // 11
+      //   console.log(y); // 21
+      // }
+      // var x ;
+      // var y ;
+      // x = 10;
+      // y = 20;
+      // fn(x, y);
+      // console.log(x, y); // 10 20;
+
+      // //思考2：
+      // function Person(name,age,salary) {
+      //   this.name = name;
+      //   this.age = age;
+      //   this.salary = salary;
+      // }
+      // function f1(person) {
+      //   person.name = "ls";
+      //   console.log(person.name);
+      // }
+
+      // var p = new Person("zs",18,1000);
+      // console.log(p.name);
+      // f1(p);
+      // console.log(p.name);
+      
+      // 解
+      // function Person(name,age,salary) {
+      //   this.name = name;
+      //   this.age = age;
+      //   this.salary = salary;
+      // }
+      // function f1(person) {
+      //   person.name = "ls";
+      //   console.log(person.name); //ls
+      // }
+
+      // var p = new Person("zs",18,1000);
+      // console.log(p.name); // zs
+      // f1(p);
+      // console.log(p.name); // ls
+
+
+
+      // //思考3
+      // function Person(name,age,salary) {
+      //   this.name = name;
+      //   this.age = age;
+      //   this.salary = salary;
+      // }
+      // function f1(person) {
+      //   person = new Person("aa",18,10);
+      //   person.name = "ww";
+      //   console.log(person.name);
+      // }
+
+      // var p = new Person("zs",18,1000);
+      // console.log(p.name);
+      // f1(p);
+      // console.log(p.name);
+
+      // 解:
+      function Person(name,age,salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+      }
+      function f1(person) {
+        person = new Person("aa",18,10);
+        person.name = "ww"; // ww
+        console.log(person.name);
+      }
+
+      var p = new Person("zs",18,1000);
+      console.log(p.name); //zs
+      f1(p);
+      console.log(p.name); // zs
+
+
+
+
+
+
+      // 画图分析，看看自己能否给不懂的人解释清楚！！！！
+
+
+  </script>
+</body>
+</html>

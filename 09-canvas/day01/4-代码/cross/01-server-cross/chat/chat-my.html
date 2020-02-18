@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		h3 {
+			text-align: center;
+		}
+
+		.chatbox {
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			border: 1px solid #CCC;
+			background-color: #FFF;
+			border-radius: 5px;
+		}
+
+		.messages {
+			height: 350px;
+			padding: 20px 40px;
+			box-sizing: border-box;
+			border-bottom: 1px solid #CCC;
+			overflow: scroll;
+		}
+
+		.messages h5 {
+			font-size: 20px;
+			margin: 10px 0;
+		}
+
+		.messages p {
+			font-size: 18px;
+			margin: 0;
+		}
+
+		.self {
+			text-align: left;
+		}
+
+		.other {
+			text-align: right;
+		}
+
+		.form {
+			height: 150px;
+		}
+
+		.form .input {
+			height: 110px;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		.form .btn {
+			height: 40px;
+			box-sizing: border-box;
+			border-top: 1px solid #CCC;
+		}
+
+		.form textarea {
+			display: block;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			border: none;
+			resize: none;
+			outline: none;
+			font-size: 20px;
+		}
+
+		.form input {
+			display: block;
+			width: 100px;
+			height: 30px;
+			margin-top: 5px;
+			margin-right: 20px;
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<h3>简单的Ajax实例</h3>
+	<div class="chatbox">
+		<!-- 聊天内容 -->
+		<div class="messages">
+		</div>
+		<!-- 表单 -->
+		<div class="form">
+			<!-- 输入框 -->
+			<div class="input">
+				<textarea></textarea>
+			</div>
+			<!-- 按钮 -->
+			<div class="btn">
+				<input type="button" value="发送">
+			</div>
+		</div>
+	</div>
+	<script type="text/template">
+		<div class="self">
+			<h5>我说</h5>
+			<p>你好</p>
+		</div>
+		<div class="other">
+			<h5>对方说</h5>
+			<p>你好</p>
+		</div>
+	</script>
+	<!-- 小技巧：先写模板，在模板中直接使用一些变量名，   这些都是将来传给模板的对象属性 -->
+	<!-- 准备模板 -->
+	<script type="text/template" id="tmp">
+		{{ if flag == 'self'}} 
+			<div class="self">
+				<h5>我说:</h5>
+				<p>{{ msg }}</p>
+			</div>
+		{{ else }}
+			<div class="other">
+				<h5>对方说:</h5>
+				<p>{{ msg }}</p>
+			</div>
+		{{ /if }}
+	</script>
+
+	<script src="../../jquery-1.12.4.min.js"></script>
+	<!-- 引入模板引擎插件 -->
+	<script src="../../template-web.js"></script>
+	<script>
+		//1-点击按钮，获取输入框中值，添加到聊天窗口
+		//2-向后台发送请求，等待后他返回聊天内容
+		//3-将后台返回聊天内容，添加到聊天窗口中
+		$('.btn input').click(function () {
+			var txt = $('textarea').val(); //txt只是一个字符串，模板需要数据是对象
+			//包装
+			var data = {
+				flag: 'self',
+				msg: txt
+			}
+
+			//组合
+			var str = template('tmp', data);
+			$('.messages').append(str);
+			//清空输入框
+			$('textarea').val('');
+
+			//向后台发送请求，等待后他返回聊天内容
+			$.ajax({
+				url: 'http://www.tuling123.com/openapi/api',
+				data: {
+					key: 'b095be9017754cf28470b3b7e6627c21',
+					info : txt,
+					loc: '上海市',
+					userid: '1231231231'
+				},				
+				success: function (info) {
+					console.log(info); //info是对象
+					var data = {
+						flag: 'other',
+						msg: info.text
+					}
+					//生成结构
+					$('.messages').append( template('tmp', data) );
+
+					if(info.url) {
+						window.open(info.url);
+					}
+				}
+			})
+
+		})		
+	</script>
+
+</body>
+</html>

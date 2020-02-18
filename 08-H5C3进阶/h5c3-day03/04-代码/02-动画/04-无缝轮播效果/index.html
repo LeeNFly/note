@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .box {
+      width: 600px;
+      height: 200px;
+      border: 1px solid #000;
+      margin: 100px auto;
+      overflow: hidden;
+    }
+    ul {
+      width: 1800px;
+      /* 动画名称 动画时间 动画次数  动画效果 */
+      /* infinite 无限次, linear 匀速 */
+      animation: run 5s infinite linear;
+    }
+    ul:hover {
+      animation-play-state: paused;
+    }
+    li {
+      float: left;
+    }
+    
+    /* 定义动画 */
+    @keyframes run {
+      from {
+        transform: translateX(0px);
+      }
+      to {
+        transform: translateX(-1200px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <ul>
+    <li><a href="#"><img src="./images/z1.jpg" alt=""></a></li>
+    <li><a href="#"><img src="./images/z2.jpg" alt=""></a></li>
+    <li><a href="#"><img src="./images/z3.jpg" alt=""></a></li>
+    <li><a href="#"><img src="./images/z4.jpg" alt=""></a></li>
+
+    <!-- 这个是给用户看的假图片 -->
+    <li><a href="#"><img src="./images/z1.jpg" alt=""></a></li>
+    <li><a href="#"><img src="./images/z2.jpg" alt=""></a></li>
+  </ul>
+</div>
+
+</body>
+</html>

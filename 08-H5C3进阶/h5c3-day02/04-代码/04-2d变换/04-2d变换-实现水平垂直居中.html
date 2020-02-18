@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .father {
+      width: 600px;
+      height: 600px;
+      border: 1px solid #000;
+      margin: 50px auto;
+      position: relative;
+    }
+    .son {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      /* 利用 2d 变换
+         需求: 向左, 向上, 移动自身的一半
+         transform: translate 百分比相对自身宽高
+      */
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+
+<div class="father">
+  <div class="son"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style: none;
+        width: 1300px;
+    }
+
+    .box {
+        width: 1200px;
+        height: 200px;
+        border: 2px solid red;
+        margin: 100px auto;
+        overflow: hidden;
+    }
+
+    .box li {
+        width: 240px;
+        height: 400px;
+        /*border: 1px solid #000;*/
+        float: left;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    
+    <div class="box" id="box2">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script src="../jquery-1.12.4.js"></script>
+    <!-- <script src="jQuery.accordion.js"></script> -->
+    <!-- <script src="jQuery.accordion2.js"></script> -->
+    <script src="jQuery.accordion3.js"></script>
+
+    <script>
+    $(function() {
+        // 插件实现好了，接下来调用插件
+        // jQuery.accordion.js
+
+        var imgs = ["images/1.jpg", "images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg"];
+
+        $("#box li").accordion("#box", imgs, 600);
+
+        $("#box2 li").accordion("#box2", imgs, 800);
+    })
+    </script>
+</body>
+
+</html>

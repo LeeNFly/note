@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <script>
+
+    // 输入一个数字，显示星期几 (0:星期天 1-6 )
+    //1. 输入数字
+    // prompt()返回给我们的是一个字符串,,我们需要通过 +
+    // 把它转化为number
+    var num = +prompt('请输入一个数字');
+    console.log(num);
+    console.log( typeof num);
+    
+
+    //2. switch 
+    switch (num) {
+      case 0:
+        console.log('星期天');
+        break;
+      case 1:
+        console.log('星期一');
+        break;
+      case 2:
+        console.log('星期二');
+        break;
+      case 3:
+        console.log('星期三');
+        break;
+      case 4:
+        console.log('星期四');
+        break;
+      case 5:
+        console.log('星期五');
+        break;
+      case 6:
+        console.log('星期六');
+        break;
+      default:
+        console.log('你输入的有误');
+        break;
+// shift + alt + F
+    }
+
+
+
+// A 像一个变量名 突然出现一个变量 
+
+    //思考题：
+      // var num = "A"; 
+      // switch (num) {
+      //     case A:
+      //         console.log("10");
+      //     case B:
+      //         console.log("20");
+      //     case C:
+      //         console.log("30");
+      //     default:
+      //         console.log("lalala");
+      // }
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

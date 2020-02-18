@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text">
+<div></div>
+<input type="text"><br>
+<input type="text"><br><br><br><br><br>
+<input type="text"><br><br><br>
+<input type="text"><br>
+<script>
+  // 按tab键,浏览器有默认的行为,会让下一个input获得焦点
+  //  当我们按回车键的时候,也要让下一个input获取的焦点
+  //  1. 获取元素 input
+  var inputs = document.querySelectorAll('input');
+  //  2. 给每一个input注册鼠标按下的事件
+  for(var i = 0; i < inputs.length; i++) {
+    inputs[i].onkeydown = fn;
+  }
+  function fn(e){
+    //  3. 在事件处理函数中判断是否是回车键
+//      console.log(e.keyCode);
+    if(e.keyCode == 13){
+      //  4. 如果是回车键,就下一个input获得焦点
+//        4.1 获取到下一个input
+           var result =  getNextInput(this);
+            console.log(result);
+//         4.2 让下一个input获得焦点 focus方法会获得焦点
+      //    判断result如果不是null才调用focus方法
+          if(result){ //如果result是元素,转布尔一定是true,如果是null,转布尔一定是false
+            result.focus();
+          }
+
+      
+    }
+    
+  }
+  
+  //用于获取下一个input
+//  ele: 获取ele的下一个input
+  function getNextInput(ele){
+    // 获取ele的下一个兄弟元素
+    var next = ele.nextElementSibling;
+    //判断有没有下一个了,如果没有就直接结束了
+    if(next == null){
+      return null;
+    }
+    // 判断是否是input
+    if(next.nodeName === 'INPUT'){
+      return next;
+    }else{
+      //进入到这里,证明此时next不是input
+     return getNextInput(next);
+//      return undefined
+    }
+  }
+
+</script>
+</body>
+</html>

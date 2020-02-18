@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        //当我们要批量创建对象的时候,需要用到构造函数,构造函数如何继承
+
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        // function Student(name, age, score){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.score = score;
+        // }
+
+        //student里面的name和age不想在重复的书写了
+
+        //1. 借用构造函数法
+        function Student(name, age, score){
+            Person.call(this,name, age);  // => 调用Person函数,将this指定为Student中新创建的对象,传入name和age值
+                                          // => 相当于执行了this.name = name;this.age = age;这2行代码,给新创建的Student对象赋值了name和age属性
+            this.score = score;
+        }
+
+        var zs = new Student('zs', 18, 100);
+        console.log(zs);
+    
+    </script>
+</body>
+</html>

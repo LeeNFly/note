@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+
+        //3-绘制扇形
+        ctx.moveTo(300, 200); //一定要移动画笔到圆心, 这样圆弧起点就会和圆心自动连线, 利用的是圆弧的默认行为, 这样就有扇形的一条半径了
+        ctx.arc(300, 200, 100, getRadain(45), getRadain(315));
+        ctx.closePath();//闭合路径, 扇形的另一条半径
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(300, 150, 10, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(400, 200, 15, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(500, 200, 15, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(600, 200, 15, 0, 2 * Math.PI);
+        ctx.stroke();
+
+
+
+        //将角度转弧度的方法
+        function getRadain(deg) {
+            return  deg / 180  * Math.PI;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /*
+      传统盒子模型  改变 padding 和 border 时需要内减
+      box-sizing: content-box;
+      盒子宽度 = content + padding + border
+
+      CSS3盒子模型  box-sizing: border-box;
+      盒子宽度 = width,  如果设置 padding 或者 border 会自动内减
+    */
+    div {
+      width: 200px;
+      height: 200px;
+      border: 10px solid #000;
+      padding: 20px;
+      background-color: red;
+      box-sizing: border-box;
+      color: #fff;
+      font-size: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div>1232132</div>
+
+<input type="text">
+
+</body>
+</html>

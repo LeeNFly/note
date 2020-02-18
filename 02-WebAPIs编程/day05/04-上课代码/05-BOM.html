@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="">
+  <script>
+    //  BOM: 把浏览器抽象成对象,通过操作对象,来实现操作浏览器的目的 BOM: 操作浏览器
+    //  在js中,把浏览器抽象成了window对象(是一个对象) 通过操作winodw对象来操作浏览器 window对象在js中任何地方都可以直接使用,是一个全局对象
+    //  window可以看作是bom元素, 类似于dom元素, 也可以注册事件等. 
+    //  js中, window是一个关键字
+    //  ★ 只要是window身上的 属性 或者 方法 都可以直接使用,widnow.可以忽略
+    //  window.alert() => alert()
+    //  window.console.log() => console.log()
+    //  window.document = > document
+    
+    
+    //  页面加载的两个 事件 :
+    //  window.onload   页面中所有内容都加载完毕了才触发该事件,调用执行事件处理函数中的代码 
+    //    页面上所有内容(dom树以及所有的外部文件) 确保onload事件处理函数中一定可以获取到页面上任意的元素
+    //  window.onunload  页面关闭的时候触发该事件,执行事件处理函数中的代码
+    
+      window.onload = function(){
+        var box = document.getElementById('box');
+        console.log(box);
+      }
+      
+      window.onunload = function(){
+        console.log(1);
+      }
+  </script>
+</head>
+<body>
+<div id="box"></div>
+<img src="" alt="">
+<script src=""></script>
+
+</body>
+</html>

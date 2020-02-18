@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    .main {
+        margin: 10px auto 0;
+        width: 1000px;
+    }
+
+    .fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="top" id="topPart">
+        <img src="images/top.png" alt="" />
+    </div>
+    <div class="nav" id="navBar">
+        <img src="images/nav.png" alt="" />
+    </div>
+    <div class="main" id="mainPart">
+        <img src="images/main.png" alt="" />
+    </div>
+    <script src="../jquery-1.12.4.min.js"></script>
+    <script>
+    $(function() {
+        $(window).scroll(function () {
+            var scrollTop = $(this).scrollTop();
+            var topH = $('#topPart').height();
+            if(scrollTop >= topH) {
+                $('#navBar').addClass('fixed');
+                $('#mainPart').css('marginTop', $('#navBar').height() + 10)
+            } else {
+                $('#navBar').removeClass('fixed');
+                $('#mainPart').css('marginTop', 10)
+            }
+        })
+    });
+    </script>
+</body>
+
+</html>

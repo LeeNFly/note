@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  // 特征: 会改变原数组
+  // arr.splice( start, num, arg1, arg2, arg3, ...)
+  // arr.splice( 从哪开始, 删除几个, 添加的项1, 添加的项2, .... )
+
+
+  // 1. 添加   unshift  push
+  //    需求: 在张飞和赵云中间加  大乔, 小乔
+  //  var arr = ["张飞", "赵云", "马超", "关羽", "刘备"];
+  //  arr.splice( 1, 0, "大乔", "小乔" );
+  //  console.log( arr );
+
+
+  // 2. 删除
+  //    需求: 将刘备删除
+  //    使用splice删除, arr.splice(index, 1);
+  //  var arr = ["张飞", "赵云", "马超", "关羽", "刘备"];
+  //  arr.splice( 4, 1 );
+  //  console.log( arr );
+
+
+  // 3. 替换
+  //    需求: 将赵云替换成马云
+  //  var arr = ["张飞", "赵云", "马超", "关羽", "刘备"];
+  //  arr.splice( 1, 1, "马云" );
+  //  console.log( arr );
+
+
+
+
+
+</script>
+
+</body>
+</html>

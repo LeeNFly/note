@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 拖拽元素 -->
+
+<!-- 在 html5中给元素添加 dragable 就可以设置元素的可拖拽状态
+     true / false
+-->
+<!-- 注意: ★★★ 拖拽的是灵魂, 不是肉体, 肉体仍在原来的位置上, 拖拽不会改变肉体, 即不会改变盒子的位置
+          我们把灵魂也称作拖拽元素
+ -->
+<div draggable="true"></div>
+
+<!--
+  img, a 标签, 默认就可以被拖拽, 其他默认是不能被拖拽的
+  ★★★ 拖拽的是灵魂, 不是肉体
+-->
+<img draggable="false" src="./00.jpg" alt="">
+
+<a href="#">我是a标签</a>
+
+
+
+</body>
+</html>

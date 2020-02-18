@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+            /*width: 600px;*/
+            /*height: 400px;*/
+        }
+    </style>
+</head>
+<body>
+<!--<canvas></canvas>-->
+    <canvas width="600" height="400"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+        //3-绘制
+        //正方形
+        ctx.moveTo(100, 100);
+        ctx.lineTo(300, 100);
+        ctx.lineTo(300, 300);
+        ctx.lineTo(100, 300);
+        ctx.lineTo(100, 100);
+        //绘制
+        ctx.stroke();
+
+        //两条平行
+        ctx.moveTo(400, 100);
+        ctx.lineTo(500, 100);
+        ctx.moveTo(400, 200);
+        ctx.lineTo(500, 200);
+        //绘制
+        ctx.stroke();
+
+        // moveTo 和 lineTo的区别
+        //   ★ moveTo是移动画笔, 相当于抬起画笔 然后再移动, 移动过程中不会画线, 最后描边的时候, 对于移动画笔moveTo, 由于不会画线, ★所以移动画笔的过程也不会被描边.
+        //   lineTo, 移动画笔, 并画线
+
+
+
+  </script>
+
+</body>
+</html>

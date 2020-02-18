@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #grandfar{
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+    
+    #far{
+      width: 200px;
+      height: 200px;
+      background-color: green;
+    }
+    
+    #son{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="grandfar">
+  <div id="far">
+    <div id="son"></div>
+  </div>
+</div>
+<a href="" id="link">点击打印1</a>
+<script>
+// 事件对象的2个方法  IE 6 7 8 有兼容性问题
+//  event.stopPropagation()  //阻止事件传播 (阻止事件流传播), 可以阻止任意方式注册的事件的事件传播, 包括 on 和 addEventListener
+// event.preventDefault()  //阻止默认行为 可以阻止任意方式注册的浏览器默认行为, 包括 on 和 addEventListener
+// 只是阻止浏览器的默认行为, 并不是阻止事件和事件处理函数, 事件还是会触发, 事件处理函数还是会执行
+  var link = document.getElementById('link');
+  link.addEventListener('click', function(e){
+    console.log(1);
+  //  return false; //在addEventListener中不能使用return false 来阻止默认行为, 要使用e.preventDefault();来阻止默认行为
+    e.preventDefault(); // 可以放在事件处理函数中的任意位置
+  })
+//
+ var son = document.getElementById('son');
+ var far = document.getElementById('far');
+ var grandfar = document.getElementById('grandfar');
+ son.addEventListener('click', function(e){
+   console.log('son的点击');
+//    e.stopPropagation(); //阻止事件传播的
+ }, false);
+ far.addEventListener('click', function(e){
+   console.log('far的点击');
+   e.stopPropagation();
+ }, true);
+ grandfar.addEventListener('click', function(){
+   console.log('grandfar的点击');
+ }, false);
+
+
+
+
+</script>
+</body>
+</html>

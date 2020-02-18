@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="../jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+    //计数
+    x = 0;
+    y = 0;
+    $(document).ready(function() {
+        $("div.over").mouseover(function() {
+            $(".over span").text(x += 1);
+        });
+        $("div.enter").mouseenter(function() {
+            $(".enter span").text(y += 1);
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="over" style="background-color:lightgray;padding:20px;width:40%;float:left">
+        <h2 style="background-color:white;">被触发的 Mouseover 事件：<span></span></h2>
+    </div>
+    <div class="enter" style="background-color:lightgray;padding:20px;width:40%;float:right">
+        <h2 style="background-color:white;">被触发的 Mouseenter 事件：<span></span></h2>
+    </div>
+
+
+    <!-- 
+        mouseover事件的触发，★ 会在当前元素和其子元素上触发，，(子元素上触发,通过事件冒泡,调用了父元素的mouseover事件) mouseout
+        mouseenter事件的触发，★ 只会在当前元素上触发，不会在子元素上触发，，(阻止了子元素的事件冒泡)   mouseleave
+
+        mouseover, mouseout 事件会不停的触发，会影响网页的性能
+
+        一般在鼠标移入或移除时如果要做显示和隐藏效果, 要把显示和隐藏的盒子 ★ 嵌套在要注册鼠标移入移出事件的元素里, 这样当鼠标移入到嵌套的盒子里时, 可以保证鼠标还在注册事件的元素身上, 不会触发该元素的鼠标移出事件
+        
+        
+        ★★★ 注意: 鼠标在元素内部的子元素中移动时, 只会触发元素内部的子元素的移入和移出事件, 不会触发外部父元素的移入和移出事件。
+        //         之所以会出现外部父元素的移入移出的事件处理函数被调用的情况 (这里只是调用了父元素的事件处理函数, 实际上父元素还是没有触发相应的事件), 是因为子元素的事件冒泡到父元素的导致的。 
+        //         鼠标在元素内部的子素中移动的时候, 还是算在元素的内部的, 不会触发元素的鼠标移出事件, (鼠标移出元素判定:)只有当鼠标移出了元素在html结构中所包裹的所有内部时, 才会触发元素的鼠标移出事件.
+        //         (鼠标移入元素判定:)鼠标只要移入 元素 或 元素所包裹的所有内部, 就会触发元素的鼠标移入事件. 
+        
+        ps: 就算子元素通过定位到了父元素外边, 但是他还是算父元素的子元素, 也满足以上规则
+        
+        // mouseenter mouseleave 阻止了子元素的事件冒泡 就算触发了子元素的鼠标移入和移出事件, 由于被阻止了事件冒泡, 所以不会冒泡到父元素, 所以不会调用父元素的移入和移出事件处理函数
+           所以子元素的移入和移出不会调用父元素的移入和移出事件事件处理函数, 
+           只有父元素 ★★★ 自己的 移入 和 移出 事件触发的时候(鼠标移入或移出父元素所包裹的所有内部的时), 才会调用和执行父元素的自己的移入和移出事件处理函数
+        //
+        
+        // mouseover mouseout : 由于没有阻止子元素的鼠标移入移出冒泡行为, 当鼠标在子元素中移入移出的时候, 会通过冒泡, 导致父元素的移入移出事件出来函数频繁被调用. 
+     -->
+</body>
+
+</html>

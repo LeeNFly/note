@@ -1,0 +1,20 @@
+get 请求和 post 请求的区别
+1. get 请求特点
+  (1) 参数在地址栏进行提交, 参数在地址栏可见
+  (2) get 请求不太安全, 提交的信息暴露了
+  (3) 大小 4k, 是因为地址栏长度是有限制的,  所以 get 不能用于文件上传
+  (4) 发送速度相对较快
+
+2. post 请求特点
+  (1) 参数在地址栏不可见, (参数在请求体中)
+  (2) post 请求相对安全
+  (3) 大小没有限制, 可以用于文件上传
+
+ps: 只要是get请求和post请求, 就都可以传参, get请求参数在地址栏中, post请求参数在请求体中, 且传递数据都是字符串类型
+ps: 只要是get请求, 就可以在地址栏传参, 格式: ?key=value&key=value...; 只要是post请求, 就可以在请求体中传参
+ps: get请求, 只能通过地址栏传参, 且传参的格式固定, 都是?key=value&key=value...
+    post请求, 只能通过请求体传参, 参数的格式根据请求头的content-type来决定, 因为content-type指定是是请求体的编码方式
+    常用: content-type: "application/x-www-form-urlencoded", 请求体传参的格式为key=value&key=value...
+ps: 不管是get请求还是post请求, 后台都是通过key来获取传递的参数值value的
+ps: 只有get请求可以在地址栏拼接参数传参, post请求不可以在地址栏拼接参数传参
+ps: 今后涉及到文件上传的请求, 必须是post方式的请求

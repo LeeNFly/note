@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="btn">发送get请求</button>
+  <!-- 
+    xhr2.0 也是使用XMLHttpRequest对象进行发送请求的, 所以xhr2.0也是ajax请求
+   -->
+  <script>
+    var btn = document.getElementById("btn");
+
+    btn.onclick = function() {
+
+      var xhr = new XMLHttpRequest();
+      // timeout 允许设置超时时间, 单位 ms, 如果 3s内容数据不回来, 就认为超时, 会自动取消ajax请求 请求状态为cancel
+      xhr.timeout = 3000;
+      // 如果超时, 触发 timeout 事件
+      // 超时后, 调用timeout回调函数, 而不会再调用success或error的回调函数了
+      xhr.ontimeout = function() {
+        alert("连接超时辣, 该换个网络辣");
+      }
+
+      xhr.open( "get", "01-timeout.php" );
+      xhr.send( null );
+
+      xhr.onreadystatechange = function() {
+        if ( xhr.readyState === 4 ) {
+          if ( xhr.status === 200 ) {
+            console.log( xhr.responseText );
+          }
+        }
+      }
+
+    }  
+  
+  </script>
+  
+</body>
+</html>

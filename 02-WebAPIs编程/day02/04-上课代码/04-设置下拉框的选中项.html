@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="sel">
+        <option>请随机选择</option>
+        <option>食堂</option>
+        <option id="op">吃翔</option>
+        <option >泡面</option>
+        <option >外卖</option>
+        <option>哼,不吃了</option>
+    </select>
+    <input type="button" value="随机" id="btn">
+</body>
+<script>
+    //需求: 点击按钮,从select里面随机(1~length-1)找到一个option,给这个option 的selected属性设置为true
+//    1. 获取元素
+        var btn = document.getElementById('btn');
+        var sel = document.getElementById('sel');
+        var options = sel.getElementsByTagName('option');
+    
+//    2. 给按钮注册点击事件
+        btn.onclick = function(){
+            //    3. 在事件处理函数中,随机找到一个option,把他的selected属性设置为true
+//            3.1 获取一个随机数 1~options.length - 1;
+//             Math.random() --> 0~1 包含0 ,不包含1
+            var random = getRandom(1, options.length-1);
+//            console.log(random);
+//            3.2 通过随机数找到对应option
+//            console.log(options[random]);
+//             3.3 让找到的option选中
+            options[random].selected = true;
+        }
+
+    
+    
+    //mdn已经帮助我们封装好的一个获取指定随机数的方法
+    //返回的 min ~ max的随机整数  包含min和max的
+    function getRandom(min, max){
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+ 
+    
+</script>
+</html>

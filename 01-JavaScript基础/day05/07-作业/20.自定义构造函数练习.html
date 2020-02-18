@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 学生对象
+    // name : 张三  age: 18岁 打招呼:大家好我是张三
+    // name : 李四  age: 19岁 打招呼:大家好我是李四
+    
+    // function Student(name,age) {
+    //   this.name = name;
+    //   this.age = age;
+    //   this.sayHi = function () {
+    //     console.log('大家好,我是' + this.name);
+    //   }
+    // }
+    // var zs = new Student('张三',18);
+    // var ls = new Student('李四',19);
+    // console.log(zs);
+    // zs.sayHi();
+    // console.log(ls);
+    // ls.sayHi();
+    
+    
+    // 2. 老师对象
+    // name : 伟哥  爱好:篮球  打: 伟哥正在打篮球
+    // name : 马哥  爱好:台球  打: 马哥正在打台球
+    
+    // function Teacher(name,hobby) {
+    //   this.name = name;
+    //   this.hobby = hobby;
+    //   this.play = function () {
+    //     console.log(this.name + '正在打' + this.hobby);
+    //   }
+    // }
+    // var wg = new Teacher('伟哥','篮球');
+    // var mg = new Teacher('马哥','台球');
+    // console.log(wg);
+    // console.log(mg);
+    // wg.play();
+    // mg.play();
+    
+    
+    // 英雄对象
+    // name : 马哥  学习 : 马哥正在学前端 / 马哥正在学java
+
+    // 方法1 : 
+    // function Hero(name,subject) {
+    //   this.name = name;
+    //   this.study = function () {
+    //     console.log(this.name = '正在学习' + subject);
+        
+    //   }
+    // }
+    // var mg = new Hero('马哥','前端');
+    // console.log(mg);
+    // mg.study(); //正在学习前端
+    // var wg = new Hero('马哥','java');
+    // console.log(wg);
+    // wg.study(); //正在学习前端
+
+    // 方法2:
+    function Hero(name) {
+      this.name = name;
+      this.study = function (subject) {
+        console.log(this.name = '正在学习' + subject);
+        
+      }
+    }
+    var mg = new Hero('马哥');
+    console.log(mg);
+    mg.study('java');
+    mg.study('前端');
+  </script>
+</body>
+</html>

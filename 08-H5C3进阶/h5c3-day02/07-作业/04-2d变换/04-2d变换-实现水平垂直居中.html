@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .father {
+      width: 800px;
+      height: 600px;
+      margin: 100px auto;
+      border: 1px solid #000;
+      position: relative;
+    }
+    .son {
+      width: 300px;
+      height: 200px;
+      border: 1px solid #000;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      /*margin-left: -150px;*/
+      /*margin-top: -100px;*/
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+</body>
+</html>

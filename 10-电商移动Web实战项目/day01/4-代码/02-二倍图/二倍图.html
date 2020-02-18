@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--视口-->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <style>
+        div {
+            width: 180px;
+            height: 180px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            background: url(img/1.jpg);
+        }
+        
+        div:nth-child(2) {
+            background:url(img/2.jpg);
+            /* 通过设置background-size, 将二倍图, 3倍图进行压缩, 压缩的图片里有更多的像素点, 从而达到更高的分辨率, 提高屏幕的显示细腻程度
+                让每一个物理像素对应着图片1像素
+            */
+            background-size: 180px 180px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<div></div>
+</body>
+</html>

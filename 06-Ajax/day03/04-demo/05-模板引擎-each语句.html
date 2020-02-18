@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="userlist">
+    <p>xx</p>
+    <p>xx</p>
+    <p>xx</p>
+    <p>xx</p>
+  </div>
+
+  <!-- 使用模板引擎 -->
+  <!-- 1. 引包 -->
+  <script src="template-web.js"></script>
+  <!-- 2. 准备模板 -->
+  <!--    (1) each 语法中, 内置了 $index 和 $value, $index 表示索引(索引从0开始), $value 表示数组中每项的值 -->
+
+  <!--    (2) each 语法支持自定义, each list v i, list表示要遍历的 数组 , v 表示数组中每项的值 (每个元素, 当前遍历的数组中的元素, 当前遍历的数组中的元素值是什么. v 就是什么 相当于把数组中的每一项依次赋值给v进行遍历) , i 表示索引(索引从0开始)
+              数组中的每项可以是对象, 支持js的基本语法, 访问对象的属性
+  -->
+  <script type="text/html" id="tpl">
+    <!-- 遍历each里的内容, 并将内容输出到返回的字符串中 -->
+    <!-- each是用来遍历数组的 -->
+
+
+    <!-- ps: each也可以用来遍历对象, 如果用来遍历对象,  each list v k , list 要遍历的对象,  v 就是对象中每个属性的属性值, k 就是对应的属性名字符串, 当前遍历的属性名是什么, k 就是对应的属性名字符串, v 就是对应的属性值 -->
+    <!--
+      each语法中可以嵌套each语法, 还可以嵌套if语法 .
+      循环中嵌套循环, 在内层循环可以访问外层循环当前遍历的每一项.
+    -->
+    {{ each list }}
+      <p>$value: {{ $value }},  $index: {{ $index }}</p>
+    {{ /each }}
+
+    {{ each list v i }}
+      <p>自定义的v: {{ v }}, 自定义的索引i: {{ i }}</p>
+    {{ /each }}
+
+  </script>
+  <script>
+    var userlist = document.getElementById("userlist");
+
+    // 3. 准备数据
+    var arr = [ "张三", "李四", "王五", "赵六" ];
+    
+    // 4. 将模板和数据相结合  template( 模板id, 数据对象 )
+    //    参数2, 必须是一个对象
+    //    将数组, 包装到一个对象中, 成为了对象的一个属性
+    var obj = {
+      list: arr
+    };
+    
+    // 在模板中, 可以使用传进来对象对象的属性
+    var htmlStr = template( "tpl", obj );
+    console.log(htmlStr)
+    userlist.innerHTML = htmlStr;
+  
+  </script>
+  
+</body>
+</html>

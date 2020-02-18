@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: #f99;
+        }
+        p{
+            padding: 10px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <p class="innerP">这是div内的p元素</p>
+    </div>
+    <p class="outerP">这是div外的p元素</p>
+
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // 说明: ★★★ 以下API的 A和B 【都是jq对象】, 通过以下API 可以操作获取元素的html结构, 进而来操作页面上标签的html结构
+            // append: 对appendChild() 的封装
+            // A.append(B);  // 把B添加到A的内部的后面 不会覆盖原有的内容 如果B在页面上, 则会产生剪切的效果  A和B 可以是创建的jq对象
+            // 如果A在dom树上, 则会把B及其B包含的所有内容也添加到dom树上,  浏览器重新渲染页面及相关的css样式, 否则不会
+            // 若A和B 的 jq对象中包含多个元素, 则支持批量操作.
+            // B可以是'html标签' 字符串, 会先创建jq对象, 然后再添加. 
+            // $("div").append( $(".outerP") );  // 如果页面上存在的元素，会是剪切的效果
+            // $("div").append( '<p class="outerP">这是div外的p元素</p>' ); // 参数可以是html字符串，先创建元素，在去添加
+
+            // appendTo
+            // B.appendTo(A);   
+            // 把B添加到A的内部的后面,不会覆盖原有的内容 其他解释说明同append
+            // $(".outerP").appendTo( $("div") );
+            // $(".outerP").appendTo( "div" );  // 参数可以是选择器，先找到这个元素，在去将B添加到A
+
+
+            // prepend
+            // A.prepend(B);  
+            // 把B添加到A内部的前面,不会覆盖原有的内容 其他解释同append
+            // $("div").prepend( $(".outerP") );
+            // $("div").prepend('<p class="outerP">这是div外的p元素</p>');
+
+
+            // prependTo()
+            // B.prependTo(A);  
+            // 把B添加到A内部的前面,不会覆盖原有的内容 其他解释同append
+            // $(".outerP").prependTo( $("div") );
+            // $(".outerP").prependTo( "div" );
+
+
+            // after、before()
+            // after()
+            // A.after(B);   
+            // 把B作为A的兄弟元素添加, 并且放在A后面,不会覆盖原有的内容 其他解释同append
+            // $("div").after( $(".innerP") );
+
+            // before()
+            // A.before(B);
+            // 把B作为A的兄弟元素添加, 并且放在A前面,不会覆盖原有的内容 其他解释同append
+            $("div").before( $(".innerP") );
+
+            //操作建议, 建议操作的时候, 统一一下, A 和 B都统一用jq对象, 这样方便记忆
+            
+            // jq对象中 会自动维护 内部的元素节点的变化 是否被删除, 修改等 length等其他属性会自动改变
+
+            // ps: 如果jq对象中元素在dom树上, 参考dom树的结构, 如果元素不在dom树上, 是新建的元素, 则参考自身的结构
+            
+        })
+    </script>
+</body>
+</html>

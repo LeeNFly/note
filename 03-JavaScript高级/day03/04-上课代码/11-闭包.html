@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text" id="txt">
+<button id="btn">点击充值</button>
+<button id="btn1">点击查询</button>
+<button id="btn2">花钱</button>
+<script>
+//  工作中不太关心闭包 
+//  闭包:
+//  什么是闭包:
+//      mdn概念: 是函数和函数作用域的结合
+//      我们通俗理解的闭包: 一个内部函数引用了外部函数的变量,外部函数形成了一个闭报
+
+//    function outer(){
+//      var i = 0;
+//      function inner(){
+//        console.log(i);
+//      }
+//    }
+        
+//  闭包的作用:
+//      1. 私有化数据
+//      2. 私有化数据的基础上要保持数据
+
+//    var money = 1000;
+  
+// 有问题的代码
+//    function fn(){
+//      var money = 1000;
+//      return money;
+//      //
+//
+//    }
+    //操作用户存储的金额
+//    var money = fn();
+
+
+// function fn(){
+//   var money = 1000; //让money更安全了
+//   对象是在函数中创建的,所以在函数作用域内存储对象数据 只不过是把地址返回
+//   return {
+//     query: function(){
+//       console.log(money);
+//     },
+//     pay: function(num){
+//       money -= num;
+//     },
+//     add:function(num){
+//       money += num;
+//     }
+//   }
+// }
+//
+//    var input = document.querySelector('input');
+//    var btn = document.querySelector('#btn');
+//    var btn1 = document.querySelector('#btn1');
+//    var btn2 = document.querySelector('#btn2');
+//    var moneyManger = fn();
+//    console.log(moneyManger);
+//    btn.onclick = function(){
+////      var num = +input.value;
+////      money += num;
+////      console.log(money);
+//
+//      //点击充值
+//      var num = +input.value;
+//      moneyManger.add(num);
+//      alert('充值成功');
+//
+//    }
+//
+//    btn1.onclick = function(){
+////      console.log(fn());
+//      //点击查询
+//      moneyManger.query();
+//    }
+//
+//
+//    btn2.onclick = function(){
+//    //      console.log(fn());
+//      //点击查询
+//      var num = +input.value;
+//      moneyManger.pay(num);
+//    }
+
+//  闭包的缺点:
+//    由于内部函数引用了外部函数变量,导致外部函数执行完毕,无法弹栈,这样的话,如果代码中大量的写了闭包,有可能会造成栈溢出
+  
+  function fn(){
+    var num = 1;
+    return function(){
+      console.log(num);
+    }
+  }
+  
+  var fnSon = fn();
+  fnSon();
+</script>
+</body>
+</html>

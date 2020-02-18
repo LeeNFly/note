@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 370px;
+			height: 170px;
+			border: 1px solid #000;
+			overflow: hidden;
+		}
+		/* 过渡添加在本身身上(加在属性值变动的那个元素身上) */
+		img {
+			position: relative;
+			right: 0;
+			/* display: none; */
+			transition: all .5s;			
+		}
+		.box:hover img {
+			/* margin-left: -20px; */
+			
+			right: 10px;
+			/* display: block; */
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/jd.webp" alt="">
+	</div>
+	<div class="box">
+		<img src="images/jd.webp" alt="">
+	</div>
+	<div class="box">
+		<img src="images/jd.webp" alt="">
+	</div>
+	<div class="box">
+		<img src="images/jd.webp" alt="">
+	</div>
+	<div class="box">
+		<img src="images/jd.webp" alt="">
+	</div>
+	<div class="box">
+		<img src="images/jd.webp" alt="">
+	</div>
+</body>
+</html>

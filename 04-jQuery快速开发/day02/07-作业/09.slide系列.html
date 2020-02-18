@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: #f99;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <button>展示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            // slideDown(speed, easing, callback)
+            // slideUp(speed, easing, callback)
+            // slideToggle(speed, easing, callback)
+            // 不传参，有动画效果，默认值是 "normal" = 400
+            // 参数和show方法一样，主要是动画效果不同
+            // 主要修改的是元素的height
+            $("button").eq(0).click(function(){
+                $("div").fadeIn(3000);
+            })
+
+            $("button").eq(1).click(function(){
+                $("div").hide(1000, function () {
+                    console.log('slideUp结束回调');
+                });
+            })
+
+            $("button").eq(2).click(function(){
+                $("div").slideToggle();
+            })
+
+
+            // fadeIn()
+            // fadeOut()
+            // fadeToggle()
+        })
+    </script>
+</body>
+</html>

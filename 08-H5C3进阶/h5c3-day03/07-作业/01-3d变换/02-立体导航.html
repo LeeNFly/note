@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      margin: 100px auto;
+      width: 600px;
+      height: 50px;
+      list-style: none;
+      border: 1px solid #000;
+    }
+    li {
+      width: 100px;
+      height: 50px;
+      float: left;
+      position: relative;
+      perspective: 1000px;
+      transition: all 1s;
+      transform-style: preserve-3d;
+    }
+
+    span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      line-height: 50px;
+      text-align: center;
+    }
+    span:first-child {
+      background-color: pink;
+      transform: translateZ(25px);
+    }
+    span:nth-child(2) {
+      background-color: orange;
+      transform: rotateX(90deg) translateZ(25px);
+    }
+    li:hover {
+      transform: rotateX(-90deg);
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+  <li>
+    <span>传智播客</span>
+    <span>web前端</span>
+  </li>
+</ul>
+</body>
+</html>

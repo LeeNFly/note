@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+    }
+  </style>
+</head>
+
+<body>
+  <!--<table border="1px" width="300px">-->
+  <!--<thead style="background-color: #ccc">-->
+  <!--<tr>-->
+  <!--<th>haha </th>-->
+  <!--<th>hehe  </th>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody align="center">-->
+  <!--<tr>-->
+  <!--<td>123</td>-->
+  <!--<td>345</td>-->
+  <!--</tr>-->
+  <!--</tbody>-->
+  <!--</table>-->
+</body>
+<script>
+  // 数据行 中的数据
+  var body = document.body;
+  var bodyData = [
+    { name: 'zs', subject: '语文', score: 100 },
+    { name: 'ls', subject: '数学', score: 80 },
+    { name: 'sdb', subject: '体育', score: 0 },
+    { name: 'gw', subject: '英语', score: 59 },
+    { name: 'bzr', subject: '数学', score: 50 }
+  ];
+  // 表头数据
+  var headData = ['姓名', '科目', '成绩', '操作'];
+
+  // 方法一 : 使用innerHTML
+  // var tableStr = '<table border="1px" width="300px">'
+  // var headStr = '<thead style="background-color: #ccc"><tr>'
+
+  // for (var i = 0; i < headData.length; i++) {
+  //   headStr += '<th>' + headData[i] + '</th>';
+  // }
+
+  // headStr += '</tr></thead>'
+  
+  // var bodyStr = '<tbody align="center">';
+
+  // for (var i = 0; i < bodyData.length; i++) {
+  //    var tr = '<tr>'
+  //    for ( var key in bodyData[i]) {
+  //       var td = '<td>' + bodyData[i][key] + '</td>';
+  //       tr += td;
+  //    }
+  //    tr += '<td><a href class="del">删除</a></td>'
+  //    tr += '</tr>';
+  //    bodyStr += tr;
+  // }
+  // bodyStr += '</tbody>';
+  
+  // tableStr += headStr + bodyStr + '</table>';
+
+  // document.body.innerHTML = tableStr;
+  
+  // var tbody = document.getElementsByTagName('tbody')[0];
+  // var dels = document.querySelectorAll('.del');
+  // for (var i = 0; i < dels.length; i++) {
+  //    dels[i].onclick = fn;
+  // }
+
+  // function fn() {
+  //   var tr = this.parentNode.parentNode;
+  //   tbody.removeChild(tr);
+  //   return false;
+  // }
+
+  // 方法二 : 使用createElement
+  var table = document.createElement('table');
+  var thead = document.createElement('thead');
+  var tbody = document.createElement('tbody');
+
+  table.border = '1px';
+  table.width = '300px';
+  thead.style.backgroundColor = '#ccc';
+  tbody.align = 'center';
+
+
+  // 表头
+  var headtr = document.createElement('tr');
+  for (var i = 0; i < headData.length; i++) {
+     var headth = document.createElement('th');
+     headth.innerText = headData[i];
+     headtr.appendChild(headth);
+  }
+  thead.appendChild(headtr);
+  // body
+  for (var i = 0; i < bodyData.length; i++) {
+    var bodytr = document.createElement('tr');
+     for (var key in bodyData[i]) {
+       var bodytd = document.createElement('td');
+       bodytd.innerText = bodyData[i][key];
+       bodytr.appendChild(bodytd);
+     }
+     var th_a = document.createElement('th');
+     var a = document.createElement('a');
+     a.innerText = '删除';
+     a.href = '';
+     a.onclick = fn;
+     th_a.appendChild(a);
+     bodytr.appendChild(th_a);
+     tbody.appendChild(bodytr);
+  }
+  function fn() {
+    tbody.removeChild(this.parentNode.parentNode);
+    return false;
+  }
+
+  table.appendChild(thead);
+  table.appendChild(tbody)
+
+  // 把table添加到dom树上,浏览器渲染
+  document.body.appendChild(table);
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //  1. new RegExp 要注意的问题
+    // var reg = /\d/;
+    // console.log(reg.test('123'));
+
+    // var reg = new RegExp('\\d')
+    // console.log(reg.test('123'));
+
+    //   2. 分组
+    //   数字3位.数字3位.数字3位.数字3位.数字3位
+    // var reg = /^\d{3}\.\d{3}\.\d{3}\.\d{3}\.\d{3}$/
+    // var reg = /^\d{3}(\.\d{3}){4}$/
+    // console.log(reg.test('123.123.123.123.123'));
+
+    var dateStr = '2016-01-5';
+    // 正则表达式中的()作为分组来使用，获取分组匹配到的结果用RegExp.$1 $2 $3....来获取
+    // var reg = /^\d{4}-\d{1,2}-\d{1,2}$/
+    var reg = /^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+    if (reg.test(dateStr)) {
+      // 正则匹配后 可以使用RegExp构造函数.$ 获取对应分组匹配到的结果
+      console.log(RegExp.$1); // 2016
+      console.log(RegExp.$2); // 1
+      console.log(RegExp.$3); // 5
+    } else {
+      console.log(false);
+      // 匹配失败,获取不到
+      console.log(RegExp.$1); // 2016
+      console.log(RegExp.$2); // 1
+      console.log(RegExp.$3); // 5
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  url: 统一资源定位符
+  url的组成: 协议://域名:端口号/路径?查询字符串#锚点
+  location
+    属性: href 返回url,给href赋值可以页面跳转  search 返回查询字符串
+    方法: assign('url') 跳转页面记录历史  replace('url')跳转页面不记录历史
+          reload(true/false) 传true就是强制刷新,不传就是普通刷新
+    history: forward 向前一步  back  向后一步  go 向前/向后n步
+    navigator.userAgent  返回用户设备和浏览器信息的字符串
+    定时器:
+    设置定时器
+      setInterval(回调函数, 间隔时间ms) 每隔一段时间就执行一次 返回定时器的id
+      setTimeout(回调函数, 间隔时间ms) 只执行一次 返回定时器的id
+    移除定时器
+      clearInterval(定时器的id)
+      clearTimeout(定时器的id)
+</script>
+</body>
+</html>

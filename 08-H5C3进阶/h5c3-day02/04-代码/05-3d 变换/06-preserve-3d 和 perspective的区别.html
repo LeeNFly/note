@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    ul {
+      width: 200px;
+      height: 400px;
+      position: relative;
+      margin: 100px auto;
+      border: 1px solid #000;
+
+      transform: rotateY(0deg);
+
+      /* perspective: 设置给父盒子, 只是用来给子元素添加近大远小的视觉, 并不能决定是否是真正的3d
+         只是纯粹用来优化视觉效果的, 是用来辅助布局的, 可以不加, 与是否3D显示无关
+      */
+      /*perspective: 1000px;*/
+
+      /* transform-style: 设置给父盒子, 用来设置子盒子是否按照3d进行显示布局, 此属性才是设置真3d效果
+         flat: 平面显示(默认值)
+         perserve-3d: 盒子3维布局
+         给盒子设置3维布局后, 旋转盒子, 是绕盒子的重点位置进行旋转的
+         需要添加perserve-3d, 3d才生效, 即子元素里Z轴才会出现, 生效
+
+         如果设置了3d属性却没有3d效果发生, 则给父盒子设置transform-style: perserve-3d; 添加3d效果
+      */
+      transform-style: preserve-3d;
+    }
+    li {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    li:nth-child(1) {
+      background-color: pink;
+    }
+    li:nth-child(2) {
+      background-color: orange;
+      transform: rotateX(45deg);
+    }
+
+  </style>
+</head>
+<body>
+
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+
+</body>
+</html>

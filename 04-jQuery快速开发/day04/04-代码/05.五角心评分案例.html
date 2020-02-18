@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>五角星评分案例</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .comment {
+        font-size: 40px;
+        color: red;
+    }
+
+    .comment li {
+        float: left;
+    }
+
+    ul {
+        list-style: none;
+        /*overflow: hidden;*/
+    }
+    </style>
+</head>
+
+<body>
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 分析
+            // 1. 鼠标移入事件
+            //  1.1 让当前的五角星和当前前面所有的五角星都变成了实心的五角星
+            //  1.2 让当前后面的五角星变成空心的
+
+            var wjx_k = "☆";
+            var wjx_s = "★";
+
+            $(".comment li").mouseenter(function(){
+                // jq对象.prevAll();   获取jq对象中所有元素前面所有的兄弟元素 重复的只返回一个, 不包括自己 可以加参数 过滤器 进行过滤 返回一个jq对象
+                // jq对象.nextAll();   获取jq对象中所有元素后面所有的兄弟元素 重复的只返回一个, 不包括自己 可以加参数 过滤器 进行过滤 返回一个jq对象
+
+                // 当前前面的
+                $(this).text(wjx_s).prevAll().text(wjx_s);
+                // 当前后面的
+                $(this).nextAll().text(wjx_k);
+            })
+
+
+            // 2. 鼠标离开事件
+            //  2.1 给comment 注册mouseleave
+            //  2.2 让所有的li都变成空心的五角星
+            //  2.3 让点击的那个li，变成实心，前面的变成实心
+            $(".comment").mouseleave(function(){
+                $(this).children().text(wjx_k);
+                console.log(index);
+                
+                $(".comment li").eq(index).text(wjx_s).prevAll().text(wjx_s);
+            })
+
+
+            // 3. 添加click事件
+            //  3.1 给li注册click
+            //  3.2 做了标记，标记了当前点击的是谁
+            //  3.3 用下标来记录当前点击的那个li
+            // 添加类名（使用类名来做标记）
+
+            // 用来记录的下标
+            // jq的容错性特别好, jq对象.eq(undefined) 返回的还是一个jq对象, 只不过length为0, 没有获取到元素
+            var index;
+
+            $(".comment li").click(function(){
+                // 记录当前点击li的下标
+                index = $(this).index();
+            })
+        })
+    </script>
+</body>
+
+</html>

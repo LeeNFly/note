@@ -1,0 +1,398 @@
+/*引入图标字体*/
+@font-face {
+  font-family: 'wjs-icon-font';
+  src: url('../font/MiFie-Web-Font.eot');
+  src: url('../font/MiFie-Web-Font.eot?#iefix') format('embedded-opentype'), url('../font/MiFie-Web-Font.woff') format('woff'), url('../font/MiFie-Web-Font.ttf') format('truetype'), url('../font/MiFie-Web-Font.svg#iconfont') format('svg');
+}
+[class^='wjs-icon-'] {
+  font-family: "wjs-icon-font";
+}
+/* 字体配伪元素使用*/
+.wjs-icon-phone::before {
+  content: '\e908';
+}
+.wjs-icon-tel::before {
+  content: '\e909';
+}
+.wjs-icon-logo::before {
+  content: '\e920';
+}
+.wjs-icon-text::before {
+  content: '\e93e';
+}
+.wjs-icon-E903::before {
+  content: "\e903";
+}
+.wjs-icon-E906::before {
+  content: "\e906";
+}
+.wjs-icon-E905::before {
+  content: "\e905";
+}
+.wjs-icon-E907::before {
+  content: "\e907";
+}
+.wjs-icon-E901::before {
+  content: "\e901";
+}
+.wjs-icon-E900::before {
+  content: "\e900";
+}
+.wjs-icon-E904::before {
+  content: "\e904";
+}
+.wjs-icon-E902::before {
+  content: "\e902";
+}
+.wjs-icon-E906::before {
+  content: "\e906";
+}
+.wjs-icon-new01::before {
+  content: "\e90e";
+}
+.wjs-icon-new02::before {
+  content: "\e90f";
+}
+.wjs-icon-new03::before {
+  content: "\e910";
+}
+.wjs-icon-new04::before {
+  content: "\e911";
+}
+.wjs-icon-partner01::before {
+  content: "\e946";
+}
+.wjs-icon-partner02::before {
+  content: "\e92f";
+}
+.wjs-icon-partner03::before {
+  content: "\e92e";
+}
+.wjs-icon-partner04::before {
+  content: "\e92a";
+}
+.wjs-icon-partner05::before {
+  content: "\e929";
+}
+.wjs-icon-partner06::before {
+  content: "\e931";
+}
+.wjs-icon-partner07::before {
+  content: "\e92c";
+}
+.wjs-icon-partner08::before {
+  content: "\e92b";
+}
+.wjs-icon-partner09::before {
+  content: "\e92d";
+}
+body {
+  height: 2000px;
+}
+a,
+a:hover {
+  text-decoration: none;
+  color: #333;
+}
+/*头部*/
+.wjs-header {
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  line-height: 40px;
+}
+.wjs-header .row > div {
+  height: 40px;
+  border-right: 1px solid #ccc;
+}
+.wjs-header .row > div:last-child {
+  border: none;
+}
+.wjs-header .row .btn-register {
+  padding: 2px 10px;
+  font-size: 14px;
+}
+/*导航*/
+.wjs-nav .wjs-navbar {
+  background-color: #fff;
+  border-color: #e7e7e7;
+  margin-bottom: 0px;
+}
+.wjs-nav .wjs-navbar .navbar-brand {
+  color: #777;
+  height: 80px;
+  line-height: 50px;
+}
+.wjs-nav .wjs-navbar .navbar-brand .wjs-icon-logo {
+  font-size: 50px;
+  color: red;
+  vertical-align: middle;
+}
+.wjs-nav .wjs-navbar .navbar-brand .wjs-icon-text {
+  font-size: 30px;
+  color: #000;
+  vertical-align: middle;
+}
+.wjs-nav .wjs-navbar .navbar-brand:hover,
+.wjs-nav .wjs-navbar .navbar-brand:focus {
+  color: #5e5e5e;
+  background-color: transparent;
+}
+.wjs-nav .wjs-navbar .navbar-text {
+  color: #777;
+}
+.wjs-nav .wjs-navbar .navbar-nav > li > a {
+  color: #777;
+  height: 80px;
+  line-height: 50px;
+}
+.wjs-nav .wjs-navbar .navbar-nav > li > a:hover,
+.wjs-nav .wjs-navbar .navbar-nav > li > a:focus {
+  border-bottom: 3px solid red;
+  background-color: #fff;
+}
+.wjs-nav .wjs-navbar .navbar-nav > .active > a,
+.wjs-nav .wjs-navbar .navbar-nav > .active > a:hover,
+.wjs-nav .wjs-navbar .navbar-nav > .active > a:focus {
+  color: #555;
+  background-color: #fff;
+}
+.wjs-nav .wjs-navbar .navbar-nav > .disabled > a,
+.wjs-nav .wjs-navbar .navbar-nav > .disabled > a:hover,
+.wjs-nav .wjs-navbar .navbar-nav > .disabled > a:focus {
+  color: #ccc;
+  background-color: transparent;
+}
+.wjs-nav .wjs-navbar .navbar-toggle {
+  border-color: #ddd;
+  margin-top: 23px;
+}
+.wjs-nav .wjs-navbar .navbar-toggle:hover,
+.wjs-nav .wjs-navbar .navbar-toggle:focus {
+  background-color: #ddd;
+}
+.wjs-nav .wjs-navbar .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+/*轮播图模块*/
+.wjs-banner .pc-img {
+  border: 1px solid red;
+  height: 410px;
+  background-position: center center;
+}
+.wjs-banner .m-img {
+  width: 100%;
+}
+/*信息*/
+.wjs-info {
+  padding: 30px 0;
+}
+.wjs-info .row > div {
+  margin-bottom: 20px;
+}
+.wjs-info .row > div .media .media-left {
+  font-size: 32px;
+}
+/*在中屏以上,设置版心 970*/
+@media screen and (min-width: 992px) {
+  .wjs-info .container {
+    width: 970px;
+  }
+}
+/*预约模块*/
+.wjs-book {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 40px 0;
+}
+.wjs-book .book-link {
+  color: red;
+  border-bottom: 1px dashed red;
+}
+.wjs-book [class^="wjs-icon-"] {
+  font-size: 24px;
+}
+.wjs-book .pull-right a:hover {
+  color: red;
+}
+/*产品模块*/
+.wjs-product {
+  padding: 30px 0;
+  background-color: #eee;
+  /*产品tab导航*/
+  /*产品的内容*/
+}
+.wjs-product .product-tabs {
+  border-bottom: 1px solid #ddd;
+}
+.wjs-product .product-tabs > li {
+  float: left;
+}
+.wjs-product .product-tabs > li > a {
+  height: 60px;
+  line-height: 40px;
+}
+.wjs-product .product-tabs > li > a:hover {
+  border-bottom: 3px solid red;
+  color: red;
+}
+.wjs-product .product-tabs > li.active > a,
+.wjs-product .product-tabs > li.active > a:hover,
+.wjs-product .product-tabs > li.active > a:focus {
+  border-bottom: 3px solid red;
+  color: red;
+}
+.wjs-product .nav-out {
+  overflow: auto;
+}
+.wjs-product .tab-content {
+  padding-top: 20px;
+}
+.wjs-product .tab-content .row > div {
+  margin-bottom: 20px;
+}
+.wjs-product .tab-content .row > div .in {
+  height: 150px;
+  background-color: #fff;
+}
+.wjs-product .tab-content .row > div .in .left {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.wjs-product .tab-content .row > div .in .left p {
+  font-size: 12px;
+}
+.wjs-product .tab-content .row > div .in .left::before {
+  content: "\e915";
+  font-family: "wjs-icon-font";
+  position: absolute;
+  left: 0;
+  top: -9px;
+  font-size: 40px;
+  color: red;
+}
+.wjs-product .tab-content .row > div .in .right {
+  position: relative;
+  float: right;
+  width: 80px;
+  height: 100%;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 40px;
+  border-left: 1px dashed #333;
+}
+.wjs-product .tab-content .row > div .in .right p span {
+  font-size: 34px;
+  font-weight: 700;
+}
+.wjs-product .tab-content .row > div .in .right::before,
+.wjs-product .tab-content .row > div .in .right::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: -6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #eee;
+}
+.wjs-product .tab-content .row > div .in .right::after {
+  /* 让top值不在去控制元素，*/
+  top: auto;
+  bottom: -6px;
+}
+.wjs-product .tab-content .row .current .in {
+  background-color: red;
+  color: #fff;
+}
+.wjs-product .tab-content .row .current .in .left::before {
+  color: #fff;
+}
+/*新闻模块*/
+.wjs-news {
+  padding: 30px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  /*新闻导航*/
+}
+.wjs-news h4 {
+  position: relative;
+  border-bottom: 1px solid #ccc;
+  line-height: 40px;
+  text-align: center;
+}
+.wjs-news h4::before {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: -3px;
+  width: 6px;
+  height: 6px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+.wjs-news .news-tabs > li {
+  float: left;
+  margin-bottom: 60px;
+}
+.wjs-news .news-tabs > li:last-child {
+  margin-bottom: 0;
+}
+.wjs-news .news-tabs > li > a {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-color: #ccc;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-size: 30px;
+}
+.wjs-news .news-tabs > li > a:hover {
+  background-color: red;
+}
+.wjs-news .news-tabs > li.active > a,
+.wjs-news .news-tabs > li.active > a:hover,
+.wjs-news .news-tabs > li.active > a:focus {
+  background-color: red;
+}
+.wjs-news .line {
+  position: absolute;
+  left: 45px;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  border-left: 1px dashed red;
+}
+.wjs-news .tab-content ul li {
+  list-style: none;
+  padding: 14px 0;
+}
+@media screen and (max-width: 991px) {
+  .wjs-news .news-tabs > li {
+    margin-bottom: 0px;
+    width: 25%;
+  }
+  /*a标签居中*/
+  .wjs-news .news-tabs > li a {
+    margin: 0 auto;
+  }
+}
+/*合作伙伴*/
+.wjs-partner {
+  padding: 30px 0;
+  text-align: center;
+}
+.wjs-partner h4 {
+  font-size: 50px;
+}
+.wjs-partner ul {
+  list-style: none;
+}
+.wjs-partner ul li {
+  display: inline-block;
+  font-size: 60px;
+  margin: 0 15px;
+}

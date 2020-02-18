@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    12345
+
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            console.log($("body").css("backgroundColor", "#ccc"))
+
+            // 在进行设置性操作的时候，返回的值是一个jq对象(会将进行设置操作时的jq对象原样返回 (包含原来jq对象中的所有dom元素), 即会将jq对象.jq方法中的jq对象原样返回)，所以才可以继续链式编程下去
+            // 在进行获取性操作的时候，返回的值是获取的值，不是jq对象, 所以不可以调用jq的方法, 所以就不能继续链式编程下去
+
+            // jq中所有设置或获取性的操作, 都是一个jq对象利用.语法来操作的, 
+           $("body").css("backgroundColor", "#ccc").css("fontSize", 40).width().css("fontSize");
+        })
+    </script>
+</body>
+</html>

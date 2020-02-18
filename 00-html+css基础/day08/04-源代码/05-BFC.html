@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		/* BFC解决外边距上下合并问题 */
+		.box,
+		.box1 {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+		.box {
+			margin-bottom: 20px;
+		}
+		.box1 {
+			background-color: lime;
+			margin-top: 30px;
+		}
+		.bfc {
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="bfc">
+		<div class="box1"></div>
+	</div>
+
+	
+	<!-- BFC解决外边距嵌套合并问题 -->
+	<style>
+		.father {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			 /*overflow: auto; */
+			/* float: left; */
+		}
+		.son {
+			width: 100px;
+			height: 100px;
+			margin-top: 30px;
+			background-color: red;
+		}
+	</style>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+
+	
+	<!-- BFC闭合浮动 -->
+	<style>
+		.float-father {
+			width: 300px;
+			border: 1px solid #000;
+			/* overflow: scroll; */
+			/* float: left; */
+			/* display: table; */
+			position: absolute; 
+		}
+		.float {
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			float: left;
+		}
+	</style>
+	<div class="float-father">
+		<div class="float"></div>
+		<div class="float"></div>
+		<div class="float"></div>
+		<div class="float"></div>
+	</div>
+</body>
+</html>

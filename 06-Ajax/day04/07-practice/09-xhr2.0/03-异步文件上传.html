@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      border: 1px solid #000;
+    }
+
+    div img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <input type="file" id="fileInp">
+  <div></div>
+
+  <script>
+    var fileInp = document.getElementById('fileInp');
+    var div = document.getElementsByTagName('div')[0];
+    fileInp.onchange = function () {
+      // console.dir(fileInp.files[0]);
+      var file = fileInp.files[0];
+      var xhr = new XMLHttpRequest();
+      xhr.open('post', './03-file.php');
+      var formData = new FormData();
+      formData.append('file', file);
+      xhr.send(formData);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            console.log(xhr.responseText);
+            div.innerHTML = '<img src="' + xhr.responseText + '">';
+          }
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+
+1. break 和 continue 
+break : 结束整个for循环 , 跳出大括号
+continue : 结束当前次循环,继续下一个循环
+
+2. 数组
+- 数组的概念
+- 多个元素的集合 , 有长度有顺序 用来存储大量的数据
+- 创建数组
+- 构造函数  var arr=  new Array();
+- 字面量  var arr = [123]
+
+- 数组的长度和下标
+1. length
+2. 开始 :0   结束 : arr.length-1
+
+- 取值和赋值
+1.取值 :  数组名 [下标]
+  - 下标存在 : 直接获取下标对应的值
+  - 下标不存在 :  undefined
+2. 赋值 : 数组名[下标] =  值
+ - 下标存在 : 修改
+ - 下标不存在 : 添加
+ 
+ 3. 追加 
+ arr[arr.length] = 值
+ arr.push();
+ 
+- 遍历
+for (var i = 0 ; i < arr.length; i++) {
+    i : 下标
+    arr[i] :元素值
+}
+
+3. 冒泡 
+var arr = [5,4,3,2,1];
+//初级版
+// 其实就是两个for循环
+// 遍数
+for (var i = 0; i < arr.length; i++) {
+
+    // 次数  两两比较的次数 
+    for (var j = 0 ; j < arr.length ; j++) {
+
+      if (arr[j] > arr[j+1]) {
+
+        var temp = arr[j];
+            arr[j] =  arr[j+1];
+            arr[j+1] = temp;
+      }
+
+    }
+}
+
+
+// 中级版  (掌握)
+// 遍数
+for (var i = 0; i < arr.length-1; i++) {
+
+    // 次数  两两比较的次数 
+    for (var j = 0 ; j < arr.length-1-i ; j++) {
+
+      if (arr[j] > arr[j+1]) {
+
+        var temp = arr[j];
+            arr[j] =  arr[j+1];
+            arr[j+1] = temp;
+      }
+    }
+}
+// 优化版
+// 遍数
+for (var i = 0; i < arr.length-1; i++) {
+
+  var flag = true; // 默认排好了
+
+    // 次数  两两比较的次数 
+    for (var j = 0 ; j < arr.length-1-i ; j++) {
+
+      if (arr[j] > arr[j+1]) {
+        // 交换代码
+
+        flag = false;
+
+        var temp = arr[j];
+            arr[j] =  arr[j+1];
+            arr[j+1] = temp;
+      }
+    }
+
+    if (flag) {
+      break;
+    }
+
+
+}

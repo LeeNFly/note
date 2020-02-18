@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F7F7F7;
+    }
+    
+    h3 {
+      text-align: center;
+    }
+    
+    .chatbox {
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+      border: 1px solid #CCC;
+      background-color: #FFF;
+      border-radius: 5px;
+    }
+    
+    .messages {
+      height: 350px;
+      padding: 20px 40px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #CCC;
+      overflow: scroll;
+    }
+    
+    .messages h5 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    
+    .messages p {
+      font-size: 18px;
+      margin: 0;
+    }
+    
+    .self {
+      text-align: left;
+    }
+    
+    .other {
+      text-align: right;
+    }
+    
+    .form {
+      height: 150px;
+    }
+    
+    .form .input {
+      height: 110px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    
+    .form .btn {
+      height: 40px;
+      box-sizing: border-box;
+      border-top: 1px solid #CCC;
+    }
+    
+    .form textarea {
+      display: block;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border: none;
+      resize: none;
+      outline: none;
+      font-size: 20px;
+    }
+    
+    .form input {
+      display: block;
+      width: 100px;
+      height: 30px;
+      margin-top: 5px;
+      margin-right: 20px;
+      float: right;
+    }
+  </style>
+</head>
+<body>
+<h3>高级智能机器人</h3>
+<div class="chatbox">
+  <!-- 聊天内容 -->
+  <div class="messages">
+    <div class="self">
+      <h5>我说</h5>
+      <p>你好</p>
+    </div>
+    <div class="other">
+      <h5>对方说</h5>
+      <p>你好</p>
+    </div>
+  </div>
+  <div class="form">
+    <div class="input">
+      <textarea></textarea>
+    </div>
+    <div class="btn">
+      <input type="button" value="发送" id='btn'>
+    </div>
+  </div>
+</div>
+
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+  // 实现思路:
+  // 1. 点击发送按钮, 获取textarea中的内容
+  // 2. 动态创建一个div, 类名self, 追加到 messages 聊天框中
+  // 3. 将内容, 发送到后台, 后台接收到响应, 返回一个聊天内容
+  // 4. 处理响应, 动态创建一个 div, 类名 other, 追加到 messages 聊天框中
+
+  $(function() {
+
+    $('#btn').click(function() {
+      var content = $('.input textarea').val();  // 表单元素
+      if ( content === "" ) {
+        return;
+      }
+      // 动态创建 div
+      var $div = $('<div></div>').addClass("self").html("<h5>我说</h5><p>" + content + "</p>");
+      // 追加到 messages 框中
+      $('.messages').append( $div );
+      $div[0].scrollIntoView();  // 让容器进入可视区
+      // 清空内容
+      $('.input textarea').val("");
+
+      // 发送请求
+      // 明明跨域了, 却可以拿到后台的数据(这里使用的就是 cors, 后台进行了设置响应头)
+      // Access-Control-Allow-Origin: *
+
+      $.ajax({
+        type: "post",
+        url: "http://www.tuling123.com/openapi/api",
+        data: {
+          key: "9a9c2acb43684fc6b17ccfdbb3c45e82",   // 机器人的唯一标示
+          info: content,   // 我说的内容
+          userid: "pengpeng"  // 用户标示
+        },
+        dataType: "json",
+        success: function( info ) {
+          console.log( info );
+
+          // 文本类型的回复
+          if ( info.code === 100000 ) {
+            // 处理响应, 动态创建一个 div, 类名 other, 追加到 messages 聊天框中
+            var $div = $('<div></div>').addClass("other").html("<h5>对方说</h5><p>" + info.text + "</p>");
+            $('.messages').append( $div );
+            $div[0].scrollIntoView();  // 让容器进入可视区
+          }
+
+          // 链接类型的回复
+          if ( info.code === 200000 ) {
+            // 多了一个 url 需要显示
+            // 处理响应, 动态创建一个 div, 类名 other, 追加到 messages 聊天框中
+            var $div = $('<div></div>').addClass("other").html('<h5>对方说</h5><a href="'+ info.url +'">' + info.text + '</a>');
+            $('.messages').append( $div );
+            $div[0].scrollIntoView();  // 让容器进入可视区
+          }
+
+
+        }
+      })
+
+    })
+
+
+  })
+
+
+
+
+</script>
+
+</body>
+</html>

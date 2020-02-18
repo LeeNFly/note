@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      name: 'zs',
+      age: 18
+    }
+
+    // //遍历对象
+    // for ( var key in obj) {
+    //   console.log(key);
+    //   console.log(typeof key);
+    //   console.log(obj[key]);
+      
+      
+    // }
+
+    // 拓展 
+    // 判断这个属性是否是对象里的属性  //  'name' in obj
+    // console.log('name' in obj);
+    // console.log('age' in obj);
+    // console.log('hobby' in obj);
+
+    // 获取对象里的所有属性名  Object.keys(obj); 
+    var res = Object.keys(obj);
+    console.log(res); // ["name", "age"]
+    
+    
+  </script>
+</body>
+</html>

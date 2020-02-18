@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  js继承:
+//   单个对象的继承:
+//      拷贝继承 for..in
+//      新的对象 =   Object.create(被继承的对象)   新的对象.__proto__ == 被继承的对象
+
+//        var obj = {}
+//        var obj1 = {}
+//      在实际工作中,经常要批量创建对象,所以要用到构造函数
+//   构造函数的继承 :
+      function Person(name, age){
+        this.name = name;
+        this.age = age;
+      }
+      
+      Person.prototype.say = function(){}
+      
+      function Student(name,age,score){
+        Person.call(this,name, age); //借用构造函数继承: 继承私有的属性
+        this.score = score;
+      }
+      
+      Student.prototype = new Person(); //原型继承 : 用来继承共有属性
+      
+      var zs =  new Student('zs', 18, 100);
+</script>
+</body>
+</html>

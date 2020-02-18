@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  navigator.geolocation.getCurrentPosition(
+  function (e) {
+    console.log(e)
+    console.log('获取地理位置成功');
+  },
+  function (e) {
+    console.log(e)
+    console.log('获取地理位置失败');
+  })
+</script>
+</body>
+</html>

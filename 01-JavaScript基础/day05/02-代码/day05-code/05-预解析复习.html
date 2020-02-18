@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // js代码执行的真正过程
+      //1. 预解析
+              //1. var 声明的变量,,只把声明提升到当前作用域的最前面,,赋值不提升
+              //2. 函数声明,,也要提升 整体提升
+              //3. 变量名和函数名同名的话,,函数优先(覆盖)
+
+      //2. 代码一行一行的执行
+
+      // var a;
+      // function a() {
+      //   console.log('哈');
+      // }
+ 
+      // a = 4;
+      // console.log(a);
+      // a = 6;
+      // console.log(a);
+     
+
+      // a();
+
+      // a = 10;
+      // console.log(a);
+
+
+
+      var a = 4;
+      console.log(a);
+      a = 6;
+      console.log(a);
+      function a() {
+        console.log('哈');
+      }
+
+      a();
+
+      a = 10;
+      console.log(a);
+
+    </script>
+</body>
+</html>

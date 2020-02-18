@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <input type="text">
+  <h1></h1>
+
+  <script>
+    // 将输入框中输出的内容, 实时同步到 h1 中
+    var inp = document.querySelector("input");
+    var h1 = document.querySelector("h1");
+
+    // onchange 是在失去焦点时才触发, 才能进行同步
+    // inp.onchange = function() {
+    //   h1.innerHTML = inp.value;
+    // }
+
+    // html5 新增一个事件类型 input
+    // input 在表单内容进行输入时, 就出发
+    inp.oninput = function() {
+      h1.innerHTML = inp.value;
+    }
+  
+  </script>
+  
+</body>
+</html>

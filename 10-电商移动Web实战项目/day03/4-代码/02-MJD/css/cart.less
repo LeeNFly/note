@@ -1,0 +1,148 @@
+@color: #969696;
+@jdc: #F23030;
+
+body {
+    background-color: #eee;
+}
+
+.cart-layout {
+    position: relative;
+    max-width: 640px;
+    min-width: 320px;
+    background-color: #fff;
+    height: 1500px;
+    margin: 0 auto;
+}
+
+
+.cart-header {
+    position: static;
+    h4 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: normal;
+    }
+}
+
+/*安全*/
+.cart-safe {
+    height: 33px;
+    border-bottom: 1px solid #ccc;
+    line-height: 32px;
+    text-align: center;
+    p {
+        position: relative;
+        // background-color: blue;
+        display: inline-block;
+        padding-left: 30px;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            width: 18px;
+            height: 18px;
+            background: url(../images/safe_icon.png) no-repeat;
+            background-size: 18px 18px;
+        }
+    }
+} 
+
+/*商品*/
+.cart-product {
+    margin-top: 10px;
+    .p-header {
+        position: relative;
+        height: 34px;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        line-height: 32px;
+        font-size: 12px;
+        color: @color;
+        padding-left: 34px;
+        .logo {
+            width: 20px;
+            height: 16px;
+            margin-top: 9px; 
+            margin-right: 10px;
+        }       
+    }
+
+    .chk{
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 20px;
+        height: 20px;
+        background-position: -180px -89px;
+    }
+
+    .p-content {
+        .item {
+            position: relative;
+            height: 100px;
+            border-bottom: 1px solid #ccc;
+            padding-left: 34px;
+            .item-in {
+                height: 100%;
+                .info-img {
+                    width: 80px;
+                    height: 80px;
+                    float: left;
+                    margin-top: 10px;
+                }
+    
+                .info {
+                    height: 100%;                  
+                    overflow: hidden;
+                    padding: 10px;
+                    .option {
+                        margin-top: 20px;
+                        background-color: yellow;
+                        .count {
+                            span {
+                                float: left;
+                                border: 1px solid @color;
+                                width: 40px;
+                                height: 32px;
+                                text-align: center;
+                                line-height: 32px;
+                                color: @color;
+                                cursor: pointer;
+                            }
+
+                            span:nth-child(2) {
+                                border-left: none;
+                                border-right: none;
+                            }
+                        }
+
+                        // 垃圾桶
+                        .del {
+                            width: 18px;
+                            height: 22px;    
+                            cursor: pointer;
+                            span {
+                                float: left;
+                            }
+                            .del-up {
+                                width: 18px;
+                                height: 4px;
+                                background: url(../images/delete_up.png);
+                                background-size: 18px 4px;
+                            }
+                            .del-down {
+                                width: 18px;
+                                height: 18px;
+                                background: url(../images/delete_down.png);
+                                background-size: 18px 18px;
+                                margin-top:-2px;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+} 

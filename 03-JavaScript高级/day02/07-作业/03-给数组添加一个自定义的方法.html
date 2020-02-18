@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr = [1, 14, 2, 13, 18];
+
+    Array.prototype.mySort = function () {
+      // 谁调用this所在的函数,this就指向谁
+      for (var i = 0; i < this.length - 1; i++) {
+        for (var j = 0; j < this.length - 1 - i; j++) {
+          if (this[j] > this[j + 1]) {
+            var temp = this[j];
+            this[j] = this[j + 1];
+            this[j + 1] = temp;
+          }
+        }
+      }
+      return this;
+    }
+    arr.mySort()
+    // console.log(arr);
+    console.log(arr.mySort());
+    
+  </script>
+</body>
+
+</html>

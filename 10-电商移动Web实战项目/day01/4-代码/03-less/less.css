@@ -1,0 +1,66 @@
+/*头部模块*/
+.box {
+  width: 300px;
+  background-color: #e92322;
+}
+.box2 {
+  padding: 10px;
+  color: #e92322;
+}
+.box3 {
+  font-size: 100px;
+  border-radius: 50%;
+}
+.box4 {
+  width: 300px;
+  background-color: #e92322;
+  padding: 10px;
+  color: #e92322;
+  font-size: 100px;
+  border-radius: 50%;
+}
+.box5 {
+  border: 2px solid #ff0000;
+  border-radius: 20px;
+}
+.box6 {
+  border: 10px solid #0000ff;
+  border-radius: 30%;
+}
+.box7 {
+  border: 3px solid #ffc0cb;
+  border-radius: 0;
+}
+.box8 {
+  width: 114.28571429px;
+  height: 19.75px;
+}
+.nav {
+  border: 1px solid #000;
+  overflow: hidden;
+}
+.nav ul {
+  position: relative;
+  width: 1000px;
+}
+.nav ul li {
+  float: left;
+  width: 100%;
+}
+.nav ul li a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+.nav ul li a:hover {
+  color: red;
+}
+.nav ul li a:nth-child(3) {
+  background-color: pink;
+}
+.nav ul li img {
+  width: 100%;
+}
+.box9 {
+  width: 50%;
+}

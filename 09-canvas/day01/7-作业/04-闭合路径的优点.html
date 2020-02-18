@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="800" height="600"></canvas>
+
+<script>
+    var cs = document.querySelector('canvas');
+    var ctx = cs.getContext('2d');
+
+    ctx.lineWidth = 20;
+    ctx.moveTo(100, 100);
+    ctx.lineTo(100, 300);
+    ctx.lineTo(200, 300);
+    ctx.closePath();
+
+    ctx.moveTo(300, 100);
+    ctx.lineTo(300, 300);
+    ctx.lineTo(400, 300);
+
+    // ctx.lineTo(100, 100);
+    ctx.closePath();
+
+    ctx.stroke();
+</script>
+</body>
+</html>

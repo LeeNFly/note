@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <script>
+    // 需求: 给每一个li注册一个点击事件,点击这个li之后,每隔一秒钟,打印一下当前li中的文本
+    var lis = document.getElementsByTagName('li');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].onclick = fn;
+    }
+
+    // function fn() {
+    //   setInterval(function () {
+    //     console.log(this);  // 在定时器的调用模式中 this -> window
+    //   }, 1000)
+    // }
+
+    function fn() {
+      // console.log(this);  this -> 指向被点击的元素
+      setInterval(function () {
+        console.log(this.innerText);  // this -> 指向被点击的元素
+      }.bind(this), 1000) // 克隆一份函数 改变函数中this的指向,然后返回该函数,作为定时器的函数参数
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  // html5 里面新增了 (google)地理位置的 api , 可以获取用户位置, 提供位置服务
+
+  // 通过 navigator.geolocation.getCurrentPosition 可以尝试获取用户位置, 有可能成功 也有可能失败, 因为会先弹框向用户获取许可
+  // navigator.geolocation.getCurrentPosition( success, error )
+  // 参数1. 成功的回调函数, 成功会调用成功的回调函数, 形参可以得到一个 location 对象
+  // 参数2. 失败的回调函数, 失败会调用失败的回调函数, 形参可以得到一个 error 对象
+
+
+  // chrome 和 火狐, 以及IOS端 为了安全, 做了限制, 必须网站是 https 安全协议才允许获取位置
+  // 我们调试, 在 ie 下调试 (不影响将来工作)
+
+  // 获取的 google 地图的坐标
+  navigator.geolocation.getCurrentPosition(function( location ) {
+    console.log("获取地理位置成功");
+    console.log( location );
+
+    var longitude = location.coords.longitude; // 经度
+    var latitude = location.coords.latitude; // 纬度
+    var accuracy = location.coords.accuracy; // 精确度   精确度越小, 准确度越高
+    var altitude = location.coords.altitude; // 海拔
+
+    console.log( longitude )
+    console.log( latitude )
+    console.log( accuracy )
+    console.log( altitude )
+
+  }, function( error ) {
+    console.log("获取地理位置失败")
+    console.log( error )
+  });
+
+  // 121.6009080625076
+  // 31.02400542553159
+
+
+
+</script>
+
+</body>
+</html>

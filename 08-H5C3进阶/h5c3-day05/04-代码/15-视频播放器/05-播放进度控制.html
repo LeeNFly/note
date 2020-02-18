@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="./css/font-awesome.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .box {
+      width: 800px;
+      height: 500px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      display: flex;
+    }
+    /*-----------  左侧布局 ---------------*/
+    .video-left {
+      flex: 4;
+    }
+    .video-left video {
+      height: 85%;
+      width: 100%;
+      display: block;
+      background-color: #000;
+    }
+    .video-left .controls {
+      height: 15%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .video-left .play,
+    .video-left .full,
+    .video-left .volume {
+      flex: 1;
+    }
+    .video-left .range-play {
+      flex: 7;
+    }
+    .video-left i {
+      text-align: center;
+      font-size: 25px;
+      color: orange;
+      cursor: pointer;
+    }
+    .video-left .volume {
+      position: relative;
+    }
+    .video-left .volume:hover .range-volume {
+      display: block;
+    }
+    .video-left .range-volume {
+      width: 80px;
+      position: absolute;
+      left: -7px;
+      top: -47px;
+      transform: rotate(-90deg);
+      display: none;
+    }
+
+
+    /*-----------  右侧布局 ---------------*/
+    .video-right {
+      flex: 1;
+    }
+    .video-right ul {
+      width: 100%;
+      height: 100%;
+      background-color: #666;
+    }
+    .video-right li {
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+<!--
+  1. 引包
+  2. 添加 fa, 和具体显示哪个字体图标的类
+-->
+<!--<i class="fa fa-address-card"></i>-->
+
+
+<div class="box">
+  <div class="video-left">
+    <video src="./movies/movie01.mp4"></video>
+    <!-- 下面的控制器 -->
+    <div class="controls">
+      <i class="play fa fa-play"></i>
+      <i class="full fa fa-arrows-alt"></i>
+      <!-- 滑块的值 0-100 -->
+      <input class="range-play" type="range" value="0">
+      <i class="volume fa fa-volume-up">
+        <input class="range-volume" type="range" value="100">
+      </i>
+    </div>
+  </div>
+  <div class="video-right">
+    <ul>
+      <li>灰姑娘</li>
+      <li>兔子哥</li>
+      <li>报告老板</li>
+      <li>轻松时刻</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  // 获取按钮
+  var play = document.querySelector(".play");
+  var video = document.querySelector("video");
+  var full = document.querySelector(".full");
+  var rangePlay = document.querySelector(".range-play");
+
+  // ----------------1. 暂停功能-------------------------
+
+  // load() 加载视频, play() 播放视频, pause() 暂停视频
+  play.addEventListener("click", function() {
+    if ( play.classList.contains("fa-play") ) {
+      // 点击播放视频
+      video.play();
+      // 点击完成后, 切换成暂停按钮
+      play.classList.remove("fa-play");
+      play.classList.add("fa-pause");
+    }
+    else {
+      // 说明要暂停
+      video.pause();
+      // 切换类
+      play.classList.remove("fa-pause");
+      play.classList.add("fa-play");
+    }
+  });
+
+  // ----------------2. 全屏功能-------------------------
+  // 使用 webstorm 启动的虚拟服务器, 在加载视频, 切换进度会有 bug, 这个webstorm的问题
+
+  // 全屏兼容性写法
+  full.addEventListener("click", function() {
+    if ( video.requestFullScreen ) {
+      video.requestFullScreen();
+    }
+    // 兼容谷歌
+    else if ( video.webkitRequestFullScreen ) {
+      video.webkitRequestFullScreen();
+    }
+    // 兼容火狐
+    else if ( video.mozRequestFullScreen ) {
+      video.mozRequestFullScreen();
+    }
+  });
+
+  // ----------------3. 控制进度条-------------------------
+  // 使用 webstorm 启动的虚拟服务器, 在加载视频, 切换进度会有 bug, 这个webstorm的问题
+  // 使用服务器访问或者使用本地文件直接访问, 则没有这个问题
+
+  // timeupdate: 会在播放进度变化时调用, 即在播放时会时时调用, 是h5新增的事件, 要使用addEventListener来注册
+  // 获取视频总长度 video.duration   返回的是秒数, 是video元素的属性
+  // 获取和设置视频播放的进度 video.currentTime  单位是秒数, 是video元素的属性,
+  video.addEventListener("timeupdate", function() {
+    var percent = (video.currentTime / video.duration) * 100;
+    // range 的 value 值 是 0-100
+    rangePlay.value = percent;
+  });
+
+  // 当用户选择了进度时, 更新播放进度
+  rangePlay.addEventListener("change", function() {
+    // 通过百分比, 算出对应视频的进度 (秒数)
+    var currentTime = (rangePlay.value / 100) * video.duration;
+    // 直接设置视频的播放进度, 视频就可以切换到对应的秒数上, 继续往下播放了
+    // currentTime可以进行获取或者赋值
+    video.currentTime = currentTime;
+  });
+
+</script>
+</body>
+</html>

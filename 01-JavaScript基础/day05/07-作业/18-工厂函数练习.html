@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+          // 1. 学生对象
+          // name : 张三  age: 18岁 打招呼:大家好我是张三
+          // name : 李四  age: 19岁 打招呼:大家好我是李四
+
+          // function createPerson(name,age) {
+          //   var obj = {};
+          //   obj.name = name;
+          //   obj.age = age;
+          //   obj.sayHi = function () {
+          //     console.log('大家好,我是' + this.name);
+          //   }
+          //   return obj;
+          // }
+
+          // var zs = createPerson('张三',18);
+          // console.log(zs);
+          // zs.sayHi();
+
+          // var ls = createPerson('李四',19);
+          // console.log(ls);
+          // ls.sayHi();
+
+          // 2. 老师对象
+          // name : 伟哥  爱好:篮球  打: 伟哥正在打篮球
+          // name : 马哥  爱好:台球  打: 马哥正在打台球
+
+          function createTeacher(name,hobby) {
+            var obj = {};
+            obj.name = name;
+            obj.hobby = hobby;
+            obj.play = function () {
+              console.log(this.name + '正在打' + this.hobby);
+              
+            }
+            return obj;
+          }
+          
+          var t1 = createTeacher('伟哥','篮球');
+          console.log(t1);
+          t1.play();
+
+          var t2 = createTeacher('马哥','台球');
+          console.log(t2);
+          t2.play();
+          
+  </script>
+</body>
+</html>

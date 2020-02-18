@@ -1,0 +1,162 @@
+.cart-layout {
+  width: 100%;
+  max-width: 640px;
+  min-width: 320px;
+  height: 1500px;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 44px;
+}
+.cart-layout .header div {
+  height: 100%;
+  line-height: 44px;
+  font-size: 20px;
+  text-align: center;
+}
+.cart-layout .safe {
+  height: 33px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.cart-layout .safe span {
+  line-height: 33px;
+  padding-left: 30px;
+  position: relative;
+}
+.cart-layout .safe span::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-image: url(../images/safe_icon.png);
+  background-size: 18px 18px;
+  left: 9px;
+  top: 0px;
+}
+.cart-layout .product .p-header {
+  height: 34px;
+  line-height: 34px;
+  padding-left: 30px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.cart-layout .product .p-header .logo {
+  width: 20px;
+  height: 20px;
+  margin-top: 8px;
+  margin-right: 5px;
+}
+.cart-layout .product .p-header .title,
+.cart-layout .product .p-header .free {
+  font-size: 12px;
+  color: #969696;
+  height: 32px;
+}
+.cart-layout .product .p-content ul li {
+  padding-left: 30px;
+  height: 100px;
+  position: relative;
+  padding-top: 5px;
+  border-bottom: 1px solid #ccc;
+}
+.cart-layout .product .p-content ul li img {
+  width: 80px;
+  height: 80px;
+}
+.cart-layout .product .p-content ul li > div {
+  overflow: hidden;
+  padding: 5px;
+}
+.cart-layout .product .p-content ul li > div p {
+  height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+}
+.cart-layout .product .p-content ul li > div .count {
+  float: left;
+}
+.cart-layout .product .p-content ul li > div .count span {
+  float: left;
+  width: 42px;
+  height: 34px;
+  border: 1px solid #000;
+  line-height: 34px;
+  text-align: center;
+}
+.cart-layout .product .p-content ul li > div .count span:nth-child(2) {
+  border-right: none;
+  border-left: none;
+}
+.cart-layout .product .p-content ul li > div .dels {
+  float: right;
+  margin-top: 8px;
+}
+.cart-layout .product .p-content ul li > div .dels .dels-up {
+  width: 18px;
+  height: 4px;
+  background-image: url(../images/delete_up.png);
+  background-size: 18px 4px;
+  transition: all 0.3s;
+  transform-origin: right bottom;
+}
+.cart-layout .product .p-content ul li > div .dels .dels-down {
+  width: 17px;
+  height: 17px;
+  background-image: url(../images/delete_down.png);
+  background-size: 17px 17px;
+}
+.cart-layout .product .p-content ul li > div .dels.open .dels-up {
+  transform: rotate(15deg);
+}
+.cart-layout .product .chk {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-position: -175px -89px;
+  margin-top: 5px;
+}
+.cart-layout .dels-comfirm {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  left: 0;
+  top: 0;
+}
+.cart-layout .dels-comfirm > div {
+  width: 80%;
+  margin: 200px auto;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+.cart-layout .dels-comfirm > div p {
+  height: 70px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 70px;
+  border-bottom: 1px solid #ccc;
+}
+.cart-layout .dels-comfirm > div div {
+  margin-top: 10px;
+}
+.cart-layout .dels-comfirm > div div .cancel,
+.cart-layout .dels-comfirm > div div .confirm {
+  width: 30%;
+  border: 1px solid #000;
+  border-radius: 5px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  float: left;
+}
+.cart-layout .dels-comfirm > div div .confirm {
+  float: right;
+  background-color: #f23030;
+  color: #fff;
+}

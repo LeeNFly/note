@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    textarea {
+      width: 500px;
+      height: 200px;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 准备容器 -->
+  <div id="box"></div>
+
+  <textarea cols="30" rows="10"></textarea>
+
+  <!-- 使用富文本编辑器
+       1. 引包
+       2. 准备容器
+       3. 进行初始化
+  -->
+  <script src="./wangEditor.min.js"></script>
+  <script>
+
+    // 需求: 在富文本编辑器中输入内容, 下面的 textarea 要进行同步
+    var E = window.wangEditor;  // 给 wangEditor 起了个小名
+    var editor = new E('#box');  // 进行创建实例
+
+    // 在富文本编辑器被修改时调用, html就是编辑器中的内容
+    editor.customConfig.onchange = function (html) {
+      // 监控变化，同步更新到 textarea
+      document.querySelector('textarea').value = html;
+    }
+    
+    editor.create();  // 调用实例方法, 创建一个富文本编辑器
+
+
+
+
+    // 1. 设置内容, 
+    //    可以直接往结构中写内容, 进行初始化
+    //    也可以通过 js 实现设置内容 editor.txt.html(...)
+    // editor.txt.html( "<h1>哈哈, 我是大标题</h1>" );
+    // editor.txt.append('<p>追加的内容</p>');   // 追加
+    // // editor.txt.clear();   // 清空内容
+
+    // // 2. 获取内容  html(带标签), text(纯文本)
+    // console.log( editor.txt.html() );
+    // console.log( editor.txt.text() )
+
+  
+  </script>
+  
+</body>
+</html>

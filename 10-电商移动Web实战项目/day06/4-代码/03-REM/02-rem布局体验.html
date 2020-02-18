@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*
+            用em进行布局的问题:
+            em 单位可以实现宽高自适应布局，但是 em既要用于设置自身字体大小，
+            又要用于子盒子布局，会导致布局混乱，不建议使用； 如果盒子把字体大小改了, 则布局也跟着变了
+
+            解决方法：找一个不用于布局的标签的fontSize属性作为布局的单位，html标签满足这个要求
+            ★ html标签的字体大小, ★就是1个rem 单位  (实际上和em类似, 只不过我们这里给个其他的称呼, rem,  html标签的字体大小  font-size属性；
+
+            rem： html标签的字体大小  font-size属性；  1rem = html的字体大小
+
+            ★ 1rem = html标签的字体大小, 且rem会随着html标签的字体大小属性的改变而自动改变, 且所有使用rem为单位的css属性也会跟着自动改变, 浏览器自动重新渲染, 达到自适应的效果
+        */
+        html{ 
+            font-size: 100px;  /* 1rem = 100px */
+        }
+        .out {
+            width: 4rem;
+            height: 4rem;
+            border: 0.01rem solid red;
+            font-size: .2rem;
+            padding: .5rem;
+        }
+        .in {
+            width: 2rem;
+            height: 2rem;
+            border: 0.01rem solid green;
+            font-size: .2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="out">
+        <div class="in">
+            桃花潭水深千尺，
+            疑是银河落九天
+        </div>
+    </div>
+</body>
+</html>

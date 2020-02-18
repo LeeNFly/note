@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+
+    //3 -将数据用饼图展示
+    var datas = [600, 800, 600, 1000,  1200, 800,  1600];
+    var colors = ['hotpink', 'skyblue', '#daa520', '#f99', '#123456', 'orange', 'red'];
+    var start = 0;
+
+    // 将数据转化为对应所占的弧度
+    var sum = 0;
+    var degArr = [];
+    datas.forEach(function (v) {
+        sum += v;
+    });
+    datas.forEach(function (v) {
+        var deg = v / sum * 360;
+        degArr.push(deg);
+    });
+
+    degArr.forEach(function (v, i) {
+        ctx.beginPath();
+        ctx.moveTo(300, 200);
+        ctx.arc(300, 200, 100, getRadian(start), getRadian(start + v));
+        ctx.closePath();
+        ctx.fillStyle = colors[i];
+        ctx.fill();
+
+        start = start + v;
+    });
+
+    //获取弧度
+    function getRadian(deg) {
+        return deg / 180 * Math.PI;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<!-- 
+	video 播放视频
+	标签属性：
+	src： 视频的地址
+	autoplay： 自动播放
+	controls：播放控件
+	loop：循环播放 
+	
+	好处：方便 没有广告
+	弊端：兼容性
+
+	使用场景：手机端
+
+	-->
+	
+	<!-- <video src="media/mp4.mp4" autoplay controls loop></video> -->
+
+
+
+	<!-- 兼容写法：前提：需要准备三种不同格式的视频 
+		
+		查找原则：从上到下依次去查找 如果找到当前浏览器识别的格式 那么就会将这个视频解析出来 如果不识别 继续往下查找 知道找到自己识别的哪一个 如果都不识别 最终会将a标签识别出来
+
+	-->
+
+	<video autoplay controls loop>
+		<source src="media/mp4.mp4" >
+		<source src="media/mp4.ogg" >
+		<source src="media/mp4.webm" >
+		<a href="http:www.baidu.com">你的浏览器太低端了，赶紧升级吧</a>
+	</video>
+	
+</body>
+</html>

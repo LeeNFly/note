@@ -1,0 +1,110 @@
+//我是less的注释
+/*我也是less的注释*/ 
+
+//变量
+@color: #e92322;
+
+.box {
+    width: 100px;
+    height: 200px;
+    color:@color;
+}
+
+.box1 {
+    background-color: @color;
+}
+
+.box2 {
+    border: 1px solid @color;
+}
+
+.box3 {
+    font-size: 100px;
+    padding: 50px;
+}
+
+//混入
+.box4 {
+    .box1;
+    .box2;
+    .box3;
+}
+
+//函数 
+// 传递参数  设置参数的默认值 
+.bd(@r:50%, @w:1px, @c:#ccc) {
+    border-radius: @r;
+    border: @w solid @c;
+}
+
+.box5 {
+    .bd(10px, 2px, pink);
+}
+
+.box6 {
+    .bd(1px, 5px, green);
+}
+
+.box7 {
+    .bd();
+    .br();
+}
+
+//兼容：
+.br(@r:50%) {
+    border-radius: @r;
+    -o-border-radius: @r;
+    -ms-border-radius: @r;
+    -moz-border-radius: @r;
+    -webkit-border-radius: @r;
+}
+
+
+
+//计算
+.box8 {
+    width: 1+1px;
+    height: 743/277+765*0.1px;
+}
+
+//嵌套  导航
+.nav {
+    height: 80px;
+    ul {
+        overflow: hidden;
+        li {
+            float: left;
+            margin: 0 5px;
+            a {
+                display: block;
+                width: 60px;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                &::before {
+                    content: "";
+                }
+            }
+            > p {
+                color:red;
+            }        
+        }
+
+        li.current {
+            background-color: #fff;
+        }
+        div,p {
+            font-size: 20px;
+        }
+    }
+}
+
+.box9 {
+    width: floor(333/5px);
+}
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button id="btn"> 点击按钮,假装去服务器拿数据</button>
+<div id = "container">
+  
+</div>
+
+<script>
+  var arr = ['html', 'css', 'es5.0js', 'dom']
+  //需求: 点击按钮,根据arr的数据,动态的创建无序列表,之后,每
+  
+//  1. 根据arr的数据,动态的创建无序列表
+//  1.1 获取元素 btn container
+    var btn = document.getElementById('btn');
+    var container = document.getElementById('container');
+  
+//  1.2 给按钮注册点击事件
+    btn.onclick = function(){
+      //  1.3 在事件处理函数中,根据arr创建无序列表 innerHTML
+//      container.innerHTML = '<ul><li>html</li><li>css</li><li>es5.0js</li><li>dom</li></ul>';
+//      1.3.1 根据arr的数据,把字符串拼出来
+      var str = '<ul>';
+      for(var i = 0; i < arr.length; i++) {
+         str += '<li>'+arr[i]+'</li>';
+      }
+      str += '</ul>';
+      console.log(str);
+//      1.3.2 直接赋值即可
+      container.innerHTML = str;
+  
+      //    2. 鼠标移入到li,当前li高亮
+//  2.1 获取元素
+      var lis = document.getElementsByTagName('li');
+//  2.2 给每一个li注册mouseover事件
+      for(var i = 0; i < lis.length; i++) {
+        lis[i].onmouseover = fn;
+      }
+  
+      function fn(){
+        //  2.3 在事件处理函数中
+//    2.3.1 先排他
+        for(var i = 0; i < lis.length; i++) {
+          lis[i].style.backgroundColor = '';
+        }
+        //    2.3.2 让当前的里高亮 this
+        this.style.backgroundColor = '#ccc';
+      }
+      
+    }
+    
+
+
+
+
+  
+  
+</script>
+</body>
+</html>

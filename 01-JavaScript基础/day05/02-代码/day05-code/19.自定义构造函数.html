@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <script>
+
+    // 自定义构造函数  构造函数也是函数  构造函数也可以被调用 执行函数体
+    // 首字母大写
+    // 名称  Student  Person
+    // 工厂函数 : createPerson  createStudent
+    // 工厂函数
+    function createPerson(name, age) {
+
+      //1. 创建一个新对象
+      var obj = {};
+      //2. 给这个新对象添加属性/方法
+      obj.name = name;
+      obj.age = age;
+      obj.sayHi = function () {
+        console.log('哈哈' + this.name);
+      }
+      //3. 返回出去
+      return obj;
+    }
+
+
+// 构造函数 (构造函数也是函数,函数名是Person,存储的是函数的引用地址)
+    function Person(name, age) {
+      
+      // this,指向这个新对象
+      // this.name是创建的对象的name属性,name是形参,2个是不同的东西,不会冲突
+      this.name = name;
+      this.age = age;
+      this.sayHi = function () {
+        console.log('哈喽');
+      }
+    }
+
+    // 或者
+    // var Person = function (name, age) {
+      
+    //   // this,指向这个新对象
+    //   // this.name是创建的对象的name属性,name是形参,2个是不同的东西,不会冲突
+    //   this.name = name;
+    //   this.age = age;
+    //   this.sayHi = function () {
+    //     console.log('哈喽');
+    //   }
+    // }
+
+    // 创建对象 new 构造函数();
+    // new + 调用构造函数
+    //            obj
+    var zs = new Person('zs', 18);
+    console.log(zs);  //Person {name: "zs", age: 18, sayHi: ƒ}
+    console.log(typeof zs);  //Object 对于复杂数据类型,typeof 分不清
+    console.log( zs.constructor.name ) //自定义构造函数优点: Person,数据类型是自定义构造函数 => 可以自定义数据类型
+    
+      // new 做了几件事情 4件  (记住) 执行顺序与以下顺序一致
+      // 1. 创建一个新对象  (开辟了一块新的内存空间)
+      // 2. this指向了这个新对象 (新对象就有了属性) 
+      // 3. 执行(调用)构造函数 (给对象添加属性和方法)
+      // 4. 返回这个新对象 (返回这个新对象的地址)
+
+      // 构造函数的作用 : 添加属性和方法 实例化
+
+
+
+
+  </script>
+</body>
+
+</html>

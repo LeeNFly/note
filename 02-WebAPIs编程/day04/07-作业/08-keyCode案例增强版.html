@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text">
+<div></div>
+<input type="text"><br>
+<input type="text"><br><br><br><br><br>
+<input type="text"><br><br><br>
+<input type="text"><br>
+<script>
+    var inputs = document.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].onkeydown = fn;
+    }
+    function fn(e) {
+      //console.log(e.keyCode); //13
+      //console.log(typeof e.keyCode);
+    
+      if (e.keyCode == 13) {
+        // 获取下一个input元素
+        var nextInput = getNextInput(this);
+        if (nextInput != null) {
+          nextInput.focus();
+        }
+      }
+    }
+
+    function getNextInput(ele) {  
+      var nextEle = ele.nextElementSibling;
+      if (nextEle === null) {
+        return null;
+      }
+      if (nextEle.nodeName == 'INPUT') {
+        return nextEle;
+      } else {
+        return getNextInput(nextEle);
+      }
+    }
+</script>
+</body>
+</html>

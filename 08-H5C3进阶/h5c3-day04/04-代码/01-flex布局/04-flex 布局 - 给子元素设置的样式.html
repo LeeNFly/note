@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /*
+      弹性布局
+      伸缩布局
+      flex布局
+
+      参数整理
+      1. 控制主轴方向: flex-direction:row/column
+      2. 控制主轴对齐方式: justify-content: flex-start/flex-end/center/space-between/space-around
+      3. 控制侧轴对齐方式:
+         (1) 控制单行对齐方式
+             align-items: flex-start/flex-end/center/stretch
+         (2) 控制多行侧轴对齐方式
+             align-content: flex-start/flex-end/center/space-between/space-around/stretch
+      4. 换行: 默认nowrap不换行, flex-wrap: wrap; 进行换行
+    */
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    ul {
+      width: 600px;
+      height: 400px;
+      border: 1px solid #000;
+      margin: 100px auto;
+      display: flex;
+      align-items: center;
+    }
+    /*
+      之前学的css属性, 都是给父盒子设置的
+
+      给display: flex伸缩盒子中 ★子元素 设置的属性
+      1. flex: 可以按份数分配 (单行)主轴方向 的剩余空间, 在排布完设置了宽度的盒子(包括默认的宽度)之后 , 再分配空间
+               1) 利用此属性, 可以实现一行中让某些元素宽度固定不变, 剩余元素大小伸缩自适应的效果
+               2) 单纯的设置flex, 是不会换行的, 因为是按份数分配的, 是可伸缩的, 不会超出父盒子的宽度
+               3) 如果盒子都没有设置宽度, 则直接将主轴方向的全部空间, 按份数进行分配, 每个盒子大小占的比例 = 份数 / 总份数, 会随着父盒子的大小改变而改变, 达到自适应, 伸缩的效果
+               4) flex在排布完设置了宽度的盒子之后 , 再分配空间, 包括手动设置的宽高和默认的宽度, 都有效,
+      2. order: 控制子元素的排布顺序, 数值越小, 越靠前
+                1) 默认都是0, 即order一样, 是按照主轴方向, html结构在前的, 先排布
+                2) 一般不设置order, 用默认值更符合我们的排布顺序, 与元素在html中的顺序一致
+                3) order越小, 则沿主轴方向进行排列的时候, 会优先排列
+      3. align--self: 控制 单个子元素 在侧轴的对齐方式, 给哪个子元素设置, 就控制这个子元素在侧轴的对齐方式
+         属性值和 align-items 一样, 区别就在于, 这个是给子元素设置的, 控制的是单个子元素自己在侧轴的对齐方式
+         align-items 是控制单行的所有子元素在侧轴的对齐方式
+         (1) flex-start: 往侧轴开始位置对齐
+         (2) flex-end: 往侧轴结束位置对齐
+         (3) center: 在侧轴方向, 居中对齐
+         (4) stretch: 在侧轴方向上拉伸, 盒子不能设高
+
+     4. flex可以嵌套, 即在display:flex盒子中的子元素, 也可以把显示模式设置为display:flex, 相当于在子元素内又进行伸缩布局
+
+    */
+    li {
+      height: 100px;
+      width: 100px;
+      background-color: red;
+      border: 1px solid #000;
+      box-sizing: border-box;
+    }
+    li:nth-child(1) {
+      /*width: 100px;*/
+      /*order: 2;*/
+      flex: 1;
+
+      /*align-self: flex-start;*/
+    }
+    li:nth-child(2) {
+      /*flex: 3;*/
+      /*order: 3;*/
+      flex: 1;
+    }
+    li:nth-child(3) {
+      /*width: 100px;*/
+      /*order: 1;*/
+      flex: 1;
+      /*align-self: flex-end;*/
+    }
+  </style>
+</head>
+<body>
+
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+</ul>
+
+
+</body>
+</html>

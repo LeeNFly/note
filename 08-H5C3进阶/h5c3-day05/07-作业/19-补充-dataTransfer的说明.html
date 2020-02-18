@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .source {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+    .target {
+      width: 600px;
+      height: 600px;
+      border: 1px solid #000;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 源头, 拖拽元素 -->
+<div draggable="true" class="source"></div>
+
+<!-- 目标, 目标元素 -->
+<div class="target"></div>
+
+<script>
+  // 找对象
+  var source = document.querySelector(".source");
+  var target = document.querySelector(".target");
+
+  // 目标元素事件, 注册给 target
+  // dragover 当拖拽元素, 在目标元素上时触发
+  // drop     当拖拽元素, 在目标元素上, 鼠标松开时触发
+
+  target.addEventListener("dragover", function( e ) {
+    // 浏览器默认禁用了拖拽, 需要阻止浏览器默认行为
+    e.preventDefault();
+    console.log( "大爷, 您来辣" );
+  })
+
+  target.addEventListener("drop", function( e ) {
+    // 如果要从浏览器外面扔图片进来, 需要防止图片默认被打开 ( 浏览器对于外部拖拽进浏览器的图片, 会默认打开)
+    e.preventDefault();
+    // 用来获取从外界(浏览器外部, 比如桌面等) 拖进目标元素的文件的, 这边没用 (了解)
+    console.log( e.dataTransfer.files )
+
+    console.log( "来啦, 坐吧");
+    // 可以监听到当前已经拖拽进来
+    target.appendChild( source );
+  })
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+        ctx.lineWidth = 10;
+
+        //3-绘制正方形
+        ctx.moveTo(100, 100);
+        ctx.lineTo(200, 100);
+        ctx.lineTo(200, 200);
+        ctx.lineTo(100, 200);
+        ctx.closePath();
+        ctx.fillStyle = 'red'; //设置填充的颜色, 语法同css
+        ctx.fill(); //填充, 会按照当前ctx中的所有路径, 将所有闭合的路径进行填充颜色, 只填充, 不会进行描边,
+        ctx.strokeStyle = 'blue'; // 设置描边的颜色, 语法同css
+        ctx.stroke();//描边
+
+        //ctx.moveTo(300, 100);
+        //ctx.lineTo(400, 100);
+        //ctx.lineTo(400, 200);
+        //ctx.lineTo(300, 200);
+        //ctx.closePath();
+
+        //ctx.stroke();//描边
+
+
+
+    </script>
+</body>
+</html>

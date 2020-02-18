@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+
+  <div>盒子</div>
+
+  <script src="./require.js"></script>
+  <script>
+
+     require.config({
+       // 公共基础路径, 项目推荐使用绝对路径
+      baseUrl: "/study/modules/",
+      paths: {
+        // 配置别名
+        jquery: './lib/jquery/jquery',
+        pagination: './lib/jquery-pagination/jquery.pagination',
+        animate: './js/animate'
+      },
+      // ★ 垫片, 专门给不支持模块化的插件用的
+      shim: {
+        pagination: {
+          // 配置依赖项
+          deps: [ 'jquery' ]
+        },
+        // 配置 animate, 有导出项, 有依赖项
+        animate: {
+          deps: [ 'jquery' ],
+          exports: 'animate'  // exports: '要导出的变量或函数'
+        }
+      }
+     });
+
+     require(['animate'], function( animate ) {
+       console.log("动画函数被加载了");
+       console.log( animate );
+       animate();
+     })
+
+     define(['animate'], function( animate ) {
+       console.log("动画函数被加载了");
+       console.log( animate );
+       animate();
+     })
+     
+     // 要在requirejs中使用第三方不支持模块化的插件, 有依赖项, 且有导出项的
+     //  1) 在require.config里给模块配置别名路径
+     //  2) 若有依赖项, 通过垫片, 配置deps: [依赖项1, 依赖项2, ... ], 给第三方不支持模块化的插件模块配置依赖项, (依赖项要先通过别名进行配置)
+     //  3) 若有导出项, 通过垫片, 配置exports: '要导出的变量或函数', 来给第三方不支持模块化的插件配置导出项, 在主体函数中可以通过形参来一一对应获取导出项
+     //  3) 可以在主体函数中使用第三方的模块了
+     
+     //  第三方不支持模块化插件在模块requirejs中的使用总结: 
+     //      1) 明确: 垫片, 是专门给第三方不支持模块化的插件用的
+     //      2) 明确: 如果要加载的第三方插件不支持模块化, 则通过配置垫片, 也可以成功的加载第三方插件为模块或依赖项为我们所用
+     //      3) 若第三方不支持模块化的插件 ★有依赖项, 则通过垫片给第三方不支持模块化的插件配置依赖项, deps: [依赖项1, 依赖项2, ... ],
+     //      4) 若第三方不支持模块化的插件 ★有导出项, 通过垫片, 配置exports: '要导出的变量或函数', 来给第三方不支持模块化的插件配置导出项, 在主体函数中可以通过形参来一一对应获取导出项
+     
+    
+  </script>
+  
+</body>
+</html>

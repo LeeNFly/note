@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 800px;
+      height: 100px;
+      border: 1px solid #000;
+      margin: 100px auto;
+
+      /* 添加线性渐变
+         linear-gradient( 方向, 颜色 范围, 颜色 范围, ... )
+      */
+      background-image: linear-gradient(
+        135deg,
+        white 0%, white 25%,
+        black 25%, black 50%,
+        white 50%, white 75%,
+        black 75%, black 100%
+      );
+      background-size: 100px 100px;
+
+      /* 使用动画 */
+      /*animation: 动画名称 动画时间 动画次数 动画效果 */
+      animation: run 5s infinite linear;
+    }
+
+    div:hover {
+      animation-play-state: paused;
+    }
+
+    /* 声明动画 */
+    @keyframes run {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 800px 0;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div></div>
+
+</body>
+</html>

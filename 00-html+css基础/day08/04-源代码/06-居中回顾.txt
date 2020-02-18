@@ -1,0 +1,20 @@
+1. text-align:center
+控制行内元素和行内块（img插入图片）文字 水平居中
+
+2. line-height
+控制的是（单行）文字 行内元素 行内块元素 的垂直居中3.
+
+3. margin:0 auto;
+控制的是一个具体的宽度的块级元素水平居中
+
+4. position:absolute left:50%; top:50%; margin-left:-自身宽度的一半 margin-top：-自身高度的一半
+控制的一个绝对定位或相、固定位的元素水平垂直居中
+
+5. background-position:center center;
+控制背景水平垂直居中
+
+6. 插入图片（img）垂直居中盒子垂直居中
+margin-top 或者padding-top
+
+7. 让一个div水平垂直居中
+设置这个div为一个行内块元素 同时给父元素设置一个textl-align：center  line-height: 一个具体的高度;

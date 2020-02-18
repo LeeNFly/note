@@ -1,0 +1,176 @@
+body {
+  background-color: #eee;
+}
+.cart-layout {
+  position: relative;
+  max-width: 640px;
+  min-width: 320px;
+  background-color: #fff;
+  height: 1500px;
+  margin: 0 auto;
+}
+.cart-header {
+  position: static;
+}
+.cart-header h4 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: normal;
+}
+/*安全*/
+.cart-safe {
+  height: 33px;
+  border-bottom: 1px solid #ccc;
+  line-height: 32px;
+  text-align: center;
+}
+.cart-safe p {
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+}
+.cart-safe p::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  background: url(../images/safe_icon.png) no-repeat;
+  background-size: 18px 18px;
+}
+/*商品*/
+.cart-product {
+  margin-top: 10px;
+}
+.cart-product .p-header {
+  position: relative;
+  height: 34px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  line-height: 32px;
+  font-size: 12px;
+  color: #969696;
+  padding-left: 34px;
+}
+.cart-product .p-header .logo {
+  width: 20px;
+  height: 16px;
+  margin-top: 9px;
+  margin-right: 10px;
+}
+.cart-product .chk {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 20px;
+  height: 20px;
+  background-position: -180px -89px;
+}
+.cart-product .p-content .item {
+  position: relative;
+  height: 100px;
+  border-bottom: 1px solid #ccc;
+  padding-left: 34px;
+}
+.cart-product .p-content .item .item-in {
+  height: 100%;
+}
+.cart-product .p-content .item .item-in .info-img {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-top: 10px;
+}
+.cart-product .p-content .item .item-in .info {
+  height: 100%;
+  overflow: hidden;
+  padding: 10px;
+}
+.cart-product .p-content .item .item-in .info p {
+  height: 36px;
+  line-height: 18px;
+  overflow: hidden;
+}
+.cart-product .p-content .item .item-in .info .option {
+  background-color: yellow;
+}
+.cart-product .p-content .item .item-in .info .option .count span {
+  float: left;
+  border: 1px solid #969696;
+  width: 40px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  color: #969696;
+  cursor: pointer;
+}
+.cart-product .p-content .item .item-in .info .option .count span:nth-child(2) {
+  border-left: none;
+  border-right: none;
+}
+.cart-product .p-content .item .item-in .info .option .del {
+  width: 18px;
+  height: 22px;
+  cursor: pointer;
+}
+.cart-product .p-content .item .item-in .info .option .del span {
+  float: left;
+}
+.cart-product .p-content .item .item-in .info .option .del .del-up {
+  width: 18px;
+  height: 4px;
+  background: url(../images/delete_up.png);
+  background-size: 18px 4px;
+  transition: transform 0.3s;
+  /*过渡*/
+  transform-origin: right;
+}
+.cart-product .p-content .item .item-in .info .option .del .del-down {
+  width: 18px;
+  height: 18px;
+  background: url(../images/delete_down.png);
+  background-size: 18px 18px;
+  margin-top: -2px;
+}
+.cart-product .p-content .item .item-in .info .option .del.open .del-up {
+  transform: rotate(15deg);
+}
+/*模态框*/
+.win-box {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+}
+.win-box .del-box {
+  width: 80%;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-top: 200px;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.win-box .del-box p {
+  font-size: 16px;
+  line-height: 70px;
+  border-bottom: 1px solid #969696;
+}
+.win-box .del-box .btn {
+  padding-top: 10px;
+}
+.win-box .del-box .btn a {
+  height: 40px;
+  width: 40%;
+  border: 1px solid #969696;
+  border-radius: 5px;
+  line-height: 40px;
+}
+.win-box .del-box .btn .ok {
+  background-color: #F23030;
+  color: #fff;
+}

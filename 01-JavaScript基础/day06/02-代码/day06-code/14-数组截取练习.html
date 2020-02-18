@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+        var arr = ["赵云","马超","刘备","关羽","张飞"];
+
+        //截取["刘备","关羽"]
+
+        // arr.slice(start ,end)
+        var newArr =   arr.slice(2,4);
+        console.log(newArr);
+        
+        //在刘备前面增加 马腾  (splice)
+
+        // arr.splice(start, deleteCount,item)
+        arr.splice(2,0,'马腾');
+        console.log(arr);
+        
+
+        //删除关羽  (splice)
+        arr.splice(4,1);
+        console.log(arr);
+        
+
+
+    </script>
+</body>
+</html>

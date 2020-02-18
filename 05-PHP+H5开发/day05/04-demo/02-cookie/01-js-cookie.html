@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+    // cookie: ★ 浏览器端的存储空间
+    // ★ 各个用户的浏览器是独立的, 所以各个用户的cookie也是独立存储的
+    // ps: 要以服务器的方式访问页面, 才可以操作cookie
+    // 通过原生来操作 cookie   (了解)
+
+    // 1. 设置, 要求 键值对, 通过 = 分隔
+    // ps: 设置cookie时, 如果key值已存在, 就会进行覆盖, 否则不会
+    // document.cookie = "name=pengpeng";
+    // document.cookie = "age=18";
+    // document.cookie = "desc=shuai";
+    // 2. 获取, document.cookie 一次性将所有的 cookie 都获取, 以字符串的形式返回
+    //    通过 "; " 分隔, name=pengpeng; age=18; desc=shuai
+    // console.log( document.cookie );
+
+    // 通过 js 获取很麻烦 (练习原生)
+    // 作用: 从 document.cookie 中取出想要的 cookie 值
+    //       name=pengpeng; age=18; desc=shuai
+    // 需求: 传递 age, 返回 18, 传递 desc, 返回 shuai
+    function getValue( key ) { 
+      var str = document.cookie;  // name=pengpeng; age=18; desc=shuai
+      var arr = str.split("; "); //  ["name=pengpeng", "age=18", "desc=shuai"]
+
+      for ( var i = 0; i < arr.length; i++ ) {
+        var k = arr[i].split("=")[0];  // name
+        var v = arr[i].split("=")[1];  // pengpeng
+
+        if ( key === k ) {  // 遍历, 如果传进来的 key 和 遍历时的 键 相等, 将值返回
+          return v;
+        }
+      }
+    }
+    console.log( getValue( "age" ) );
+  
+  </script>
+  
+</body>
+</html>

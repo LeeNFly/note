@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  函数的实例成员: 写下函数里面this.xxx, 当new 函数的时候,写在函数体内的this.xxx这些属性实际上是添加到了实例的身上
+//  函数的静态成员 : 函数也是对象类型. 函数.属性名 直接添加到函数上的属性,就叫做静态成员
+//  Function函数:
+//    所有的函数,底层都是new Function()
+//    Function 自己创造了自己
+//    Object函数是Function的实例
+//    不管是谁,原型链最终都指向了Object的原型,再往上就是null
+
+//  js单线程:
+//    一次只能做一件事,做完一件事件,才能做下一件事情
+//  为什么js要设计成单线程?
+////      js诞生为了做表单验证,势必操作dom,假如js是多线程,一个线程要删除元素,另一个要给元素添加样式.这样的话,js就不知道要做什么了,为了避免这个问题,js从一开始就设计成了单线程
+//  栈 : 用来存储基本数据类型
+//  堆 : 用来存储引用数据类型
+
+//  var 新对象 = Object.create(被继承的对象)
+//  新对象.__proto__ == 被继承的对象
+    var obj = {
+      name: 'zs'
+    }
+    
+    var o = Object.create(obj);
+    console.log(o);
+    console.log(o.name);
+</script>
+</body>
+</html>

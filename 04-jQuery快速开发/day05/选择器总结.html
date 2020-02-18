@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    $('选择器')
+    css选择器:
+    标签选择器, 类名选择器, id选择器, 后代选择器, 子代选择器, 交集选择器, 并集选择器
+    过滤选择器:
+    :odd, :even, :first, :last, :eq(index), :checked, :selected
+
+    // 选择器指的是css选择器和过滤选择器
+    // 过滤选择器和css选择器可以混用, 支持复合,  即可以多次使用以上css选择器, 过滤选择器, 从左往右进行筛选, 右侧的筛选是基于左侧的
+
+
+
+    筛选选择器 (是方法):
+    语法: 一个jq对象.筛选器(); 返回一个jq对象, 里面存储着满足条件的所有dom元素
+    .children(), .siblings(), .find(), .parent(), .next(), .prev(), .eq(), parents(), nextAll(), prevAll()
+    获取元素在兄弟元素中的索引, 从0开始
+    .index();
+    <!-- 
+      筛选选择器最后返回的都是一个jq对象, 里面存储着满足条件的筛选出来的所有dom元素;
+      对于筛选选择器, 都可以传入参数 '选择器',支持复合选择器, 子后代等 比如 .box span
+      会对筛选出的元素进行再过滤, 在筛选出的元素里再进行选择器入参过滤 最后得到满足条件的所有元素, 返回jq对象;
+     -->
+
+    对于筛选选择器: 
+    // 1. 如果元素在dom树上, 会以dom树上的结构进行筛选
+    // 2. 如果元素不在dom树上, 不会以dom树上的结构进行筛选, 如果元素是手动创建的, 会以创建的这个jq对象的标签结构进行筛选
+    // 如果元素在dom树上, 则以dom树的结构进行筛选. 
+
+    // ps: jq中, 除了$('选择器')获取页面元素, 只能获取在dom树上的元素外, 
+            对于其他jq中的方法, 与jq对象是否在dom树上无关, 都可以使用, 如果元素在dom树上, 浏览器就会自动对我们的操作进行渲染, 如果元素不在dom树上, 等到元素加到dom树上, 浏览器再为我们渲染
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    div {
+      width: 600px;
+      height: 200px;
+      margin: 100px auto;
+      overflow: hidden;
+      border: 1px solid #000;
+    }
+
+    ul {
+      width: 1800px;
+      height: 100%;
+      position: relative;
+      animation: lunbo 5s infinite linear;
+    }
+
+    li {
+      width: 300px;
+      height: 100%;
+      float: left;
+    }
+    img {
+      display: block;
+    }
+    @keyframes lunbo {
+      from {
+        transform: translateX(0px);
+      }
+      to {
+        transform: translateX(-1200px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <ul>
+      <li><img src="./images/z1.jpg" alt=""></li>
+      <li><img src="./images/z2.jpg" alt=""></li>
+      <li><img src="./images/z3.jpg" alt=""></li>
+      <li><img src="./images/z4.jpg" alt=""></li>
+
+      <li><img src="./images/z1.jpg" alt=""></li>
+      <li><img src="./images/z2.jpg" alt=""></li>
+
+    </ul>
+  </div>
+</body>
+</html>

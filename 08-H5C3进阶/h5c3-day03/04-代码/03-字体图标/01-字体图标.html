@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="./fonts/iconfont.css">
+  <style>
+    /*
+       小图片特别多, 请求次数很多 => 通过精灵图解决, 只需要加载一张
+       精灵图缺点: 1. 使用起来麻烦 (算位置)
+                  2. 精灵图放大, 可能会失真
+
+       字体图标: 本质上是字体, 所以控制字体的css样式也可以控制字体图标
+       好处: 1. 不会失真, 可以任意缩放  font-size
+             2. 可以任意控制颜色 color
+             3. 可以节约网络请求次数
+    */
+    /* 原理: 通过 @font-face 定义一个字体, 并引入对应的字体文件, 供用户使用 */
+
+
+  </style>
+</head>
+<body>
+
+<!-- iconfont 指定字体
+     icon-wechat 指定的是具体哪个图标
+-->
+<!--一般使用任意的行内元素来使用字体图标-->
+<span class="iconfont icon-wechat"></span>
+<span class="iconfont icon-bofang"></span>
+
+</body>
+</html>

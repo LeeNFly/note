@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    .parentWrap {
+        width: 200px;
+        text-align: center;
+    }
+
+    .menuGroup {
+        border: 1px solid #999;
+        background-color: #e0ecff;
+    }
+
+    .groupTitle {
+        display: block;
+        height: 20px;
+        line-height: 20px;
+        font-size: 16px;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    .menuGroup>div {
+        height: 200px;
+        background-color: #fff;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <ul class="parentWrap">
+        <li class="menuGroup">
+            <span class="groupTitle">标题1</span>
+            <div>我是弹出来的div1</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题2</span>
+            <div>我是弹出来的div2</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题3</span>
+            <div>我是弹出来的div3</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题4</span>
+            <div>我是弹出来的div4</div>
+        </li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+      // 分析：
+      // 给span注册click，让当前的span的兄弟div展示出来
+      // 其他的div给隐藏
+      $(".groupTitle").click(function(){
+          // parent(): 获取当前元素的父元素
+          /*$(this).parent().siblings().children("div").hide();
+          $(this).siblings().show();*/
+
+          // 先隐藏所有的div，然后展示当前的div
+          /*$(".menuGroup div").hide();
+          $(this).siblings().show();*/
+
+          // next(): 获取当前元素的下一个兄弟元素
+          // prev(): 获取当前元素的上一个兄弟元素
+          console.log($(this).next());
+          $(".menuGroup div").hide();
+          $(this).next().show();
+      })
+
+
+      // 小结：
+      // jq对象.parent(): 获取jq对象中所有元素的直接 ★父元素, 亲生父亲了, 一个元素只有一个直接父元素 (重复的元素只返回一个) 返回的是jq对象
+      // jq对象.next(): 获取jq对象中所有元素的的下一个兄弟 ★元素  (重复的元素只返回一个) 返回的是jq对象
+      // jq对象.prev(): 获取jq对象中所有元素的的上一个兄弟 ★元素  (重复的元素只返回一个) 返回的是jq对象
+    });
+    </script>
+</body>
+
+</html>

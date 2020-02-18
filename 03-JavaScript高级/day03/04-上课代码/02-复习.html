@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+//  对象 instanceof 函数 : 判断函数的原型是否在对象的原型链上
+//  原型链不可变的问题: 一旦实例被创建出来之后,他的原型链就固定了,不会随着函数原型的变化而变化
+//    上下文调用模式:
+//    call 会调用函数
+//    apply 会调用函数 ,第二个参数传数组
+//    bind 不会调用函数,克隆一个新的函数
+  
+  js继承:
+//    单个对象之间的继承:
+//      拷贝继承
+//      新的对象 = Object.create(被继承的对象)  新的对象.__proto__ = 被继承的对象
+      构造函数之间的继承:
+        借用构造函数继承:
+          function Person(name, age){
+            this.name = name;
+            this.age = age;
+          }
+          
+          function Student(name,age, score){
+            Person.call(this,name, age);
+            this.score = score;
+          }
+</script>
+</body>
+</html>

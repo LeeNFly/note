@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <script>
+
+    // for循环 解决 重复写代码的问题
+
+
+    // 外层 决定 行数 
+    // for (var j = 1; j <= 5; j++) {
+
+    //   // 里层决每行的个数
+    //   for (var i = 1; i <= j; i++) {
+
+    //     document.write('★');
+    //   }
+    //   document.write('<br>');
+    // }
+
+    // 外层 决定行数
+    for (var i = 1; i <= 9; i++) {
+
+        // 里层 决定每行的个数  (列数)
+        for (var j = 1 ; j <= i ; j++) {
+
+
+          // 2*3=6
+          // document.write(2*3 =  6);
+          document.write( j + '*' + i + '=' + i*j + ' ' );
+        }
+        document.write('<br>');
+    }
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

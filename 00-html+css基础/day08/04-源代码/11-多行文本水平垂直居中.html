@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 600px;
+			height: 600px;
+			border: 1px solid #ccc;
+			/* 控制行内块垂直居中 */
+			line-height: 600px;
+			text-align: center;
+		}
+		/* 需求：让info水平垂直居中 */
+		.info {
+			background-color: red;
+			display: inline-block;
+			vertical-align: middle;
+			/* 覆盖掉继承过来的行高 */
+			line-height: 1.2;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="info">
+			我是文字，啊啊哈哈哈哈哈哈哈 <br>
+			我是文字，啊啊哈哈哈哈哈哈哈 <br>
+			我是文字，啊啊哈哈哈哈哈哈哈 <br>
+			我是文字，啊啊哈哈哈哈哈哈哈 <br>
+			我是文字，啊啊哈哈哈哈哈哈哈 <br>
+			我是文字，啊啊哈哈哈哈哈哈哈 <br>
+			我是文字，啊啊哈哈哈哈哈哈哈 <br>
+		</div>
+	</div>
+</body>
+</html>

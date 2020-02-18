@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+
+    ctx.strokeRect(100, 100, 200, 200);
+    ctx.fill();
+
+    //    ctx.rect(100, 100, 200, 200);
+    //    ctx.stroke();
+    //    ctx.beginPath();
+
+    //    ctx.fillStyle = 'red';
+    //    ctx.fill();
+
+    // 获取画布 相关API
+    // ctx.getContext('2d');
+    // 操作画布方法
+    // moveTo(x, y);
+    // lineTo(x, y);
+    // stroke();
+    // fill();
+    // closePath();
+    // beginPath();
+    // rect(x , y , w, h);
+    // strokeRect()
+    // fillRect();
+    // clearRect();
+    //圆弧
+    // arc(x, y, r, start, end, isNi);
+
+    //属性：
+    // fillStyle
+    // strokeStyle
+    // lineWidth
+</script>
+</body>
+</html>

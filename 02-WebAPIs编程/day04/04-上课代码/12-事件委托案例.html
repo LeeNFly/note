@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    div {
+      border: 1px solid blue;
+    }
+    
+    ul {
+      padding: 20px;
+    }
+    
+    li {
+      list-style: none;
+      margin-top: 10px;
+      background-color: skyblue;
+      height: 30px;
+      line-height: 30px;
+    }
+    
+    button {
+      width: 100%;
+      height: 50px;
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+<div>
+  <ul id="ul">
+    <li>你见，或者不见我　</li>
+    <li>我就在那里　</li>
+    <li>不悲不喜　　</li>
+    <li>你念，或者不念我　</li>
+    <li>情就在那里　　</li>
+    <li>不来不去　　</li>
+    <li>你爱，或者不爱我　</li>
+    <li>爱就在那里　</li>
+    <li>不增不减　</li>
+  </ul>
+  <button id="btn">点击加载更多..</button>
+</div>
+
+<script>
+  var arr = [
+    '你跟，或者不跟我',
+    '我的手就在你手里',
+    '不舍不弃',
+    '来我的怀里',
+    '或者',
+    '让我住进你的心里',
+    '默然　相爱',
+    '寂静　喜欢',
+  ]
+  
+  //        需求:
+  // 1.无序列表中每一个li都有点击事件,点击之后,把对应的文本打印到控制台上
+//  //        1. 获取元素 li
+//  var lis = document.querySelectorAll('li');
+  var ul= document.querySelector('#ul');
+//
+//  //        2. 给每一个li注册点击事件
+//  for (var i = 0; i < lis.length; i++) {
+//    lis[i].onclick = fn;
+//  }
+//  function fn() {
+//    //        3. 在事件处理函数中,打印对应的文本
+//    console.log(this.innerText);
+//  }
+  
+  //事件委托: 本来是自己做的事件,委托给父级元素
+//  事件委托的优点:
+//  1. 代码简洁
+//  2. 节省内存
+//  事件委托的原理:
+//    事件流(事件冒泡)
+  ul.onclick = function(e){
+    //找到点的是那个li
+    //事件冒泡阶段,事件对象都是同一个,都是触发事件的那个元素的事件对象
+
+    // this, 当前触发的事件是哪个元素注册的, this就是这个元素, 在这里, 触发的事件是由ul注册的, 所以this就是ul
+    console.log(e.target.innerText); 
+    console.log(this); // <ul id="ul">...</ul> 当前执行的事件函数是谁(哪个元素)注册的,谁就是this,this是一个元素
+    console.log(e.target);  //<li>你爱，或者不爱我　</li> 事件是谁(哪个元素)触发的,谁就是e.target,e.target也是一个元素
+    
+    
+  }
+  
+  
+//  2. 点击按钮,加载更多
+//  2.1 获取元素
+  var btn = document.querySelector('#btn');
+//  2.2 给按钮注册点击事件
+  btn.addEventListener('click', function(){
+    //  2.3 在事件处理函数中,动态的创建li,添加到ul中
+    for(var i = 0; i < arr.length; i++) {
+      var li = document.createElement('li');
+      li.innerText = arr[i];
+//      li.onclick = fn; //由于后创建的没有注册事件,所以必须给他们在注册一遍
+      ul.appendChild(li);
+    }
+  }, false);
+
+  
+
+</script>
+</body>
+
+</html>

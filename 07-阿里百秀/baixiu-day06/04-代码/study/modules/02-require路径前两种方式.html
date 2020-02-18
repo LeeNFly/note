@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- 注意: 最后一个 / 不能少, 代表在目录下 -->
+  <script src="./require.js" data-main="./js/"></script>
+
+  <script>
+    // 引入模块 或 依赖项 的三种方式
+
+    // 方式1: 通过相对路径 或者 绝对路径, 
+    // (1) 相对路径, 相对于当前文件目录开始查找  (常用)
+    //     通过相对路径的方式, 可以省略.js后缀, 并且推荐省略
+    // require(['./js/a', './js/b', './js/c'], function() {
+    //   console.log( "模块加载完成" );
+    // })
+
+    // (2) 绝对路径, 必须加上 .js 后缀 
+    // 以/开头, 加载时会默认跟上前缀协议 + 域名 + 端口 
+    // 所以绝对路径的拼接方式是 协议 + 域名 + 端口 + 配置的绝对路径 去请求文件
+    // require(['/study/modules/js/a.js', '/study/modules/js/b.js', '/study/modules/js/c.js'], function() {
+    //   console.log( "模块加载完成" );
+    // })
+
+
+    // 方式2: 配置 data-main 属性, 配置公共路径  (比较少用, 了解)
+    // 在引入require.js的script标签里配data-main, 最后一个/不能少, 代表目录
+    // 配置了data-main, 真实路径 = data-main配的路径 + 模块路径
+    // require(['./a', './b', './c'], function() {
+    //   console.log( "模块加载完成" );
+    // })
+
+  
+  </script>
+
+
+  
+</body>
+</html>

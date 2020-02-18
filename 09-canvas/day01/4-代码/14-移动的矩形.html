@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+
+        //3-绘制一个矩形
+        var x = 100;
+        var y = 100;
+
+        var step = 5//每次移动距离
+        var dx = 1; //矩形水平移动方向 1|向右, -1|向左
+        var dy = 1; //矩形竖直移动方向 1|向下, -1|向上
+        setInterval(function () {
+
+            //判断位置是否越界
+            if (y  > cs.height - 50 || y < 0) {
+                dy = -dy;
+            }
+
+            if (x > cs.width - 50 || x < 0) {
+                dx = -dx;
+            }
+
+            //清空画布
+            ctx.clearRect(0, 0, cs.width, cs.height);
+            x += step * dx;  //速度 *方向
+            y += step * dy;
+            //绘制
+            ctx.strokeRect(x, y, 50, 50);
+        }, 30);
+
+    </script>
+</body>
+</html>

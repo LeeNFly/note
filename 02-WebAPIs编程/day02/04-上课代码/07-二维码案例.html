@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .nodeSmall {
+      width: 50px;
+      height: 50px;
+      background: url(images/bgs.png) no-repeat -159px -51px;
+      position: fixed;
+      right: 10px;
+      top: 40%;
+    }
+
+    .erweima {
+      position: absolute;
+      top: 0;
+      left: -150px;
+    }
+
+    .nodeSmall a {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nodeSmall" id="node_small">
+    <div class="erweima hide" id="er">
+      <img src="images/456.png" alt="" />
+    </div>
+  </div>
+</body>
+
+<script>
+  //需求: 鼠标移入node_small 则er展示出来, 鼠标移出node_small ,则er隐藏
+  
+  //1. 获取元素
+  var small = document.getElementById('node_small');
+  var er = document.getElementById('er');
+  
+  //2. 给small注册鼠标移入事件(mouseover)和鼠标移出事件(mouseout)
+  //鼠标移入事件
+  small.onmouseover = function(){
+    //3. 在移入事件中,让er展示
+//    console.log(er.className); //erweima hide,是字符串
+//    console.log(er.className.replace('hide', 'show'));
+    er.className = er.className.replace('hide', 'show');
+  
+  }
+  
+  small.onmouseout = function(){
+    //4. 在移出事件中,让er消失
+    er.className = er.className.replace('show', 'hide');
+  }
+  
+ 
+  
+ 
+  
+ 
+
+  
+</script>
+
+</html>
+

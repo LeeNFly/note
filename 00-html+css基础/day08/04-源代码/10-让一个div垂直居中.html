@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    /* 
+    1、给父级元素设置text-align：center  （水平居中）
+    2、给父元素设置一个等高的行高 (行高=父元素盒子内容区域的高度)
+    3、给行内块元素设置vertical-align：middle；（让图片以文字的中线对齐）
+    4、将块级元素转为行内块元素
+     */
+    .box {
+        width: 600px;
+        height: 600px;
+        border: 1px solid #ccc;
+        line-height: 600px;
+        text-align: center;
+    }
+    /* 需求：让info水平垂直居中 */
+    .info {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="info"></div>
+    </div>
+</body>
+
+</html>

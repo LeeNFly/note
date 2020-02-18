@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+   var arr = ['a','b','c','d','a','b','c','a','z'];
+
+
+  //  var newArr = ['a','b','c','d','a','b','c','a','z'];
+
+   // 去重 : 
+   var newArr = [];
+
+// arr = ['a','b','c','d','a','b','c','a','z'];
+// i = 4   'a' 'b' 'c' 'd' 'a' 'b'  'c'
+   for ( var i = 0 ; i < arr.length ; i++) {
+
+      var flag = true; // 没有重复的
+
+    // newArr = ['a' ,'b','c' 'd' ,'z']
+      for ( var j = 0 ; j < newArr.length ; j++) {
+
+          if (arr[i] == newArr[j]) {
+            
+              flag = false; // 有重复的
+              break;
+          }
+      }
+
+      if (flag) {
+        newArr.push(arr[i]);
+      }
+   }
+
+   console.log(newArr);
+   
+
+   // indexOf 实现
+
+    </script>
+</body>
+</html>

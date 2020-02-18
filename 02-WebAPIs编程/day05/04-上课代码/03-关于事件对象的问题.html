@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="box">123</div>
+<script>
+  var box = document.getElementById('box');
+  box.onclick = function(e){
+//    console.log(e);
+    
+    //因为chrome浏览器 比较强大,一方面把事件对象传递到了事件处理函数中,另一方面他也把事件对象赋值给了window.event
+//    console.log(window.event);
+//    console.log(event);
+//    console.log(event === window.event);
+//    console.log(event === e);
+  }
+</script>
+</body>
+</html>

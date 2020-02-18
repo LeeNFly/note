@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<script>
+  // 按tab键,浏览器有默认的行为,会让下一个input获得焦点
+//  当我们按回车键的时候,也要让下一个input获取的焦点
+//  1. 获取元素 input
+    var inputs = document.querySelectorAll('input');
+//  2. 给每一个input注册鼠标按下的事件
+    for(var i = 0; i < inputs.length; i++) {
+      inputs[i].onkeydown = fn;
+    }
+    function fn(e){
+      //  3. 在事件处理函数中判断是否是回车键
+//      console.log(e.keyCode);
+      if(e.keyCode == 13){
+        //  4. 如果是回车键,就下一个input获得焦点
+//        4.1 获取到下一个input
+        console.log(this.nextElementSibling);
+//         4.2 让下一个input获得焦点 在js中,元素用focus方法会获得焦点
+        this.nextElementSibling.focus();
+      }
+
+    }
+
+</script>
+</body>
+</html>

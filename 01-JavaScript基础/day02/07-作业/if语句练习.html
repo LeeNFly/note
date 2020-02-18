@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 判断一个数是偶数还是奇数
+        // var num = 3;
+        // if (num % 2 == 0) {
+        //   console.log('偶数');
+        // } else {
+        //   console.log('奇数');
+        // }
+
+        // 2. 判断年龄大于等于14,并且 是个男孩就可以玩吃鸡了 => &&
+        // var age = 15;
+        // var gender = '男';
+        // if ( age >= 14 && gender == '男' ) {
+        //   console.log('可以玩吃鸡');
+        // } else {
+        //   console.log('不能玩吃鸡');
+        // }
+        
+        // 3. 判断年龄大于等于 14 ,或者是个女孩,,就可以报舞蹈班了 => ||	
+          //  var age = 12;
+          //  var gender = '男';
+          //  if ( age >= 14 || gender == '女' ) {
+          //    console.log('可以报舞蹈班');
+          //  } else {
+          //    console.log('不能报舞蹈班');
+          //  }
+
+        // 4. 素质教育，把百分制分数转换成ABCDE 
+          //    A: 90-100
+          //    B: 80-89
+          //    C: 70-79
+          //    D: 60-69
+          //    E: 0-59
+            // var score = 65;
+            // if ( score >=90 && score <= 100 ) {
+            //   console.log('A');
+            // } else if ( score >= 80 && score < 90 ) {
+            //   console.log('B');
+            // } else if ( score >=70 && score < 80 ) {
+            //   console.log('C');
+            // } else if ( score >= 60 && score < 70 ) {
+            //   console.log('D');
+            // } else {
+            //   console.log('E');
+            // }
+            //优化 
+            var score = 65;
+            if ( score >=90) {
+              console.log('A');
+            } else if ( score >= 80) {
+              console.log('B');
+            } else if ( score >=70 ) {
+              console.log('C');
+            } else if ( score >= 60) {
+              console.log('D');
+            } else {
+              console.log('E');
+            }
+    </script>
+</body>
+</html>

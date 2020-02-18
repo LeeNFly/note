@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 交换一下2个变量值 ★
+
+      var a = 10;
+      var b = 20;
+              //          a      b   temp
+       var temp = a ; //  10     20    10
+             a  = b ;  //  20     20    10
+             b  = temp;//  20     10    10     
+      
+      console.log(a,b);
+
+
+
+      // 声明一次就可以了,不需要再次声明
+      // var a = 10;
+      // var b = 20;
+
+      // var temp = a;
+      //       a  = b;
+      //       b  = temp;
+
+
+      // 不使用临时变量，交换两个数值变量的值  ( 不要去记忆, 了解一下  )
+      var  c = 10;
+      var  d = 20;
+              //     c     d 
+      c = c + d;//   30    20
+      d = c - d;//   30    10
+      c = c - d;//   20    10
+      
+
+
+
+
+    </script>
+</body>
+</html>

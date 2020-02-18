@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // A 后面 放这首诗 1次
+      // B 后面 放这首诗 3次
+      // 正常写重复的代码 : 代码重复 代码冗余 不方便统一设置修改
+      // 用函数
+
+      function shi() {
+        console.log('静夜诗');
+        console.log('床前明月光');
+        console.log('地下鞋两双');
+        console.log('以为是老公666');
+        console.log('结果是老王');
+      }
+
+      // 把需要重复的代码,,封装起来,,
+      // 这样的话,,我们可以在任意地方 使用 n次
+      // 一次声明 多次调用
+
+
+      console.log('A--------------------------');
+      
+      shi();
+
+      console.log('B--------------------------');
+      
+      shi();
+      shi();
+      shi();
+
+      console.log('C--------------------------');
+
+      shi();
+
+
+
+    </script>
+</body>
+</html>

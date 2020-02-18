@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1.让一个数组倒叙保存另一个数组中的每一项
+    // var arr = ["a", "bb","ccc","dddd"]; 
+    // var newArr = [];
+    // for (var i = arr.length - 1; i >= 0 ; i--) {
+    //    newArr.push(arr[i]);
+    // }
+    // console.log(newArr);
+    
+    //2 将字符串数组用|或其他符号分割 =>字符串
+        //  其中一个方法 : 还有2个方式 :  家庭作业
+        //  |a|bb|ccc|dddd  => 0 |不加
+        //  str = arr[0] =='a'   从1开始遍历
+    
+    // 方法一:
+    // var arr = ["a", "bb","ccc","dddd"];
+    // var str = '';
+    // for (var i = 0; i < arr.length; i++) {
+    //   if (i == arr.length - 1) {
+    //     str += arr[i];
+    //   } else {
+    //    str += arr[i] + '|';
+    //   }
+       
+    // }
+    // console.log(str);
+
+    // 方法二:
+    // var arr = ["a", "bb","ccc","dddd"];
+    // var str = '';
+    // for (var i = 0; i < arr.length; i++) {
+    //   if (i == 0) {
+    //     str += arr[i];
+    //   } else {
+    //     str += '|' + arr[i];
+    //   }
+    // }
+    // console.log(str);
+
+    // 方法三:
+    // var arr = ["a", "bb","ccc","dddd"];
+    // var str = arr[0];
+    // for (var i = 1; i < arr.length; i++) {
+    //    str += '|' + arr[i];
+    // }
+    // console.log(str);
+
+    //3 有一个字符串数组，求字符串数组中每项的长度，并把长度的数值存储到新的数组中
+
+    // var arr = ['zs','哈哈哈','lss','abceft'];
+    // var newArr = [];
+    // for (var i = 0; i < arr.length; i++) {
+    //    newArr.push(arr[i].length)
+    // }
+    // console.log(newArr); // 2 3 3 6
+    
+
+    //4 将数组中值为0的项去掉，将不为0的值存入一个新的数组
+    // var arr = [5,0,1,5,7,0,23,111];
+    // var newArr = [];
+    // for (var i = 0; i < arr.length; i++) {
+    //    if (arr[i] != 0) {
+    //      newArr.push(arr[i])
+    //    }
+    // }
+    // console.log(newArr);
+    
+  </script>
+</body>
+</html>

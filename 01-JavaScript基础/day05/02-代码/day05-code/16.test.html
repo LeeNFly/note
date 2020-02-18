@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+
+
+    /// 方式1 : 
+      var arr = ['a','b','c','a','b'];
+
+      //1. 创建一个空数组
+      var newArr = [];
+  
+      for ( var i = 0 ; i < arr.length ; i++) {
+
+        var flag = true; // 默认没有重复的
+
+        // new Arr = [a , b , c]               ['a','b'..]
+        for ( var j = 0 ; j < newArr.length ; j++) {
+
+            if (arr[i] == newArr[j]) {
+                flag = false; // 说明有重复的 
+                break;  //有重复的就停止了,我已经不想继续遍历了
+            }
+        }
+
+        if (flag) { // 如果没有重复的就可以添加到数组里
+          
+          newArr.push(arr[i]);
+        }
+      }
+
+      console.log(newArr);
+
+
+
+// 方式2 :
+    var obj = {};
+    for ( var i = 0 ; i < arr.length ; i++) {
+
+        if (arr[i] in obj) {
+          
+          obj[arr[i]] += 1;
+
+        }else {
+
+          obj[arr[i]] =  1;
+        }
+    }
+
+    var newA = [];
+    for (const key in obj) {
+        newA.push(key);
+    } 
+      
+    console.log(newA);
+
+
+      
+
+    </script>
+</body>
+</html>

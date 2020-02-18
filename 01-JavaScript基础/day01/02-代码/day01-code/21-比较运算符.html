@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 比较运算符  > < >= <= == === != !==  返回的结果(得到的值)一定是布尔类型 true 或 false
+      // 注意: > < >= <= 比较的只是内容
+      // console.log( 2 >= 2); // 大于或者 ==
+
+      // == (等于)   === (全等于  恒等于)
+      // 只比较 内容        比较 内容 + 类型
+      
+      // console.log( 12 == '12' );  //true
+      // console.log( 12 === '12' ); // false
+     
+      // != (不等于)    !== (不全等于)   => 对于 !== , (只要有一个不等,就返回true, 2个都等,才返回false)
+      // 只比较 内容        比较 内容 + 类型  
+      // != 掌握 ,内容不相等就为真
+      // console.log( 12 != '13'); //true
+      // console.log( 12 != '12'); //false      
+      // console.log( 13 != '12'); //true 翻译 : 13 是否不等于 12
+
+      // console.log( '12' !== '13'); //true 翻译: '12'是否不等于'12'
+      // console.log( '12' !== 12); //true 内容一致但类型不一致
+      
+      // 优先级
+      // 1. () 
+      // 2. ++ 
+
+      // 3.先计算 : 算术运算符  +
+      // 4.再比较 :比较运算符  >= != ==
+
+      // 5 : 逻辑运算符 && ||
+      // 多个逻辑运算符, 从左往右, 即逻辑运算符平级
+      var result = ((4 >= 6) || ("人" != "狗")) && !(((12 * 2) == 144) && true);
+      console.log(result);
+
+
+      // var result = true && true;
+
+      // console.log(result);
+      
+      
+
+ 
+    </script>
+</body>
+</html>

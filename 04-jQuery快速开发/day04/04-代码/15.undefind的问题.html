@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(undefined);
+
+        // undefined这个数据类型在IE678中会被篡改
+        undefined = 13;
+
+        console.log(undefined);
+
+
+        // 函数在定义参数的时候，在调用的时候没有传参，那么这个形参是 undefined
+        (function(window, undefined){
+
+            console.log(undefined);  // 13
+
+        })(window);
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 数组的增删操作 , 会改变原数组
+
+      // unshift shift  push pop
+
+      var arr = ['zs','ls'];
+      console.log(arr);
+      
+
+      // push()  
+      //1. 后面, 添加一个/多个元素
+      //2. 参数 : 有参数  push(值1,值2,..)
+      //3. 添加元素 : 返回值??=> 添加之后 数组的长度
+
+      // pop 
+      //1. 后面, 删除 一个 元素 (删除数组中最后一个元素)
+      //2. 参数 : 没有参数
+      //3. 删除元素 : 返回值 => 删除的那个元素
+
+      // unshift
+      //1. 前面, 添加一个/多个元素
+      //2. 参数 : unshift(值1,值2,..)
+      //3. 添加元素 : 返回的也是数组的长度
+
+      // shift
+      //1. 前面, 删除 一个 元素
+      //2. 参数 :没有参数
+      //3. 删除元素 : 返回的是删除的那个元素
+
+      var res = arr.shift();
+
+      // var res =   arr.unshift('mg');
+
+      console.log(res);
+      
+      
+      console.log(arr);
+
+      //总结 : 
+      //1. push和pop =>p 在右边 ; 数组的后面 => 处理数组后面
+      //2. unshift和shift=> shift 在左边; 数组的前面,\ => 处理数组前面
+      //3. push : 推入 增加,   pop:弹出 减少
+      //4. unshift 比 shift 多个un,多的,就是增加出来的
+      //5. 增加元素 =>返回 数组的长度
+      //6. 删除元素 =>返回 删除的那个元素
+
+      //练习1
+// var arr = ["刘备"];
+//添加数据后变成：["赵云","马超","刘备","关羽","张飞"]
+//删除数据后变成：["关羽","张飞"]
+
+// arr.unshift('赵云','马超');
+// arr.push('关羽','张飞');
+// console.log(arr);
+
+// arr.shift();
+// arr.shift();
+// arr.shift();
+
+// console.log(arr);
+
+
+
+
+
+
+
+
+//练习2
+ var arr = ["赵云","马超","刘备","关羽","张飞"];
+//把数组的最后一个元素变成数组的第一个元素
+//1. 删除最后一个 , => 这个删除的元素
+//2. 添加到前面
+//  var last =  arr.pop();
+//  console.log(last);
+
+// arr.unshift(last);
+
+//  console.log(arr);
+ 
+
+//把数组的第一个元素变成数组的最后一个元素
+var first =  arr.shift();
+console.log(first);
+arr.push(first);
+
+console.log(arr);
+
+
+      
+
+    </script>
+</body>
+</html>

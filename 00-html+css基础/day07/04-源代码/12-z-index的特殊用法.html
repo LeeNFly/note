@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box ,
+		.box1 {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: relative;
+		}
+		/* z-index 控制的是定位元素的层级性  值是数值 越大 层级越高 */
+		.box {
+			top: 20px;
+			z-index: 2;
+		}
+		.box1 {
+			background-color: lime;
+		}
+		.box1-son {
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			position: absolute;
+			top: -10px;
+			z-index: 3;
+		}
+	</style>
+</head>
+<body>
+	<!-- 上大盒子(box)压住下大盒子(box1) 下大盒子里面的子元素压住上盒子 
+		 如果父元素已经比较过层级性(父元素都有z-index)，那么不会再比较子元素的层级性,否则会比较子元素的z-index。
+	-->
+	<div class="box">1</div>
+	<div class="box1">
+		2
+		<div class="box1-son">2.1</div>
+	</div>
+</body>
+</html>

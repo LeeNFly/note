@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      border: 0;
+    }
+
+    .all {
+      width: 500px;
+      height: 300px;
+      padding: 7px;
+      border: 1px solid #ccc;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .screen {
+      width: 500px;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen li {
+      width: 500px;
+      height: 300px;
+      overflow: hidden;
+      float: left;
+    }
+
+    .screen ul {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 3000px;
+    }
+
+    .all ol {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    .all ol li {
+      float: left;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .all ol li.current {
+      background: yellow;
+    }
+
+    #arr {
+      display: none;
+      z-index: 1000;
+
+    }
+
+    #arr span {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      margin-top: -20px;
+      background: #000;
+      cursor: pointer;
+      line-height: 40px;
+      text-align: center;
+      font-weight: bold;
+      font-family: '黑体';
+      font-size: 30px;
+      color: #fff;
+      opacity: 0.3;
+      border: 1px solid #fff;
+    }
+
+    #arr #right {
+      right: 5px;
+      left: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="all" id='box'>
+    <div class="screen" id="screen">
+      <ul>
+        <li>
+          <img src="images/1.jpg" width="500" height="300" />
+        </li>
+        <li>
+          <img src="images/2.jpg" width="500" height="300" />
+        </li>
+        <li>
+          <img src="images/3.jpg" width="500" height="300" />
+        </li>
+        <li>
+          <img src="images/4.jpg" width="500" height="300" />
+        </li>
+        <li>
+          <img src="images/5.jpg" width="500" height="300" />
+        </li>
+      </ul>
+      <ol>
+      </ol>
+    </div>
+    <div id="arr">
+      <span id="left">&lt;</span>
+      <span id="right">&gt;</span>
+    </div>
+  </div>
+
+  <script src="animate.js"></script>
+  <script>
+
+    var ol = document.querySelector('#screen ol');
+    var ul = document.querySelector('#screen ul');
+    var lis = ul.getElementsByTagName('li');
+    var screen = document.querySelector('#screen');
+    var arr = document.querySelector('#arr');
+    var box = document.querySelector('#box');
+    var indexGlobal = 0; //记录当前轮播图片/按钮 的索引
+
+    // 1.创建数字按钮
+    for (var i = 0; i < lis.length; i++) {
+      var li = document.createElement('li');
+      li.innerText = i + 1 + '';
+      ol.appendChild(li);
+
+      // 默认让第一个高亮显示
+      if (i == 0) {
+        li.className = 'current';
+      }
+
+      // 为每个按钮注册点击事件,实现轮播
+      li.onclick = fn;
+
+      // 将索引存入自定义属性
+      li.setAttribute('index', i + '');
+
+    }
+
+    // 4.1 克隆ul中第一张图片,并添加至ul最后,实现轮播图的无缝连接
+    // 将此操作放在创建数字按钮之后执行,否则会影响数字按钮的创建
+    var liClone = ul.children[0].cloneNode(true);
+    ul.appendChild(liClone);
+
+    // 2.鼠标移入,显示左右箭头,鼠标移除,隐藏左右箭头
+    box.onmouseenter = function () {
+      arr.style.display = 'block';
+      // 鼠标移入,移除自动轮播定时器
+      clearInterval(timeid);
+    }
+    box.onmouseleave = function () {
+      arr.style.display = 'none';
+      // 鼠标移除,设置自动轮播定时器
+      timeid = setInterval(function () {
+        right.click();
+      }, 3000)
+    }
+
+    // 3.点击按钮,轮播图片
+    function fn() {
+      // 滚动的目标位置 = (图片序号 - 1) * 每张图的宽度
+      //               = 按钮索引 * screen 的宽度
+      var target = this.getAttribute('index') * screen.offsetWidth;
+      animate(ul, -target, 30);
+      // 排他,高亮
+      for (var i = 0; i < ol.children.length; i++) {
+        ol.children[i].className = '';
+      }
+      this.className = 'current';
+
+      // 更新当前按钮索引
+      indexGlobal = this.getAttribute('index');
+    }
+
+    // 4.点击右箭头,向右移动一张图片
+    var right = document.querySelector('#right');
+    right.onclick = function () {
+      // 获取当前按钮的下一个按钮的索引
+      indexGlobal++;
+      if (indexGlobal == ol.children.length) {
+        // 已经到了最后一张轮播图了,需要返回到第一张
+        // 返回到第一张 (这样写有缝)
+        // ol.children[0].click();
+        // 返回到第一张(无缝)
+        // 先滚动到克隆的最后一张图片,然后在回调函数中直接切换成第一张
+        var target = indexGlobal * screen.offsetWidth;
+        animate(ul, -target, 30, function () {
+          // 到达目标后执行回调函数,将ul切换到第一张
+          ul.style.left = '0';
+        });
+        // 更新轮播图按钮索引
+        indexGlobal = 0;
+
+        // 按钮高亮
+        for (var i = 0; i < ol.children.length; i++) {
+          ol.children[i].className = '';
+        }
+        ol.children[0].className = 'current';
+      } else {
+        // 触发下一个按钮的点击事件
+        // 用JS触发元素的事件 => 元素.on+事件名();
+        // 元素是对象,on+事件名可以看作给对象赋值了一个函数属性,然后调用对象的函数属性
+        ol.children[indexGlobal].click();
+      }
+
+    }
+
+    // 5.点击左箭头,向左移动一张图片
+    var left = document.querySelector('#left');
+    left.onclick = function () {
+      // 拿到当前按钮的上一个按钮索引
+      indexGlobal--;
+      if (indexGlobal < 0) {
+        // 说明当前是第一张图片了,要先切换到克隆的最后一张图片,然后再向前滚动
+        ul.style.left = -ol.children.length * screen.offsetWidth + 'px';
+        // 向前滚动一张,触发最后一个按钮的点击事件
+        ol.children[ol.children.length - 1].click();
+        // 更新当前按钮索引
+        indexGlobal = ol.children.length - 1;
+      } else {
+        // 触发上一个按钮的点击事件
+        ol.children[indexGlobal].click();
+      }
+
+    }
+
+    //6 设置定时器,实现自动轮播
+    var timeid = setInterval(function () {
+      right.click();
+    }, 3000)
+
+
+  </script>
+
+
+</body>
+
+</html>

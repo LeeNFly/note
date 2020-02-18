@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>复制</title>
+    <style>
+    ul {
+        list-style: none;
+    }
+
+    li {
+        float: left;
+        width: 200px;
+        height: 200px;
+        background: pink;
+        text-align: center;
+        line-height: 200px;
+        margin: 0 20px 20px 0;
+    }
+    </style>
+</head>
+
+<body>
+    <ul id="ulList">
+        <li>什么都看不见</li>
+        <li>什么都看不见</li>
+        <li>什么都看不见</li>
+        <li>什么都看不见</li>
+        <li>什么都看不见</li>
+        <li>什么都看不见</li>
+        <li>什么都看不见</li>
+        <li>什么都看不见</li>
+        <li>什么都看不见</li>
+        <li>什么都看不见</li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      $(function(){
+        $("li").each(function(index, ele){
+          $(this).css("opacity", (index+1) / 10);
+        })
+      })
+    </script>
+</body>
+
+</html>

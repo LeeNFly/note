@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 100px auto;
+      /* 使用动画, animation 是一个复合属性 */
+      /*animation: play 2s infinite;*/
+
+      /* 1. 动画名称 */
+      /*animation-name: play;*/
+
+      /* 2. 动画时间 */
+      /*animation-duration: 3s;*/
+
+      /* 3. 动画次数 默认1次*/
+      /*    特殊值: infinite 无限次 */
+      /*animation-iteration-count: infinite;*/
+
+      /* 4. 动画效果
+            linear
+            ease(默认值)
+            steps(10), steps可以用来做帧动画, 参考后面的小鱼动画,  一条鱼由10张图片组成, 分十帧, 实现小鱼抖动效果
+            动画效果和transition的类似*/
+      /*animation-timing-function: steps(10);*/
+
+      /* 5. 动画方向 */
+      /* 动画方向规定了执行一次动画的过程 */
+      /*    normal 默认正常, 从 from 到 to, 然后瞬间回到盒子初始状态
+            alternate 从 from 到 to, 再从 to 到 from, 可以解决执行完动画后, 瞬间回到盒子初始状态的问题
+      */
+      /*animation-direction: normal;*/
+      /*animation-direction: alternate;*/
+
+      /* 6. 动画延迟 
+            延迟指定事件后, 才开始执行动画
+      */
+      /*animation-delay: 2s;*/
+
+      /* 7. 动画最终状态 */
+      /*    forwards 停留在最终状态 */
+      /*    默认执行完动画后 瞬间回到盒子初始状态 */
+      /* animation-fill-mode: forwards; */
+      
+      /* 八大参数, 共同作用于盒子, 不会互相冲突, 可以分开写, 也可以合写 */
+
+      /* 动画合写: 顺序没有要求, 只是延时要放在动画时间后面, 不需要的参数可以不写, 不写就采用默认值 */
+      /*animation: 动画名称 动画时间 动画次数 动画方向 动画效果 */
+      animation: play 2s infinite alternate linear;
+      /* 动画合写后, 可以给盒子单独添加8大参数, 
+            如果参数在合写中有定义, 则会覆盖合写中的这一类参数, 合写中的其他参数不会覆盖, 仍保持 保证动画正常进行
+            如果参数在合写中没有定义, 则相当于在合写的基础上, 还添加了这一类参数, 原有的合写参数仍保持
+
+        ps: 当多个场景下同一个盒子有多个animation连写共存时, 后面的会覆盖前面的, 若不想被覆盖, 则要将前面的animation连写里设置的动画和参数都加上
+      */
+
+      /*
+        ps: 多个animation连写共存时, 后面的会覆盖前面的, 若不想被覆盖, 则要将前面的transition连写里设置的参数都加上
+        解决: 采用组合动画
+        组合动画, 一个盒子可以有多个动画, 之间用逗号隔开
+        animation: dou 1s steps(12) infinite, swim 6s infinite;
+
+        对于组合动画, 即一个盒子有多个动画, 要给每个动画进行分别单独设置8大参数, 参考
+        animation-duration: 1.2s, 10s;*/
+    }
+
+    div:hover {
+      /* 8. 动态状态
+            paused 表示让当前盒子的所有动画都停止, 并且最终状态保持在停止的状态 */
+      animation-play-state: paused;
+    }
+
+    /*
+      八大参数整理
+      1. animation-name 动画名称
+      2. animation-duration 动画时间
+      3. animation-iteration-count 动画次数  infinite
+      4. animation-timing-function 动画效果  ease linear steps(10)
+      5. animation-direction 动画方向 alternate交替执行(from,to,to,from)  normal默认
+      6. animation-delay 动画延迟
+      7. animation-fill-mode 动画最终状态   forwards 让动画停留在最终状态
+      8. animation-play-state 动画状态  paused 让动画停止
+    */
+
+    /* 声明动画 */
+    @keyframes play {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(2);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div></div>
+
+</body>
+</html>

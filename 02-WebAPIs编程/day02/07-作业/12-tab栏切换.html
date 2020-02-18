@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .hd {
+            height: 45px;
+        }
+
+        .hd span {
+            display: inline-block;
+            width: 90px;
+            background-color: pink;
+            line-height: 45px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .hd span.current {
+            background-color: yellow;
+        }
+
+        .bd div {
+            height: 255px;
+            background-color: yellow;
+            display: none;
+        }
+
+        .bd div.selected {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box">
+        <div class="hd" id="hd">
+            <span class="current">体育</span>
+            <span>娱乐</span>
+            <span>新闻</span>
+            <span>综合</span>
+        </div>
+        <div class="bd" id="bd">
+            <div class="selected">我是体育模块</div>
+            <div>我是娱乐模块</div>
+            <div>我是新闻模块</div>
+            <div>我是综合模块</div>
+        </div>
+    </div>
+    
+    <script>
+        var spans = document.querySelectorAll('#hd span');
+        var divs = document.querySelectorAll('#bd div');
+        for (var i = 0; i < spans.length; i++) {
+           spans[i].onmouseover = fn;
+           spans[i].setAttribute('index',i+'');
+        }
+        function fn() {
+            for (var i = 0; i < spans.length; i++) {
+               spans[i].className = '';
+               divs[i].className = '';
+            }
+            this.className = 'current';
+            var index = this.getAttribute('index');
+            divs[+index].className = 'selected';
+        }
+    </script>
+</body>
+
+</html>

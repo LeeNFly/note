@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+// ★ 字符串可以看成是一个 字符数组（伪数组）。因此字符串也有长度，也可以进行遍历。String对象很多方法的名字和和Array的一样。可以少记很多的单词。
+
+// ★★★ 注意 : 操作字符串的方法都不会改变原来的字符串,,所以需要返回 (即操作字符串的方法都不会改变原来的字符串,而是直接生成一个新的字符串, 并将操作得到的结果返回(返回生成的新字符串),操作结果都是通过返回值返回的,即API返回一个操作结果的值,可以用一个变量接收一下返回值,或者不用,他本身就是一个值)
+
+// 以下方法都是字符串包装类上的方法, 可以通过字符串直接调用
+
+// ★ 字符串的索引范围 0 ~ str.length - 1  , 元素为字符
+      //1. 查找索引 
+        
+      // 同数组
+      var str = 'abcdabcd';
+      // indexOf 字符第一次出现的位置, 返回索引 是数字类型
+      // lastIndexOf 字符最后一次出现的位置, 返回索引 是数字类型
+      var index =   str.indexOf('b');
+      console.log(index); // 1
+      var index2 =   str.indexOf('dab');
+      console.log(index2); // 3
+      var index1 =   str.lastIndexOf('b');
+      console.log(index1);
+
+      //2. trim();  只能去除两端的所有空白  (空格) 返回去除后的新字符串
+
+      var str1 = '    i am a xmg     ';
+      str1 =  str1.trim();
+      console.log(str1); //i am a xmg
+
+      //3. 大小写转换 返回转换后的新字符串
+      var str2 = 'ABCabc';
+      // str2 =   str2.toUpperCase(); //转大写
+      // console.log(str2); //ABCABC
+
+        str2 =  str2.toLowerCase(); //转小写
+        console.log(str2); //abcabc
+        
+      
+      //4. 拼接 返回拼接后的新字符串
+      var str1 = 'abc';
+      var str2 = '123';
+
+      // var str = str1.concat(str2);
+      var str = str1 + str2; //(推荐)
+      console.log(str);
+
+      //5. 截取
+      var str2 = 'abcdefg';
+      // slice == substring   substr
+      // slice : 截取出来
+      // slice(start,end) 索引从start开始,end结束 包括start 不包括end 将截取的字符串返回
+      // slice(start) , 下标从start开始, 包括start 一直截取到最后(包含最后一个字符) 将截取字符串返回
+      // slice() 将整个字符串截取 返回, 即和原字符串一致
+      //  var newStr =  str2.slice(2,6); 
+      //  console.log(newStr); //cdef
+      //  var newStr =  str2.substring(2,6);
+      //  console.log(newStr); //cdef
+
+      // substr 也是截取  
+      // substr(start, length);
+      // start 开始 ,截取几个 包括start 将截取的字符串返回
+       var newStr = str2.substr(4,1); //e
+
+      console.log(newStr);
+      
+
+      //6. 字符串切割
+      // split 这个和数组的join 相反
+      var arr =  [1,2,3];
+      // join 数组 => 字符串
+      var str = arr.join('-');
+      console.log(str); // 1-2-3
+
+      var str = '1-2-3';
+      // split 字符串 => 数组 按顺序将字符串切割成数组  转化成数组后,数组元素均为字符串 返回数组
+       var arr1 =  str.split('-');  
+       console.log(arr1); //['1','2','3']
+
+       var str = '123';
+       var arr2 = str.split('');
+       console.log( arr2); // ['1', '2', '3']
+
+       var str = 'zs-@ls-@ww';
+       var arr = str.split('-@');
+       console.log(arr); // ["zs", "ls", "ww"]
+       
+      //7. 替换 replace  返回替换后的生成的新的字符串
+      // 只能替换第一个
+      var str = 'abcdabc';
+      // replace(old,new)
+      // var newStr =   str.replace('a','z');
+      // console.log(newStr); //zbcdabc => 只能替换第一个 
+      
+      var str = 'abcdabc'
+      console.log(str.replace('ab','x')); // xcdabc
+      // 正则 
+      // 替换全部
+     var newStr =  str.replace(/a/g,'z'); //  //之间不加引号
+     console.log(newStr);  //zbcdzbc
+
+     var str = 'abcdabc'
+     console.log(str.replace(/ab/g,'x')); // xcdxc
+
+     // 应用场景 : 
+     // 1.
+     var str = '1-2-3';// ==>123
+     var newStr =   str.replace(/-/g,''); //g: global
+     console.log(newStr); //123
+
+    // 2. 去除中间空格 (去除全部空格, 中间 + 两边)
+     var str = 'i am  xmg';
+      var newStr =  str.replace(/ /g,'');
+      console.log(newStr);
+
+
+      //8.  遍历字符串  
+      var str = 'abcdabcd';
+      // 打印字符串的每个字符
+      // 字符串的索引也是从0 ~ str.length - 1
+      for ( var i = 0 ; i < str.length ; i++) {
+        // 获取对应索引的字符元素 str[i]
+          // console.log(str[i]); 
+          
+      }
+
+      //9. 获取元素, (不能修改)
+      // 获取对应索引的字符元素 (每个字符也是一个长度为1的字符串)
+      // 字符串的索引也是从0 ~ str.length - 1
+
+      var str = 'abcdabcd';
+
+      var a =   str[3]   //str.charAt(3); 
+      // 推荐使用str[索引] 直接获取对应索引的字符元素
+      console.log(a); //d 
+      
+
+     
+
+     
+    
+      
+
+
+       
+      
+
+
+      
+      
+
+
+    </script>
+</body>
+</html>

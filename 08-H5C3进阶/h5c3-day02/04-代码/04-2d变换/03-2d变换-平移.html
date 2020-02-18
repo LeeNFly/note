@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      /* 平移x, y  transform: translate(x, y) */
+      /* 平移x transform: translateX(100px) */
+      /* 平移y transform: translateY(100px) */
+      /* x: 水平偏移量, 正值水平向右平移, 负值水平向左平移 */
+      /* y: 垂直偏移量, 正值水平向下平移, 负值水平向上平移 */
+      /* 偏移量可以是值px, 也可以是百分比 */
+      /*
+         平移:  是用来平移盒子的
+               1. 始终是是相对于盒子初始的自身的位置进行平移, 相对于盒子初始初始的位置移动一段距离, 即平移不可叠加
+                  ps: 比如盒子初始位置是A, 设置平移属性平移了90px到位置B, 此时再给盒子设置一样的平移属性,
+                  由于css渲染层叠性, 会覆盖之前的平移, 所以盒子总体还是相对于A平移90px, 所以盒子的位置还是在B
+                  如果给盒子设置平移30px, 由于css层叠性, 会覆盖之前的平移, 则还是参照盒子初始位置A, 进行平移30px
+
+                  变换的连续性, 如果盒子已经平移了45px, 此时设置平移90px, 则会在45px的位置, 再平移45px, 达到90px的位置
+
+               2. 如果偏移量指定了百分比, 则相对于自身宽高计算偏移量
+               3. ★ 所有2d变换transform, 包括后面的3d变换, 都只是视觉上的变换, 不会影响其他盒子的布局
+               4. 多用于盒子居中
+
+
+
+               所有的盒子都可以进行平移
+               平移和定位没有冲突, 定位的盒子也可以平移, 且定位的盒子平移也是相对于自身的初始位置(定位后的位置) 进行平移, 一般都是先定位, 然后再平移, 微调
+
+          注意, 所有2d变换transform, 后面的transform都会覆盖前面的transform, 如果不想前面的2d变换transform被覆盖,
+          要采取连写, 之间用空格隔开
+          transform: scaleX(1.5) scaleY(2) translate(x, y) ... ;
+      */
+
+      margin: 10px auto;
+      transition: all 1s;
+    }
+
+    div:hover {
+      transform: translate(50%, 50%);
+    }
+    
+  </style>
+</head>
+<body>
+
+<div></div>
+<div></div>
+
+</body>
+</html>

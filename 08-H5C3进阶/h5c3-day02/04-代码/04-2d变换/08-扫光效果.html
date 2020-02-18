@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      background-color: #000;
+    }
+    div {
+      width: 670px;
+      height: 419px;
+      margin: 100px auto;
+      position: relative;
+      overflow: hidden;
+    }
+    /* ::before ::after */
+    /* 绝对定位, 固定定位, 浮动后的元素, 脱标了, 如果不设宽高, 由内容撑开
+       显示模式和行内块很像, 可以设置宽高
+    */
+    div::before {
+      content: '';
+      width: 30px;
+      height: 100%;
+      position: absolute;
+      left: -300px;
+      top: 0;
+
+      /* 添加线性渐变 */
+      background-image: linear-gradient(
+        to right,
+        rgba( 255, 255, 255, 0 ),
+        rgba( 255, 255, 255, 1 ),
+        rgba( 255, 255, 255, 0 )
+      );
+      /* 倾斜 */
+      transform: skewX(-30deg);
+    }
+
+    div:hover::before {
+      left: 800px;
+      transition: all 3s;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <img src="./images/ll.jpg" alt="">
+</div>
+
+</body>
+</html>

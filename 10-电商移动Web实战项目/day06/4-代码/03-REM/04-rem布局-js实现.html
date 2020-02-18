@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* html {
+            font-size: 100px;
+        } */
+        /* 
+            实际工作中，设计师给设计稿 640px  750px 宽度   ，基于设计稿进行布局是会设定 1rem = 100px
+
+
+            在设计稿640px 情况 ，设置1rem = 100px 
+            推算1rem 在其他屏幕 取值 
+            根据媒体查询检测当前屏幕宽度，根据宽取设置rem的值   
+            当前值 = 当前屏幕宽度/640*100
+            480  1rem : 75px 
+            414  1rem : 64.6875px
+            375  1rem:  58.59375px
+            360  1rem : 56.25px
+            320  1rem:  50px 
+
+            使用rem进行布局步骤：
+                基于设计布局时 设置1rem = 100px ;
+                1-将页面中所有单位 基于1rem = 100px, 换算成rem
+                2-动态检测屏幕宽度 去改变rem的值 (改变html标签的font-size大小)
+        
+        */
+        .box {
+            position: relative;
+            max-width: 640px;
+            width: 6.4rem;
+            height: 3rem;
+            background-color: hotpink;
+            margin: 0 auto;
+        }
+        img {
+            position: absolute;
+            left: .3rem;
+            top: .9rem;
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        .right {
+            position: absolute;
+            right: .4rem;
+            top: .5rem;
+            width: 3rem;
+            height: 2rem;
+            background-color: yellow;
+            font-size: 1rem;
+            text-align: center;
+            line-height: 2rem;
+        }
+    </style>
+    <script src="rem.js"></script>
+</head>
+<body>
+    <div class="box">
+        <img src="zhu.png" alt="">
+        <div class="right">
+            猪
+        </div>
+    </div>
+   
+</body>
+</html>

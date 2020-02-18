@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    1-左侧固定 右侧自适应
+    2-右侧固定 左侧自适应
+    3-两次固定  中间自适应
+    解决方式：
+        伸缩布局 flex
+        定位 + padding (两侧定位, 中间自适应100%, 用给父盒子设置padding撑开2侧)
+        BFC
+
+        以上方法都只能让宽度自适应, 高度无法自适应
+        BFC布局也只能实现宽度自适应, 高度无法自适应
+-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .left {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            float: left;
+        }
+
+        .right {
+            height: 300px;           
+            background-color: red;    
+            overflow: hidden;
+            /* 注意, 此处不能设置width: 100%, 这样的会强行撑大宽度, 由于BFC, 不能与浮动元素有交集, 则会被挤到下面去了
+               这里不设置width, 用其默认的宽度(父盒子宽度)就可以达到自适应效果
+             */
+            /* 当给元素设置了overflow:hidden ,此时元素会构造BFC, 触发了BFC的元素 不会和浮动元素有交集 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Block Formatting Context: 页面上一个隔离的独立渲染区域
+        触发成为 BFC 盒子的特点:
+
+        1. 触发了 BFC 的盒子, 就成为了页面上的一个隔离的独立容器,  容器里面的子元素不会在布局上影响到外面的元素
+        应用: 解决塌陷问题,  清除浮动 
+        2. 触发了BFC的普通盒子, 不会与浮动元素重叠 (★)
+        应用: 圣杯布局, 左侧固定右侧自适应; 右侧固定, 左侧自适应; 两侧固定, 中间自适应
+
+        BCF应用于圣杯布局, 一般只能用于左右结构圣杯布局, 上下结构用不了BFC圣杯布局
+
+     ps: BFC盒子的标签渲染模式仍和原来一致, 块级, 行内, 行内块等等, 仍保持原来渲染模式的属性及特点
+        如何触发 BFC
+
+        - float: left; float: right;	
+        - overflow的值不为visible。
+        - display的值为table, table-cell
+        - position的值absolute, fixed
+     -->
+
+     <div class="left"></div>
+    <!-- 由浮动特性, right放后面 -->
+     <div class="right"></div>
+</body>
+</html>

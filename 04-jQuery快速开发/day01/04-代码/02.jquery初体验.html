@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            background-color: #f99;
+            margin: 10px;
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <button id="btn1">展示</button>
+    <button id="btn2">设置内容</button>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        // 恶心的地方：
+        // 1. 获取元素的方法名字太长，记忆与书写麻烦
+        // 2. 代码冗余（for循环）
+        // 3. 使用on系列注册的事件存在覆盖
+        // 4. 实现动画效果比较复杂，需要自己去封装
+
+        // .onclick = function(){}
+        // jq注册事件 不会覆盖. 相当于追加 没有兼容性问题 会把获取到的所有元素都注册事件
+        $("#btn1").click(function(){
+            // $("div") 通过div这个标签，获取到页面上所有的div元素
+            // speed: 动画的时长，单位是ms
+            $("div").show(1000);
+        })
+
+
+        $("#btn1").click(function(){
+           console.log(2222);
+        })
+
+
+        $("#btn2").click(function(){
+            // innerText = "老罗贼帅"
+            // text()  设置和获取元素的内容
+            $("div").text("老罗贼帅");
+        })
+    </script>
+</body>
+</html>

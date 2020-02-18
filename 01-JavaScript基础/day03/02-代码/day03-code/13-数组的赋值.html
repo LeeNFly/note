@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+         var arr = ['zs','ls'];
+         console.log(arr);
+         
+
+         // 赋值 
+        // 结构 : 数组名 [ 下标 ] = 值 (值可以是任意类型,接收任意类型的赋值)
+        // 注意:只有赋值操作会改变数组中元素的值,其他运算操作一般不会改变数组中元素的值
+        //1. 下标存在的情况下 => 修改 /覆盖
+        // 下标范围: 0~arr.length-1  /  1
+        // arr[0] = '飞哥';
+        // arr[1] = '马哥';
+        // arr[arr.length-1] = '玮哥';
+
+        // console.log(arr);
+
+        //2. 下标不存的情况下  =>增加 (不会影响数组中其他元素) (会自动撑大数组长度)
+        //arr[6] = '哈哈嘻嘻'; //(以后不要这么写)
+        //console.log(arr);  //["zs", "ls", empty × 4, "哈哈嘻嘻"] 长度为7
+        //console.log(arr[5]); //undefined        
+        // 会将数组长度撑大,中间取值为undefined,会造成资源浪费 (以后不要这么写) 建议一个一个写,使用追加
+        
+        // 一个一个写
+        // arr[2] = '马哥';
+        // arr[3] = '飞哥'
+        
+        console.log(arr);
+
+// arr[arr.length] 这个特殊的
+        
+        
+
+
+    </script>
+</body>
+</html>

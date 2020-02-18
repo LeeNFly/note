@@ -1,0 +1,36 @@
+绘制图片：
+    ctx.drawImage(img, x, y);
+    ctx.drawImage(img, x, y, w, h);
+    ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh);
+ 创建图片
+    var img = new Image();
+    var img = document.createElment('img');
+
+ 等加载图片后在使用图片：
+    img.onload = function () {}
+
+  绘制文字：
+  strokeText(str, x, y);
+  fillText(str, x, y);
+
+  设置字体样式
+  ctx.font = '20px Microsoft Yahei';
+
+  获取文字宽度
+  ctx.measureText(str);
+
+  文字对齐方式：
+  水平： textAlgin:  left centr right
+  垂直： textBaseline : top middle bottom
+
+  画布状态保存和恢复
+  save()保存画布当前样式
+  restore(); 将画布恢复到最近一次保存状态
+
+  canvas中变换
+  位移 translate()
+  缩放 scale()
+  旋转 rotate()
+
+  // 注意 在css3中  变换操作的元素本身
+  // 在canvas中  变换操作 变换是坐标系 ，基于变换后的坐标系，绘制出来图形都是变形的；

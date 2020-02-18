@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>封装jquery插件</title>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: "Microsoft Yahei";
+	}
+	
+	.box {
+		position: relative;
+		width: 1200px;
+		margin: 0 auto;
+	}
+	
+	.item {
+		width: 232px;
+		position: absolute;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+		overflow:hidden;
+	}
+	
+	.item > img {
+		width: 100%;
+		display: block;
+	}
+	
+	.item > p {
+		margin: 0;
+		padding: 10px;
+    background: #eee;
+	}
+	
+	.btn {
+		width: 280px;
+		height: 40px;
+		margin: 30px auto;
+		text-align: center;
+		line-height: 40px;
+		background-color: #CCC;
+		border-radius: 6px;
+		font-size: 24px;
+		cursor: pointer;
+	}
+	
+	.loading {
+    /* transparent 透明色 */
+		background-color: transparent;
+	}
+</style>
+</head>
+
+<body>
+	<div class="box">
+		<!-- <div class="item ">
+			<img src="./images/1.jpg" alt="">
+			<p>花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。花非花，雾非雾，夜半来，天明去，来如春梦不多时，去似朝云无觅处。</p>
+		</div> -->
+	</div>
+
+<div class="btn">加载更多</div>
+
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery.waterfall.js"></script>
+<!-- 1. 引包 -->
+<script src="js/template-web.js"></script>
+<!-- 2. 准备模板 -->
+<script type="text/html" id="tpl">
+  {{ each items v i }}
+    <div class="item ">
+      <img src="{{ v.path }}" width="{{v.width}}" height="{{ v.height }}" alt="">
+      <p>{{ v.text }}</p>
+    </div>
+  {{ /each }}
+</script>
+<script>
+  // $('.box').waterFall(); 可以实现瀑布流布局
+
+  var currentPage = 1; // 表示当前页
+  var pageSize = 10; // 每页多少条
+
+  // 一进入页面, 需要 render() 一次
+  render();
+  function render() {
+    // 1. 一进入页面, 发送 ajax 请求, 获取第一页的数据(假设1页10条), 
+    // 2. 得到数据通过模板引擎渲染
+    $.ajax({
+      type: "get",
+      url: "data.php",
+      data: {
+        page: currentPage,
+        pageSize: pageSize
+      },
+      dataType: "json",
+      beforeSend: function() {
+        // 每次请求前, 让按钮, 变成正在加载中..
+        $('.btn').html( "正在加载中..." ).addClass("loading");
+      },
+      success: function( info ) {
+        // 3. 准备数据 得到 info
+        // 4. 将数据和模板相结合 template( 模板id, 数据对象 );
+        //    在模板中可以使用 数据对象的属性
+        console.log( info );
+        var htmlStr = template( "tpl", info );
+
+        // 注意: 是 append 在原有的基础上进行追加
+        $('.box').append( htmlStr );
+
+        // 调用插件方法, 实现瀑布流布局
+        $('.box').waterFall();
+
+        // 布局完成, 需要恢复按钮成 加载更多
+        $('.btn').html("加载更多").removeClass("loading");
+
+        // 更新下一次渲染的页面
+        currentPage = info.page;
+
+
+        if ( info.items.length === 0 ) {
+          // 没有更多数据了, 添加 loading 是为了背景色, 且可以防止再次请求
+          $('.btn').html("没有更多数据了").addClass("loading");
+        }
+      }
+    })
+  }
+
+
+  // 需求1: 点击加载更多按钮, 应该重新发送ajax请求, 请求下页的数据, 进行页面渲染
+  $('.btn').click(function() {
+    // 需要判断, 阻止重复提交
+    if ( $('.btn').hasClass("loading") ) {
+      // 请求已经发送中
+      return;
+    }
+    // 调用 render 进行页面渲染
+    render();
+  });
+
+  // 需求2: 滚动到显示最后一个盒子的时候, 认为抵达了底部, 需要加载更多
+  $(window).scroll(function() {
+    console.log( 11111111 );
+    // if ( $('.btn').hasClass("loading") ) {
+    //   // 请求已经发送中
+    //   return;
+    // }
+
+    // 如果 最后一个盒子到页面顶部的距离 < 页面卷去的高度 + 可视区的高度,  认为进入屏幕了
+    // offset().top 可以获取当前盒子到页面顶部的位置
+    // offset() 返回一个对象
+    // top: 当前盒子到页面顶部的距离
+    // left: 当前盒子到页面最左边的距离
+    var lastTop = $('.box .item:last-child').offset().top;
+    var scrollTop = $(window).scrollTop(); // 页面卷去的高度
+    var height = $(window).height(); // 获取可视区域高度
+
+    if ( lastTop < scrollTop + height ) {
+      // 说明最后一个盒子进行可视区了
+      // 加载更多
+      render();
+    }
+
+
+  })
+
+
+</script>
+
+</html>

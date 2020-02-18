@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <script>
+
+    var obj = {
+      name: 'zs',
+      age: 18
+    }
+    
+    // ★★★ 虽然对象是无序的键值对, 但是 遍历对象时,拿到的key的顺序和对象创建时key的顺序一致
+
+
+    // 遍历对象  for ( var key in obj )
+    // for....in...
+
+    // for ( var key in obj) {
+
+    //   // 属性名 : key  => 是一个字符串 (属性名字符串)
+    //     key  
+
+    //   // 属性值 
+    //   因为key变量,值是一个字符串,根据变量(的值)获取属性值,使用[]
+    //    obj[key];
+
+    // }
+//  
+//     for (var j = 0; i<arr.length; i++) {
+
+//     } 
+
+    var obj = {
+      name: 'zs',
+      age: 18
+    }
+
+
+    // 遍历对象
+    // for (var key in obj) {
+
+    //     // 属性名 
+    //     console.log(key);
+
+    //     //属性值 
+    //     console.log( obj[key]  );
+      
+    // }
+
+    // 拓展 
+    // 判断这个属性是否是对象里的属性  //  'name' in obj  是返回true  不是返回false
+
+    // 结构 :  if ( 属性名字符串 in  对象名 ) {}     ( 属性名字符串 in  对象名 返回的是布尔值 )  
+    if ('name' in obj) {   
+      
+      console.log('是');
+      
+    }else {
+
+      console.log('不是');
+      
+    }
+
+
+    // 获取对象里的所有属性名  Object.keys(obj); 
+    
+    // 结构 :  Object.keys(对象名)
+    // 返回的是一个数组 元素是 属性名字符串
+    console.log(  Object.keys(obj)  );  //["name", "age"]
+    
+
+
+
+
+  </script>
+</body>
+
+</html>

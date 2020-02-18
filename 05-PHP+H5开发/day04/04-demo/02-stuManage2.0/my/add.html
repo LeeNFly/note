@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="./css/form.css">
+</head>
+
+<body>
+  <!-- action method name -->
+  <!-- 文件
+       1. 请求方式 post
+       2. 给 file 指定 name
+       3. enctype="multipart/form-data"
+  -->
+  <form action="add.php" method="post" enctype="multipart/form-data">
+    姓名：<input type="text" name="username"> 
+    昵称：<input type="text" name="nickname"> 
+    年龄：<input type="text" name="age"> 
+    电话：<input type="text" name="tel"> 
+    性别：
+      <input type="radio" name="sex" value="m" checked>男
+      <input type="radio" name="sex" value="f">女
+    <br> 
+    班级：
+      <select name="class">
+        <option value="1">黑马24期</option>
+        <option value="2">黑马25期</option>
+        <option value="3">黑马26期</option>
+        <option value="4">黑马27期</option>
+        <option value="5">黑马28期</option>
+      </select>
+    头像：
+      <input type="file" name="photo">
+      <input type="submit" value="添加信息">
+  </form>
+
+</body>
+
+</html>

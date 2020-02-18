@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        // 为什么要学习继承: 简单粗暴的说就是为了少写代码
+
+        var wjl = {
+            wife: 'xxx',
+            money: 10000000000000,
+            houses:['大房子', '大别墅', '大庄园'],
+        }
+
+        // var wsc = {
+        //     wife:['yyy', 'zzz']
+        // }
+
+
+        // 单个对象和对象之间的继承:
+        // 1.  拷贝继承
+        // 对象.hasOwnProperty('属性名') //如果对象中有这个属性就返回true,否则返回false (仅限对象本身中是否有该属性,原型链上的属性不算)
+        // for(var key in wjl){
+        //     //判断如果自己有,就不用继承了
+        //     if(!wsc.hasOwnProperty(key)){
+        //         //证明没有有这个属性
+        //         wsc[key] = wjl[key];
+        //     }
+        // }
+
+        // console.log(wsc);
+        // 2. Object.create()继承
+        // var 新的对象 = Object.create(被继承的对象)
+        // 新的对象.__proto__ == 被继承的对象  
+        // 新的对象的原型是被继承的对象
+        
+        // Object.create(被继承的对象) 返回一个新的空对象,Object.create()返回的一定是一个空对象, 这个对象的原型(上一级原型链)是被继承的对象, 可以访问被继承的对象中的属性 
+        // 根据对象查找属性规则 先在自己身上找,没有的话沿着原型链往上找
+
+        var wsc = Object.create(wjl);
+        wsc.wife = ['yyy', 'zzz'];
+        console.log(wsc.wife);
+        console.log(wsc.money);
+        console.log(wsc.houses);
+
+
+        console.log(wsc);  //wsc => {wife: Array(2)} =>
+        // wife: (2) ["yyy", "zzz"]
+        // __proto__: Object  
+        
+        //     __proto__  =>        houses: (3) ["大房子", "大别墅", "大庄园"]
+        //                          money: 10000000000000
+        //                          wife: "xxx"
+        //                          __proto__: Object  => Object原型    
+        
+    </script>
+</body>
+</html>

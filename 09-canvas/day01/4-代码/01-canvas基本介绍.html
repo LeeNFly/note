@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            background-color: pink;
+            /*width: 800px;*/
+            /*height: 400px;*/
+        }
+    </style>
+</head>
+<body>
+    <!--画布-->
+    I<!--E8及IE8以下不支持canvas-->
+    <canvas width="600" height="400">
+       <!-- 兼容性处理: 提示文字即可-->
+        浏览器版本过低，速度更新！
+    </canvas>
+    <!--
+        1- canvas 是h5新增画布标签，默认300*150
+        2- canvas可以设置宽高(数值或百分比)，类似于行内块, 但是不建议使用css来设置样式( 除行内样式 )，可以通过 js 或者html标签属性, 或css行内样式的方式来设置
+         原因：使用css(除行内样式外)会使画布拉伸，让图形变模糊, 并不是真正的将画布变大
+        3- canvas 是一个画布标签， 自身并不具备绘图能力； 相当于只是一张画纸, 超出canvas画布的部分, 会被隐藏
+           画布中也有一个坐标系, 坐标原点在画布左上角, x轴正方向水平往右, y轴正方向垂直向下, 与程序坐标系类似, 所有在画布内的绘制都要参照此画布的坐标系
+        4- 如果在canvas上面进行绘制，需要获取canvas相关API,通过canvas的API进行绘制；
+    -->
+</body>
+</html>

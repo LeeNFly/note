@@ -1,0 +1,43 @@
+  <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 800px;
+      height: 600px;
+      background: url("images/1.jpg");
+      border: 1px solid #000;
+      background-repeat: no-repeat;
+      /* background-size 就是用来设置 背景图片的大小, ps: 只能设置背景图片(background-image)大小, 不能设置背景色大小 */
+      /* 背景图片默认是如果溢出盒子, 则会将溢出部分隐藏, 可以通过background-size来设置背景图片的整体大小*/
+      /* 1. 直接设置数值 宽度 和 高度, 可能会失真 */
+      /*background-size: 800px 600px;*/
+
+      /* 2. 可以指定百分比, 百分比是相对于盒子宽高计算的, 也可能会失真*/
+      /*background-size: 100% 100%;*/
+
+      /* 3. 指定 contain, 包含, 等比例缩放, 大到和盒子的宽度或高度相等为止
+            图片是完整的, 不会失真, 但是可能会留白
+      */
+      /*background-size: contain;*/
+
+      /* 4. 指定 cover, 覆盖, 等比例缩放, 大到将整个盒子填满为止
+            不会留白, 不会失真, 但是有一部分图片出去了, 
+            一般配合background-position: center center使用, 可以解决图片核心部分出去的问题
+      */
+      background-size: cover;
+      background-position: center center;
+    }
+
+    /* alt + f2 快速打开浏览器 */
+
+  </style>
+</head>
+<body>
+
+  <div></div>
+
+</body>
+</html>

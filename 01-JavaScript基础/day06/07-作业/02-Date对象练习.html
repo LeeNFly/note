@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var date = new Date();
+    // console.log(date);
+    // console.log(date.toLocaleString());
+    // console.log(date.toLocaleDateString());
+    // console.log(date.toLocaleTimeString());
+    // console.log(date);
+
+    // var date = new Date();
+    // console.log(date);
+    
+    // var year = date.getFullYear();
+    // console.log(year);
+    
+    // var month = date.getMonth() + 1;
+    // console.log(month);
+    
+    // var day = date.getDate();
+    // console.log(day);
+    
+    // var day = date.getDay()
+    // console.log(day);
+
+    // var hour = date.getHours();
+    // console.log(hour);
+    
+    // var minutes = date.getMinutes()
+    // console.log(minutes);
+
+    // var seconds = date.getSeconds()
+    // console.log(second);
+    
+    
+    // 练习 
+    // 封装一个函数，返回当前的时间，
+    // 格式是：yyyy-MM-dd HH:mm:ss  (2018-01-01 01:20:12)
+    
+    // function getFormatTime() {
+    //   var date = new Date();
+    //   var str = '';
+    //   var year = date.getFullYear();
+    //   var month = date.getMonth() + 1;
+    //   var day = date.getDate();
+    //   var hours = date.getHours();
+    //   var minutes = date.getMinutes();
+    //   var seconds = date.getSeconds();
+
+    //   function addZero(time) {
+    //     return time < 10 ? '0' + time : time;
+    //   }
+
+    //   return year + '-' + addZero(month) + '-' + addZero(day) + ' ' + addZero(hours) + ':' + addZero(minutes) + ':' + addZero(seconds);
+    // }
+    // var time = getFormatTime();
+    // console.log(time);
+    
+
+    // // 时间戳
+    // var date = +new Date();
+    // console.log(date);
+    
+
+     // 练习 : 计算一下 遍历打印1-10000次所需要的时间
+    //  function testTime() {
+    //    var start = +new Date();
+    //    for (var i = 1; i <= 10000; i++) {
+    //       console.log(i);
+    //    }
+    //    var end = +new Date();
+    //    console.log((end - start)/1000);
+       
+    //  }
+    //  testTime()
+      
+    // 练习
+    // 2019年11月11日 
+    // 距离还有多少天 多少小时 多少分 多少秒 
+    function countDown () {
+      var start = +new Date();
+      var end = +new Date('2019-10-12');
+      
+      var time = (end - start) / 1000;
+      var day = Math.floor(time / (60 * 60 * 24))
+      var hours = Math.floor(time / (60 * 60 )) % 24;
+      var minutes = Math.floor(time / 60) % 60;
+      var seconds = Math.floor(time % 60) 
+      function addZero(time) {
+        return time < 10 ? '0' + time : time;
+      }
+      return '距离双十一还有' + day + '天' + addZero(hours) + '小时' + addZero(minutes) + '分钟' + addZero(seconds) + '秒';
+    }
+    console.log(countDown());
+    
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    首先, jsonp和cors都可以用于跨域请求数据的, 但他们使用的原理是不同的, 互不相干
+
+    1. jsonp 跨域请求数据:
+      1) 原理: 使用script标签的特性, script标签可以跨域请求数据
+      2) 优点: 没有兼容性问题
+      3) 缺点: 只能发送get请求, 故无法用于文件上传, 且发送的数据量有限
+    
+    2. cors 跨域请求数据
+      1) 原理: 在服务器端进行设置, 允许指定的网站通过ajax跨域请求
+      2) 优点: 简单方便, get和post请求方式都支持, 可以做文件上传
+      3) 缺点: 有兼容性问题
+    
+    补充说明: jsonp是通过script的特性来发请求的, 而cors是ajax的跨域请求数据, 是通过XMLHttpRequest对象来发请求的, 在服务端进行cors设置
+             ★ 二者原理不同, 没有任何关系
+
+    跨域的安全性问题：
+            因为跨域是需要服务端配合控制的 ，也就是说不论jsonp还是cors，如果没有服务端的允许，浏览器是没法做到跨域的。
+            不论是jsonp跨域还是cors跨域, 都需要后端进行配合, 所以都还算安全的.
+   -->
+</body>
+</html>

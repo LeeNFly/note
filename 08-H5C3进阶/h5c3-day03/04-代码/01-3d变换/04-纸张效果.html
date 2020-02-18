@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    body {
+      background-color: #000;
+      perspective: 1000px;
+    }
+    ul {
+      width: 300px;
+      height: 200px;
+      border: 1px solid #fff;
+      margin: 200px auto;
+      position: relative;
+      transition: all 1s;
+      background-color: #fff;
+      /* 调整变换基准点 */
+      transform-origin: center bottom;
+      /* 让 li 在 3d 布局, 才可以出现Z轴, 看见纸张飞起来 */
+      transform-style: preserve-3d;
+    }
+    li {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      /* 在 ul 倒下去后, li 才执行动画, 需要添加延时 */
+      transition: all 1s 1s;
+    }
+    /* 实现纸张效果
+       1. 推倒, 推倒 ul, 让 ul, transform:rotateX(70deg)
+       2. 让里面的 li, 调整 translateZ
+    */
+    ul:hover {
+      transform: rotateX(70deg);
+    }
+    ul:hover li:nth-child(1) {
+      transform: translateZ( 20px );
+    }
+    ul:hover li:nth-child(2) {
+      transform: translateZ( 40px );
+    }
+    ul:hover li:nth-child(3) {
+      transform: translateZ( 60px );
+    }
+    ul:hover li:nth-child(4) {
+      transform: translateZ( 80px );
+    }
+    ul:hover li:nth-child(5) {
+      transform: translateZ( 100px );
+    }
+
+  </style>
+</head>
+<body>
+
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #f99;
+        }
+
+        p {
+            padding: 10px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div id="son">
+            <p class="innerP">这是div内的p元素</p>
+        </div>
+        <div id="son1">
+            <p class="innerP">这是div内的p元素</p>
+        </div>
+        <div id="son2">
+            <p class="innerP">这是div内的p元素</p>
+        </div>
+    </div>
+    <div class="box">
+        <div>
+            <p>这是div内的123p元素</p>
+        </div>
+    </div>
+    <p class="outerP">这是div外的p元素</p>
+
+    <div id="newBox"></div>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            // var res = $('.box').clone(true); 
+            // console.log($('.box'));           
+            $('.box').click(function () {
+                console.log('aaa');
+                // console.log($('.box'));
+            })
+            var res = $('.box').clone(true);
+            // console.log(res);
+            $('#newBox').append(res);
+        })
+    </script>
+</body>
+
+</html>

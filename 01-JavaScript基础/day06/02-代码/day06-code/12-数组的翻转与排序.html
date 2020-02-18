@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+
+      // 数组的翻转与排序
+      
+      //1. reverse 翻转  会改变原数组
+      // var arr = [1,4,7];
+
+      // arr.reverse(); 
+
+      // console.log(arr); //[7,4,1]
+
+      //2. 排序   sort() 会改变原数组
+      //2.1. sort() 默认比较字符 ,适用于字母,字符排序 (从小到大排)
+      var arr = [1,4,7,20,30,4,21]; // [1, 20, 21, 30, 4, 4, 7] 先比较第一位,然后再比较第二位
+
+      //var arr = ['1','4','7','20','30','4','21'];  //["1", "20", "21", "30", "4", "4", "7"]
+      
+      // var arr = ['b','a','c','z']; // ['a','b','c','d']
+
+      arr.sort();
+
+      console.log(arr);
+
+      //2.2 参数
+      // var arr = [1,4,7,20,30,4,21];
+      
+      //此方法只适用于数字排序  a - b 从小到大排 ; b - a 从大到小排
+      
+      // arr.sort(function (a,b) {
+      //   // return 后面一定返回为真
+      //   // a > b
+      //   // 交换位置 
+      //    return a - b;
+      // })
+
+
+      // console.log(arr);
+
+
+        //将[3, 6, 1, 5, 10, 2,11]从小到大排列
+ var arr = [3, 6, 1, 5, 10, 2,11];
+
+//  arr.sort(function (a,b) {
+//    return a - b
+//  })
+
+// console.log(arr);
+
+
+  //将字符串数组按照字符长度从小到大排列
+ var arr = ['b','a','c','u','z','e'];
+
+ arr.sort()
+
+console.log(arr);
+
+//将学生数组按照年龄从大到小排列
+ var arr = [18,34,21,20,66];
+ 
+  arr.sort(function (a,b) {
+    return b - a;
+  })    
+
+console.log(arr);
+  
+      
+
+
+    </script>
+</body>
+</html>

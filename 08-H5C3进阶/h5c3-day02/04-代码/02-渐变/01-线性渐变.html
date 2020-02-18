@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /*
+       早期渐变效果都要通过背景图片实现, c3中的渐变就是为了替代这些背景图片
+       属性名: background-image, 这个背景图相当于是由浏览器生成的
+
+       线性渐变需要:
+       1. 方向, 可以不写, 默认向下, 推荐写上方向
+          (1) 使用专有名词 to right, to top, to left, to bottom
+          (2) 使用角度, 0deg 往上 (记忆时钟, 正方向参考0deg正方向向上), 正角度顺时针旋转, 负角度逆时针旋转
+       2. 颜色, 支持专有名词, 十六进制, rgb, rhba
+       3. 范围  支持数值px或者百分比, 可以不写, 不写就是平均分配
+                1) 范围说明: background-image: linear-gradient(90deg, red 30%, yellow 50%, blue 70%);
+                         在盒子宽度的30%处, 要是红色, 50%处, 要是黄色, 70%处, 要是蓝色,
+                         30% -> 50%, 实现红到黄的渐变, 50% -> 70%, 实现黄到蓝的渐变, 0-30% 和 70%-100%, 分别为纯色红色和蓝色
+
+                         以上相当于 background-image: linear-gradient(90deg, red 0%, red 30%, yellow 50%, blue 70%, 100% blue); 的简写
+
+                         百分比也可以换成数值px, 说明同上, 范围的数值或百分比是参考的都是盒子在渐变方向上的大小.
+                
+                2) 如果不写范围, 则平均分配, 比如 background-image: linear-gradient(90deg, red, yellow, blue);
+                                             就是 0% 处是红色, 50%处是黄色 100%处是蓝色, 0~50% 红到黄渐变, 50%~100% 黄到蓝渐变
+                                           比如 background-image: linear-gradient(90deg, red, blue);
+                                             就是0%红色, 100%蓝色, 0% ~ 100% 红到蓝渐变
+                范围平均分配是从两侧开始的, 即两侧0% 和 100% 处要有颜色
+
+                3) 特殊: background-image: linear-gradient(90deg, red 50%, yellow 50%);
+                   50%处是红色, 50%处是黄色, 0~50都是纯色红色, 然后瞬间在50%处切换到黄色, 50%~100%都是纯色黄色, 作用: 将盒子划分成纯色的 红色和黄色 区域
+                   如果要分割成四个颜色呢?
+                   linear-gradient(90deg, red 25%, yellow 25%, yellow 50%, blue 50%, blue 75%, lime 75% );
+                   // 默认0% 和 100%的颜色为第一个颜色和最后一个颜色
+       线性渐变语法:
+       background-image: linear-gradient( 方向, 颜色 范围, 颜色 范围, 颜色 范围, ..... )
+       ★ 线性渐变本质上就是给盒子设置背景图片, 这个背景图片由浏览器帮我们生成的, 所以背景图片的其他设置, 比如大小, 位置, 是否平铺等, 都可以作用于线性渐变
+       一般给盒子设置渐变了, 就不会再设置背景色了, 除非真有这个需求
+    */
+
+    div {
+      width: 800px;
+      height: 100px;
+      border: 1px solid #000;
+      margin: 50px auto;
+    }
+
+    div:first-child {
+      background-image: linear-gradient(to right, red, yellow );
+    }
+
+    div:nth-child(2) {
+      background-image: linear-gradient(to bottom, red, yellow );
+    }
+
+    div:nth-child(3) {
+      /* 0deg 往上, 45deg, 往右上 */
+      width: 100px;
+      background-image: linear-gradient(-45deg, red, yellow);
+    }
+
+    div:nth-child(4) {
+      background-image: linear-gradient(90deg, red 30%, yellow 50%, blue 70%);
+    }
+
+    div:nth-child(5) {
+      /* 方向默认值 向下 */
+      /* 如果不指定范围, 平均分配渐变空间 */
+      background-image: linear-gradient(red, blue)
+    }
+ 
+    div:nth-child(6) {
+      background-image: linear-gradient(90deg, red 50%, yellow 50%);
+    }
+
+  </style>
+</head>
+<body>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<div></div>
+
+
+
+</body>
+</html>

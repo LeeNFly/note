@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- 动画函数库中定义好了一些动画, 我们可以直接使用 -->
+  <link rel="stylesheet" href="./animate.css">
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      margin: 100px auto;
+      background-color: pink;
+      /*方式1: 通过设置css, 设置库里的动画名称, 直接使用动画 (推荐, 除了动画外, 其他参数可以自己设置) */
+      /*animation: flash 2s infinite;*/
+    }
+  </style>
+</head>
+<body>
+
+<!-- 方式2: 通过添加类名来使用动画函数库, 哪个盒子需要动画, 就加给哪个盒子
+     1. animated  添加动画时间， 且让动画停留在最终状态
+     2. 添加动画类, 指定具体动画的名称
+-->
+<div class="animated bounceInUp"></div>
+
+</body>
+</html>

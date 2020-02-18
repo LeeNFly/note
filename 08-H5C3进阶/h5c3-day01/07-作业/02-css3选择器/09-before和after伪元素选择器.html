@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /* 在低版本浏览器中, 只认识 :,  所以如果要考虑兼容低版本浏览器, 使用 :
+       如果不考虑低版本浏览器, 建议使用 ::
+    */
+
+    /*
+      before 和 after 注意点
+      在元素的内部的前面或后面生成一个虚拟标签, 这个标签由css渲染, 所以在js dom中获取不到
+      1. 必须指定 content, 就算没有内容, 也要指定content: '',
+      2. 默认生成的行内元素
+         2.1 转成块级
+         2.2 让其脱标, 浮动定位等
+         应用: 一般用于实现小图标, 遮罩层
+    */
+    /* 在div子元素内部的最前面添加一个伪元素, 虚拟标签, js无法获取 */
+    /* div::before {
+      content: "你好";
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      display: block;
+    } */
+    /* 在div子元素内部的最后面添加一个伪元素, 虚拟标签, js无法获取 */
+    /* div::after {
+      content: 'hello';
+    } */
+
+    /* div::before {
+      content: '你好';
+      color: red;
+      font-size: 16px;
+      background-color: pink;
+      display: block;
+      width: 100px;
+      height: 100px;
+    } */
+    div::after {
+      content: '你好';
+      color: red;
+      font-size: 16px;
+      background-color: pink;
+      display: block;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <p>我是段落1</p>
+  <p>我是段落2</p>
+</div>
+
+</body>
+</html>

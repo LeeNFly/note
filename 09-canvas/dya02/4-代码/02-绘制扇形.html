@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+<script>
+    //1-获取标签
+    var cs = document.querySelector('canvas');
+    //2-获取绘图API
+    var ctx = cs.getContext('2d');
+
+    //3-绘制扇形
+    var x = 0;
+    var r = 0;
+    var dr = 1;
+    setInterval(function () {
+        //清空画布
+        ctx.beginPath();
+        ctx.clearRect(0, 0, cs.width, cs.height);
+        x += 3;
+        r += dr;
+
+        //验证数据合理性
+        if ( x > 100) {
+            x = 0;
+        }
+
+        if (r > 20 || r < 0) {
+            dr = -dr;
+        }
+        ctx.moveTo(300, 200); //一定要移动画笔到圆心
+        ctx.arc(300, 200, 100, getRadain(45 - r), getRadain(315 + r));
+        ctx.closePath();//闭合路径
+        ctx.stroke();
+        //眼睛
+        ctx.beginPath();
+        ctx.arc(300, 150, 10, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //球
+        ctx.beginPath();
+        ctx.arc(400 - x, 200, 15, 0, 2 * Math.PI);
+        ctx.stroke();
+        //球
+        ctx.beginPath();
+        ctx.arc(500 - x, 200, 15, 0, 2 * Math.PI);
+        ctx.stroke();
+        //球
+        ctx.beginPath();
+        ctx.arc(600 - x, 200, 15, 0, 2 * Math.PI);
+        ctx.stroke();
+    }, 100)
+
+
+
+
+    //将角度转弧度的方法
+    function getRadain(deg) {
+        return  deg / 180  * Math.PI;
+    }
+
+
+    /* 关于动画
+    *  各种动画效果 本质都表象
+    *  动画本质就是让 对象某个属性发送改变  num += 3 * direction ;
+    *  如果需要正向和反向移动 添加 方向   direction = 1; // -1 反向
+    * */
+
+
+
+
+</script>
+</body>
+</html>

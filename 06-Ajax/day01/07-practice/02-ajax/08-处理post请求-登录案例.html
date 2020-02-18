@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  用户名:
+  <input type="text" id="userInp"> 密码:
+  <input type="password" id="pwdInp">
+  <button id="btn">登录</button>
+  <script>
+    var userInp = document.getElementById('userInp');
+    var pwdInp = document.getElementById('pwdInp');
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+      var username = userInp.value.trim();
+      var pwd = pwdInp.value.trim();
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('post', '08-login.php');
+      xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+      xhr.send('username=' + username + '&password=' + pwd + '');
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var result = xhr.responseText;
+            if (result === 'yes') {
+              location.href = './08-index.html';
+            }
+            else {
+              alert('用户名或密码错误');
+            }
+          }
+          else {
+            alert('服务器繁忙, 请稍后再试');
+          }
+        }
+      }
+
+    }
+  </script>
+
+
+</body>
+
+</html>

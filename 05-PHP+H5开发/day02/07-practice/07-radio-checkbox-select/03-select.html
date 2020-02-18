@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- action method name -->
+
+  <!-- 
+    1. name 给 select 指定
+    2. value 给 option 指定, 如果不指定value, 则提交的值为option的文本值, 这里我们一般都会指定value值, 来提交value的值, 而不是文本的值
+       传值的key为name值, 值为选中option的value值
+
+    对于select的几点说明:
+      1) select标签的value始终值与选择的option的value值一致
+      2) select标签默认选中第一个option 且value值默认是第一个option的value值
+  -->
+
+  <form action="get.php" method="get">
+
+    所居住的城市
+    <select name="city">
+      <option value="1">上海</option>
+      <option value="2">北京</option>
+      <option value="3">葫芦岛</option>
+    </select>
+
+    <input type="submit">
+
+  </form>
+  
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 800px;
+			height: 700px;
+			border: 1px solid #000;
+			/* background: url(images/daziran.jpg) 0 0 no-repeat;
+			background: url(images/meizi.jpg) 0 0 no-repeat; */
+
+			background:  url(images/daziran.jpg) 0 0 no-repeat,url(images/meizi.jpg) 524px 0 no-repeat;
+
+			/* 多重背景,若需要设置背景色,背景色只能设置一个,并且只能写在最后一个背景中,否则会报错 */
+			background: url(images/daziran.jpg) 0 0 no-repeat,red url(images/meizi.jpg) 524px 0 no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

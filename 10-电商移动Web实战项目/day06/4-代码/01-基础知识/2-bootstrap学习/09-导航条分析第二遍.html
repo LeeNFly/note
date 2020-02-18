@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <!-- meta 描述网页元信息 -->
+    <!-- 设置网页字符集 -->
+    <meta charset="utf-8">
+    <!--  如果是ie浏览器 使用最近ie引擎来解析页面  -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 设置移动端视口  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 基本模板</title>
+
+    <!-- Bootstrap引入样式文件  -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="lib/html5shiv/html5shiv.min.js"></script>
+      <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+    <style>
+.my-navbar {
+  background-color: #fff;
+  border-color: #e7e7e7;
+}
+.my-navbar .navbar-brand {
+  color: red;
+  height: 80px;
+  line-height: 50px;
+}
+.my-navbar .navbar-brand:hover,
+.my-navbar .navbar-brand:focus {
+  color: #5e5e5e;
+  background-color: transparent;
+}
+.my-navbar .navbar-text {
+  color: #777;
+}
+.my-navbar .navbar-nav > li > a {
+  background-color: #fff;
+  height: 80px;
+  line-height: 50px;
+}
+.my-navbar .navbar-nav > li > a:hover,
+.my-navbar .navbar-nav > li > a:focus {
+  color: #333;
+  background-color: transparent;
+  border-bottom: 3px solid red;
+}
+.my-navbar .navbar-nav > .active > a,
+.my-navbar .navbar-nav > .active > a:hover,
+.my-navbar .navbar-nav > .active > a:focus {
+  color: #555;
+  background-color: #fff;
+}
+.my-navbar .navbar-nav > .disabled > a,
+.my-navbar .navbar-nav > .disabled > a:hover,
+.my-navbar .navbar-nav > .disabled > a:focus {
+  color: #ccc;
+  background-color: transparent;
+}
+.my-navbar .navbar-toggle {
+  border-color: #ddd;
+}
+.my-navbar .navbar-toggle:hover,
+.my-navbar .navbar-toggle:focus {
+  background-color: #ddd;
+}
+.my-navbar .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+.my-navbar .navbar-collapse,
+.my-navbar .navbar-form {
+  border-color: #e7e7e7;
+}
+    </style>
+  </head>
+  <body>
+    <nav class="navbar my-navbar">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">aaa</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Link </a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>           
+          </ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="lib/jquery/jquery-1.12.4.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

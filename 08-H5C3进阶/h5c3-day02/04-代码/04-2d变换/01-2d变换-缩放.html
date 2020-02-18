@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 100px auto;
+    }
+
+    div:hover {
+
+      /*
+        2d转换概念 
+        transform: 转换，是CSS3最具颠覆性的几个特性之一，既可以用于2D转换，也可以用于3D转换。
+        transform：2D转换，元素在平面上实现移动、旋转、缩放、斜切等操作 
+        所有的2d转换都是transform这个css属性 
+     */
+
+      /* 变换 transform
+         缩放 scale(x,y)
+         x: 水平方向上的缩放倍数
+         y: 垂直方向上的缩放倍数
+
+         scale(2) 只传一个值, 表示水平和垂直都缩放两倍
+
+         缩放倍数, > 1, 放大, 0 ~ 1, 缩小, 1 不缩放
+      */
+
+      /*transform: scale(1.5, 2);*/
+      /*transform: scale(2);*/
+      
+      /* 也可以分开设置X, Y */
+      transform: scaleX(1.5);
+      /* 注意, 下面的transform 会 覆盖上面的transform, css层叠性 */
+      transform: scaleY(2);
+
+      /* 所有2d变换transform, 后面的transform都会覆盖前面的transform, 如果不想覆盖, 要采取连写,
+          transform: scaleX(1.5), scaleY(2), translate(x, y);
+       */
+
+       
+      /* transform-origin 可以给盒子设置变换原点坐标, 默认就是 center center, 沿着盒子中心点放大*/
+      /* 可以设置方位名词, 也可以设置px, 参考程序坐标系, 坐标原点为左上角
+          书写顺序: X坐标 Y坐标
+      */
+      /*transform-origin: right top;*/
+      transform-origin: 100px 120px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div></div>
+
+</body>
+</html>

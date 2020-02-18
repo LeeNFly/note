@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person(name,age) {
+      this.name = name;
+      this.age = age;
+    }
+    // console.log(Person.prototype); // {constructor: ƒ, __proto__: Object}
+    // console.log(Person.prototype.constructor); 
+    // ƒ Person(name,age) {
+    //   this.name = name;
+    //   this.age = age;
+    // }
+    // console.log(Person.prototype.constructor === Person); //true 是同一个构造函数
+    
+    // Person.prototype.sayHi = function () {
+    //   console.log('大家好,我是' + this.name);
+    // }
+    // var zs = new Person('zs',18); 
+    // console.log(zs); // Person {name: "zs", age: 18, __proto__: Object}
+    
+    // zs.sayHi(); //大家好,我是zs
+    // console.log(zs.__proto__); // {sayHi: ƒ, constructor: ƒ, __proto__: Object}
+    
+    // console.log(zs.__proto__ === Person.prototype) //true 是同一个原型对象
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        //touchstart:手指放到屏幕上时触发
+        //touchmove:手指在屏幕上滑动式触发（会触发多次）
+        //touchend:手指离开屏幕时触发
+        //touchcancel:系统取消touch事件的时候触发,比如电话    
+
+        var box = document.querySelector('.box');
+        //绑定touch事件
+        //通过事件对象event 获取事件相关的数据
+        //在事件对象中，有三个属性都可以获取事件坐标值的数据
+        //Touches         记录当前屏幕上所有触点的数据
+        //targetTouches   只记录目标元素上触屏的数据
+        //changeTouches   记录触屏状态改变时数据 
+        //如果要获取手指离开屏幕是坐标值，只有changedTouches中会记录，其他属性来手指离开时已经销毁；
+
+        //项目中直接使用tragetTouches来获取触点数据即可；
+        //pageX   相对于页面的坐标值
+        //clientX 相对于可视区域坐标值
+        //screenX 相对于屏幕坐标值
+
+        //触屏开始
+        box.addEventListener('touchstart', function (e) {
+            console.log('start');
+            // console.log(e); 
+            // console.log(e.targetTouches[0].clientX);           
+            // console.log(e.touches[0].clientX);           
+            // console.log(e.changedTouches[0].clientX);           
+        })
+
+        //触屏移动
+        box.addEventListener('touchmove', function (e) {
+            console.log('move');
+            // console.log(e.targetTouches[0].clientX);           
+            // console.log(e.touches[0].clientX);           
+            // console.log(e.changedTouches[0].clientX);   
+        })
+
+        //触屏结束
+        box.addEventListener('touchend', function (e) {
+            console.log('end');
+            // console.log(e.targetTouches[0].clientX);           
+            // console.log(e.touches[0].clientX);           
+            console.log(e.changedTouches[0].clientX); 
+        })
+
+
+    </script>
+</body>
+</html>

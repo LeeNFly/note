@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var wjl = {
+      wife: 'xxx',
+      house: ['大别墅', '大酒店', '大庄园'],
+      money: 100000000000
+    }
+
+    var wsc = {
+      wife: ['yyy', 'zzz']
+    }
+
+    // for (var key in wjl) {
+    //   // if (!(key in wsc)) {
+    //   //   wsc[key] = wjl[key]
+    //   // }
+    //   if (!wsc.hasOwnProperty(key)) {
+    //     wsc[key] = wjl[key]
+    //   }
+    // }
+    // console.log(wsc);
+
+    wsc = Object.create(wjl)
+    // wsc.wife = ['yyy', 'zzz'];
+    // console.log(wsc);
+    // console.log(wsc.house);
+    // console.log(wsc.wife);
+    // console.log(wsc.money);
+    // console.log(wsc.__proto__);
+    console.log(wsc);
+    
+    
+  </script>
+</body>
+
+</html>

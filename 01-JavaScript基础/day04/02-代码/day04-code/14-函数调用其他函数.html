@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+<body>
+    <script>
+      // 在函数中可以调用其他函数
+
+      // 声明 不执行函数体
+      function chiji() {
+
+        console.log('开始吃鸡了');
+
+        console.log('落地成盒了');
+        
+      }
+      
+      // 声明 不执行函数体
+      function coding() {
+
+          console.log('马哥 开始敲代码了');
+
+          // 调用其他函数
+          chiji();
+
+          //等待上面调用其他函数结束之后,才继续往下执行
+          console.log('马哥敲完了'); 
+      }
+      
+      // 调用函数 执行函数体
+      coding();
+
+    </script>
+</body>
+</html>

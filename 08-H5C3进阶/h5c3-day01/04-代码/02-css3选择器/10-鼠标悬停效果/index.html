@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 320px;
+      margin: 100px auto;
+      position: relative;
+    }
+    img {
+      display: block;
+    }
+
+    div::before {
+      width: 100%;
+      height: 100%;
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: rgba(0,0,0,0);
+      /* 在 1 秒内完成过渡效果 */
+      transition: all 1s;
+    }
+    
+    /* 特殊: 在hover的时候操作元素里的虚拟标签样式, 即伪类, 要紧跟在hover后面 div:hover::before, div:hover::after
+             非虚拟标签, 非伪类, 则需要加空格, div:hover selector 表示操作元素后代中的选中元素的样式
+     */
+    div:hover::before {
+      background-color: rgba(0,0,0,0.6);
+    }
+
+  </style>
+</head>
+<body>
+
+<div>
+  <img src="./images/pic.jpg" alt="">
+</div>
+
+
+</body>
+</html>

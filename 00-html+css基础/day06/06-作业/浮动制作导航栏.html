@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动制作导航栏</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.warpper {
+			width: 751px;
+			/*height: 500px;*/
+			background-color: pink;
+			margin: 0 auto;
+			border: 1px solid #ccc;
+		}
+		.warpper-img {
+			background: url(images/banner_bg.jpg) 0 0 repeat;
+			/* height: 150px; */
+		}
+		img {
+			display: block;
+		}
+		.info {
+			/*height: 32px;*/
+			/*background-color: purple;*/
+			 background: url(images/button1_bg.jpg) 0 0 repeat-x; 
+		}
+		.info .tag {
+			float: left;
+			width: 80px;
+			height: 32px;
+			line-height: 32px;
+			text-align: center;
+			font-size: 12px;
+		}
+		.info .tag a {
+			text-decoration: none;
+			/*line-height: 32px;*/
+			color: #666;
+			/*display: block;*/
+		}
+		.clearfix:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		/*.info .tag a:hover {
+			background-image: url(images/button2.jpg);
+			color: #fff;
+		}*/
+		 .info .tag:hover {
+			background-image: url(images/button2.jpg);
+		}
+		.info .tag:hover a {
+			color: #fff;
+		} 
+	</style>
+</head>
+<body>
+	<div class="warpper">
+		<div class="warpper-img">
+			<img src="images/banner1.jpg">
+		</div>
+		<div class="info clearfix">
+			<div class="tag"><a href="#">网站首页</a></div>
+			<div class="tag"><a href="#">网站首页</a></div>
+			<div class="tag"><a href="#">网站首页</a></div>
+			<div class="tag"><a href="#">网站首页</a></div>
+			<div class="tag"><a href="#">网站首页</a></div>
+		</div>	
+	</div>
+</body>
+</html>

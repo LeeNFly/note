@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="btn">发送请求</button>
+
+  <script>
+    
+    // 点击按钮, 发送一个 post 请求, 并传递参数, 在后台进行处理
+    var btn = document.getElementById( 'btn' );
+
+    btn.onclick = function() {
+
+      // 发送 post 请求
+      // 1. 创建 XHR 对象
+      var xhr = new XMLHttpRequest();
+
+      // 2. 基于 http 协议
+      // 2.1 请求行 open(type, url, true)
+      xhr.open( "post", "04-post.php" );
+
+      // 2.2 请求头 post 请求需要设置请求头
+      //     因为 post 请求有请求体, 需要在请求头中, 设置请求体的编码方式
+      // xhr.setRequestHeader( key, value )
+      xhr.setRequestHeader( "content-type", "application/x-www-form-urlencoded" );
+
+      // 2.3 请求体
+      // xhr.send( 请求体 )
+      // 有之前知道, http, post请求通过请求体传参      
+      // 要求格式: key1=value1&key2=value2
+      xhr.send( "username=pp&password=123456" );
+    }
+  
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		/* 
+		浮动的特性：
+		1. 浮动的元素会“脱标” 不在占有标准流的位置 (不影响标准流) (保留子父级关系，即保留html结构不变,浮动不会改变标签在html中的结构, 骨架归html管) (每浮动一次, 每浮动一个元素, 盒子内标准流就会立即重新排列一次) (浮起来后, 待在浮动之前在标准流对应的垂直水面的位置, 若被挡住，才排一排)
+		   ps: 浮动元素排一排, 之间没有缝隙, 是无缝的
+		
+		2. 因为浮动元素会脱离标准流 ( 脱标 )，会盖住后面的标准流 （兄弟元素）所以 使用浮动的时候有一个基本口诀：要浮动 都浮动 （兄弟元素）
+
+		3. text-align和line-height和text-indent控制不了内部浮动的盒子
+
+		
+		
+
+		*/
+
+		.box {
+			width: 600px;
+			height: 300px;
+			border: 1px solid #000;
+		}
+		.info {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+		.info1 {
+			float: left;
+		}
+		.info2 {
+			width: 110px;
+			height: 110px;
+			background-color: lime;
+			float: left;
+		}
+		.info3 {
+			float: left;
+			height: 130px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="info info1">1</div>
+		<div class="info info2"></div>
+		<div class="info info3"></div>
+	</div>
+</body>
+</html>

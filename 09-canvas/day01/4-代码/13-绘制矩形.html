@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px solid red;"></canvas>
+    <script>
+        //1-获取标签
+        var cs = document.querySelector('canvas');
+        //2-获取绘图API
+        var ctx = cs.getContext('2d');
+        //绘制矩形的方法：
+        //
+        //rect(x, y, w, h );  绘制一个矩形路径 ( 只是绘制路径, 设计, 并没有进行绘制, 内部不包含beginPath )
+        //strokeRect(x, y, w, h); 描边一个矩形 (原理: beginPath() -> 绘制矩形路径 -> 描边 -> beginPath() ) (形成一个封闭的区域, 保证绘制不影响之前的路径以及, 之后的绘制就不会影响内部)
+        //fillRect(x, y, w, h ); 填充一个矩形 (原理: beginPath() -> 绘制矩形路径 -> 填充 -> beginPath() ) (形成一个封闭的区域, 保证绘制不影响之前的路径以及, 之后的绘制就不会影响内部)
+        //clearRect(x, y, w, h); 清空一个矩形区域, 相当于橡皮擦, 将矩形区域内全部清空
+
+        // 绘制矩形是根据左上角顶点坐标进行绘制的.
+        // x 矩形左上角顶点x坐标
+        // y 矩形左上角顶点y坐标
+        // w 矩形宽
+        // h 矩形高
+
+        //绘制一个矩形路径
+        //ctx.rect(50, 50, 200, 100);
+        //ctx.stroke();//描边
+        //ctx.fill();//填充
+
+        ctx.strokeRect(50, 50, 200, 200);
+        ctx.fillStyle = 'red';
+        ctx.fillRect(200, 100, 200, 200);
+        //清空指定矩形区域
+        //ctx.clearRect(0, 200, 400, 200);
+        //清空整个画布
+        ctx.clearRect(0, 0, cs.width, cs.height);
+
+    </script>
+</body>
+</html>
