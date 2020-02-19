@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <script src="./23-使用promise的方式封装ajax请求.js"></script>
+    <script>
+        // axios({
+        //     url: "http://www.liulongbin.top:3005/api/getlunbo"
+        // }).then(function(res){
+        //     console.log(res.data);
+        // }, function(err){
+
+        // })
+
+
+        ajax({
+            url: "http://www.liulongbin.top:3005/api/getlunbo",
+            type: "get"
+        }).then(function (data) {
+            console.log(data);
+        })
+    </script>
+</body>
+
+</html>

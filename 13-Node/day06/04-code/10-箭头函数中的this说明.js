@@ -1,0 +1,53 @@
+// 平时确定一个函数中的this是谁，我们需要通过调用模式来确定
+// 1. 函数调用模式  this ---> window   函数名()
+// 2. 方法调用模式  this ---> 调用方法的对象  对象.方法名()
+// 3. 构造函数调用模式 this ---> 创建出来的实例  new 函数名()
+// 4. 上下文调用模式   this ---> call和apply的第一个参数  函数名.call()
+
+// bind
+
+
+// 箭头函数中没有this
+// 如果在箭头函数中使用this, 会向上一级作用域中进行查找this
+
+// let func = () => {
+//     console.log(this);
+// }
+
+// func();
+
+// let obj = {
+//     name: "春生",
+//     sayHello() {
+//         let func = () => {
+//             console.log(this);
+//         }
+//         func();
+//     }
+// }
+
+// obj.sayHello();
+
+
+// 之前使用var that = this的场景全都可以使用箭头函数来解决了
+
+// let obj = {
+//     name: "春生",
+//     sayHello() {
+//         var that = this;
+//         setTimeout(function () { 
+//             console.log("我叫" + that.name)
+//         }, 1000)
+//     }
+// }
+
+// let obj = {
+//     name: "春生",
+//     sayHello() {
+//         setTimeout(() => { 
+//             console.log("我叫" + this.name)
+//         }, 1000)
+//     }
+// }
+
+// obj.sayHello();

@@ -1,0 +1,15 @@
+{
+  "name": "04-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "04-使用node.js操作mongodb.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.1.4"
+  }
+}

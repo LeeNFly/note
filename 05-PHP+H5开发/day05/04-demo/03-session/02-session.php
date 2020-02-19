@@ -24,7 +24,7 @@
 
   // ★ session_start()开启session机制工作原理, session_start()做了什么?:
   // 1. 浏览器请求服务器, 首先查看请求中携带的cookie是否含有sessionId, 如php的sessionId对应在cookie中的key就是PHPSESSID
-  //    1) 如果请求中携带的cookie中有sessionId, 查看是否有该sessionId对应的session文件, 如果没有, 就新建一个空的session文件, 这个session文件的文件名就是sessionId, 用来用来存取数据
+  //    1) 如果请求中携带的cookie中有sessionId, 查看是否有该sessionId对应的session文件, 如果没有, 就新建一个空的session文件, 这个session文件的文件名就是sessionId, 用来用来存取数据; 如果有对应的sessionId的session文件, 则就使用这个session文件
   //    2) 如果请求中携带的cookie中没有sessionId, 则会自动生成一个sessionId(随机字符串), 同时新建一个session文件, 这个session文件的文件名就是sessionId, 用来用来存取数据
         // ps: 通过session_id()可以获取sessionId
         // ps: 每个sessionId 对应 唯一一个session文件, 每个session文件也对应唯一一个sessionId, => sessionId和session文件一一唯一对应

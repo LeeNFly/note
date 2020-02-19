@@ -38,10 +38,59 @@
     // json 格式的特点
     // 1. 由键值对组成, 每个键值对通过 逗号分隔
     // 2. 所有键名, 都要加引号, 且是双引号, 值没有要求,
-    // 3. 可以数组格式, 也可以是对象格式
+    // 3. 可以数组格式, 也可以是对象格式 (json字符串格式 只有这2种格式)
     // ps: json是字符串类型数据, 最外层也需要引号包裹, 可以用单引号(因为json字符串键名必须加双引号)
 
-  
+    // 补充:
+    // json字符串键值对的值可以是任意类型的, 如果是字符串类型, 要加引号, 如果是数字类型, 可以不用加引号
+    // json字符串键值对的值如果是对象类型, 则按照以下方式书写 （json字符串中键obj对应的值为对象类型)
+
+    //  json字符串中键值对值有对象的, 转成js对象
+   var jsonStr = '{"name": "zs", "age": 18, "obj": {"name": "ls", "age": 15}}';
+    var jsonObj = JSON.parse(jsonStr);
+    console.log(jsonObj) // {name: 'zs', age: 18, obj: {name: 'ls', age: 15}}   => obj属性为对象类型
+
+
+    // 对象中的属性含有对象的, 转成json字符串
+    var obj = {
+      name: 'zs',
+      age: 14,
+      parent: {
+        name: 'ww',
+        age: 30
+      }
+    }
+    var jsonStr = JSON.stringify(obj);
+    console.log(jsonStr); // '{"name":"zs","age":14,"parent":{"name":"ww","age":30}}'
+
+    // 对象中含有数组的, 转成json字符串
+    var obj = {
+      class: 1,
+      arr: [
+        {name: 'zs', age: 13},
+        {name: 'ls', age: 14},
+        {name: 'ww', age: 15},
+        {name: 'zl', age: 16}
+      ]
+    };
+
+    var jsonStr = JSON.stringify(obj);
+    console.log(jsonStr); // '{"class":1,"arr":[{"name":"zs","age":13},{"name":"ls","age":14},{"name":"ww","age":15},{"name":"zl","age":16}]}'
+
+
+    // json字符串中键值对值有数组的
+    var jsonStr = '{"class":1,"arr":[{"name":"zs","age":13},{"name":"ls","age":14},{"name":"ww","age":15},{"name":"zl","age":16}]}';
+    var obj = JSON.parse(jsonStr);
+    console.log(obj);
+    // 打印如下:
+    // {class: 1,
+    //         arr: [
+    //   {name: 'zs', age: 13},
+    //   {name: 'ls', age: 14},
+    //   {name: 'ww', age: 15},
+    //   {name: 'zl', age: 16}
+    // ]}
+
   </script>
 
   

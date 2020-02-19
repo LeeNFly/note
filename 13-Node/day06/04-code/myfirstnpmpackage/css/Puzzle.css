@@ -1,0 +1,16 @@
+.box {
+    width:339px;
+    height: 339px;
+    padding:0;
+    margin: 0;
+    position: relative;
+}
+
+.box div{
+    width: 111px;
+    height: 111px;
+    float: left;
+    background-color: #fff;
+    position: absolute;
+    cursor: pointer;
+}

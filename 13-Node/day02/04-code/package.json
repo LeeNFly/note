@@ -1,0 +1,20 @@
+{
+  "name": "abc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01-反馈中的问题.js",
+  "scripts": {
+    "test": "ls",
+    "less": "lessc index.less index.css",
+    "start": "echo helloworld"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "moment": "^2.22.2"
+  }
+}

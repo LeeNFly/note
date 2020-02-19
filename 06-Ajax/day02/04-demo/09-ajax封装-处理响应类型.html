@@ -107,17 +107,19 @@
               result = xhr.responseXML;
             }
             else if ( dataType === "json" ) {
-              // 如果是 json字符串, 将字符串解析成 数组或对象
-              // 按照json格式进行处理
+              // 如果响应体中的内容是 json字符串, 将字符串解析成 数组或对象
+              // 先以文本格式获得响应体中的内容, 是一个字符串, 然后按照json格式进行处理
               result = JSON.parse( xhr.responseText );
             }
             else {
+              // 否则按照文本格式读取响应体的内容, 并传递给成功回调函数
               result = xhr.responseText;
             }
             success && success( result );
           }
           else {
             // 响应失败
+            // 统一以文本格式获取, 传递给失败的回调函数
             error && error( xhr.responseText );
           }
         }
