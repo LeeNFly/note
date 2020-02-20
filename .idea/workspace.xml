@@ -3,8 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="e6518e61-7f4b-4beb-a792-f050a7d7ad4a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/00-html+css基础/day01/04-源代码/10-链接标签.html" beforeDir="false" afterPath="$PROJECT_DIR$/00-html+css基础/day01/04-源代码/10-链接标签.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/06-Location&amp;url.html" beforeDir="false" afterPath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/06-Location&amp;url.html" afterDir="false" />
+=======
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/01-JavaScript基础/day04/02-代码/day04-code/07-参数总结.html" beforeDir="false" afterPath="$PROJECT_DIR$/01-JavaScript基础/day04/02-代码/day04-code/07-参数总结.html" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/05-BOM.html" beforeDir="false" afterPath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/05-BOM.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/14-拓展.html" beforeDir="false" afterPath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/14-拓展.html" afterDir="false" />
+>>>>>>> 374f55014d788d02cd64f02182be3c13bce960fd
+>>>>>>> 2d600db73677e4e484d10b9fb7857d2e8752895d
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -249,9 +258,17 @@
       <workItem from="1582016184350" duration="629000" />
       <workItem from="1582072151501" duration="2585000" />
       <workItem from="1582076703423" duration="9769000" />
+<<<<<<< HEAD
+      <workItem from="1582117849383" duration="60000" />
+      <workItem from="1582181191377" duration="2695000" />
+=======
       <workItem from="1582164504827" duration="3434000" />
+<<<<<<< HEAD
       <workItem from="1582199512864" duration="3073000" />
       <workItem from="1582205936550" duration="33000" />
+=======
+>>>>>>> 374f55014d788d02cd64f02182be3c13bce960fd
+>>>>>>> 2d600db73677e4e484d10b9fb7857d2e8752895d
     </task>
     <servers />
   </component>
