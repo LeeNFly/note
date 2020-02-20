@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e6518e61-7f4b-4beb-a792-f050a7d7ad4a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/05-BOM.html" beforeDir="false" afterPath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/05-BOM.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/14-拓展.html" beforeDir="false" afterPath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/14-拓展.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00-html+css基础/day01/04-源代码/10-链接标签.html" beforeDir="false" afterPath="$PROJECT_DIR$/00-html+css基础/day01/04-源代码/10-链接标签.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/06-Location&amp;url.html" beforeDir="false" afterPath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/06-Location&amp;url.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -250,6 +250,8 @@
       <workItem from="1582072151501" duration="2585000" />
       <workItem from="1582076703423" duration="9769000" />
       <workItem from="1582164504827" duration="3434000" />
+      <workItem from="1582199512864" duration="3073000" />
+      <workItem from="1582205936550" duration="33000" />
     </task>
     <servers />
   </component>
