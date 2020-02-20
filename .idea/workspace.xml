@@ -3,22 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e6518e61-7f4b-4beb-a792-f050a7d7ad4a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01-JavaScript基础/day01/02-代码/day01-code/01.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/01-JavaScript基础/day01/02-代码/day01-code/01.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01-JavaScript基础/day01/02-代码/day01-code/05-变量.html" beforeDir="false" afterPath="$PROJECT_DIR$/01-JavaScript基础/day01/02-代码/day01-code/05-变量.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01-JavaScript基础/day01/02-代码/day01-code/12-字符串.html" beforeDir="false" afterPath="$PROJECT_DIR$/01-JavaScript基础/day01/02-代码/day01-code/12-字符串.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01-JavaScript基础/day01/02-代码/day01-code/17-赋值运算符.html" beforeDir="false" afterPath="$PROJECT_DIR$/01-JavaScript基础/day01/02-代码/day01-code/17-赋值运算符.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01-JavaScript基础/day01/02-代码/day01-code/21-比较运算符.html" beforeDir="false" afterPath="$PROJECT_DIR$/01-JavaScript基础/day01/02-代码/day01-code/21-比较运算符.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01-JavaScript基础/day04/02-代码/day04-code/07-参数总结.html" beforeDir="false" afterPath="$PROJECT_DIR$/01-JavaScript基础/day04/02-代码/day04-code/07-参数总结.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01-JavaScript基础/day05/02-代码/day05-code/06-匿名函数.html" beforeDir="false" afterPath="$PROJECT_DIR$/01-JavaScript基础/day05/02-代码/day05-code/06-匿名函数.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01-JavaScript基础/day05/02-代码/day05-code/11-字面量创建对象.html" beforeDir="false" afterPath="$PROJECT_DIR$/01-JavaScript基础/day05/02-代码/day05-code/11-字面量创建对象.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/02-WebAPIs编程/补充-重绘回流-面试题.html" beforeDir="false" afterPath="$PROJECT_DIR$/02-WebAPIs编程/补充-重绘回流-面试题.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-jQuery快速开发/day01/04-代码/04.什么是jquery.html" beforeDir="false" afterPath="$PROJECT_DIR$/04-jQuery快速开发/day01/04-代码/04.什么是jquery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/05-PHP+H5开发/day01/04-demo/00-基本概念.txt" beforeDir="false" afterPath="$PROJECT_DIR$/05-PHP+H5开发/day01/04-demo/00-基本概念.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/05-PHP+H5开发/day05/04-demo/03-session/02-session.php" beforeDir="false" afterPath="$PROJECT_DIR$/05-PHP+H5开发/day05/04-demo/03-session/02-session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/06-Ajax/day02/04-demo/02-json格式的特点.html" beforeDir="false" afterPath="$PROJECT_DIR$/06-Ajax/day02/04-demo/02-json格式的特点.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/06-Ajax/day02/04-demo/03-js中处理json数据.html" beforeDir="false" afterPath="$PROJECT_DIR$/06-Ajax/day02/04-demo/03-js中处理json数据.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/06-Ajax/day02/04-demo/09-ajax封装-处理响应类型.html" beforeDir="false" afterPath="$PROJECT_DIR$/06-Ajax/day02/04-demo/09-ajax封装-处理响应类型.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/06-Ajax/day04/04-demo/00-同源的相关概念.html" beforeDir="false" afterPath="$PROJECT_DIR$/06-Ajax/day04/04-demo/00-同源的相关概念.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,6 +247,8 @@
       <workItem from="1582016184350" duration="629000" />
       <workItem from="1582072151501" duration="2585000" />
       <workItem from="1582076703423" duration="9769000" />
+      <workItem from="1582117849383" duration="60000" />
+      <workItem from="1582181191377" duration="2695000" />
     </task>
     <servers />
   </component>
