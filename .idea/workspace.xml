@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e6518e61-7f4b-4beb-a792-f050a7d7ad4a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/01-JavaScript基础/day04/02-代码/day04-code/07-参数总结.html" beforeDir="false" afterPath="$PROJECT_DIR$/01-JavaScript基础/day04/02-代码/day04-code/07-参数总结.html" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/05-BOM.html" beforeDir="false" afterPath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/05-BOM.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/14-拓展.html" beforeDir="false" afterPath="$PROJECT_DIR$/02-WebAPIs编程/day05/04-上课代码/14-拓展.html" afterDir="false" />
+>>>>>>> 374f55014d788d02cd64f02182be3c13bce960fd
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +44,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/MY-LETAO/my-letao" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -63,15 +69,15 @@
       <recent name="F:\Download\Pan\WEB前端25\笔记\08-H5C3进阶\h5c3-day03\07-作业\01-3d变换" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RunDashboard">
+    <option name="ruleStates">
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
       </list>
     </option>
   </component>
@@ -247,8 +253,12 @@
       <workItem from="1582016184350" duration="629000" />
       <workItem from="1582072151501" duration="2585000" />
       <workItem from="1582076703423" duration="9769000" />
+<<<<<<< HEAD
       <workItem from="1582117849383" duration="60000" />
       <workItem from="1582181191377" duration="2695000" />
+=======
+      <workItem from="1582164504827" duration="3434000" />
+>>>>>>> 374f55014d788d02cd64f02182be3c13bce960fd
     </task>
     <servers />
   </component>
