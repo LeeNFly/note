@@ -10,6 +10,3 @@ console.log(mime.getType("/abc/index.html")) // 文件部分路径 (含后缀名
 console.log(mime.getType("index.html")) // 文件名 (含后缀名)
 
 // console.log(mime.getExtension("text/css")); // 根据mime类型获取对应的文件后缀名
-
-var url = require('url');
-console.log(url.parse('/index.html?name=pp&age=18#aa', true));
