@@ -84,6 +84,8 @@ var NEWSPATH = path.join(__dirname, 'data.json');
 function readNews(callback) {
     fs.readFile(NEWSPATH, 'utf8', function (err, data) {
         data = JSON.parse(data || "[]");
+        // fs模块读取的回调函数是异步执行的, 所以我们在调用readNews时, 需要传递一个函数
+        // 等到读取文件结束时, 在读取文件回调函数中, 在执行我们传递来的函数, 把文件内容作为形参传入
         callback(data);
     })
 }

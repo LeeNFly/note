@@ -36,15 +36,18 @@ npm init 主要就是用于项目初始化npm的, 实际上就是生成一个pac
 
 2. 下载包(本地安装)
 下载的包会放到当前项目中的node_modules文件夹中！   
-`npm install 包名`
-`npm install 包名@版本号`
+`npm install 包名` (不指定版本号, 则默认安装最新版)
+`npm install 包名@版本号` (若之前安装过此包(相同包)的其他版本, 则会进行覆盖)
 
 注意: 
 1、我们一般在package.json的同级目录下, 执行下载包命令, 保证生成的node_modules文件夹与package.json文件在同一个目录下, 方便管理
 2、要先初始化npm后, 才可以下载包
+3、下载的包如何使用？
+    3.1 先引入 语法: require('包名') , 如 var mime = require('mime');
+    3.2 再使用, 如 mime.getType();
 
-`npm i 包名`   (不指定版本号, 则默认安装最新版)
-`npm i 包名@版本号`   (若之前安装过此包(相同包)的其他版本, 则会进行覆盖)
+`npm i 包名`   (简写)
+`npm i 包名@版本号`  (简写)
 
 `npm install 包名 包名1 包名2`  也可以跟上版本
 

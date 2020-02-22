@@ -97,8 +97,11 @@ server.on('request', function (req, res) {
                 res.statusCode = 302;
                 // 2. 设置状态信息
                 res.statusMessage = "Found";
-                // 3. 设置响应头中的location 告诉浏览器要跳转到哪里
-                res.setHeader('location', '/');
+                // 3. 设置响应头中的location 告诉浏览器要跳转到哪里,
+                //    参数2: 跳转路径, 可以是相对路径, 也可以是绝对路径, 相对路径会自动在前面拼接上当前项目的协议, ip, 和端口
+                //    跳转: 包括页面跳转+向跳转地址重新发起请求, 相当于在浏览器地址栏中输入请求地址后, 按回车键
+                res.setHeader('location', '/'); // http://localhost:8888/ => 路由解析后还是跳转到index页面
+
                 // 4. 结束响应
                 res.end();
             })
