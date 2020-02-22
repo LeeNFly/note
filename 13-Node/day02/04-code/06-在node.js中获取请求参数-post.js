@@ -34,6 +34,7 @@ server.on('request', function (req, res) {
 
         // 需要将数组中所有的buffer对象合并成一个buffer对象
         // 我们可以通过Buffer.concat方法进行buffer对象的合并, 最终得到一个buffer对象, 存储着二进制数据
+        // 参数为数组, 数组中的元素为buffer对象
         var result = Buffer.concat(bufferList);
         fs.writeFile("./1.jpg", result, function (err) {
             console.log("ok")

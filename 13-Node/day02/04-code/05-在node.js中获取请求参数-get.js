@@ -58,8 +58,8 @@ server.on('request', function (req, res) {
     //                   如果是false则解析出来的对象中的query是一个查询字符串, 默认是false
     // parseQueryString为true, 解析得到后的对象中query是一个对象, 对象中的属性值都是字符串类型
 
-    // 给的url地址是什么, 就把能解析的全都解析了, 对于传的url字符串没有的信息, 则转成对象后显示null
-   // url.parse('/index.html?name=pp&age=18#aa')
+    // 给的url地址是什么, 就把能解析的全都解析了, 对于传的url字符串没有的信息, url字符串不完整 则转成对象后显示null
+   // url.parse('/app/index.html?name=pp&age=18#aa')
     // 给的路径不完整, 解析的url对象的信息就不完全
     // Url {
     //   protocol: null, // 协议
@@ -71,9 +71,9 @@ server.on('request', function (req, res) {
     //   hash: '#aa', // 锚点
     //   search: '?name=pp&age=18',
     //   query: 'name=pp&age=18', (查询字符串)
-    //   pathname: '/index.html',
-    //   path: '/index.html?name=pp&age=18',
-    //   href: '/index.html?name=pp&age=18#aa'
+    //   pathname: '/app/index.html', // 路径部分内容, 不包括查询字符串和锚点
+    //   path: '/app/index.html?name=pp&age=18',
+    //   href: '/app/index.html?name=pp&age=18#aa'
     // }
 
     // 若给的路径是完整的, 则获取的转换后的对象中, 信息更多
@@ -88,7 +88,7 @@ server.on('request', function (req, res) {
     //         hash: '#aa',
     //         search: '?name=pp&age=18',
     //         query: { name: 'pp', age: '18' },
-    //         pathname: 'localhost/app/index.html',
+    //         pathname: 'localhost/app/index.html', // 路径部分内容, 不包括查询字符串和锚点
     //         path: 'localhost/app/index.html?name=pp&age=18',
     //         href: 'http:localhost/app/index.html?name=pp&age=18#aa'
     // }
