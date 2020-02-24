@@ -25,7 +25,7 @@ version:  版本信息 一般1.0.0
 
 重要的属性:
     scripts: 放的就是一些shell命令及其别名 (给shell命令起别名) (shell命令: 在cmd命令行工具或Terminal中执行的命令)，这些命令可以通过 `npm run 命令别名` 进行执行
-        npm run 命令别名 相当于在Terminal或cmd命令行中, 与执行npm run的 ★ 同一个执行目录下执行了别名对应的那个shell命令
+        npm run 命令别名 相当于在Terminal或cmd命令行中, 与package.json文件 ★ 同一个目录下执行了别名对应的那个shell命令
         可以省略run执行的命令别名： start stop restart test config, 
         这些命令也需要先在scripts中定义, 之后才能使用, 使用时可以省略run
         例如`npm start`
