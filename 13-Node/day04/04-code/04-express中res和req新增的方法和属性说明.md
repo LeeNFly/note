@@ -21,7 +21,8 @@ express对res和req进行了增强
 2. req.query 是用来获取get请求参数的, 直接就是一个对象了
 3. req.originalUrl 是用来获取原始的url地址  类似于之前的req.url
 4. req.params 是用来获取路由参数的
-5. req.path 是用来获取请求的路径的  类似于 urlObj.pathname
+5. req.path 是用来获取请求的路径的  类似于 urlObj.pathname 
+   req.path 就是url 协议://主机名(域名)(ip地址):端口号/路径...?查询字符串#锚点 中 /路径部分
 
 ## 路由参数
 在注册路由规则的时候，可以指定路由路径中的某一部分为参数

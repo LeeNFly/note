@@ -96,7 +96,7 @@ server.on('request', function (req, res) {
 
     // 我们这里只需要req.url就可以url中获得ip和端口后面的所有字符串内容了, 对于解析传参的查询字符串, 足够用了
     var urlObj = url.parse(req.url, true);
-    // urlObj：  pathname: 路径部分的内容
+    // urlObj：  pathname: 路径部分的内容, 协议://主机名(域名)(ip地址):端口号/路径...?查询字符串#锚点 中的 /路径 部分
             //   query: 参数部分的内容 默认情况下是一个字符串
     console.log(urlObj.query);
 
