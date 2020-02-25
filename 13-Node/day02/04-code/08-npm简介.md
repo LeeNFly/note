@@ -41,7 +41,7 @@ npm init 主要就是用于项目初始化npm的, 实际上就是生成一个pac
 
 注意: 
 1、要先初始化npm后, 才可以下载包
-2、我们一般在package.json的同级目录下, 执行下载包命令, 保证生成的node_modules文件夹与package.json文件在同一个目录下, 方便管理
+2、我们一般在package.json的同级目录下, 执行下载包命令, 保证生成的node_modules文件夹(下载的包存放在node_modules文件夹下)与package.json文件在同一个目录下, 方便管理
 3、下载的包如何使用？
     3.1 先引入 语法: require('包名') , 如 var mime = require('mime');
     3.2 再使用, 如 mime.getType();
