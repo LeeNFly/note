@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 
-app.get("/index", function (req, res) { 
+app.get("/index", function (req, res) {
     // res.send({name: "方玮", age: 18})
     // res.send([1, 2, 3, 4])
     // 如果send发送的是一个数字，则这个数字会被作为状态码使用
@@ -37,6 +37,7 @@ app.get("/index", function (req, res) {
 // pramas:            {name: "fangwei"}
 
 app.get('/details/:id?', function (req, res) {
+    console.log(req.params);
     res.send(req.params);
 })
 
@@ -44,6 +45,6 @@ app.get('/list/:categorie/:id', function (req, res) {
     res.send(req.params);
 })
 
-app.listen(8888, function () { 
+app.listen(8888, function () {
     console.log('http://localhost:8888')
 })
