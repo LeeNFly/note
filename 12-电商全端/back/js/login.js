@@ -120,8 +120,8 @@ $(function() {
     // 调用插件的方法, 进行重置校验状态
     // $('#form').data("bootstrapValidator"), 拿到插件实例, 方法一般都在原型上
     // resetForm(boolean),
-    // 1. 传true, 重置form中所有的表单元素以及校验状态
-    // 2. 传false, 只重置校验状态, 默认false
+    // 1. 传true, 重置form中所有的表单元素value值以及校验状态(隐藏所有的错误提示和图标)
+    // 2. 传false, 只重置校验状态(隐藏所有的错误提示和图标) 默认false
     // 这里因为本身重置按钮reset已经包含了重置表单内容的功能了, 我们这边只需要重置校验状态的图标即可
     // jq注册事件, 都只是追加, 不会覆盖原来的事件处理函数
     $('#form').data("bootstrapValidator").resetForm();

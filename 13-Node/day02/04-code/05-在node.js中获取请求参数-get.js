@@ -71,7 +71,7 @@ server.on('request', function (req, res) {
     //   hash: '#aa', // 锚点
     //   search: '?name=pp&age=18',
     //   query: 'name=pp&age=18', (查询字符串)
-    //   pathname: '/app/index.html', // 路径部分内容, 不包括查询字符串和锚点
+    //   pathname: '/app/index.html', //  /路径部分内容 (以/开头), 不包括查询字符串和锚点
     //   path: '/app/index.html?name=pp&age=18',
     //   href: '/app/index.html?name=pp&age=18#aa'
     // }
@@ -88,7 +88,7 @@ server.on('request', function (req, res) {
     //         hash: '#aa',
     //         search: '?name=pp&age=18',
     //         query: { name: 'pp', age: '18' },
-    //         pathname: 'localhost/app/index.html', // 路径部分内容, 不包括查询字符串和锚点
+    //         pathname: 'localhost/app/index.html', //  /路径部分内容(以/开头), 不包括查询字符串和锚点
     //         path: 'localhost/app/index.html?name=pp&age=18',
     //         href: 'http:localhost/app/index.html?name=pp&age=18#aa'
     // }

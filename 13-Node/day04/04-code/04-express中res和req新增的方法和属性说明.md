@@ -1,5 +1,5 @@
 # 新增的功能、
-express对res和req进行了增强
+express对原生的res和req进行了增强
 ## res的功能
 1. ★ res.send  向浏览器响应数据，这个方法可以接收的参数类型有（字符串，对象，数组，数字（状态码），buffer对象）
     res.send是对res.end的封装, 将接收的参数作为响应体数据, 响应给浏览器, 并且结束这次请求, 结束浏览器挂起状态
@@ -13,7 +13,7 @@ express对res和req进行了增强
 3. res.status 设置状态码，可以进行链式编程
 4. res.jsonp 可以返回jsonp格式的数据 请求的时候需要传递callback参数 (将来要调用的函数的函数名)！
 5. ★ res.redirect 做重定向跳转的
-6. ★ res.sendFile 向浏览器响应文件！ (相当于我们之前封装的读文件, 然后将文件响应给浏览器) 自带响应头Content-type
+6. ★ res.sendFile 向浏览器响应文件, 并且结束请求, 响应完毕, 浏览器结束挂起状态！ (相当于我们之前封装的读文件得到buffer对象, 然后将读到的buffer对象响应给浏览器, 且自带响应头Content-type) 
 7. res.render 
 
 ## req的功能
@@ -22,13 +22,13 @@ express对res和req进行了增强
 3. req.originalUrl 是用来获取原始的url地址  类似于之前的req.url
 4. req.params 是用来获取路由参数的
 5. req.path 是用来获取请求的路径的  类似于 urlObj.pathname 
-   req.path 就是url 协议://主机名(域名)(ip地址):端口号/路径...?查询字符串#锚点 中 /路径部分
+   req.path 就是url 协议://主机名(域名)(ip地址):端口号/路径...?查询字符串#锚点 中 /路径部分 (以/开头)
 
 ## 路由参数
 在注册路由规则的时候，可以指定路由路径中的某一部分为参数
 ```js
 app.get("/details/:id", function(req, res){
-
+ 
 })
 ```
 

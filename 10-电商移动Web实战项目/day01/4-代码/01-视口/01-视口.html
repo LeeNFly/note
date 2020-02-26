@@ -21,7 +21,7 @@
             margin: 0;
             padding: 0;
         }
-        
+
         div {
             background-color: deeppink;
             width: 100%;
@@ -50,6 +50,14 @@
 
         5) 视口只是移动端端布局才有的, 移动端布局是基于视口的; pc端没有视口概念, pc端布局就是参考浏览器可视区
 
+        在pc端开发移动端页面, 最外层套一个容器
+        container {
+            max-width: 640px;
+            min-width: 320px;
+            margin: 0 auto;
+        }
+        然后在pc端, 在这个容器内进行开发, 这个容器就视作手机屏幕了
+
         可以给设置
         html, body {
             width: 100%;
@@ -60,7 +68,7 @@
 
    iv> 嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿  嘿嘿嘿 </div>
     <script>
-        //当可视区域尺寸变化时触发 
+        //当可视区域尺寸变化时触发
         window.onresize = function () {
             console.log(document.documentElement.clientWidth);
         }
