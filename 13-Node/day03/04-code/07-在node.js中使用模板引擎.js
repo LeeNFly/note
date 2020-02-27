@@ -1,4 +1,4 @@
-// art-template 
+// art-template
 // 既支持浏览器端使用也支持服务器端（node.js）中使用
 
 // 浏览器端的用法
@@ -19,10 +19,10 @@ var obj = {
     msg: "Hello World"
 }
 
-// // template(模板文件的路径, 要渲染的数据对象)
+// template(模板文件的路径, 要渲染的数据对象)
 // var result = template(path.join(__dirname, 'tpl.html'), obj)
 
-// console.log(result);
+// console.log(result); // 结合数据后得到的html字符串html字符串
 
 
 // 如果以字符串变量作为模板
@@ -34,8 +34,8 @@ var str = "<div>{{msg}}</div>"
 
 var render = template.compile(str);
 
-//2. 使用渲染函数进行模板渲染  
+//2. 使用渲染函数进行模板渲染
 // render(要渲染的数据)
 
-var result = render(obj);
+var result = render(obj); // 结合数据后得到的html字符串
 console.log(result);
