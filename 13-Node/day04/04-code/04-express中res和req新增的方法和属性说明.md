@@ -14,7 +14,7 @@ express对原生的res和req进行了增强
 4. res.jsonp 可以返回jsonp格式的数据 请求的时候需要传递callback参数 (将来要调用的函数的函数名)！
 5. ★ res.redirect 做重定向跳转的
 6. ★ res.sendFile 向浏览器响应文件, 并且结束请求, 响应完毕, 浏览器结束挂起状态！ (相当于我们之前封装的读文件得到buffer对象, 然后将读到的buffer对象响应给浏览器, 且自带响应头Content-type) 
-7. res.render 
+7. res.render 结合后面模板引擎使用, 结束响应, 自带响应头
 
 ## req的功能
 1. req.body 是用来获取post请求参数的！但是不能直接使用
@@ -23,7 +23,7 @@ express对原生的res和req进行了增强
 4. req.params 是用来获取路由参数的
 5. req.path 是用来获取请求的路径的  类似于 urlObj.pathname 
    req.path 就是url 协议://主机名(域名)(ip地址):端口号/路径...?查询字符串#锚点 中 /路径部分 (以/开头)
-
+6. req.get('key') 获取请求头中的信息
 ## 路由参数
 在注册路由规则的时候，可以指定路由路径中的某一部分为参数
 ```js
@@ -34,6 +34,7 @@ app.get("/details/:id", function(req, res){
 
 路由参数说明:
 路由规则中也可以是路由参数的形式的, 可以用于获取路径中的值
+ps: 冒号只需要在定义路由参数的时候写, 在访问路径中不需要写冒号
 ```js
 app.get('/details/:id', function (req, res) {
     console.log(req.params);

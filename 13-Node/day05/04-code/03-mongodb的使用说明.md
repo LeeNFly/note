@@ -1,19 +1,20 @@
 # mongodb
-
+mongodb 分成 mongod 和 mongo 两个部分
+mongod 负责数据存储, mongo 是命令行工具, 用来操作数据库的
 ## 数据库服务
 如何启动数据库服务
 使用的是  mongod  命令
 
 1. 创建文件  在想要保存数据的位置，创建一个文件夹（data）,在data文件夹中创建一个文件夹（db）
 2. 使用mongod命令 指定文件夹路径进行启动
-`mongod --dbpath 数据文件夹路径`
+`mongod --dbpath 数据文件夹路径`  (创建的data文件夹路径)
 
 如果看到最后一句输出为`waiting for connections on port 27017`
 就说明启动成功了
 
 ## 数据库操作的命令行工具
 如何通过命令行操作mongodb
-使用的是  mongo 命令
+使用的是  mongo 命令, 此命令是用于连接数据库的
 
 在cmd直接输入 `mongo`
 

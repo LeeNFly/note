@@ -3,7 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
-// bodyParser.urlencoded() 返回一个函数, 就是该路由的事件处理函数
+// bodyParser.urlencoded() 返回一个函数, 作为路由的事件处理函数
 // 返回的函数中, 获取了post请求的参数, 赋给了req.body, 并且调用下一个中间件
 // bodyParser.urlencoded() 可以处理封装key=value&key=value参数格式的post请求的参数
 // bodyParser.json() 可以处理封装json格式的post请求的参数

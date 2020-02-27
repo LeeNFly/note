@@ -17,11 +17,11 @@
 //    DOM: 把页面上的标签抽象成对象,在js中通过操作对象 (手动操作/操作驱动),实现操作页面上标签的目的  DOM: 操作页面标签的
 //    元素: 在html中<div>叫标签, 在DOM中,标签称之为元素 (此处的元素和数组中的元素不是一个东西,是两个概念) => 在JS的DOM中 元素 就是 html标签
 //    元素 其实就是JS对象 也就是 标签 抽象出来的 对象 JS通过操作 元素 (手动操作) 实现操作页面上 标签 的目的
-//    可以把元素 就 理解成 页面上的 标签  元素是一个对象 Object 类型 , 元素存储的值是引用地址.  
+//    可以把元素 就 理解成 页面上的 标签  元素是一个对象 Object 类型 , 元素存储的值是引用地址.
 //    ps: 元素也可以称为dom元素, dom对象
 //    ps: dom 元素 是一个对象, 如果dom元素在dom树上, 则浏览器会为我们维护dom元素, 会随着操作进行更新和变化的
 
-//    html中的 标签 在DOM中称为 元素  
+//    html中的 标签 在DOM中称为 元素
 //    我们想要操作页面上的元素,首先需要获取到对应的元素，然后才能进行后续操作
 //    把html标签抽象成对象 => 元素
 
@@ -30,7 +30,7 @@
 
 //    ★ 获取元素, 就是批量获取页面上的标签, 且仅会获取页面上的标签
 
-//    批量获取 ★★★当前 页面上指定(满足条件)的 ★ 标签 (元素) 
+//    批量获取 ★★★当前 页面上指定(满足条件)的 ★ 标签 (元素)
 //      getElementsByTagName('标签名')  //通过标签名获取多个元素 返回一个伪数组 数组中包含了符合条件的所有元素
       //  var result = document.getElementsByTagName('div');
       //  console.log(result);
@@ -42,27 +42,27 @@
 
 //    获取 ★★★当前 指定的元素
 //      getElementById('id名')   //通过id获取元素  返回的就是那一个对应的具体元素, 不是伪数组  html标签id属性在html中全局唯一(一个页面中, 所有标签的id属性, 不能重复), 但是js中变量名可以和html标签的id值重名,这2个没有任何关系
-    
+
       //  var result = document.getElementById('four');
       //  console.log(result);
-    
-      //  var result1 = document.getElementById('one'); //如果找不到返回的是null 
+
+      //  var result1 = document.getElementById('one'); //如果找不到返回的是null
       //  console.log(result1);
 
 
 //      console.log(document.getElementsByTagName('div')); //在整个页面的范围内找
 //        var box = document.getElementById('box');
       //  console.log(box.getElementsByTagName('div'));  //在元素的范围中(元素内部)去找
-    
-    
-    
+
+
+
 //    总结:
 //      批量获取 : document/element.getElementsByTagName('标签名')  返回始终是一个伪数组 包含了符合条件的所有元素 下标0 ~ arr.length - 1,如果找不到返回空的伪数组
 //      通过id获取: document.getElementById('id名')  返回一个具体的元素,(不是伪数组) 找不到返回null
 
 //    注意: 伪数组也是数组 (有顺序,有长度) 下标 0 ~ arr.length - 1  => [0,arr.length - 1] 数字类型 长度arr.length (length就是获取到元素的个数, 是数字类型)
 //    注意: 伪数组不是 (标签) 元素,伪数组里的每个元素(每个下标对应的值),才是 (标签) 元素, dom元素;★ 在一些操作中要求元素的(比如操作元素的属性等),不能使用伪数组,而是要将伪数组中的元素一个个拿出来 才能使用
-//          可以使用数组名[下标] 取到伪数组中的对应下标的元素
+//          可以使用数组名[下标] 取到伪数组中的对应下标的元素, 下标和数组一样, >=0的整数
 //          可以使用数组名.length 获得伪数组长度
 //          伪数组也可以遍历,和数组遍历一致(伪数组可以使用for循环遍历)  下标 0 ~ arr.length - 1
 //    ★★★ 在后续一些操作中要求元素的(比如操作元素的属性等),不能使用伪数组,而是要将伪数组中的元素一个个拿出来 才能使用
