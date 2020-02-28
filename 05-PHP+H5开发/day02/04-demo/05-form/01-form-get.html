@@ -12,7 +12,7 @@
   <!-- form 表单的作用: 收集用户信息, 将来提交给后台, 进行处理 -->
   <!-- form 表单提交, 是同步的, 会进行页面跳转和刷新页面, 会改变地址栏url为提交的url -->
 
-  <!-- 
+  <!--
     表单中的三大属性
     1. action: 指定提交数据的地址  (如果没设置值或值为#, "", 默认提交到当前页面)
     2. method: 指定提交的类型, get/post, 默认值就是 get
@@ -30,6 +30,16 @@
   <input type="reset" value="重置">
   </form>
 
-  
+  <!--
+    可以给form表单注册submit事件, 该事件在表单提交时被触发 (即点击submit按钮) ,
+    通过 return false, 或 e.preventDefault(), 可以阻止表单的提交, 改成使用ajax提交
+    this 指向 表单元素
+  -->
+  <!-- 或者 -->
+  <!--
+    可以 给 submit 按钮注册点击事件, 然后通过 return false, 或 e.preventDefault(), 阻止表单的提交, 改成使用ajax提交
+  -->
+
+
 </body>
 </html>

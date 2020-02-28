@@ -26,7 +26,7 @@
     // readAsDataURL() 以DataURL形式读取文件, 文件和图片都用此进行读取
     fileReader.readAsDataURL( file );
 
-    // 4. 读取需要时间, 要监听读取的过程
+    // 4. 读取需要时间, 要监听读取的过程 (异步读取)
     // 当读取器读取完成时, 调用函数
     // 或者使用fileReader.addEventListener('load', function () { ... }) 来注册事件
     fileReader.onload = function() {

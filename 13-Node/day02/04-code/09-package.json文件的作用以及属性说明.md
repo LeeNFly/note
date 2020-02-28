@@ -29,6 +29,11 @@ version:  版本信息 一般1.0.0
         可以省略run执行的命令别名： start stop restart test config, 
         这些命令也需要先在scripts中定义, 之后才能使用, 使用时可以省略run
         例如`npm start`
+        
+    scripts如
+    "scripts": {
+        "start": "node ./bin/www"
+      },
 
 
 dependencies:
