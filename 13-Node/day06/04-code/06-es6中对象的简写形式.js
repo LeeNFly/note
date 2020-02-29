@@ -2,7 +2,7 @@ let name = "王春生"
 
 // let obj = {
 //     name: name,
-//     sing: function () { 
+//     sing: function () {
 //         console.log("带MV的神话！！！")
 //     }
 // }
@@ -14,9 +14,9 @@ let name = "王春生"
 // }
 
 
-// 2. 方法简写 
+// 2. 方法简写
 let obj = {
-    sing () { 
+    sing () {
         console.log("带MV的神话！！！")
     }
 }
@@ -26,7 +26,8 @@ let obj = {
 
 
 // $.ajax({
-//     success () { 
+//     success () {
 
 //     }
 // })
+

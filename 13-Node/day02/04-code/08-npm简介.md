@@ -30,6 +30,8 @@ npm init 主要就是为了创建package.json文件的, 当然我们手动创建
 npm init 主要就是用于项目初始化npm的, 实际上就是生成一个package.json文件的, 这个我们手动建一个, 然后自己配置也可以, 但是比较麻烦, 建议还是使用npm init 来帮我们生成package.json文件
 如果当前文件夹名称包含中文等特殊字符，则npm init -y命令执行会报错，报错之后pacakge.json文件中的name和version属性为空，需要自己手动的补全！！ 补全后package.json就可以使用了, 项目npm初始化也成功
 
+`npm init` 之后才可以下载包和上传包
+
 注意点: 
 1、★ 一个项目我们只需要初始化一次即可, 一个项目只能有一个package.json文件
 2、生成的package.json文件, 存储在执行npm init命令的执行目录下

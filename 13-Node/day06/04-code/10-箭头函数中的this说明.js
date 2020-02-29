@@ -8,7 +8,7 @@
 
 
 // 箭头函数中没有this
-// 如果在箭头函数中使用this, 会向上一级作用域中进行查找this
+// 如果在箭头函数中使用this, 会沿着词法作用域链向上一级作用域链中进行查找this, 找到了就用, 并且停止查找. (全局中this指向window)
 
 // let func = () => {
 //     console.log(this);
@@ -35,7 +35,7 @@
 //     name: "春生",
 //     sayHello() {
 //         var that = this;
-//         setTimeout(function () { 
+//         setTimeout(function () {
 //             console.log("我叫" + that.name)
 //         }, 1000)
 //     }
@@ -44,7 +44,7 @@
 // let obj = {
 //     name: "春生",
 //     sayHello() {
-//         setTimeout(() => { 
+//         setTimeout(() => {
 //             console.log("我叫" + this.name)
 //         }, 1000)
 //     }

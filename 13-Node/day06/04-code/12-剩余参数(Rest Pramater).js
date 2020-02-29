@@ -1,11 +1,20 @@
+// 箭头函数中没有arguments！！！ 那在箭头函数中对于形参个数不定时, 如何获得传递的所有形参?
 
-
-// 剩余参数只能有一个，并且只能是参数列表的最后一个！！
+// 剩余参数在形参列表中只能有一个，并且只能是参数列表的最后一个！！
 
 // 剩余参数是一个真数组！！ 可以使用任何数组的方法！！
 
-function func(...a) {
-    console.log(a);
+// 不管是之前ES5中的三种声明函数的方式 还是 ES6中的箭头函数声明函数的方式, 都可以使用剩余参数
+
+// function func(...a) {
+//     console.log(a); // [1, 2, 3, 4]
+//     console.log(Array.isArray(a));
+// }
+//
+// func(1, 2, 3, 4);
+
+function func(a, ...b) {
+    console.log(b); // [2, 3, 4]
     console.log(Array.isArray(a));
 }
 

@@ -25,6 +25,7 @@ MongoClient.connect(connStr, function (err, client) {
     // db.collection("users").find(); // db.users.find();
 
     // 增删改查的回调函数中, 在操作执行完毕后调用, 都是异步的, 包含了操作返回的数据和信息
+
     // 增
 
     // users.insert({ name: "方玮", age: 24 }, function (err, dbResult) {
@@ -73,6 +74,6 @@ MongoClient.connect(connStr, function (err, client) {
     // })
 
 
-    // 最后一步一定要记得 关闭数据库连接
+    // 最后一步一定要记得 关闭数据库连接, 否则程序挂起
     client.close();
 })
