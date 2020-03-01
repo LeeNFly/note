@@ -11,7 +11,10 @@
 // timeout(1000)
 //     .then(function () {
 //         console.log("1s后执行的代码");
-//         return timeout(1000);
+//          1. 回调函数中return的值会被用来调用下一个.then, 所以我们需要在回到函数中返回一个Promise对象
+//          2. 如果不return, 则默认会return一个空的Primise对象
+//         我们需要让下一个.then中的回调函数在一秒后执行
+//         return timeout(1000); // 返回我们自己封装的Promise对象, 作为下一个.then时使用的promise对象
 //     }).then(function () {
 //         console.log("2s后执行的代码了")
 //         return timeout(1000);
@@ -56,10 +59,10 @@ function timeout(time) {
 
 // var arr = [timeout(1000), timeout(2000), timeout(1500)];
 
-// Promise.all(arr).then(function (data) { 
+// Promise.all(arr).then(function (data) {
 //     console.log("所有的异步操作都完成了", data);
 // })
 
-// Promise.race(arr).then(function () { 
+// Promise.race(arr).then(function () {
 //     console.log("某个异步操作率先完成了");
 // })
