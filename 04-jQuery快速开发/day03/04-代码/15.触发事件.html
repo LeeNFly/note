@@ -16,7 +16,7 @@
     <div></div>
 
     <button id="btn">点击触发div的click事件</button>
-    
+
     <script src="./jquery-1.12.4.js"></script>
     <script>
         $(function(){
@@ -24,8 +24,8 @@
                 // jq对象.click()  jq对象.事件名()
             // 2. jq对象.trigger(type);
                 //  type:  事件名  是一个字符串
-            
-            // 触发jq对象中所有元素对应类型的事件, 由于是触发事件, 所以会产生事件流 和 事件冒泡
+
+            // 触发jq对象中所有元素对应类型的事件, 执行各自对应的事件处理函数, 由于是触发事件, 所以会产生事件流 和 事件冒泡
 
             $("div").on("click", function(){
                 console.log("div  div");
@@ -39,4 +39,4 @@
         })
     </script>
 </body>
-</html> 
+</html>

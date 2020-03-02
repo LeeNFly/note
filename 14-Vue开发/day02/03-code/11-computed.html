@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+        <input type="text" v-model="firstName">
+        <input type="text" v-model="lastName">
+        <h1>全名：{{fullName}}</h1>
+        <h1>全名：{{fullName}}</h1>
+        <h1>全名：{{fullName}}</h1>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          firstName: '',
+          lastName: ''
+        },
+        // computed计算属性，它表示根据已有属性，计算得到一个新的属性
+        computed: {
+          // 在computed里面写一个函数，这个函数很特殊，它的函数名，将来可以作为一个属性来使用
+          // 计算属性是依赖于缓存的，当页面中调用同一个计算属性多次的时候，后面的计算属性的值，会直接从第一次得到的结果中去取，所以说，它的性能比较高，推荐使用计算属性⭐
+          fullName() {
+            console.log('computed')
+            // 必须要return
+            return this.firstName + this.lastName
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

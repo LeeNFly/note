@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+
+      <h1>异步数据</h1>
+      <p v-if="isVisible">异步数据回来了，我就显示</p>
+      <p v-else>数据还没有回来</p>
+      <button @click="getData">点击显示</button>
+
+      <h1>v-else-if</h1>
+      <p v-if="age<18">青少年</p>
+      <p v-else-if="age>=18 && age <30">成年</p>
+      <p v-else-if="age>=30 && age < 50">中年</p>
+      <p v-else>老年</p>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          age: 17,
+          isVisible: false
+        },
+        methods: {
+          getData() {
+            setTimeout(() => {
+              this.isVisible = true
+            }, 1000);
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+#list {
+  list-style: none;
+
+  background-image: url(../imgs/b.jpg);
+}
+
+#list li {
+  font-size: 30px;
+}
+
+.img {
+  width: 512px;
+  height: 894px;
+  background-image: url(../imgs/a.jpg);
+}
+
+p {
+  height: 50px;
+}

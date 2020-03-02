@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      请选择你所在的城市：
+      <select v-model="city">
+        <option value="1">上海</option>
+        <option value="2">巴黎</option>
+      </select>
+      <div>你选择的城市在{{country}}</div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          city: ''
+        },
+        computed: {
+          country () {
+            if(this.city === '1') {
+              return '中国'
+            } else if(this.city === '2') {
+              return '法国'
+            } else {
+              return '?'
+            }
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
+
+<!--
+  1. 静态页面
+  2. 首先应该明确城市所在的国家是一个计算属性，因为它跟着城市动态计算得到，下面新建国家这个计算属性
+  3. 写计算条件，根据城市value值判断国家的值为多少, value值可以通过v-model指令来拿
+ -->

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 
+        v-for指令可以用来遍历数组/对象
+        它可以根据data中数据的更新动态刷新视图
+
+        1. 遍历数组
+          1.1 使用方式： v-for="item in arr" item是一个参数，表示数组中的每一项，arr也是一个参数，表示你要遍历的数组
+          1.2 使用方式： v-for="(item, index) in arr" index表示数组项的索引 ⭐
+
+        2. 遍历对象
+          2.1 使用方式：v-for="value in obj" value 表示对象的属性的值 obj就是需要遍历的对象
+          2.2 使用方式：v-for="(value, key, index) in obj" key表示对象的键 index表示这个对象属性的索引，类似上面的数组的index
+
+
+        注意：使用下面两种方式不能够动态刷新视图
+          1. 使用数组的length属性去更改数组的时候不行
+          2. 使用索引的方式去更改数组也不行
+        解决方式:
+          1. Vue.set(arr, index, value)方法 arr:表示需要设置的数组，index表示数组索引，value表示该索引项的新的值⭐，例如：Vue.set(vm.list, 0, {id: 111, name: 'jack'})
+          2. 直接调用数组的splice()方法
+
+        注意： 使用v-for渲染数据的时候，一定要记得将key属性加上去, 并且要保证这个key的值是唯一并且不重复的,它的作用就是用来唯一标识数据的每一项，提高渲染性能⭐
+      -->
+      <h1>v-for="item in arr"</h1>
+      <ul>
+        <li v-for="item in list" :key="item.id">{{item.name}}</li>
+      </ul>
+      <h1>v-for="(item, index) in arr"</h1>
+      <ul>
+        <li v-for="(item, index) in list" :key="index">{{item.name}}它的索引是：{{index}}</li>
+      </ul>
+
+
+
+      <h1>v-for="value in obj"</h1>
+      <ul>
+        <li v-for="value in boss" :key="value">{{value}}</li>
+      </ul>
+      <h1>v-for="(value, key, index) in obj"</h1>
+      <ul>
+        <li v-for="(value, key, index) in boss" :key="index">{{key}}:{{value}}-------{{index}}</li>
+      </ul>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          list: [
+            {id: 11, name: 'jack'},
+            {id: 12, name: 'rose'},
+            {id: 13, name: 'neil'}
+          ],
+          boss: {name: 'mayun', age: 50}
+        }
+      })
+    </script>
+  </body>
+</html>

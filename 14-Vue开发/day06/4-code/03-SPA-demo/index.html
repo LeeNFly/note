@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div {
+			height: 500px;
+			width: 100%;
+			background-color: hotpink;
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li>
+			<a href="#/find">发现音乐</a>
+		</li>
+		<li>
+			<a href="#/my">我的音乐</a>
+		</li>
+		<li>
+			<a href="#/friend">朋友</a>
+		</li>
+	</ul>
+
+	<div id="content">
+		<!-- 这是内容区域 -->
+	</div>
+
+	<script src="./node_modules/axios/dist/axios.js"></script>
+	<script type="text/javascript">
+		// a标签的锚点值是用来实现：页面内部跳转
+
+		/* 
+			- 1 ajax
+			- 2 哈希值（锚点）的使用（window.location.hash #）
+			- 3 hashchange 事件
+		 */
+
+		// 进入页面，就触发这个函数来获取当前哈希值对应的内容
+		handlerChange()
+
+		window.addEventListener('hashchange', handlerChange)
+
+		function handlerChange() {
+			// console.log('哈希值改变了', location.hash)
+			switch (location.hash) {
+				case '#/friend':
+					axios.get('./friend.json').then(res => {
+						console.log(res)
+						document.getElementById('content').innerHTML = `<h1>${res.data.content}</h1><p>${res.data.name}</p>`
+					})
+					break;
+
+				case '#/my':
+					axios.get('./my.json').then(res => {
+						console.log(res)
+						document.getElementById('content').innerHTML = `<h1>${res.data.content}</h1><p>${res.data.name}</p>`
+					})
+					break;
+
+				case '#/find':
+					axios.get('./find.json').then(res => {
+						console.log(res)
+						document.getElementById('content').innerHTML = `<h1>${res.data.content}</h1><p>${res.data.name}</p>`
+					})
+					break;
+			}
+		}
+	</script>
+</body>
+
+</html>

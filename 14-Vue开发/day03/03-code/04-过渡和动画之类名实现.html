@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <style>
+    /* 对应思路2 */
+.move-enter {
+  padding-left: 100px;
+}
+.move-enter-active {
+  transition: all 6s;
+}
+.move-enter-to {
+  padding-left: 0;
+}
+
+.move-leave {
+  padding-left: 0;
+}
+.move-leave-active {
+  transition: all 6s;
+}
+.move-leave-to {
+  padding-left: 100px;
+}
+  </style>
+  <body>
+    <div id="app">
+      <!-- 对应思路1 -->
+      <transition name="move">
+        <div v-if="isShow">显示</div>
+      </transition>
+      <button @click="isShow = !isShow">切换</button>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          isShow: false
+        }
+      })
+    </script>
+  </body>
+</html>
+
+<!--
+vue中过渡动画分为两类，一类是进场动画，一类是出场动画
+要实现上面的进场动画，主要有三种方式：类名，css动画库，js函数
+
+1. 类名 本质就是动态添加类名实现动画
+v-enter 开始状态
+v-enter-active 开始到结束的中间状态
+v-enter-to 结束状态
+
+v-leave
+v-leave-active
+v-leavt-to
+
+
+思路：
+  1. 找到需要添加过渡动画的元素，用一个transition标签包裹起来，并给它指定一个name属性，这个name属性将来会替换掉类名的v-前缀
+  2. 定义上面6个类名里面的类容，注意类名v-前缀要换成name的值，关键要分清楚开始和结束的状态样式
+ -->

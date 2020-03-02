@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- v-model指令用来实现双向数据绑定，这个指令只能给input/select/textarea这些标签使用（组件也可以使用） -->
+      <!-- 双向数据绑定就是：数据模型中的数据与视图中的数据同步变化 -->
+      <input type="text" v-model="name">
+      <input type="text" :value="name">
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          name: 'itcast'
+        }
+      })
+    </script>
+  </body>
+</html>

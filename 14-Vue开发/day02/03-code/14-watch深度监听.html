@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="user.name">
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          user: {
+            name: 'jack'
+          }
+        },
+        watch: {
+          // 在监听复杂数据类型的时候，不能像之前监听普通数据那样写，我们需要使用深度监听
+          // user(newVal, oldVal) {
+          //   console.log(newVal)
+          // }
+          user: {
+            // 表示对象中属性变化的处理函数，这个函数只能叫这个名字
+            handler(newVal) {
+              console.log(newVal);
+            },
+            immediate: true,
+            deep: true // 表示开启深度监听
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

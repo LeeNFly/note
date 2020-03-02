@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <child :childmsg="msg" @update:childmsg="changeTitle">
+    </child>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'parent data'
+      },
+
+      methods: {
+        changeTitle(data) {
+          this.msg = data
+        }
+      },
+
+      components: {
+        child: {
+          template: `
+            <div>子组件：{{ childmsg }} <button @click="fn">改变props</button></div> 
+          `,
+          props: ['childmsg'],
+
+          methods: {
+            fn() {
+              this.$emit('update:childmsg', '新值')
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

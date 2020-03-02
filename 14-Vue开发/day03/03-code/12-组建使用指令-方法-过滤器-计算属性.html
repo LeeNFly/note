@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <index>
+        
+      </index>
+    </div>
+    <script>
+      // 1.1 假设创建一个product局部组件
+      let product = {
+        template: `
+        <div>
+          {{msg}} {{company}}
+          <button @click="change">改变</button>
+          <input type="text" v-focus/>
+          <div>{{ctime | fmtTime}}</div>
+          <div>{{ctime | fmtMonth}}</div>
+        </div>
+        `,
+        // data 必须是一个函数了，并且要返回一个全新的对象
+        data() {
+          return {
+            msg: 'hello world',
+            ctime: new Date()
+          }
+        },
+        methods: {
+          change() {
+            this.msg = 'hello 黑马'
+          }
+        },
+        computed: {
+          company() {
+            return '传智播客'
+          }
+        },
+        // 局部自定义指令通过directives创建, 这个指令只能在当前这个组件中使用，脱离了就使用不了
+        directives: {
+          focus: {
+            // 指令的定义
+            inserted: function (el) {
+              el.focus()
+            }
+          }
+        },
+        // 局部过滤器通过filters创建，这个过滤器只能在当前这个组件中使用，脱离了就使用不了
+        filters: {
+          fmtTime(time) {
+            let y = time.getFullYear()
+            return y
+          },
+          fmtMonth(time) {
+            let y = time.getMonth() + 1
+            return y
+          }
+        }
+      }
+
+      Vue.component('index', {
+        // 1.3 在index组件的模板中使用product组件
+        template: '<div>这是首页:<product></product></div>',
+        // 1.2 如果想要使用下面的product，得在index组件中注入一下，通过components属性注入
+        components: {
+          product
+        }
+      })
+
+
+
+      var vm = new Vue({
+        el: '#app',
+        data: {
+
+        }
+      })
+    </script>
+  </body>
+</html>

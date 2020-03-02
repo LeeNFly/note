@@ -7,7 +7,7 @@
 // }
 
 
-// .then连写的时候，需要在回调函数中返回一个新的Promise对象
+// .then连写的时候，需要在上一个.then方法的回调函数中返回一个新的Promise对象
 // timeout(1000)
 //     .then(function () {
 //         console.log("1s后执行的代码");

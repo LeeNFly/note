@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./vue2.js"></script>
+</head>
+<style>
+  .slide-enter, .slide-leave-to {
+
+  }
+  .slide-leave, .slide-enter-to {
+
+  }
+  .slide-enter-active {
+    animation: slide-in 2s ease-out;
+  }
+  .slide-leave-active {
+    animation: slide-out 2s ease-out;
+  }
+  @keyframes slide-in {
+    from {
+      transform: translateY(50px)
+    }
+    to {
+      transform: translateY(0)
+    }
+  }
+  @keyframes slide-out {
+    from {
+      transform: translateY(0)
+    }
+    to {
+      transform: translateY(50px)
+    }
+  }
+</style>
+
+<body>
+  <div id="app">
+    <transition name="slide">
+      <div v-if="isShow">显示</div>
+    </transition>
+    <button @click="isShow = !isShow">切换</button>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        isShow: false
+      }
+    })
+  </script>
+</body>
+
+</html>

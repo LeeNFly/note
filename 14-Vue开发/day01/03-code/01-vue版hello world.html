@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 1. 引入vue文件 -->
+  <script src="./vue2.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 5. 将data中定义好的展示到页面，通过{{}}里面写data中的属性名字就行 -->
+    <h1>{{msg}}</h1>
+  </div>
+  <!-- 注意下面这段视图没有在vue管辖范围之后，所以{{}}是不会有任何效果的 -->
+  <div>{{msg}}</div>
+  <script>
+    // 2. 创建一个vue实例，这个实例可以用来管理html代码
+    let vm = new Vue({
+      // 3. 通过构造函数参数中el属性来指定vue实例需要管理的范围,这个el属性的值是一个id
+      el: '#app',
+      // 4. 通过data属性保存页面需要用到的数据
+      data: {
+        msg: 'hello world'
+      }
+    })
+  </script>
+</body>
+</html>

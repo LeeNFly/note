@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1 @click="updateCount" id="title">{{ count }}</h1>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    // Vue中的DOM更新是异步的
+
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        count: 1
+      },
+
+      methods: {
+        // updateCount() { }
+        updateCount: function () {
+          for (var i = 0; i < 1000; i++) {
+            this.count += 1
+          }
+          console.log(this.count)
+          console.log('当前H1中的内容:', document.getElementById('title').innerText)
+          var that = this
+
+          // 这个方法用来获取DOM更新后的内容
+          this.$nextTick(function () {
+            console.log('更新后: ', that.count)
+            console.log('更新后 H1中的内容:', document.getElementById('title').innerText)
+          })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

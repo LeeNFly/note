@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./vue2.js"></script>
+  <style>
+
+    #app{
+            width:600px;
+                margin:10px auto;
+        }
+          .tb{
+              border-collapse:collapse;
+              width: 100%;
+          }
+          .tb th{
+              background-color: #0094ff;
+              color:white;
+          }
+  
+          .tb td,.tb th{
+              padding:5px;
+              border:1px solid black;
+              text-align: center;
+          }
+  
+          .add{
+              padding: 5px;
+              border:1px solid black;
+              margin-bottom: 10px;
+          }
+      </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="add">
+      编号:<input type="text" v-model="newId">
+      品牌名称:<input type="text" v-model="newName" @keyDown.enter="addData">
+      <input type="button" value="添加" @click="addData">
+    </div>
+
+    <div class="add">
+      品牌名称:<input type="text" placeholder="请输入搜索条件">
+    </div>
+
+    <div>
+      <table class="tb">
+        <tr>
+          <th>编号</th>
+          <th>品牌名称</th>
+          <th>创立时间</th>
+          <th>操作</th>
+        </tr>
+        <tr v-for="(item,index) in list" :key="index">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <!-- 2 使用过滤器通过管道符号 | -->
+          <td>{{item.ctime | fmtTime('*')}}</td>
+          <td>
+            <button @click="delData(index)">删除</button>
+          </td>
+        </tr>
+        <!-- <tr>
+          <td colspan="4">没有品牌数据</td>
+        </tr> -->
+        <!-- 动态生成内容tr -->
+      </table>
+    </div>
+  </div>
+</body>
+<script>
+  // 1. 通过Vue.filter()方法创建全局过滤器，过滤器的作用就是用来将源数据，过滤成为新的数据
+  // 第一个参数：过滤器名字
+  // 第二个参数：一个处理函数, 这个函数有一个默认参数，这个默认参数表示你需要过滤的数据, 如果你还传了一个参数，那么这个参数对应的实际上是上面使用过滤器时的第一个参数
+  Vue.filter('fmtTime', function(sourceTime, sep) {
+    console.log(typeof sourceTime);
+    let y = sourceTime.getFullYear()
+    let m = sourceTime.getMonth() + 1
+    let d = sourceTime.getDate()
+    // 处理完之后，必须要return一个字符串
+    return y + sep + m + sep + d
+  })
+
+  let vm = new Vue({
+    el: '#app',
+    data: {
+      newId: '', // 获取编号框中的值
+      newName: '', // 获取品牌名称框中的值
+      list: [
+        {id: 33, name: 'LV', ctime: new Date()},
+        {id: 44, name: 'CC', ctime: new Date()},
+        {id: 55, name: 'NIKE', ctime: new Date()},
+        {id: 66, name: 'YSL', ctime: new Date()},
+      ]
+    },
+    methods: {
+      delData(idx) {
+        this.list.splice(idx, 1)
+      },
+      addData() {
+        this.list.push({id: this.newId, name: this.newName, ctime: new Date()})
+        // 添加完之后，给两个框清空
+        this.newId = ''
+        this.newName = ''
+      }
+    }
+  })
+</script>
+
+</html>

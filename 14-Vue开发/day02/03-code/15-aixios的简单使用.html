@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+    <!-- 1. 引入axios文件 -->
+    <script src="./axios.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+
+        },
+        mounted () {
+          axios.get('http://www.liulongbin.top:3005/api/getprodlist')
+            .then(res => {
+              // axios将获取到的数据封装到了data属性中
+              console.log(res.data);
+            })
+            .catch( err => {
+              console.log(err);
+            })
+        }
+      })
+    </script>
+  </body>
+</html>
