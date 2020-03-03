@@ -14,6 +14,7 @@
     // ★ 各个用户的浏览器是独立的, 所以各个用户的cookie也是独立存储的
     // ps: 要以服务器的方式访问页面, 才可以操作cookie
     // 通过原生来操作 cookie   (了解)
+    // 明确, cookie一般只存储基本数据类型, 如果存储复杂数据类型, 需转成JSON字符串后再存储
 
     // 1. 设置, 要求 键值对, 通过 = 分隔
     // ps: 设置cookie时, 如果key值已存在, 就会进行覆盖, 否则不会
@@ -28,7 +29,7 @@
     // 作用: 从 document.cookie 中取出想要的 cookie 值
     //       name=pengpeng; age=18; desc=shuai
     // 需求: 传递 age, 返回 18, 传递 desc, 返回 shuai
-    function getValue( key ) { 
+    function getValue( key ) {
       var str = document.cookie;  // name=pengpeng; age=18; desc=shuai
       var arr = str.split("; "); //  ["name=pengpeng", "age=18", "desc=shuai"]
 
@@ -42,8 +43,8 @@
       }
     }
     console.log( getValue( "age" ) );
-  
+
   </script>
-  
+
 </body>
 </html>

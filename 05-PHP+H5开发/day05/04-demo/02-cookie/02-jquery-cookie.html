@@ -8,16 +8,19 @@
 </head>
 <body>
 
-  
+
   <script src="./jquery-1.12.2.js"></script>
   <script src="./jquery.cookie.js"></script>
   <script>
-    
+
     // cookie 可以多个页面共享
     // ps: 同一个网站中的多个页面可以共享cookie, 不同浏览器的cookie不能共享,
     // 同一个网站(同源网站)的多个页面多个窗口, cookie共享, 获取和操作的cookie都是同一块内存里的cookie数据, 不同网站, cookie不共享, 所以获取和操作的都是不同内存的cookie
     // 通过 插件, jquery.cookie.js 可以辅助我们操作 cookie, 该插件依赖于jq, 所以要先引入jq
     // 前端操作cookie
+    // 明确, cookie一般只存储基本数据类型, 如果存储复杂数据类型, 需转成JSON字符串后再存储
+
+
 
     // 1. 设置 cookie:  $.cookie('key', value), 默认是会话级别的, 关闭浏览器, 就会被销毁 (会话级别: 关闭整个浏览器才会被销毁, 关闭标签页不会被销毁)
     // ps: 设置cookie时, 如果key值已存在, 就会进行覆盖, 否则不会
@@ -25,7 +28,7 @@
     // $.cookie("age", 18);
 
     // 2. 获取:  $.cookie('key')
-    // console.log( $.cookie( "name" ) ); 
+    // console.log( $.cookie( "name" ) );
 
     // 3. 删除: $.removeCookie( 'key' )
     // $.removeCookie( "age" );
@@ -37,11 +40,12 @@
     // $.cookie( "name", "pengpeng", { expires: 7 });
 
     // $.cookie('name', 'pp');
-  
-  
+
+
+
   </script>
 
 
-  
+
 </body>
 </html>

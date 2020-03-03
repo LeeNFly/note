@@ -1,11 +1,14 @@
 <?php
 
   // 注意: 空格, 等号, 分号, 存储的cookie值中不要出现以上特殊字符
-  
-  // 通过服务器端设置cookie - php  
+
+  // 通过服务器端设置cookie - php
+  // 明确, cookie一般只存储基本数据类型, 如果存储复杂数据类型, 需转成JSON字符串后再存储
+
+
   // 后端操作cookie:
   // 1. 设置cookie  默认是会话级别的, 关闭浏览器, 就会被销毁 (会话级别: 关闭整个浏览器才会被销毁, 关闭标签页不会被销毁)
-  // ps: 设置cookie时, 如果key值已存在, 就会进行覆盖, 否则不会  
+  // ps: 设置cookie时, 如果key值已存在, 就会进行覆盖, 否则不会
   //    setcookie(key, value)
   // setcookie( "desc", "hello_kitty" );
 
@@ -29,12 +32,12 @@
 
   // ★ 浏览器在每次发起请求时, 都会自动将cookie中所有的数据进行携带, 携带在请求头中 ps: 跳转页面也会发起请求, 所以也会携带cookie
   // ps: $_COOKIE只能获取本次请求中携带的所有cookie数据
-  //     对于上面设置的cookie, 由于代码执行到这里还没有响应给浏览器, 浏览器还没有为我们设置上cookie, 
+  //     对于上面设置的cookie, 由于代码执行到这里还没有响应给浏览器, 浏览器还没有为我们设置上cookie,
   //     所以$_COOKIE拿不到上面setcookie刚刚设置的cookie, 有一个时间差
   // echo '<pre>';
   // print_r( $_COOKIE );
   // echo '</pre>';
-  
+
   // 服务器端设置cookie原理:
   //  1). 服务器不能直接操作cookie, 但是可以设置响应头     ps: 前面通过js是直接操作浏览器里的cookie的
   //  2). 在响应头, Set-Cookie: name=ppp
