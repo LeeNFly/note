@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="add1">0</div>
+  <button id="btn">+1</button>
+  <script>
+    var add1 = document.getElementById('add1')
+    var button = document.getElementById('btn')
+    var text;
+    button.onclick = function() {
+      test = parseInt(add1.innerText )+ 1
+      add1.innerText = test
+    }
+  </script>
+</body>
+</html>

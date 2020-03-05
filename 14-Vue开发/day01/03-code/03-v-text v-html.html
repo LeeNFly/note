@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 在vue中，凡是v-开头的标签属性都叫指令，指令是用来增强html标签功能用 -->
+      <!-- v-text作用和插值表达式一样，也是用来展示数据到标签的 ★★★ 文本中的, 它的使用方式是在 ★★★ 标签的属性位置使用,而插值表达式在innerHTML位置使用 -->
+      <!-- v-text会覆盖标签的内容 -->
+      <!-- 推荐使用插值表达式来展示数据 -->
+      <h1 v-text="username"></h1>
+      <p v-text="'欧阳'+username"></p>
+      <p v-text="age+1"></p>
+      <p v-text="age>=18?'已成年':'未成年'"></p>
+      <p v-text="username.split('').reverse().join('')"></p>
+
+      <div v-text="htmlStr"></div>
+      <!--
+        注意，如果需要渲染的字符串中包含特殊的html标签的话，需要使用使用v-html指令来渲染。
+        但是v-html指令使用不安全，一般不会使用
+        v-html也会覆盖标签的内容
+        v-html可以识别字符串中的所有标签及其标签的属性和内容等
+       -->
+      <div v-html="htmlStr"></div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          username: 'jack',
+          age: 18,
+          htmlStr: '<h3>上海25期</h3>'
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -13,24 +13,24 @@
 //console.log(window.top); //指向window本身 , 是window对象
 //console.log(top); //指向window本身 , 是window对象
 
-//  var a = 1;// 在 ★ 全局 ★ 申明一个变量或函数,其实就相当于给window增加了一个属性 相当于 window.a = 1; 
+//  var a = 1;// 在 ★ 全局 ★ 申明一个变量或函数,其实就相当于给window增加了一个属性 相当于 window.a = 1;
               // 给window增加属性 相当于在js全局作用域声明了一个全局变量, 变量名为属性名, 值为属性值, 若之前全局有相同的变量名, 则会覆盖之前的变量
-              // 可以使用window将函数内的变量、函数暴露到全局使用
+              // window对象在js中任何地方都可以直接使用,是一个全局对象, 可以使用window将函数内的变量、函数暴露到全局使用
               // ★ 一个页面就只有唯一一个window对象
 
 //  console.log(a); // 1
 //  console.log(window.a); // 1
-  
+
 //  var name = 1;
 //  var name = false; //如果 ★ 全局 ★ 有name变量,不管你赋值的是什么数据类型,都会转成字符串
 //  var top = 1; //如果 ★ 全局 ★ 有top变量,不管你赋值是什么,top永远指向window
 //  console.log(name);
 //  console.log(top);
-  
+
 //  结论: 在 ★ 全局 ★ ,不要使用name和top; 在函数作用域则上述name和top不生效,name top 就是一个普通的变量,因为是声明在函数作用域内的局部变量
-  
-  
-  
+
+
+
 //  之前遗留拓展 : 标签上的自定义属性
  var box = document.getElementById('box');
 ////  box.getAttribute()
@@ -43,11 +43,11 @@
     console.log(box.dataset.index);
     box.dataset.index = 3;
     box.dataset.index1 = 3;
-    
 
 
-    
-    
+
+
+
 
 
 
