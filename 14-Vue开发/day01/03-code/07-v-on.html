@@ -10,23 +10,40 @@
     <div id="app">
       <h1>{{name}}</h1>
       <!--
-        监听dom事件使用v-on指令： v-on:事件类型="一个函数" 这个事件类型可以自定义
-        简写： @事件类型="一个函数"⭐
+        给标签绑定事件使用v-on指令：语法: v-on:事件名="函数(引用地址)" 这个事件名可以自定义
+        ps: 指令可以直接通过函数名, 获取vue实例methods中的函数(引用地址)
+        v-on简写: @
+        简写： @事件名="一个函数"⭐
        -->
       <button v-on:click="changeName">点击改变</button>
       <button @click="changeName">点击改变简写</button>
-      <button @click="changeNameByArg('黑马程序员')">点击改变传参</button>
+      <!-- 传参, 在指令中, 这里不是调用函数的意思 -->
+      <button @click="changeNameByArg('黑马程序员')">点击改变传参 (参数一一对应接收)</button>
       <!-- 注意如果想要传递事件对象，就只能写$event，并且不能加引号 -->
       <button @click="getEvent($event)">点击获取事件对象</button>
 
 
-      <!-- 事件修饰符：用来增强事件功能，常用的有.stop 阻止冒泡 及.prevent 阻止默认行为 -->
+      <!-- 事件修饰符：用来增强事件功能，常用的有.stop 阻止事件冒泡 及.prevent 阻止默认行为 -->
       <a href="http://www.baidu.com">跳转到百度</a>
       <a href="http://www.baidu.com" @click.prevent="print">打印一句话</a>
 
-      <!-- 按键修饰符 -->
+      <!-- 按键修饰符, 键盘事件特有 -->
+      <!-- 在键盘按下特定按键时, 调用事件处理函数 -->
+      <!-- 通过键盘码修饰 -->
       <input type="text" v-model="name" @keyDown.13="submit">
+      <!-- 通过按键别名修饰 -->
       <input type="text" v-model="name" @keyDown.enter="submit">
+      <!--
+      .enter
+      .tab
+      .delete (捕获“删除”和“退格”键)
+      .esc
+      .space
+      .up
+      .down
+      .left
+      .right
+      -->
     </div>
     <script>
       var vm = new Vue({
@@ -34,11 +51,17 @@
         data: {
           name: 'itcast'
         },
-        // 定义函数在methods属性中
+        // vue实例中定义(声明, 创建)函数在methods属性中, methods中都是声明函数, 不会调用
+        // methods是一个对象, 内部只用来声明函数, 推荐使用es6对象简写函数属性的方式
+        // ★ 在vue实例methods属性中的函数, 他们的函数体中的this都是指向vue实例对象
+        // 而vue实例对象中, 所有的data中的数据, 以及methods中的声明的函数, 都会保存一份到vue实例对象的属性上, 我们可以直接通过vue实例.变量名访问到data中的数据; vue实例.函数名访问到methods中的函数
+        // 所以我们在methods中的函数的函数体中, 可以通过this.变量名 直接访问到 data中的数据, 通过this.函数名 直接访问到methods中的函数 (引用地址, 调用的话要加括号())
         methods: {
           changeName () {
             // 改变name的值
             console.log(111);
+            console.log(this.changeNameByArg)
+            console.log(this)
             // 这里的this就是指vue的实例
             console.log(this === vm);
             this.name = 'heima'
@@ -52,9 +75,8 @@
           print() {
             console.log('阻止你跳转');
           },
-          submit(e) {
+          submit() {
             console.log('你提交了表单');
-            console.log(e.keyCode);
           }
         }
       })

@@ -1,3 +1,4 @@
+// ★ 对象中, 属性简写形式
 let name = "王春生"
 
 // let obj = {
@@ -14,13 +15,27 @@ let name = "王春生"
 // }
 
 
-// 2. 方法简写
+// 2. 方法(函数属性)简写 : 这边也只是声明函数, 不会调用
 let obj = {
+    // 和之前一样, 也可以传参数
     sing () {
         console.log("带MV的神话！！！")
     }
 }
 
+
+let obj = {
+    name,
+    sing () {
+        console.log("带MV的神话！！！")
+    },
+    dance () {
+        console.log("带MV的神话！！！")
+    }
+}
+
+console.log(obj.dance)
+// 这个对象有3个属性, name, sing, 和 dance, 其中, sing 和 dance 的属性值是函数
 
 // obj.sing();
 

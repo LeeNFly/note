@@ -6,14 +6,14 @@
 </head>
 <body>
 <script>
-//  setInterval(回调函数(匿名函数), 间隔时间(ms)) 回调函数不立即执行,时间到了才调用;每隔一段时间就调用一次
+//  setInterval(回调函数(匿名函数), 间隔时间(ms)) 回调函数不立即执行,时间到了才调用;每隔一段时间就调用一次;每次时间间隔到了都会调用一次
 //  setTimeout(回调函数(匿名函数), 间隔时间(ms))  回调函数不立即执行,时间到了才调用;时间到了之后,只调用一次,之后不再调用
 
 //  设置定时器方式二:
     setInterval(fn, 间隔时间(ms))
-    setTimeout(fn, 间隔时间(ms))    
+    setTimeout(fn, 间隔时间(ms))
     function fn() {
-      
+
     }
 //  设置一个定时器,则在内存中开辟一块空间存储定时器的回调函数,每次执行的都是这块空间里的回调函数。
 //  定时器可以同时设置多个,只要执行一次setInterval和setTimeout的代码  就是设置一个定时器
@@ -29,8 +29,8 @@
 //      setTimeout(function(){
 //        console.log(1);
 //      }, 3000);
-  
-  
+
+
 //  console.log(1);
 //  setTimeout(function(){
 //    console.log(2);
