@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="checkbox">哈哈
+<select>
+    <option value="0">你好</option>
+    <option value="1">hello</option>
+</select>
+<button id="chk_btn">点我改变checkedbox的checked属性</button>
+<button id="sel_btn">点我改变select的value属性</button>
+<script>
+    var checkedbox = document.querySelector('input')
+    var select = document.querySelector('select')
+    var chk_btn = document.querySelector('#chk_btn')
+    var sel_btn = document.querySelector('#sel_btn')
+    checkedbox.onclick = function () {
+        console.log('checkbox被点击了')
+    }
+    select.onclick = function () {
+        console.log('select被点击了')
+    }
+    checkedbox.onchange = function () {
+        console.log('checkbox勾选状态改变了')
+    }
+    select.onchange = function () {
+        console.log('select选中状态改变了')
+    }
+    chk_btn.onclick = function () {
+        checkedbox.checked = true // 改变checkbox的checked属性, 不会触发其click和change事件
+    }
+    sel_btn.onclick = function () {
+        select.value = 1 // 改变select标签的value值, 不会触发其click和change事件
+    }
+
+    // 总结:
+    // 通过鼠标、键盘、滚轮等, 可以触发对应的事件
+    // 可以通过js触发元素事件的代码, 元素.事件名() 可以触发元素对应的事件
+    // ★js改变标签的标签属性, 不会触发元素的任何事件!!!
+
+
+</script>
+</body>
+</html>

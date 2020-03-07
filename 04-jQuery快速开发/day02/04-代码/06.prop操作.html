@@ -15,14 +15,14 @@
                 // prop方法 提供操作jq对象, 来达到操作页面标签的目的
                 // 使用attr方法去获取checked、 selected、disabled 表单属性的时候会有问题，不能使用使用attr方法，推荐使用prop方法
                 console.log($(this).attr("checked")); // undefined
-                
+
                 // prop 获取checked、 selected、disabled， 返回的是布尔类型的值
                 console.log($(this).prop("checked")); //
 
                 // 标签上的自定义属性用attr方法
                 // 标签固有的属性用prop方法（src，title， checked， disabled， selected， width）
 
-                // ★ 使用建议：attr方法使用的比较多，但是对于checked， disabled， selected只能使用prop方法
+                // ★ 使用建议：attr方法使用的比较多，但是对于checked， disabled， selected这些标签属性, 只能使用prop方法
                 // ★ 对于(表单)标签的checked， disabled， selected这三个属性, 使用prop. 对于标签的其他属性, 我们使用attr
                 // ★ 对于属性名="属性名"的这类属性, checked， disabled， selected 我们一般使用prop
                 //    对于这类属性 获取属性值得到的是布尔值true, false. true: 代表标签上写了这个属性, false: 代表标签上没有这个属性;
