@@ -25,7 +25,7 @@
   <div class="main">
 
     <?php include_once "./inc/navbar.php" ?>
-    
+
     <div class="container-fluid">
       <div class="page-title">
         <h1>所有评论</h1>
@@ -141,7 +141,7 @@
       }
       // 请求第 1 页的数据, 每页 10 条
       render();
-      
+
 
       // 功能2: 实现分页功能, 进行分页插件初始化
       function setPage( page ) {
@@ -186,13 +186,14 @@
       // 4. 后台接收到请求, 进行批准
       // 5. 页面重新渲染
       console.log( $('.btn-approved') );
-      
+
       // 通过模板动态生成的结构, 一开始页面中没有, 不能直接绑定事件
       // 给存在的父级元素绑定事件, 由子元素触发事件即可 (事件委托)
-      
+
       // 事件委托语法: $('父级元素').on( "事件类型", "子代元素", function() { ... })
       // 1. 可以给动态生成的结构绑定点击事件
       // 2. 因为事件是给父辈元素绑定的, 所以事件只需要绑定一次, 所有子元素都可以有事件了, 效率高
+      // 3. 新增的节点的事件处理函数被调用时, 说明事件触发了, 说明此时页面已经渲染完成了, 可以获得到页面所有元素
       $('tbody').on("click", ".btn-approved", function() {
         // 获取 id, 发送请求
         var id = $(this).parent().attr("data-id");
@@ -233,7 +234,7 @@
           dataType: "json",
           success: function( info ) {
             console.log( info )
-            
+
             // 最大多少页
             var maxPage = Math.ceil( info.total / 10 );
             if ( currentPage > maxPage ) {
@@ -251,8 +252,8 @@
 
 
     });
-  
-  
+
+
   </script>
 </body>
 </html>
