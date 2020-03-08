@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./vue2.js"></script>
+  <script src="./axios.js"></script>
+  <style>
+
+    #app{
+            width:600px;
+                margin:10px auto;
+        }
+          .tb{
+              border-collapse:collapse;
+              width: 100%;
+          }
+          .tb th{
+              background-color: #0094ff;
+              color:white;
+          }
+  
+          .tb td,.tb th{
+              padding:5px;
+              border:1px solid black;
+              text-align: center;
+          }
+  
+          .add{
+              padding: 5px;
+              border:1px solid black;
+              margin-bottom: 10px;
+          }
+      </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="add">
+      编号:<input type="text" v-model="newId">
+      品牌名称:<input type="text" v-model="newName" @keyDown.enter="addData">
+      <input type="button" value="添加" @click="addData">
+    </div>
+
+    <div class="add">
+      品牌名称:<input type="text" placeholder="请输入搜索条件" @keyDown.enter="searchData" v-model="searchVal">
+    </div>
+
+    <div>
+      <table class="tb">
+        <tr>
+          <th>编号</th>
+          <th>品牌名称</th>
+          <th>创立时间</th>
+          <th>操作</th>
+        </tr>
+        <tr v-for="(item,index) in list" :key="index">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.ctime | fmtTime('-')}}</td>
+          <td>
+            <button @click="delData(item.id)">删除</button>
+          </td>
+        </tr>
+        <tr v-if="list.length === 0">
+          <td colspan="4">没有品牌数据</td>
+        </tr>
+        <!-- 动态生成内容tr -->
+      </table>
+    </div>
+  </div>
+</body>
+<script>
+    Vue.filter('fmtTime', function(sourceTime, sep) {
+    console.log(typeof sourceTime);
+    sourceTime = new Date(sourceTime)
+    let y = sourceTime.getFullYear()
+    let m = sourceTime.getMonth() + 1
+    let d = sourceTime.getDate()
+    // 处理完之后，必须要return一个字符串
+    return y + sep + m + sep + d
+  })
+  let vm = new Vue({
+    el: '#app',
+    data: {
+      newId: '', // 获取编号框中的值
+      newName: '', // 获取品牌名称框中的值
+      list: [],
+      searchVal: ''
+    },
+    mounted () {
+      // 页面一加载完成就执行getList方法
+      this.getList()
+    },
+    methods: {
+      // 获取列表数据
+      getList () {
+        axios.get('http://www.liulongbin.top:3005/api/getprodlist', {params: {searchvalue: this.searchVal}})
+          .then(res => {
+            if (res.data.status === 0) {
+              this.list = res.data.message
+            }
+          })
+          this.searchVal = ''
+      },
+      // 删除数据
+      delData(id) {
+        axios.get(`http://www.liulongbin.top:3005/api/delproduct/${id}`)
+          .then(res => {
+            if (res.data.status === 0) {
+              alert('删除成功')
+              // 删除成功之后，重新获取列表数据
+              this.getList()
+            }
+          })
+      },
+      // 添加数据
+      addData() {
+        axios.post('http://www.liulongbin.top:3005/api/addproduct', {name: this.newName})
+          .then(res => {
+            if (res.data.status === 0) {
+              alert('添加成功')
+              // 添加成功之后，重新获取列表数据
+              this.getList()
+              this.newName = ''
+            }
+          })
+      },
+      searchData() {
+        this.getList()
+      }
+    }
+  })
+</script>
+
+</html>

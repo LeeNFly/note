@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-mytext="msg"></p>
+      <button @click="msg = '黑马'">点击改变msg</button>
+    </div>
+    <script>
+      Vue.directive('mytext', {
+        inserted(el, binding) {
+          el.innerText = binding.value
+        },
+        update(el, binding) {
+          el.innerText = binding.value
+        }
+      })
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello itcast'
+        }
+      })
+    </script>
+  </body>
+</html>

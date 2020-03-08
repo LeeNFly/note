@@ -11,19 +11,18 @@
 
     <button id="btn1">设置内容</button>
     <button id="btn2">获取内容</button>
-    
+
     <script src="./jquery-1.12.4.js"></script>
     <script>
         $(function(){
             // val方法
-            // jq对象.val():  设置获取内容 
+            // jq对象.val():  设置获取内容
             // 获取内容: jq对象.val();
             // 设置内容: jq对象.val('值');
 
             // 只能设置和获取 ★★★ 表单 标签的value属性, 对于非表单标签的value属性, 属于自定义属性, val无法获取和设置
             // 以后 ★ 表单 标签的value属性 jq 这里统一用val() 去设置和获取
             // val() : 专门用来获取和设置 表单元素的value值, 即输入框里的值, 是字符串 如果表单元素的value值已存在, 则会覆盖
-            
             // 设置点时候, 会把jq对象中的所有元素都设置上相同value的值, 获取的时候, 只能获取第一个表单元素的 value值, 即输入框内的值
             //          传参： 设置内容
             //          不传参： 获取内容

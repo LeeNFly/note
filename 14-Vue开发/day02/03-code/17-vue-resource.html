@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+    <!-- 1. 引入vue-resource,但注意vue-resouce它依赖于vue，引入必须在vuejs文件引入之后 -->
+    <!-- 成功引入之后，它会在Vue的原型上面绑定一个$http对象，这个对象中包含了vue-resource所有的请求方法Vue.prototype.$http={get(){}, post(){}} -->
+    <script src="./vue-resource.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+
+        },
+        mounted () {
+          this.$http.get('http://www.liulongbin.top:3005/api/getprodlist')
+            .then(res => {
+              // vue-resource将数据包裹在body属性中
+              console.log(res.body.message);
+            }, err => {})
+          this.$http.jsonp('http://157.122.54.189:9093/jsonp')
+            .then(res => {console.log(res);}, err => {})
+        }
+      })
+    </script>
+  </body>
+</html>

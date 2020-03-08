@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./vue2.js"></script>
+  <style>
+
+    #app{
+            width:600px;
+                margin:10px auto;
+        }
+          .tb{
+              border-collapse:collapse;
+              width: 100%;
+          }
+          .tb th{
+              background-color: #0094ff;
+              color:white;
+          }
+
+          .tb td,.tb th{
+              padding:5px;
+              border:1px solid black;
+              text-align: center;
+          }
+
+          .add{
+              padding: 5px;
+              border:1px solid black;
+              margin-bottom: 10px;
+          }
+      </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="add">
+      <!-- 1.1 ref属性可以用来获取dom的引用，它的值可以随便定义, 但是注意这个名字不要和页面中其他的ref属性名相同, 否则会覆盖之前相同的ref -->
+      编号:<input type="text" v-model="newId" ref="inputRef">
+      品牌名称:<input type="text" v-model="newName" @keyDown.enter="addData" ref="inputRef">
+      <input type="button" value="添加" @click="addData">
+    </div>
+
+    <div class="add">
+      品牌名称:<input type="text" placeholder="请输入搜索条件">
+    </div>
+
+    <div>
+      <table class="tb">
+        <tr>
+          <th>编号</th>
+          <th>品牌名称</th>
+          <th>创立时间</th>
+          <th>操作</th>
+        </tr>
+        <tr v-for="(item,index) in list" :key="index">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.ctime}}</td>
+          <td>
+            <button @click="delData(index)">删除</button>
+          </td>
+        </tr>
+        <!-- <tr>
+          <td colspan="4">没有品牌数据</td>
+        </tr> -->
+        <!-- 动态生成内容tr -->
+      </table>
+    </div>
+  </div>
+</body>
+<script>
+  let vm = new Vue({
+    el: '#app',
+    data: {
+      newId: '',
+      newName: '',
+      list: [
+        {id: 33, name: 'LV', ctime: new Date()},
+        {id: 44, name: 'CC', ctime: new Date()},
+        {id: 55, name: 'NIKE', ctime: new Date()},
+        {id: 66, name: 'YSL', ctime: new Date()},
+      ]
+    },
+    // 在vue中不推重操作dom，但是它提供了一个ref属性，阔以用来获取页面dom元素的引用
+    // 如果想要页面一加载完成就执行，我们把函数写到mounted这个函数中，理解成window.onload
+    // 在钩子函数中, this也是指向vue实例
+    mounted () {
+      // document.getElementById('myid').focus()
+      // 1.2 获取定义的ref可以通过this.$refs.ref的名字
+      // vue实例的$refs属性, 是一个对象, 里面存储着所有当前vue实例管理范围的视图里的ref
+      // vue实例的$refs属性, 是一个对象, 对象中属性名为当前vue实例管理范围内的视图中所有定义的ref属性的属性值, 属性值为对应ref属性所在标签的dom元素
+      // 在给标签添加ref属性的时候, 应避免与其他标签的ref属性重复, 否则会覆盖之前相同的ref
+      // vue实例.$refs 可以获取到一个对象, 对象中包含了当前vue实例管理范围内的视图中所有含有ref标签属性的标签的dom元素
+      // vue实例.$refs.ref属性值, 可以拿到当前vue实例管理范围内对应标签属性中ref为ref属性值的标签的dom元素
+      // 在钩子函数中, this也是指向vue实例, this.$refs, this.$refs.ref属性值
+      console.log(this.$refs.inputRef);
+      this.$refs.inputRef.focus()
+    },
+    methods: {
+      delData(idx) {
+        this.list.splice(idx, 1)
+      },
+      addData() {
+        this.list.push({id: this.newId, name: this.newName, ctime: new Date()})
+        // 添加完之后，给两个框清空
+        this.newId = ''
+        this.newName = ''
+      }
+    }
+  })
+</script>
+
+</html>
