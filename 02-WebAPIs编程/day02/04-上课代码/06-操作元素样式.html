@@ -7,13 +7,13 @@
     /*#box{*/
       /*border:10px solid blue;*/
     /*}*/
-    
+
     .one{
       width: 300px;
       height: 200px;
       background-color: pink;
     }
-    
+
     .two{
       border: 50px solid hotpink;
     }
@@ -41,8 +41,8 @@
 //  console.log(box.style.width); //返回的是字符串
 //  console.log(box.style.backgroundColor); // - => 驼峰
 //  console.log(box.style.border);
-//  注意: 如果要通过style获取样式, 只能获取 ★ 行内样式,并且返回的是字符串, 带有单位 , 如果是 外链式和内嵌式设置的style属性获取不到
-  
+//  注意: 如果要通过style获取样式, 只能获取 ★ 行内样式,并且返回的是字符串, 带有单位 , 如果是 外链式和内嵌式设置的style属性获取不到, 也不能获取到元素默认的宽高, 只能获取到通过行内样式设置的宽高
+
   // 2. 设置标签的class属性
   // 元素.className => 获得标签的class属性,为字符串 ; 元素.className = '值' 设置元素的class属性,会把原来的覆盖掉
   //className  类名  通过操纵类名,可以重新调用css类选择器的样式 ,给类添加css样式,来操作css样式 设置类名相当于调用样式, 会自动根据操作后的盒子的类名, 重新渲染盒子及其css样式
@@ -52,7 +52,7 @@
 //console.log(box.className); // 获取 标签的class属性,返回类名 字符串 one
 // 给标签设置多个类名
   box.className += ' two'; // 设置标签的class属性,如果多个class属性 ★ 一定要记得加空格  box.className = box.className + ' two' = 'one' + ' two' => box.className = 'one two' => 给标签加上 class="one two" 属性;
-  
+
 </script>
 </body>
 </html>
