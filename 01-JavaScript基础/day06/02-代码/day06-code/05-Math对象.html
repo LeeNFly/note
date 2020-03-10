@@ -9,25 +9,26 @@
 <body>
     <script>
       // JS内置对象之Math
-      // Math 
+      // Math
 
       // 属性
       // Math.PI  π
-      // console.log( Math.PI );  
-      
+      // console.log( Math.PI );
+
 
       // 方法
       // Math.max
       // Math.min
-      
+
       //1. max :  求最大值 并返回
-      var max =  Math.max(1,4,7,2,5,8); 
+      var max =  Math.max(1,4,7,2,5,8);
       // console.log(max);
       //2. min : 求最小值 并返回
       var min = Math.min(1,4,7,2,5,8);
       // console.log(min);
-      
+
       // 取整: Math.ceil,Math.floor,Math.round 并返回
+      // 返回整数
       // ceil, floor, round, 如果是整数, 就返回整数自己.
       // 3. Math.ceil 天花板 往上取整 (向数轴右侧取整) (向大取整)
       // 4. Math.floor 地板  往下取整 (向数轴左侧取整) (向小取整)
@@ -37,13 +38,13 @@
       //                   <5  附近取整   直接舍弃 1.1 => 1
 
       // 2. .5 取大的那个  1.5 => 2 ;  -1.5 => -1
-      
+
       // Math.ceil
       // console.log( Math.ceil(1.1)); //2
       // console.log( Math.ceil(1.9)); //2
       // console.log( Math.ceil(-1.1)); //-1
       // console.log( Math.ceil(-1.9)); //-1
-      
+
       // Math.floor
       // console.log( Math.floor(1.1)); //1
       // console.log( Math.floor(1.9)); //1
@@ -63,11 +64,11 @@
 
       // console.log( Math.abs(-1));
       // console.log( Math.abs(1));
-      
-      // 7. Math.pow(a,b) 乘方  返回 a的b次方 
+
+      // 7. Math.pow(a,b) 乘方  返回 a的b次方
       // console.log( Math.pow(5,3));
-    
-      // 8. Math.sqrt 开方 
+
+      // 8. Math.sqrt 开方
       // console.log( Math.sqrt(81) );
 
 
@@ -77,12 +78,12 @@
 
        // [0,3) 随机数 = [0,1) * 3 = [0,3)
        console.log( Math.random()  * 3 );
-       
+
        // [2,5) 随机数 = [0,1) * 3 + 2 = [2,5)
 
 
-       // [0,3] 0-3之间的随机 整数 [0,3) 
-       // 对于结果为0和3,不公平 
+       // [0,3] 0-3之间的随机 整数 [0,3)
+       // 对于结果为0和3,不公平
        // [0,0.5) => 0
        // [0.5,1.5) => 1
        // [1.5,2.5) => 2
@@ -107,9 +108,9 @@
       console.log(num);
       // [-20, 40] 之间的随机整数
       var num =  Math.floor(Math.random() * 61 ) -20  ; // 先获取[0, 60], 再-20, 得到[-20, 40];
-      // 练习 : rgb(255,255,255) 
+      // 练习 : rgb(255,255,255)
       // rgb(255,255,255)   [0,255]
-      // rgb(12,34,67) 
+      // rgb(12,34,67)
 
       function getColor() {
 
@@ -123,17 +124,17 @@
 
       var str =   getColor();
       console.log(str);
-      
 
 
 
 
-      
-       
-       
-       
 
-      
+
+
+
+
+
+
 
 
     </script>
