@@ -30,7 +30,7 @@
   //disabled  禁用
 //    在html中只需要写属性名的属性 (属性名="属性值" => 简写为属性值,比如selected checked disabled readonly),在js中通过布尔值true/false来控制,获取的属性值也是布尔值 true/false
 //    如果赋值为true,就是相当于在标签中写了这个属性
-//    如果赋值为false,就是相当于在标签中没写这个属性
+//    如果赋值为false,就是相当于在标签中没写这个属性 (若原来有, 则会删除对应的属性)
 //    如果赋值不是布尔类型的话, 会自动隐式转为布尔类型, 转换后的结果为true, 就是相当于在标签中写了这个属性, 为false, 就是相当于在标签中没写这个属性
 //  btn.onclick = function(){
 //    input.disabled = false;

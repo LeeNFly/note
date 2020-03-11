@@ -11,13 +11,13 @@
       padding: 0;
       background-color: #F7F7F7;
     }
-    
+
     ul {
       margin: 0;
       padding: 50px;
       list-style: none;
     }
-    
+
     .register {
       width: 800px;
       margin: 50px auto;
@@ -25,12 +25,12 @@
       border: 1px solid #CCC;
       border-radius: 5px;
     }
-    
+
     li {
       overflow: hidden;
       margin: 20px 0;
     }
-    
+
     label, input {
       display: block;
       float: left;
@@ -39,14 +39,14 @@
       box-sizing: border-box;
       color: #333;
     }
-    
+
     label {
       width: 200px;
       line-height: 46px;
       margin-right: 30px;
       text-align: right;
     }
-    
+
     input {
       width: 320px;
       padding: 8px;
@@ -54,20 +54,20 @@
       outline: none;
       position: relative;
     }
-    
+
     input.code {
       width: 120px;
     }
-    
+
     input.sendBt {
       width: 190px;
       margin-left: 10px;
     }
-    
+
     input.disabled {
       background-color: #CCC !important;
     }
-    
+
     input[type=button] {
       border: none;
       color: #FFF;
@@ -75,16 +75,16 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    
+
     .tips {
       position: fixed;
       top: 0;
       width: 100%;
       height: 40px;
       text-align: center;
-      
+
     }
-    
+
     .tips p {
       min-width: 300px;
       max-width: 400px;
@@ -147,7 +147,7 @@
   var $submitBt = $('#submitBt');
   // 获取 moblie 手机号框
   var $mobile = $('#mobile');
-  
+
   // -----------------------------   短信验证功能 --------------------------------------
   // 点击按钮, 进行校验, 发送请求, 处理响应
   $sendBt.click(function() {
@@ -169,7 +169,7 @@
       showTips( "请输入正确的手机号");
       return;
     }
-    
+
     // 校验完成, 按钮显示成发送中...
     $sendBt.val("发送中...").addClass("disabled");
 
@@ -266,9 +266,10 @@
     console.log( "发送请求..." );
 
     // 需求3: 发送请求, 处理响应
-    
+
     // $('#ajaxForm').serialize()
-    // 表单序列化, 是jq的方法, 可以将form表单中所有带有 name 属性的表单元素, 里面的值全部获取, 
+    // form标签中除了可以嵌套表单标签, 还可以嵌套其他非表单标签
+    // 表单序列化, 是jq的方法, 可以将form表单中(内部)所有带有 name 属性的表单元素, 里面的值全部获取,
     // key为表单标签的name属性值, 值为表单标签的value属性值
     // 并进行拼接成 以下字符串的形式, 这种字符串形式, jQuery 直接支持传输
     // ps: 不能序列化文件
@@ -282,7 +283,7 @@
       success: function( info ) {
         console.log( info );
         if ( info.code === 100 ) {
-          // 注册成功, 3秒后跳转到首页 
+          // 注册成功, 3秒后跳转到首页
           showTips( "注册成功, 3秒后跳转到首页" );
 
           setTimeout(function() {

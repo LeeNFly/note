@@ -22,7 +22,7 @@
   <script>NProgress.start()</script>
 
   <div class="main">
-    
+
     <?php include_once "./inc/navbar.php" ?>
 
     <div class="container-fluid">
@@ -48,7 +48,7 @@
               <input id="slug" class="form-control" name="slug" type="text" placeholder="slug">
               <p class="help-block">https://zce.me/category/<strong>slug</strong></p>
             </div>
-            <div class="form-group">              
+            <div class="form-group">
               <input type="button" class="btn btn-primary btn-add" value="添加">
               <input type="button" class="btn btn-primary btn-update" value="修改" style="display: none;">
               <!-- 如果 input type类型, 是reset可以重置表单 -->
@@ -85,7 +85,7 @@
       </div>
     </div>
   </div>
-  
+
   <?php include_once "./inc/aside.php"?>
 
   <script src="../assets/vendors/jquery/jquery.js"></script>
@@ -142,7 +142,8 @@
           success: function( info ) {
             console.log( info );
             render();
-            // 添加完成, 重置表单, 将form内所有包含name属性的表单标签重置(value值设置为'')
+            // form标签中除了可以嵌套表单标签, 还可以嵌套其他非表单标签
+            // 添加完成, 重置表单, 将form内部所有包含name属性的表单标签重置(value值设置为'')
             // 注意, 是dom方法, 要使用表单的dom元素, 因为不涉及表单提交, 所以不需要指定action 和 method
             $('#form')[0].reset();
           }
@@ -165,7 +166,7 @@
           },
           success: function( info ) {
             console.log( info )
-            // 页面重新渲染 
+            // 页面重新渲染
             render();
           }
         })
@@ -225,12 +226,12 @@
         })
 
       });
-      
+
 
 
     });
-  
-  
+
+
   </script>
 </body>
 </html>
