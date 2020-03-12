@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-    
+
     <button>添加basic类</button>
     <button>移除类</button>
     <button>添加big类</button>
@@ -33,7 +33,7 @@
     <div class="one two three">这是div内的文字</div>
     <div class="one two three">这是div内的文字</div>
     <div class="one two three">这是div内的文字</div>
-    
+
     <script src="./jquery-1.12.4.js"></script>
     <script>
         $(function(){
@@ -42,7 +42,7 @@
             $("button").eq(0).click(function(){
                 // $("div").get(0).className = "one two basic";
 
-                // 添加类: jq对象.addClass('类名') 
+                // 添加类: jq对象.addClass('类名')
                 // 会给获取到的所有元素都添加上 相同 的类名 若元素已存在该类,则不会重复添加
                 // 不会覆盖掉之前的类,而是直接在后面加上添加的类 (在原来的基础上添加类)
                 // 这里不能带上.
@@ -50,9 +50,9 @@
             })
 
             $("button").eq(1).click(function(){
-                // 删除类: jq对象.removeClass('类名') 
+                // 删除类: jq对象.removeClass('类名')
                 //会把获取到的所有元素都移除 相同 的类名
-                //移除指定的类名,保留其他的类名 
+                //移除指定的类名,保留其他的类名
                 // 如果元素没有这个类, 也不会报错, 相当于什么都不做
                 $("div").removeClass("basic"); // class="one two three basic" => class="one two three"
             })
@@ -86,6 +86,7 @@
 
             // console.log($("div").hasClass("basic"));
 
+            // 小技巧, 如果想让元素在2个类之间切换, 可以使用 jq对象.toggleClass('类名A').toggleClass('类名B'), jq对象中的元素的class类中 实现A类和B类之间切换
 
             // 小结：
             // 类名的操作
