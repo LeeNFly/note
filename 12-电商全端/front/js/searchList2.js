@@ -71,7 +71,7 @@ $(function() {
             var htmlStr = template("productTpl", info );
             $('.lt_product').html( htmlStr );
 
-            // ajax 回来之后, 需要结束下拉刷新, 让内容回滚顶部
+            // ajax 回来之后, 需要结束下拉刷新, 让内容回滚顶部, 才能触发下一次下拉刷洗
             // 注意: api 做了更新, mui文档上还没更新上(小坑)
             //      要使用原型上的 endPulldownToRefresh 方法来结束 下拉刷新
             mui('.mui-scroll-wrapper').pullRefresh().endPulldownToRefresh();
