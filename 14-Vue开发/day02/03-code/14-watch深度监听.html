@@ -16,7 +16,7 @@
         data: {
           user: {
             name: 'jack'
-          }
+          },
         },
         watch: {
           // 在监听复杂数据类型的时候，不能像之前监听普通数据那样写，我们需要使用深度监听
@@ -28,10 +28,16 @@
             handler(newVal) {
               console.log(newVal);
             },
-            immediate: true,
+            // immediate: true, 一上来默认调用一次handler, 一般不用
             deep: true // 表示开启深度监听
-          }
+          },
         }
+        // 说明, 之前的watch中定义函数, 只能用于监听data中变量为基本数据类型的属性变化
+        // 如果data中的变量是一个对象的话, 需要监听对象中的属性的变化, 则需要使用深度监听
+        // 语法: 深度监听在watch中是一个对象属性, 属性名是data中需要监听的变量名, 值是一个对象, 对象中包含了一个函数属性handler, 以及一个普通属性deep
+        // handler: 函数名规定只能叫handler 只是声明, 不会调用, 当监听的变量发生变化时, 会调用handler函数, 自带一个入参newVal, 表示变化后的新值, 拿不到变化之前的旧值
+        //          handler函数体中, this都是指向vue实例, 所以可以获取和操作data中的变量, methods中的函数, 以及computed中的计算属性..
+        // deep: 值是布尔值, true, 表示开启深度监听
       })
     </script>
   </body>
