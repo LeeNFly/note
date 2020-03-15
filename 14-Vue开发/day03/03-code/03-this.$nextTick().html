@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 id="myh">{{msg}}</h1>
+      <button @click="change">点击</button>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello'
+        },
+        methods: {
+          change() {
+
+            this.msg = 'itcast' // 通过vue实例.变量名给data中的变量赋值, 由于需要将赋值更新到data中的变量, 所以是异步的, 需要放到任务队列等待被执行, 且要等到数据真正异步更新data中的变量时, 视图才会重新渲染
+            // console.log(document.getElementById('myh').innerText); // 如果直接这样打印，打印出来的结果不是我们想要的itcast，而是hello，因为this.msg = ‘itcast’ 它是异步的, 此刻视图data中的数据还未更新, 视图还未更新渲染
+            // this.$nextTick()的作用是，等你页面上的视图更新完之后，我再执行回调函数中的方法 (此时data中的数据更新完毕)
+            this.$nextTick(() => {
+              console.log(document.getElementById('myh').innerText) // itcast
+            })
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

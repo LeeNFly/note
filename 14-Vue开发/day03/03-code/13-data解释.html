@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <index></index>
+      <index></index>
+    </div>
+    <script>
+      // 因为对象是按引用传递，那上面这两个index组件里面的数据会相会影响，如果你返回的是全新的对象，那么会开辟不同的内存空间，那么就不存在相互影响的情况了
+      let obj = {msg: 'hello world'}
+      Vue.component('index', {
+        data () {
+          return obj
+        },
+        template: `
+          <div>
+              <h1>{{msg}}</h1>
+              <button @click="change">改变</button>
+          </div>
+        `,
+        methods: {
+          change() {
+            this.msg = 'hello 黑马'
+          }
+        }
+      })
+
+      var vm = new Vue({
+        el: '#app',
+        data: {
+
+        }
+      })
+    </script>
+  </body>
+</html>

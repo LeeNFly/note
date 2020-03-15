@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <style>
+    /* 对应思路2 */
+.move-enter {
+  padding-left: 100px;
+}
+.move-enter-active {
+  transition: all 2s;
+}
+.move-enter-to {
+  padding-left: 0;
+}
+
+.move-leave {
+  padding-left: 0;
+}
+.move-leave-active {
+  transition: all 2s;
+}
+.move-leave-to {
+  padding-left: 100px;
+}
+  </style>
+  <body>
+    <div id="app">
+      <!-- 对应思路1 -->
+      <!-- 当transition下面有两个标签要切换的时候，会出现同时在动的情况，解决方式给transition加一个mode属性 -->
+      <!-- 如果想要动画一进来就有，那么就给transition加要给appear属性 -->
+      <transition name="move" mode="out-in" appear>
+        <!-- transition中, 在标签名相同的情况下，vue为了提高效率，会直接替换掉标签中的内容, 就没有动画了,
+        为了解决这个问题，给每个标签加一个key属性，但这个key必须不一样 -->
+        <div v-if="isShow" key="one">显示</div>
+        <div v-else key="two">隐藏</div>
+      </transition>
+      <button @click="isShow = !isShow">切换</button>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          isShow: false
+        }
+      })
+    </script>
+  </body>
+</html>
+
+<!--
+vue中过渡动画分为两类，一类是进场动画，一类是出场动画
+要实现上面的进场动画，主要有三种方式：类名，css动画库，js函数
+
+1. 类名 本质就是动态添加类名实现动画
+v-enter 开始状态
+v-enter-active 开始到结束的中间状态
+v-enter-to 结束状态
+
+v-leave
+v-leave-active
+v-leavt-to
+
+
+思路：
+  1. 找到需要添加过渡动画的元素，用一个transition标签包裹起来，并给它指定一个name属性，这个name属性将来会替换掉类名的v-前缀
+  2. 定义上面6个类名里面的类容，注意类名v-前缀要换成name的值，关键要分清楚开始和结束的状态样式
+ -->

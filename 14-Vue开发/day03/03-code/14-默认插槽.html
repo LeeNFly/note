@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 1.2 那使用组件处innerHTML位置以后不管有任何代码，都会被放进组件视图模板的插槽那个坑里面去 -->
+      <index>
+        <span>首页</span>
+        <span>首页</span>
+        <span>首页</span>
+        <h1>手机</h1>
+      </index>
+    </div>
+    <script>
+      // 插槽的作用就是组件外部取代码片段放到组件内部(视图模板中)来
+      // 插槽的使用位置: 在组件的视图模板template中
+      // 1.1 定义默认插槽通过在组件的视图模板template中使用slot组件定义，定义好了之后，就相当于一个坑，你可以把它理解为电脑上usb插口
+      //     默认会将组件使用处的innerHtml位置, 即文本位置的所有内容(包括标签及其内容), 作为插槽的内容, 替换组件视图template中的插槽slot, 作为组件视图template中的视图使用
+      Vue.component('index', {
+        template: `
+          <div>
+            index
+            <slot></slot>
+          </div>
+        `
+      })
+      var vm = new Vue({
+        el: '#app',
+        data: {
+
+        }
+      })
+    </script>
+  </body>
+</html>

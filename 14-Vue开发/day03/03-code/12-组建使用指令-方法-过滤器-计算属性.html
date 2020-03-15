@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <index>
+
+      </index>
+    </div>
+    <script>
+      // 不管是全局组件还是局部组件, 都可以使用原来的data, methods, computed, 等其他vue中的功能,
+      // 但是这些数据和功能的使用范围是在该组件的视图中, 即template模板中使用, 在别的地方无法使用
+      // 唯一有不同的就是 data属性了, 是一个函数, 并且要返回一个全新的对象, 避免不同组件之间的数据互相影响, 对象中的数据就是data中的变量了
+      // 注意, 一个组件可以复用多次, 复用的组件中, 每个组件又是互相独立的, 即每个组件中的数据data, methods, computed.. 等所有数据, 都是互相独立的 ⭐
+      // 因为在每次复用组件时, 都会重新初始化该组件, 放到独立的内存里, 所以各个组件中的数据都是互相独立的, 互不影响的 ⭐
+      // 各个组件中的数据相互独立, 互不影响, 只能在各自组件中使用
+
+      // 组件也相当于是vue实例, 也具有自动渲染, 双向绑定, 数据驱动功能, 只不过组件的视图是各自组件的template模板
+
+      // 1.1 假设创建一个product局部组件
+      let product = {
+        template: `
+        <div>
+          {{msg}} {{company}}
+          <button @click="change">改变</button>
+          <input type="text" v-focus/>
+          <div>{{ctime | fmtTime}}</div>
+          <div>{{ctime | fmtMonth}}</div>
+        </div>
+        `,
+        // data 必须是一个函数了，并且要返回一个全新的对象, 必须是要返回一个全新创建的对象!!! 避免不同组件之间数据互相影响, ⭐
+        data() {
+          return {
+            msg: 'hello world',
+            ctime: new Date()
+          }
+        },
+        methods: {
+          change() {
+            this.msg = 'hello 黑马'
+          }
+        },
+        computed: {
+          company() {
+            return '传智播客'
+          }
+        },
+        // 局部自定义指令通过directives创建, 这个指令只能在当前这个组件中使用，脱离了就使用不了, 在其他组件中使用不了
+        // directives中可以创建多个自定义指令, 定义和用法同全局自定义指令一致
+        directives: {
+          focus: {
+            // 指令的定义
+            inserted: function (el) {
+              el.focus()
+            }
+          }
+        },
+        // 局部过滤器通过filters创建，这个过滤器只能在当前这个组件中使用，脱离了就使用不了, 在其他组件中使用不了
+        // directives中可以创建多个过滤器, 定义和用法同全局过滤器指令一致
+        filters: {
+          fmtTime(time) {
+            let y = time.getFullYear()
+            return y
+          },
+          fmtMonth(time) {
+            let y = time.getMonth() + 1
+            return y
+          }
+        }
+      }
+
+      Vue.component('index', {
+        // 1.3 在index组件的模板中使用product组件
+        template: '<div>这是首页:<product></product></div>',
+        // 1.2 如果想要使用下面的product，得在index组件中注入一下，通过components属性注入
+        components: {
+          product
+        }
+      })
+
+
+      console.log(product)
+      var vm = new Vue({
+        el: '#app',
+        data: {
+
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+    <link rel="stylesheet" href="./animate.css">
+  </head>
+  <body>
+    <div id="app">
+      <!-- 需要加上animated基础类名 -->
+      <transition
+        enter-active-class="animated shake"
+        leave-active-class="animated fadeOutLeftBig"
+      >
+        <div v-if="isShow">显示</div>
+      </transition>
+      <button @click="isShow = !isShow">切换</button>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          isShow: false
+        }
+      })
+    </script>
+  </body>
+</html>
+
+<!--
+思路：
+1. 引包
+2. 给transition添加两个属性： 一个是enter-active-class (入场时类名) 另一个leave-active-class(离场时的类名)
+                             都包含animated基础类 和 动画类
+-->

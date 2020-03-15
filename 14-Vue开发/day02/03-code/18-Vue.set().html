@@ -25,8 +25,8 @@
             // 给data中对象变量添加属性，不能使用下面这种方式 (this.user.sex = 'male')，因为这种添加的属性，不是响应式数据 (给该数据对象中添加的属性不会渲染更新到页面上)
             // ★ 但是如果是修改对象中已经存在的属性 (this.user.sex = 'male'), 这种方式修改的数据还是会时时渲染更新到页面上的.
             // this.user.sex = 'male'
-            // Vue.set(this.user, 'sex', 'male')
-            this.$set(this.user, 'sex', 'female') // 与上面Vue.set是同一个东西, 只不过换了种写法
+            // Vue.set(this.user, 'sex', 'male') // 通过全局调用
+            this.$set(this.user, 'sex', 'female') // 与上面Vue.set是同一个东西, 只不过换了种写法, 通过实例调用
             // 参数1: 要修改属性的对象, 参数2: 要修改的属性名, 参数3: 要修改的属性值
           }
         }

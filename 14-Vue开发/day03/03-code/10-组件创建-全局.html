@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+  <!--
+    组件介绍: 组件包含了html, css, js部分, 组件可以复用, 便于开发和维护
+  -->
+    <div id="app">
+      <!-- 在vue实例中使用组件 -->
+      <!-- 2. 使用组件，像html标签一样, 通过组件名使用 -->
+      <!-- 组件创建一次 可以多次使用 -->
+      <index></index>
+      <index-b></index-b>
+    </div>
+    <script>
+      // 1. 创建组件使用Vue.component()方法，它是创建的全局组件, 在vue实例管辖范围视图内都可以直接使用
+        // 1.1 参数1表示组件名字
+        // 1.2 参数2表示组件配置项
+      // 组件创建一次 可以多次使用
+      Vue.component('index', {
+        // template属性指定组件(html/视图)模板, 即该组件的视图部分, 模板只能有一个根节点⭐
+        // 在组件中也可以使用其他全局组件
+        template: '<div>这是首页<index-b></index-b></div>'
+      })
+
+      // 注意组件命名如果使用驼峰命名法，上面在页面中使用的时候就需要改成连字符-⭐
+      Vue.component('indexB', {
+        // template属性指定组件(html/视图)模板,模板只能有一个根节点⭐
+        template: '<div>这是首页B</div>'
+      })
+      var vm = new Vue({
+        el: '#app',
+        data: {
+
+        }
+      })
+
+      // 总结：
+      // 全局组件在任何地方都可以直接使用, 比如在vue实例的视图中, 或者在其他组件的视图模板template中, 都可以直接使用全局组件, 不需要注册
+      // 在组件中使用其他组件, 只能在组件的视图模板template中使用
+    </script>
+  </body>
+</html>

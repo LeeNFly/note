@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 1.2 想要指定插入指定位置，就得指定一下插入到slot的名字，通过slot属性来指定, 这个slot的值必须和下面slot组件得name值对应上 -->
+      <!-- 在组件使用处的innerHTML位置, 为标签指定slot属性和属性值, 将来会将此标签及其内容插入到组件index模板视图template中name属性值等于slot属性值的插槽中, 并替换掉模板视图template中的插槽slot -->
+      <index>
+        <h1 slot="header">黑马程序员slot教学</h1>
+        <p slot="footer">黑马程序员版权所有</p>
+      </index>
+    </div>
+    <script>
+      // 1.1. 通过给slot添加name属性，来指定当前插槽slot的名字
+      //       具名插槽, 会将组件使用处的innerHTML, 即文本内, 标签属性slot等于组件视图template中插槽的name值的标签(及其内容)替换掉组件视图template中对应名称的插槽slot, 加入到组件视图template中
+      Vue.component('index', {
+        template: `
+          <div>
+            <slot name="header"></slot>
+            index
+            <slot name="footer"></slot>
+          </div>
+        `
+      })
+      var vm = new Vue({
+        el: '#app',
+        data: {
+
+        }
+      })
+    </script>
+  </body>
+</html>
