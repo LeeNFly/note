@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 123123 -->
+    <h1 id="title">{{ msg }}</h1>
+    <button @click="changeTitle">更新数据</button>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    // setTimeout(() => {
+    const vm = new Vue({
+      // 通过 el 指定Vue管理的边界
+      el: '#app',
+
+      // 如果有template，那么vue会将template指定的内容作为模板进行编译
+      // template: `
+      //   <div>
+      //     <p>这是一个 template 选项的内容</p>  
+      //   </div>
+      // `,
+
+      data: {
+        msg: 'Hello Vue Lifecycle！',
+        timerId: null
+      },
+
+      methods: {
+        fn() { },
+
+        changeTitle() {
+          this.msg = '今天苹果又发布了各种产品~'
+        }
+      },
+
+      // 生命周期的钩子函数
+      beforeCreate() {
+        console.warn('生命周期钩子函数 beforeCreate', this.msg, this.fn)
+      },
+
+      // 重点钩子函数，在这钩子函数以及以后的钩子函数中就可以获取到的数据了
+      // 使用场景：发送ajax请求
+      created() {
+        console.warn('生命周期钩子函数 created', this.msg, this.fn)
+      },
+
+      beforeMount() {
+        // 获取到的是 模板内容
+        console.warn('生命周期钩子函数 beforeMount', document.getElementById('title').innerText)
+      },
+
+      // 重点！！！
+      // 作用： 1 操作DOM 2 可以发送ajax请求
+      mounted() {
+        // 获取到的是 渲染后的DOM内容
+        console.warn('生命周期钩子函数 mounted', document.getElementById('title').innerText)
+
+        this.timerId = setInterval(() => {
+          console.log('用户自定义定时器')
+        }, 500)
+      },
+
+
+      // -------------------------------- 更新阶段 --------------------------------
+      beforeUpdate() {
+        console.warn('生命周期钩子函数 beforeUpdate', /* this.msg, */ document.getElementById('title').innerText)
+      },
+      updated() {
+        console.warn('生命周期钩子函数 updated', /* this.msg, */ document.getElementById('title').innerText)
+      },
+
+
+      // -------------------------------- 卸载阶段 --------------------------------
+      beforeDestroy() {
+        console.warn('生命周期钩子函数 beforeDestroy')
+
+        clearInterval(this.timerId)
+      },
+      destroyed() {
+        console.warn('生命周期钩子函数 destroyed')
+      }
+
+    })
+    // }, 2000);
+
+    // 通过调用 $mount 方法来指定Vue管理的边界
+    // vm.$mount('#app')
+  </script>
+</body>
+
+</html>
