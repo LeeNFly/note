@@ -9,11 +9,11 @@
 <div id="box"></div>
 <script>
 //  动态的创建元素 (创建标签节点) , 即创建标签
-//  innerHTML 可以识别标签 可以用来在元素 ★ 内部动态的创建元素,如果元素在dom树上, 则会将创建的元素自动加入dom树,浏览器会重新渲染页面及相关的css样式,直接渲染到了页面上
+//  innerHTML 可以识别标签 可以用来在元素 ★ 内部动态的创建元素,如果元素在dom树上, 则会将创建的元素自动加入dom树,浏览器会重新渲染页面及相关的css样式,直接渲染到了页面上, 渲染完成之后才继续往下执行代码
 //  var box = document.getElementById('box');
 ////  box.innerHTML = '<span>这是一个span</span>'; 要求右边是字符串
-//    如果要使用变量 请使用字符串拼接 
-//    box.innerHTML = '<span>变量</span>' X 这样变量会被直接当作字符串 
+//    如果要使用变量 请使用字符串拼接
+//    box.innerHTML = '<span>变量</span>' X 这样变量会被直接当作字符串
 //    box.innerHTML = '<span>' + 变量 + '</span>' √ 通过字符串的拼接 变量的值被拼接到字符串中
 //
 
@@ -25,11 +25,11 @@
 //  p.style.fontSize = '18px';
 //console.log(p);
 //    box.appendChild(p);
-  
+
 //      document.write('html形式的字符串') ; //这个方法只能用document调用 并且不推荐使用
-  
+
 //  document.write('<h1>doucment.write加上来的</h1>'); // 直接写在script里面,不会覆盖原来的内容
-  
+
 //  var btn  = document.getElementById('btn');
 //  btn.onclick = function(){
 //    document.write('<h1>点击之后添加的</h1>'); //放大事件函数里面,会覆盖原来的内容
