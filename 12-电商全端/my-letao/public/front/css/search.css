@@ -1,0 +1,27 @@
+.lt_main .search_list {
+    color: #666;
+    font-size: 12px;
+    padding: 10px;
+}
+.lt_main .search_list .header {
+    height: 30px;
+    line-height: 30px;
+}
+.lt_main .search_list .header a {
+    color: #666;
+}
+.lt_main .search_list .search_container {
+    border: 1px dashed red;
+}
+.lt_main .search_list .search_container li{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px dashed red;
+    padding-left: 5px;
+}
+.lt_main .search_list .search_container li:last-child {
+    border-bottom: none;
+}
+.lt_main .search_list .search_container li i {
+    line-height: 30px;
+}

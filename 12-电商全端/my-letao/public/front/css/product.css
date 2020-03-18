@@ -1,0 +1,39 @@
+.lt_go_cart {
+    height: 55px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 30px;
+    padding: 12px;
+    border-top: 1px solid #FF0000;
+}
+.lt_item_box {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+.lt_pro_price span {
+    color: red;
+}
+.lt_pro_price del {
+    font-size: 14px;
+    color: #666;
+}
+.lt_pro_size span {
+    display: inline-block;
+    font-size: 12px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 5px;
+}
+.lt_pro_size span.current {
+    background-color: orange;
+    color: #fff;
+}
+.lt_pro_num .last {
+    font-size: 12px;
+    color: #666;
+}

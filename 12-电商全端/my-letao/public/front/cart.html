@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐淘商城</title>
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <link rel="stylesheet" href="lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+<div class="lt_container">
+    <div class="lt_header">
+        <a href="javascript: history.back()" class="h-left">
+            <span class="mui-icon mui-icon-back"></span>
+        </a>
+        <div class="h-title">购物车</div>
+    </div>
+    <div class="lt_main">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <!--这里放置真实显示的DOM内容-->
+                <ul class="mui-table-view" id="cart_list">
+                    <!-- 挖个坑 -->
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="lt_footer">
+        <ul class="mui-clearfix">
+            <li>
+                <a href="index.html">
+                    <span class="fa fa-home"></span>
+                    <p>首页</p>
+                </a>
+            </li>
+            <li>
+                <a href="category.html">
+                    <span class="fa fa-bars"></span>
+                    <p>分类页</p>
+                </a>
+            </li>
+            <li>
+                <a href="cart.html" class="current">
+                    <span class="fa fa-shopping-cart"></span>
+                    <p>购物车</p>
+                </a>
+            </li>
+            <li>
+                <a href="user.html">
+                    <span class="fa fa-user"></span>
+                    <p>用户中心</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/html" id="cart_item_tpl">
+    {{ each list v i}}
+    <li class="mui-table-view-cell cart_item">
+        <div class="mui-slider-right mui-disabled">
+            <a class="mui-btn mui-btn-primary mui-icon mui-icon-compose btn_edit" data-id="{{v.id}}" data-num="{{v.num}}" data-productnum="{{v.productNum}}" data-productsize="{{v.productSize}}" data-size="{{v.size}}"></a>
+            <a class="mui-btn mui-btn-danger mui-icon mui-icon-trash btn_del" data-id="{{v.id}}"></a>
+        </div>
+        <div class="mui-slider-handle">
+            <div class="mui-table-cell">
+                <div class="cart_img">
+                    <img src="{{v.pic[0].picAddr}}">
+                    <input type="checkbox">
+                </div>
+                <div class="cart_info">
+                    <p class="pro_desc">{{v.proName}}</p>
+                    <p><span class="pro_price">￥{{v.price}}</span><del>￥{{v.oldPrice}}</del><span class="pro_num pull-right">{{v.num}}双</span></p>
+                    <p>鞋码: {{v.size}}</p>
+                </div>
+            </div>
+        </div>
+    </li>
+    {{ /each }}
+</script>
+<script type="text/html" id="editTpl">
+    <div class="cart_size">
+        尺码:
+        <%
+        var arr = productsize.split('-')
+            for (var i = +arr[0]; i < +arr[1] + 1; i++) {
+        %>
+            <span class="{{size == i ? 'current' : ''}}">{{i}}</span>
+        <%}%>
+    </div>
+    <div class="cart_num">
+        数量:
+        <div class="mui-numbox" data-numbox-step='1' data-numbox-min='1' data-numbox-max='{{productnum}}'>
+            <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+            <input class="mui-numbox-input" type="number" value="{{num}}" />
+            <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+        </div>
+    </div>
+</script>
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="lib/mui/js/mui.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cart.js"></script>
+
+</html>

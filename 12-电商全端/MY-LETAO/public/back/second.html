@@ -64,7 +64,74 @@
 <!-- 主体内容 -->
 <div class="lt_main">
     <div class="container-fluid">
-        二级分类
+        <!-- 面包屑导航 -->
+        <ol class="breadcrumb">
+            <li><a href="#">管理系统</a></li>
+            <li><a href="#">分类管理</a></li>
+            <li class="active">二级分类</li>
+        </ol>
+        <!-- 内容 -->
+        <div class="lt_content">
+            <button class="btn btn-default mb_20" id="btn_add">添加分类</button>
+            <table class="table table-bordered">
+                <thead>
+                <th width="10%">序号</th>
+                <th width="30%">一级分类名称</th>
+                <th width="30%">二级分类名称</th>
+                <th width="30%">二级分类LOGO</th>
+                </thead>
+                <tbody id="second_table">
+                <!-- 挖个坑 -->
+                </tbody>
+            </table>
+            <div class="text-right">
+                <ul id="pagintor"></ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- 添加分类模态框 -->
+<div class="modal fade" tabindex="-1" id="addModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form id="form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" ><span>&times;</span></button>
+                    <h4 class="modal-title">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="dropdown">
+                            <button id="btn_category" type="button" class="btn btn-default" data-toggle="dropdown">
+                                <span id="cate_text">请选择一级分类</span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <!-- 挖个坑 -->
+                            </ul>
+                        </div>
+                        <!-- 存储选择的一级分类id -->
+                        <input type="hidden" name="categoryId" value="">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类">
+                    </div>
+                    <div class="form-group">
+                        <label class="btn btn-default" for="inpFile">上传图片</label>
+                        <input type="file" id="inpFile" name="pic1" data-url="/category/addSecondCategoryPic" style="display: none">
+                    </div>
+                    <div class="form-group">
+                        <img src="./images/none.png" id="upload_img" width="100">
+                        <input type="hidden" value="" name="brandLogo">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">添加</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -83,13 +150,33 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 <button type="button" class="btn btn-primary" id="btn_logout">退出</button>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
 
+
+<script type="text/html" id="secondTpl">
+    {{each rows v i}}
+    <tr>
+        <td>{{ (page - 1) * size + i + 1 }}</td>
+        <td>{{v.categoryName}}</td>
+        <td>{{v.brandName}}</td>
+        <td><img src="{{v.brandLogo}}" height="50"></td>
+    </tr>
+    {{ /each }}
+</script>
+<script type="text/html" id="categoryTpl">
+    {{ each rows v i }}
+        <li><a href="#" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+    {{ /each }}
+</script>
 <script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/second.js"></script>

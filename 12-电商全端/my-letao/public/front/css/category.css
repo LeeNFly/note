@@ -1,0 +1,36 @@
+.lt_main {
+}
+.lt_main .lt_category_left {
+    float: left;
+    width: 90px;
+}
+.lt_main .lt_category_left li a {
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    background-color: #E3E4E5;
+    display: block;
+    color: #666;
+}
+.lt_main .lt_category_left li a.current {
+    background-color: #fff;
+    border-right-color: #fff;
+}
+.lt_main .lt_category_right {
+    overflow: hidden;
+    padding: 10px;
+}
+.lt_main .lt_category_right li {
+    width: 33.33%;
+    float: left;
+}
+.lt_main .lt_category_right li a {
+    display: block;
+    text-align: center;
+}
+.lt_main .lt_category_right li img {
+    width: 100%;
+    display: block;
+}

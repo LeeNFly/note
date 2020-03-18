@@ -63,7 +63,32 @@
 <!-- 主体内容 -->
 <div class="lt_main">
     <div class="container-fluid">
-        产品
+        <!-- 面包屑导航 -->
+        <ol class="breadcrumb">
+            <li><a href="#">管理系统</a></li>
+            <li class="active">商品管理</li>
+        </ol>
+        <!-- 内容 -->
+        <div class="lt_content">
+            <button class="btn btn-default mb_20" id="btn_add">添加商品</button>
+            <table class="table table-bordered">
+                <thead>
+                <th width="10%">序号</th>
+                <th width="25%">商品名称</th>
+                <th width="25%">商品描述</th>
+                <th width="10%">商品库存</th>
+                <th width="10%">商品尺寸</th>
+                <th width="10%">商品状态</th>
+                <th width="10%">操作</th>
+                </thead>
+                <tbody id="product_table">
+                <!-- 挖个坑 -->
+                </tbody>
+            </table>
+            <div class="text-right">
+                <ul id="pagintor"></ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -86,10 +111,97 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<!-- 添加模态框 -->
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h4 class="modal-title">添加商品</h4>
+            </div>
+            <form id="form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="dropdown">
+                            <button id="dLabel" type="button" class="btn btn-default" data-toggle="dropdown">
+                                <span id="brand_text">请选择二级分类</span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" >
+                                <!-- 挖个坑 -->
+                            </ul>
+                        </div>
+                        <input type="hidden" name="brandId" value="">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="proName" placeholder="请输入商品名称">
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="3" class="form-control" name="proDesc" placeholder="请输入商品描述"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="num" placeholder="请输入商品库存">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="size" placeholder="请输入商品尺码">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="oldPrice" placeholder="请输入商品原价">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="price" placeholder="请输入商品现价">
+                    </div>
+                    <div class="form-group">
+                        <label for="inpFile" class="btn btn-default">上传图片</label>
+                        <input style="display: none" type="file" id="inpFile" name="pic1" data-url="/product/addProductPic" multiple>
+                    </div>
+                    <div class="form-group" id="product_imgs">
+                        <input type="hidden" name="picStatus">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">添加</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="productTpl">
+    {{ each rows v i}}
+    <tr>
+        <td>{{ (page - 1) * size + i + 1 }}</td>
+        <td>{{ v.proName }}</td>
+        <td>{{ v.proDesc }}</td>
+        <td>{{ v.num }}</td>
+        <td>{{ v.size }}</td>
+        <td>{{ v.statu === 1 ? '已上架' : '已下架' }}</td>
+        <td>
+            {{ if v.statu === 1 }}
+            <button class="btn btn-danger">下架</button>
+            {{ else }}
+            <button class="btn btn-danger">上架</button>
+            {{ /if }}
+        </td>
+    </tr>
+    {{ /each }}
+</script>
+<script type="text/html" id="brandListTpl">
+    {{ each rows v i }}
+        <li><a href="javascript:;" data-id="{{v.id}}">{{v.brandName}}</a></li>
+    {{ /each }}
+</script>
+
 <script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/product.js"></script>
 </body>

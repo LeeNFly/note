@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	
+	<div>我是盒子</div>
+	<button>点击按钮</button>
+	<script>
+		var div = document.querySelector("div");
+		var button = document.querySelector("button");
+		
+		// 请分析: 效果是什么? 为什么 ?
+		// 原来宽高 200 200
+		// (1) 宽高都慢慢的变成 400
+		// (2) 高瞬间变成 400px, 宽慢慢变成400px
+
+
+		// 浏览器会维护一个队列, 浏览器并不会立即进行渲染操作
+		// 将所有的 css 样式操作, 放到队列中, 等 js 执行完, 一次性进行渲染
+
+		// 特例: 对于一些获取性操作, 为了保证获取的数值的准确性, 会提前 flush(清空) 浏览器维护的队列, 将其解析渲染
+
+		button.onclick = function() {
+			div.style.height = "400px";
+			div.offsetHeight;
+			div.style.transition = "all 1s";
+			div.style.width = "400px";
+		}
+
+
+		// 概念:
+		// 1. 什么时候发生回流(重排) reflow:
+		//    页面中的元素 发生影响布局的变化(改变宽高尺寸, 修改显示隐藏状态)
+		//    页面需要重新布局, 就会触发回流
+
+		// 2. 什么时候触发重绘 repaint:
+		//    页面中的元素 发生不影响布局的样式变化 (背景颜色, 背景图片, 字体颜色等... );
+		//    页面需要重新渲染, 就会触发重绘
+
+		// 要点:
+		// 1. 每个页面至少进行一次 回流 和 重绘
+		// 2. 回流 必将触发 重绘
+
+		// js执行主线程 和 UI 渲染进程 是 互斥的 (同时只能执行一个)
+
+
+		// 性能优化注意点:
+		// 1. 尽量不要在 for 循环中, 进行样式获取性操作
+		// 2. 通过添加 class, 来进行一次性修改样式, 少用 style
+		// 3. 将需要大量进行重排(回流)操作的元素, 进行display:none; 离线处理
+		// 4. 定位(absolute和fixed)的元素, 脱标了, 不会影响的其他盒子的布局
+		// 5. 使用 translate 代替 left/top 等, translate 只触发了 重绘, 不会触发回流, 节约一次回流的时间
+		// 6. 通过 opacity 替换 visibility, 改透明度渲染效率更高
+
+		// 雅虎性能优化
+
+	</script>
+</body>
+</html>

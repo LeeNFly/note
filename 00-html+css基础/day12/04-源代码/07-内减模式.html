@@ -26,10 +26,12 @@
 		.box5 {
 			padding: 20px;
 			border: 10px solid #ccc;
-			
+
 			/* box-sizing 控制盒子模型内减
-			border-box  自动内减  (设置此属性后，设置了padding和border后, 盒子的内容宽度width会自动内减;高度:若有手动设置内容高度height，则内容高度会自动内减,否则内容高度不会自动内减。)
-						设置了padding或border后, 会自动从内容的宽高width, height 减去对应的值, 保证盒子的总大小不变
+			border-box  自动内减  (设置此属性后，设置了padding和border后, 盒子的内容区域宽度width会自动内减;高度:若有手动设置内容高度height，则内容区域高度height会自动内减,否则内容高度不会自动内减。)
+						保证盒子的总大小不变
+						
+						设置了padding或border后, 会自动从内容区域的宽高width, height 减去对应的值, 保证盒子的总大小不变
 			content-box 手动内减 */
 
 			/* box-sizing: border-box; */
