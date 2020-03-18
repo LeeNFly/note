@@ -9,7 +9,11 @@
   <body>
     <div id="app">
       <!-- v-model指令用来实现双向数据绑定，这个指令只能给input/select/textarea这些标签使用（组件也可以使用） -->
-      <!-- 语法: v-model="data中的变量名", 完成表单的value值与data中的变量双向绑定 -->
+      <!-- 语法: v-model="data中的变量名", 完成表单与data中的变量双向绑定
+           如果v-model用在文本框输入框表单元素里, 则绑定的是表单元素的value值
+           如果v-model用在复选框checkbox和单选框radio里, 则绑定的是表单元素的checked属性, data中数据为true则为选中状态, data中数据为false则为不选中状态, 同样的, 选中则data中绑定的数据就更新为true, 不选中, 则vue中的数据就更新为false
+           如果v-model用在下拉框里, 则绑定的select的value值
+      -->
       <!-- 若data中的变量为对象的, 则v-model也可以和data中的对象变量中的某个属性绑定, 比如data中有一个user属性, user: {name: 'zs', age: 18},
             v-model = "user.name", 表示与data中user变量中的name属性完成双向绑定
        -->
