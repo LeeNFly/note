@@ -20,15 +20,16 @@ var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // 遍历数组中的每个元素, 每个元素调用一次函数
 // 创建一个新的数组, 将每次调用函数的返回值加入到这个数组中
 // 最后返回创建的新的数组, 不会改变原来的数组
-// var newArr = arr.map(function (v, i) { 
+// var newArr = arr.map(function (v, i) {
 //     return v * 2;
 // })
 // console.log(newArr);
 
 // 3. some
 // 遍历数组中每个元素, 判断数组中是否有任意元素满足指定条件
-// 只要有一个元素满足条件 (函数return true就是满足条件) , 就返回true, 否则返回false
+// 只要有一个元素满足条件 (函数return true就是满足条件) , 就返回true, 且停止循环, 否则返回false
 // 判断数组里有没有偶数
+// some方法最终的返回值为一个布尔值
 // var flag = arr.some(function (v, i) {
 //     return v % 2 == 0;
 // })
@@ -39,7 +40,7 @@ var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // 遍历数组中每个元素, 判断数组中是否所有元素都满足条件
 // 数组中所有元素都满足条件 (函数return true就是满足条件) , 就返回true, 否则返回false
 // 判断数组是否全是奇数
-// var flag = arr.every(function (v, i) { 
+// var flag = arr.every(function (v, i) {
 //     return v % 2 != 0;
 // })
 // console.log(flag);
@@ -55,7 +56,7 @@ var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // 6. 在数组中找所有满足条件的元素
 // 遍历数组
-// 创建一个新的数组, 若当前遍历的元素满足条件 (函数return true就是满足条件) , 则将该元素加入到新的数组中
+// 创建一个新的数组, 若当前遍历的元素满足条件 (函数return true就是满足条件) , 则将当前遍历的元素加入到新的数组中
 // 最后返回这个新的数组
 // 若没有满足条件的元素, 则返回[]空的数组
 // var newArr = arr.filter(function (v, i) {
