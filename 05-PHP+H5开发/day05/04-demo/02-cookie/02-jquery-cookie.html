@@ -15,7 +15,7 @@
 
     // cookie 可以多个页面共享
     // ps: 同一个网站中的多个页面可以共享cookie, 不同浏览器的cookie不能共享,
-    // 同一个网站(同源网站)的多个页面多个窗口, cookie共享, 获取和操作的cookie都是同一块内存里的cookie数据, 不同网站, cookie不共享, 所以获取和操作的都是不同内存的cookie
+    // 同一个网站(同源网站)的多个页面多个窗口(浏览器标签页), cookie共享, 获取和操作的cookie都是同一块内存里的cookie数据, 不同网站, cookie不共享, 所以获取和操作的都是不同内存的cookie
     // 通过 插件, jquery.cookie.js 可以辅助我们操作 cookie, 该插件依赖于jq, 所以要先引入jq
     // 前端操作cookie
     // 明确, cookie一般只存储基本数据类型, 如果存储复杂数据类型, 需转成JSON字符串后再存储
