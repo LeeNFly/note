@@ -1,0 +1,7 @@
+{
+  "name": "nodejsmoniphpstudy",
+  "version": "1.0.0",
+  "dependencies": {
+    "mime": "^2.4.4"
+  }
+}
