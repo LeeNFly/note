@@ -50,7 +50,7 @@ const vm = new Vue({
 
           // 添加完成后,重新获取数据
           this.getTodos()
-          // this.todos.push({ ...res.data })
+          // this.todos.push({ ...res.data }) // 这种方式也行, 可减少一次请求
           this.todoName = ''
         })
     },

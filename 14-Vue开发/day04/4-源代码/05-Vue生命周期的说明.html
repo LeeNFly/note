@@ -24,7 +24,7 @@
       // 如果有template，那么vue会将template指定的内容作为模板进行编译
       // template: `
       //   <div>
-      //     <p>这是一个 template 选项的内容</p>  
+      //     <p>这是一个 template 选项的内容</p>
       //   </div>
       // `,
 
@@ -42,11 +42,12 @@
       },
 
       // 生命周期的钩子函数
+      // 在beforeCreate钩子函数调用时, 由于数据还未初始化, 所以在beforeCreate中拿不到data中数据, methods中函数, 以及计算属性等等
       beforeCreate() {
         console.warn('生命周期钩子函数 beforeCreate', this.msg, this.fn)
       },
 
-      // 重点钩子函数，在这钩子函数以及以后的钩子函数中就可以获取到的数据了
+      // 重点钩子函数created，在这钩子函数以及以后的钩子函数中就可以获取到的数据了, 包括data中的数据, methods中的函数, 以及计算属性等等
       // 使用场景：发送ajax请求
       created() {
         console.warn('生命周期钩子函数 created', this.msg, this.fn)
@@ -91,7 +92,7 @@
     })
     // }, 2000);
 
-    // 通过调用 $mount 方法来指定Vue管理的边界
+    // 除了提供el属性来指定vue管理的视图范围, 也可以通过调用 $mount 方法来指定Vue管理的边界
     // vm.$mount('#app')
   </script>
 </body>
