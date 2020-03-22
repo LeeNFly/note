@@ -11,7 +11,7 @@
       background-color: pink;
     }
 
-    /* 
+    /*
       .router-link-exact-active 精确匹配的类名
       .router-link-active 模糊匹配的类名
 
@@ -34,7 +34,9 @@
   <div id="app">
     <router-link to="/home">首页</router-link>
 
-    <!-- 添加 exact 属性后，那么这个菜单的的高亮样式就变为精确匹配了，也就是说：只有 哈希值 与 当前to属性的值 完全相同的时候，才会给当前菜单添加高亮类名；如果仅仅是包含该to属性的值，那么，就不会再添加高亮类名了 -->
+    <!-- 默认是模糊匹配的 -->
+    <!-- 添加 exact 属性后，那么这个菜单的的高亮样式就变为精确匹配了，也就是说：只有 哈希值 与 当前to属性的值 完全相同的时候，才会给当前菜单添加高亮类名  router-link-exact-active 和 router-link-active
+    如果仅仅是包含该to属性的值，那么，就不会再添加任何高亮类名了 -->
     <router-link to="/user" exact>用户管理</router-link>
 
     <router-view></router-view>

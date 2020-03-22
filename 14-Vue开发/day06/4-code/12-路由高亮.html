@@ -21,6 +21,14 @@
 
 <body>
   <div id="app">
+    <!--
+      router-link会自动监听地址栏中URL的#锚点(#哈希值)部分, 并与to的值进行比较 (比较时不带#)
+      若to属性值包含(包括等于)在当前URL的#锚点部分, 则会在router-link转换成的a标签里添加类名 router-link-active
+      若to属性值与当前URL的#锚点部分相同, 则会在router-link转换成的a标签里添加类名 router-link-exact-active
+      特殊: 相同时, 这2个类名都具有
+    -->
+
+
     <router-link to="/home">首页</router-link>
     <router-link to="/user">用户管理</router-link>
 
@@ -86,7 +94,7 @@
         }
       ],
 
-      // 修改默认高亮类名
+      // 修改当前路由的默认高亮类名 router-link-active 为 itcast
       linkActiveClass: 'itcast'
     })
 
