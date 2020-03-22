@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .user {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <router-link to="/home">首页</router-link>
+    <router-link to="/user">用户管理</router-link>
+
+    <router-view></router-view>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+  <script>
+    const Home = {
+      template: `
+        <h1>这是 Home 组件</h1>
+      `
+    }
+
+    // 父组件：
+    const User = {
+      template: `
+        <div class="user">
+          <h2>用户中心</h2>
+          <router-link to="/user/profile">个人资料</router-link>
+          <router-link to="/user/posts">岗位</router-link>
+
+          <!-- 子路由展示在此处 -->
+          <router-view></router-view>
+        </div>
+        `
+    }
+
+    // 子组件：
+    const UserProfile = {
+      template: '<h3>个人资料：张三</h3>'
+    }
+    const UserPosts = {
+      template: '<h3>岗位：FE</h3>'
+    }
+
+    const router = new VueRouter({
+      routes: [
+        {
+          path: '/home',
+          component: Home
+        },
+
+        {
+          path: '/user',
+          component: User,
+          // 子路由配置：
+          children: [
+            {
+              // 当 /user/profile 匹配成功，
+              // UserProfile 会被渲染在 User 的 <router-view> 中
+              path: 'profile',
+              component: UserProfile
+            },
+            {
+              // 当 /user/posts 匹配成功
+              // UserPosts 会被渲染在 User 的 <router-view> 中
+              path: 'posts',
+              component: UserPosts
+            }
+          ]
+        }
+      ]
+    })
+
+    const vm = new Vue({
+      el: '#app',
+      data: {
+
+      },
+
+      router
+    })
+  </script>
+</body>
+
+</html>

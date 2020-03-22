@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 1 给属性添加 .sync 修饰符 -->
+    <child :childmsg.sync="msg"></child>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    // 2 props 是只读的，不能修改。
+    // 不能修改是说：不能重新赋值
+    // 可以通过.sync修饰符来简介修改父组件中的数据
+    //   原理参考.sync修饰符原理解析, .sync修饰符仅支持vue2.3版本以后
+
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'parent data'
+      },
+      components: {
+        child: {
+          template: `
+            <p @click="fn">子组件 -- {{ childmsg }}</p>
+          `,
+
+          props: ['childmsg'],
+
+          methods: {
+            fn() {
+              // 2 通过 $emit 触发一个特殊形式的事件
+              // 事件名称： update: + props属性的名称
+              //  这个事件在父组件中vue已经自动帮我们定义好了, 其实就是在父组件中修改父组件中传递过来的数据 (父组件可以修改自身数据) , 然后触发单项数据流, 父组件自动将修改后的数据重新传递给子组件, 然后子组件重新渲染
+              this.$emit('update:childmsg', '修改后的数据')
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

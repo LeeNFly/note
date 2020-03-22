@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li>
+        <!-- 入口：实际上就是一个a标签 -->
+        <router-link to="/home">首页</router-link>
+      </li>
+    </ul>
+
+    <!-- 指定路由出口 -->
+    <router-view></router-view>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+  <script>
+    // 路由的使用步骤：
+    // 1 安装: npm i -S vue-router
+    // 2 引入 vue-router (vue-router依赖于vue, 需要先引入vue)
+    // 3 创建路由规则
+    // 4 将路由实例与vue实例关联到一起
+    // 5 配置路由规则
+    //    哈希值 和 组件 的对应关系
+    // 6 指定路由出口（ 表示将当前匹配的路由展示在页面中的哪个位置 ）
+
+    const Home = Vue.component('home', {
+      template: `
+        <h1>这是 Home 组件</h1>
+      `
+    })
+
+    // 创建路由实例
+    const router = new VueRouter({
+      routes: [
+        { path: '/home', component: Home }
+      ]
+    })
+
+    const vm = new Vue({
+      el: '#app',
+      data: {
+
+      },
+      // 将路由与实例关联到一起
+      router
+    })
+  </script>
+</body>
+
+</html>
