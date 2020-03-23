@@ -1,0 +1,16 @@
+{
+  "name": "05-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^1.12.4"
+  },
+  "devDependencies": {}
+}
