@@ -11,7 +11,14 @@
 
   <script>
     // 1. js 对象或数组  =>  json字符串    JSON.stringify( obj/arr );  返回转化后的json字符串
+    //    将js对象或数组中的 ★所有★ 内容/元素, 全都按照json格式, ★全部★ 转化为json字符串形式
     // 2. json 字符串  =>  js 对象或者数组  JSON.parse( json字符串 );   返回转化后的js对象或数组
+    //    将json字符串中的所有内容, 按照js对象或数组的格式进行转化, 只要json字符串中 ★每有★ 满足JS对象或数组格式的部分, 就都会被转化为JS对象或数组
+    //    比如
+    // var str = '[{"name":"鹏儿","age":15,"desc":"帅"},{"name":"鹏儿","age":15,"desc":"帅"},{"name":"鹏儿","age":15,"desc":"帅"}, "赵六"]';
+    // console.log(JSON.parse(str)) //  [{name: "鹏儿", age: 15, desc: "帅"} , {name: "鹏儿", age: 15, desc: "帅"}, {name: "鹏儿", age: 15, desc: "帅"} , "赵六"]
+    // 被转化成了一个数组, 并且数组中的元素有3个JS对象, 1个字符串
+
 
     // json字符串和js对象或数组的转化, 都不会改变原来的值, 都是将转化后的结果返回
 
@@ -22,15 +29,15 @@
     // };
     // console.log( JSON.stringify( obj ) );
 
-    
+
     // json 字符串转换成 js 对象或数组
     // {"name":"鹏儿","age":15,"desc":"帅"}
     // var str = '{"name":"鹏儿","age":15,"desc":"帅"}';
-    // var str = '[{"name":"鹏儿","age":15,"desc":"帅"},{"name":"鹏儿","age":15,"desc":"帅"},{"name":"鹏儿","age":15,"desc":"帅"}, 赵六]';
+    var str = '[{"name":"鹏儿","age":15,"desc":"帅"},{"name":"鹏儿","age":15,"desc":"帅"},{"name":"鹏儿","age":15,"desc":"帅"}, "赵六"]';
     // var str = '[ "张三", "李四", "王五", "赵六" ]' ps: 如果json字符串是普通数组的格式, 元素中的字符串要用双引号包裹.
     console.log( JSON.parse( str ) );
-    
+
   </script>
-  
+
 </body>
 </html>
