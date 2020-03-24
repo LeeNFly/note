@@ -37,7 +37,7 @@ module.exports = {
   },
 
   // 配置loader
-  // 项目中所有的文件引入时都会自动根据匹配的loader中配置的test规则, 对文件用对应的use: loader处理
+  // 项目中所有的文件引入时, 所有涉及到路径的 都会自动根据匹配的loader中配置的test规则, 对文件用对应的use: loader处理
   // 可以在module的rules中定义多个loader处理规则, 每个规则就是一个对象
   module: {
     rules: [
@@ -51,7 +51,7 @@ module.exports = {
 
       // css-loader 读取CSS文件,将其转化为一个模块
       // style-loader 拿到css-loader读取到的css文件内容,然后, 创建一个style标签包裹内容, 将来自动插入到页面head中
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] } // 所有以.css结尾的文件, 使用'style-loader', 'css-loader' 进行处理, 处理后才可以使用
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] } // 所有以.css结尾的文件引入或路径, 使用'style-loader', 'css-loader' 进行处理, 处理后才可以使用
     ]
   },
 

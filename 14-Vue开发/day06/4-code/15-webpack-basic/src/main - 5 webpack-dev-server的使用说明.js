@@ -28,6 +28,8 @@
 // 开发期间 webpack-dev-server, 打包后生成的文件是输出在服务器根目录下, 即内存中, 效率快
 // 项目打包上线 webpack, 这种打包是将生成的文件输出到指定的磁盘路径下, 存储在磁盘中, 效率慢
 
+// 注意: 如果对webpack配置文件 webpack.config.js 进行修改, 则不会自动更新, 需要重启服务器 npm run dev 才会生效
+
 // webpack 命令会生产 dist 文件夹
 // webpack-dev-server 不会创建 dist 文件夹, 而是将所有内容放在内存中
 
