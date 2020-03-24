@@ -3,9 +3,11 @@
 ## 作用
 package.json文件就是用来描述一个包的信息的！
 
-只要一个文件夹中有一个合格的pacakge.json文件，那么这个文件夹就可以被称为是一个包！
+只要一个文件夹中有一个合格的package.json文件，那么这个文件夹就可以被称为是一个包！
 
 合格的package.json文件的定义：  ★ 必须包含两个属性 name version
+
+我们完全可以自己手动创建package.json文件, 然后知道name和version 来 替代 npm init 初始化包的命令
 
 1、一个项目我们只需要初始化一次即可, 一个项目只能有一个package.json文件
 
@@ -64,7 +66,7 @@ devDependencies: 例如less包, 只需要在开发时用到, 开发时通过Less
 问题： 为什么要将依赖项信息存储起来呢？？？
 主要目的是为了代码共享的时候，比较方便！
 
-在进行代码分享的时候，不需要分享node_modules (包存储目录), 即不需要分享下载的包, 只需要分享自己的代码和pacakge.json即可，另外的程序员拿到代码之后，自己根据pacakge.json下载所有的依赖项即可！
+在进行代码分享的时候，不需要分享node_modules (包存储目录), 即不需要分享下载的包, 只需要分享自己的代码和pacakge.json即可，另外的程序员拿到代码之后，因为已经有package.json文件了, 已经是一个包了, 不需要再执行npm init了, 直接根据pacakge.json下载所有的依赖项即可！
 
 `npm install`  这条命令会自动根据package.json中保存的包信息(devDependencies和dependencies)进行下载, 即会将dependencies和devDependencies中所有的包都下载到项目中, 供项目中使用
 

@@ -14,18 +14,21 @@
       let obj = {}
       // 该方法中包含以下参数：需要添加属性的对象，你需要加的属性，配置项
       Object.defineProperty(obj, 'name', {
-        // getter函数
+        // getter函数, 获取对象属性时调用的函数
         get() {
           // get函数中，一定要return当前这个新添加进去的属性作为返回值
           console.log('你当前获取到的值是', name) // 相当于获取：obj.name
           return name
         },
         // setter函数, 这个函数中包含一个参数，这个参数表示当前设置的这个属性的新的值, 相当于:obj.name = 'itcast'
+        // 给对象赋值时调用的函数
         set(newName) {
           name = newName
           console.log('这里你给name传递了新的值', newName);
         }
       })
+
+      // 注意, 对象的属性都有默认的取值和赋值功能, 如果定义了defineProperty, 则会把默认的取值和赋值功能给覆盖了, 取值和赋值时由默认的取值和赋值功能转为调用对应的get和set方法了
     </script>
   </body>
 </html>

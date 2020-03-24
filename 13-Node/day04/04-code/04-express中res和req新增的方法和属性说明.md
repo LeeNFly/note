@@ -3,6 +3,7 @@ express对原生的res和req进行了增强
 ## res的功能
 1. ★ res.send  向浏览器响应数据，这个方法可以接收的参数类型有（字符串，对象，数组，数字（状态码），buffer对象）
     res.send是对res.end的封装, 将接收的参数作为响应体数据, 响应给浏览器, 并且结束这次请求, 结束浏览器挂起状态
+    res.send里面封装了解决参数乱码的解决, 即res设置了Content-Type为text/html;charset=utf-8来解决了
     1. res.send方法中会自动调用end, 结束浏览器挂起状态
     2. res.send方法只可以调用一次！ (res.send包含res.end, 相当于给浏览器响应, 告诉浏览器这次请求结束了, res.send代表这次请求结束, 之后的代码不会再执行了)
 2. res.download 向浏览器响应文件，并且打开下载保存窗口！（下载文件的！！）
@@ -10,10 +11,12 @@ express对原生的res和req进行了增强
     参数1: 要给用户下载的文件, 其所在路径
     参数2: 可有可无, 下载时默认的文件名
     res.download作用, 将服务器中的文件下载到用户本地
-3. res.status 设置状态码，可以进行链式编程
+3. res.status(状态码) 设置状态码，可以进行链式编程
 4. res.jsonp 可以返回jsonp格式的数据 请求的时候需要传递callback参数 (将来要调用的函数的函数名)！
-5. ★ res.redirect 做重定向跳转的
-6. ★ res.sendFile 向浏览器响应文件, 并且结束请求, 响应完毕, 浏览器结束挂起状态！ (相当于我们之前封装的读文件得到buffer对象, 然后将读到的buffer对象响应给浏览器, 且自带响应头Content-type) 
+5. ★ res.redirect('路径') 做页面url重定向跳转的 并且结束响应(自带res.end()功能) 可以是相对路径, 也可以是绝对路径
+6. ★ res.sendFile('路径') 路径必须是全路径, 用path.join(__dirname, ..) 进行拼接
+      向浏览器响应文件, 并且结束请求, 响应完毕, 浏览器结束挂起状态！(自带res.end()功能)  
+      (相当于我们之前封装的读文件得到buffer对象, 然后将读到的buffer对象响应给浏览器, 且自带★ 响应头Content-type) 
 7. res.render 结合后面模板引擎使用, 结束响应, 自带响应头
 
 ## req的功能

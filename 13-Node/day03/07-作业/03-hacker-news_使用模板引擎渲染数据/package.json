@@ -1,0 +1,8 @@
+{
+  "name": "03-hacker-news_template",
+  "version": "1.0.0",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "mime": "^2.4.4"
+  }
+}

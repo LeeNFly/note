@@ -18,13 +18,20 @@
       //1. 查找索引
 
       // 同数组
-      var str = 'abcdabcd';
+      var str = 'abcdabcd3';
       // indexOf 字符第一次出现的位置, 返回索引 是数字类型
       // lastIndexOf 字符最后一次出现的位置, 返回索引 是数字类型
+      // 如果索引返回-1, 说明字符串中不包含对应字符
       var index =   str.indexOf('b');
       console.log(index); // 1
       var index2 =   str.indexOf('dab');
       console.log(index2); // 3
+      var index3 =   str.indexOf('dac');
+      console.log(index3); // -1 // 如果多个字符的, 必须完全匹配
+      var index4 = str.indexOf('3')
+      console.log('index4--:' + index4) // 8
+      var index5 = str.indexOf(3)
+      console.log('index5--:' + index5) // 8
       var index1 =   str.lastIndexOf('b');
       console.log(index1);
 

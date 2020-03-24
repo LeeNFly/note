@@ -16,7 +16,7 @@
       // ★★★ 元素必须与数组中的元素完全一致, 全等 (内容和类型都要一致)
       // 不会改变原数组
       // 若数组中不存在该元素,则返回-1 . 可以用此方法判断一个数组中是否存在某个元素,如果存在,则返回值 != -1
-      var arr = [1,2,3,5,6,3,1,3,4];
+      var arr = [1,2,3,5,6,3,1,3,4, '哈哈'];
 
      // var firstIndex = arr.indexOf(3);
     //  console.log(firstIndex); //2
@@ -25,9 +25,17 @@
     //  var lastIndex = arr.lastIndexOf(3);
     //  console.log(lastIndex); //7
 
+      // var index  = arr.indexOf('哈哈');
+      // console.log(index) // 9
+
+      // var index  = arr.indexOf('哈');
+      // console.log(index) // -1 必须要完全一致
+      // var index  = arr.indexOf('哈哈哈');
+      // console.log(index) // -1
+
     //var firstIndex = arr.indexOf(10); 若数组中不存在该元素,则返回-1
     // var firstIndex = arr.indexOf('3'); // 若数组中不存在该元素,则返回-1
-    console.log(firstIndex);
+    // console.log(firstIndex);
 
 
       // 清空数组

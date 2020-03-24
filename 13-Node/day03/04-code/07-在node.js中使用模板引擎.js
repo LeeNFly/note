@@ -2,6 +2,7 @@
 // 既支持浏览器端使用也支持服务器端（node.js）中使用
 
 // 浏览器端的用法
+// 下载包 npm install art-template -S
 // 1. 引包
 // 2. 准备模板（script type=text/template）
 // 3. 渲染（template）  template(模板的id, 要渲染的数据对象)

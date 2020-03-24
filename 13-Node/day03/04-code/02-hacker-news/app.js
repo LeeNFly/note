@@ -90,7 +90,7 @@ server.on('request', function (req, res) {
 
             // 3. 将新的数组重新写入到data.json中
             fs.writeFile(path.join(__dirname, "data.json"), JSON.stringify(newsList), function (err) {
-                
+
                 // 在node.js中通知浏览器跳转到首页去！
 
                 // 1. 设置状态码
@@ -104,6 +104,8 @@ server.on('request', function (req, res) {
 
                 // 4. 结束响应
                 res.end();
+
+                // 在nodejs中, 由于没有BOM, 要想实现页面跳转, 必须要以上1. 2. 3. 4. 一起设置, 才可以实现页面跳转
             })
         })
     } else {
