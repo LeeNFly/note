@@ -1,5 +1,5 @@
 var express = require('express');
-// 需要先下载body-parser的包, 然后引入
+// 需要先下载body-parser的包, 然后引入 npm install body-parser
 var bodyParser = require('body-parser');
 var app = express();
 

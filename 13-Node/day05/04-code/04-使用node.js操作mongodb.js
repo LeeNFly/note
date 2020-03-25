@@ -24,7 +24,7 @@ MongoClient.connect(connStr, function (err, client) {
     // db.collection("users").insertMany(); // db.users.insertMany();
     // db.collection("users").find(); // db.users.find();
 
-    // 增删改查的回调函数中, 在操作执行完毕后调用, 都是异步的, 包含了操作返回的数据和信息
+    // 增删改查的回调函数中, 在操作执行完毕后才调用, 都是异步的, 包含了操作返回的数据和信息
 
     // 增
 
@@ -38,12 +38,17 @@ MongoClient.connect(connStr, function (err, client) {
 
 
     // 查
-    // toArray就是将查询到的数据转换成数组！
+    // toArray就是将查询到的数据转换成js数组！
     // users.find({age: 18}).toArray(function (err, arr) {
     //     console.log(arr); // arr 是查询到的数据, 数组类型
     // })
 
     // users.find({ age: {$gt: 18}}).toArray(function (err, arr) {
+    //     console.log(arr);
+    // })
+
+    // 查询所有
+    // users.find().toArray(function (err, arr) {
     //     console.log(arr);
     // })
 

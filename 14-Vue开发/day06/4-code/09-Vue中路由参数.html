@@ -65,7 +65,7 @@
         { path: '/', redirect: '/home' },
         { path: '/home', component: Home },
 
-        // :id 就是路由参数
+        // :id 就是路由参数  ( :只需要在定义路由的时候写, 表示路由参数, 在访问的时候不需要写: )
         // 匹配的哈希值为： /stu/1001 或 /stu/1002 或 /stu/abc
         // 无法匹配的哈希值为： /stu 或 /stu/ 或 /stu/1001/ab  不能多, 也不能少
         { path: '/stu/:id', component: Stu },

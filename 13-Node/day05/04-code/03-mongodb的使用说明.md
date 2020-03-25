@@ -10,7 +10,7 @@ mongod 负责数据存储, mongo 是命令行工具, 用来操作数据库的
 `mongod --dbpath 数据文件夹路径`  (创建的data文件夹路径)
 
 如果看到最后一句输出为`waiting for connections on port 27017`
-就说明启动成功了
+就说明启动成功了, 这里是将mongodb服务启动了
 
 ## 数据库操作的命令行工具
 如何通过命令行操作mongodb
@@ -56,7 +56,7 @@ mongodb中, 数据对象格式与js对象格式类似
 
     3. `db.集合名称.insert(对象)`
        `db.集合名称.insertOne(对象)`
-       `db.集合名称.insertManay(对象数组)`
+       `db.集合名称.insertMany(对象数组)`
 
 3. 获取当前集合中的所有数据
     1. `db.集合名称.find()`

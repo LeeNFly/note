@@ -28,10 +28,10 @@ server.on('request', function (req, res) {
     // 由于我们现在没有返回，所以IE在接收到css文件之后，不知道是个什么东西，所以css样式不生效！
     // 如果我们在响应头中不返回Content-Type, 则浏览器不知道返回的数据是什么样的数据, 就不知道要怎么去解析响应得到的数据了
 
-    // Content-Type: "text/html" => 说明响应的数据是html类型的, 则浏览器会根据html去解析响应的数据
-    // Content-Type: "text/css"  => 说明响应的数据是css类型的, 则浏览器会根据css去解析响应的数据
-    // Content-Type: "application/x-javascript" => 说明响应的数据是js类型的, 则浏览器会根据js去解析和执行响应的数据
-    // Content-Type: "image/png" => 说明响应的数据是png图片类型的, 则浏览器将响应的数据解析成图片
+    // Content-Type: "text/html" => 说明响应的数据是html类型的, 则浏览器会根据html去解析响应体的数据
+    // Content-Type: "text/css"  => 说明响应的数据是css类型的, 则浏览器会根据css去解析响应体的数据
+    // Content-Type: "application/x-javascript" => 说明响应的数据是js类型的, 则浏览器会根据js去解析和执行响应体的数据
+    // Content-Type: "image/png" => 说明响应的数据是png图片类型的, 则浏览器将响应体的数据解析成图片
 
     //MIME 类型
 
