@@ -41,7 +41,7 @@
         // 重定向：
         // / 是默认的路径，页面第一打开的时候，就会访问这个路径
         // 当这个路径匹配成功后，通过指定的 redirect 就可以重定向到其他路由了
-        { path: '/', redirect: '/home' },
+        { path: '/', redirect: '/home' }, // 将url中 #锚点重定向为#/home
         { path: '/home', component: Home }
       ]
     })
