@@ -22,6 +22,7 @@
   <script>
     // 双向数据绑定的原理： Object.defineProperty()
     // Vue 兼容性： IE9及其以上版本的浏览器
+    // 因为vue是基于Object.defineProperty()来实现的, 而IE8及以下版本不支持Object.defineProperty()
 
     const txt = document.getElementById('txt')
     const msgBox = document.getElementById('msgBox')
