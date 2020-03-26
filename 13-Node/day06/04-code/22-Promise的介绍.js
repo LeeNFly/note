@@ -54,9 +54,9 @@
 
 // 封装一个定时器函数, 支持Promise
 function timeout(time) {
-    // ★★★ Promise对象有.then方法, 所以我们需要返回一个Promise对象
+    // ★★★ 只有Promise对象有.then方法, 所以我们需要返回一个Promise对象
     return new Promise(function (resolve, reject) {
-        // function 该函数会在Promise对象被创建时调用
+        // function 该函数会在Promise对象被创建时调用一次
         setTimeout(function () {
             // 当异步操作完成之后，我们不需要考虑要执行什么回调函数, 要执行的回调函数会在使用时, 通过promise.then定义好
             // 在创建Promise时, 我们不需要关心成功或失败的回调函数是什么, 回调函数会在调用.then时定义好
@@ -82,7 +82,7 @@ function timeout(time) {
 // 所以 timeout()函数应该返回一个Promise对象
 timeout(2000).then(function (data) {
     console.log("1s 后执行了代码", data)
-}, function () {
-    console.log("异步操作失败了")
+}, function (data) {
+    console.log("异步操作失败了" + data)
 })
 

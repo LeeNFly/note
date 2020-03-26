@@ -18,7 +18,7 @@
 //         // 子类构造函数constructor中第一句代码就需要调用一下父类的构造函数
 //         // 借用父类的构造函数, 继承父类constructor中的属性, 是实例含有父类constructor中的属性
 //         // super就是父类的构造函数constructor, 相当于调用父类的constructor,
-//         // 并且在调用父类的构造函数constructor时, 其内部自己实现了this指向刚创建出来的Student, 也就是字类对象, 给刚创出来的Student, 子类对象, 添加父类的constructor函数中的属性
+//         // 并且在调用父类的构造函数constructor时, ★ 其内部自己实现了this指向刚创建出来的Student, 也就是子类对象, 给刚创出来的Student, 子类对象, 添加父类的constructor函数中的属性
 //         super();
 //         // 给实例添加自身的属性
 //         this.stuNo = 10086;

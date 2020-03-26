@@ -32,8 +32,9 @@
   </form>
 
   <!--
-    可以给form表单注册submit事件, 该事件在表单提交时被触发 (即点击submit按钮) ,
-    通过 return false, 或 e.preventDefault(), 可以阻止表单的提交, 改成使用ajax提交
+    可以给form表单注册submit事件, 该事件在表单提交时被触发 (即点击submit按钮) , 调用完该事件处理函数后,
+    由于表单提交的默认行为, 还是会提交表单
+    可以 通过 return false, 或 e.preventDefault(), 可以阻止表单的默认提交行为, 改成使用ajax提交
     this 指向 表单元素
   -->
   <!-- 或者 -->

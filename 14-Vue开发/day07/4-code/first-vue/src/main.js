@@ -24,9 +24,9 @@ new Vue({
 // 去公司以后, 拿到项目, 第一件事就是: npm i 安装项目中使用到的模块, 让项目跑起来 npm run dev / npm start
 
 // 项目逻辑大致说明
-// src/main.js 为webpack打包的入口文件
+// 由配置文件build/webpack.base.config.js可以知道, src/main.js 为webpack打包的入口文件
 // 在入口文件中:
-//    1. 引入了vue, App.vue(单文件组件, 一个局部组件), 以及路由;
+//    1. 引入了vue (vue的js文件), App.vue(单文件组件, 一个局部组件), 以及路由;
 //    2. 创建了一个vue实例, 引入了路由及注册了局部组件App, 并且拥有一个template模板属性, 在模板中就做了一件事, 引入App组件
 //    3. 在App组件中就做了一件事, 在模板处写了一个路由的出口
 
