@@ -85,7 +85,7 @@
         {id: 66, name: 'YSL', ctime: new Date()},
       ]
     },
-    // 在vue中不推重操作dom，但是它提供了一个ref属性，阔以用来获取页面dom元素的引用
+    // 在vue中不推重操作dom，但是它提供了一个ref属性，阔以用来获取页面标签dom元素的引用
     // 如果想要页面一加载完成就执行，我们把函数写到mounted这个函数中，理解成window.onload
     // 在钩子函数中, this也是指向vue实例
     mounted () {
@@ -97,6 +97,8 @@
       // vue实例.$refs 可以获取到一个对象, 对象中包含了当前vue实例管理范围内的视图中所有含有ref标签属性的标签的dom元素
       // vue实例.$refs.ref属性值, 可以拿到当前vue实例管理范围内对应标签属性中ref为ref属性值的标签的dom元素
       // 在钩子函数中, this也是指向vue实例, this.$refs, this.$refs.ref属性值
+
+      // 如果后续ref属性写在组件使用处的标签内, 则也会按照上面一样, 在当前vue实例中进行拷贝, 只不过存储的不是dom元素了, 而是对应组件的vue实例了
       console.log(this.$refs.inputRef);
       this.$refs.inputRef.focus()
     },
