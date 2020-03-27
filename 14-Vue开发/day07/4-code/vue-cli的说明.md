@@ -16,6 +16,10 @@
 ## 在webpack项目中, 采用模块化设计, 每一个js文件都是一个node模块, 独立作用域等, 可以通过import替代之前的require, 来导入模块
 
 ## 在webpack项目中, 每一个组件(.vue文件, 都是局部组件)也可以看作一个模块, 作用域独立, 也可以通过import来导入组件
+
+## 导入.vue .js .json文件, 不需要加后缀名
+因为在`config/webpack.base.config.js`中的resolve里配置了`extensions: ['.js', '.vue', '.json']`, 
+
 ## 目录结构的总结
 
 - 只需要在 **src** 目录中写 Vue 代码即可，其他的目录暂时不要动它
