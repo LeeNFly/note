@@ -40,6 +40,23 @@ import 'element-ui/lib/theme-chalk/index.css'
 // 安装插件
 Vue.use(ElementUI)
 ```
+element-ui说明: 
+
+    element-ui 提供的每个标签, 都是一个组件,
+
+    element-ui标签组件将来会被element-ui自动编译, 编译成普通标签, 然后将编译后的标签展示到页面上 (我们不需要关心编译的问题)
+
+    ★ 修改element-ui标签组件的样式, 建议修改element-ui标签组件编译后, 页面生成的具体标签的样式
+
+    element-ui组件标签, 也可以看作是一个标签, 也可以给组件标签添加类名, 属性等. 将来通过查看具体编译后的结果, 再对具体编译后的生成的标签进行添加样式操作
+
+    element-ui组件标签添加类名class, 将来会在编译后生成的具体标签上添加对应类名, 然后就可以通过这个类名给编译生成的具体标签添加样式了
+
+    element-ui标签可以和普通标签一起混合, 嵌套, 并列使用, element-ui标签需要编译后展示, 普通标签直接展示, 并且编译时会保持混合, 嵌套, 并列关系
+
+    element-ui标签可以嵌套, 并列普通标签, 也可以嵌套 并列 element-ui标签, 普通标签也可以嵌套 并列 element-ui标签和普通标签, 并且将来编译的时候会保持标签的嵌套  并列 关系
+
+可以把element-ui标签就当作标签来使用
 
 ## 项目启动做了什么
 - 1 在终端中运行：`npm run dev`，实际上就是运行了：`webpack-dev-server ...`

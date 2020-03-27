@@ -1,4 +1,5 @@
 // webpack 的使用步骤：
+// 前提: 要想使用webpack, 需要先安装node 以及 npm . 
 // 1 安装： npm i -D webpack webpack-cli (webpack是个打包工具, 只需要在开发期间使用到, 在生产环境, 即项目上线后, 不需要用到和依赖webpack)
 // 2 webpack 使用的两种方式：
 //  2.1 命令行的使用方式（知道即可）

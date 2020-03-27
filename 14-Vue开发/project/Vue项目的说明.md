@@ -69,6 +69,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 // 安装插件
 Vue.use(ElementUI)
 ```
+element-ui说明: 
+
   element-ui 提供的每个标签, 都是一个组件,
         
   element-ui标签组件将来会被element-ui自动编译, 编译成普通标签, 然后将编译后的标签展示到页面上 (我们不需要关心编译的问题)

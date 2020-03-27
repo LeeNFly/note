@@ -12,6 +12,7 @@ Node Package Manager node包管理工具
 
 ## npm安装
 只要安装好了node, 那么npm就自动安装好了
+使用npm前, 需要安装node
 
 
 ## npm命令行工具的使用

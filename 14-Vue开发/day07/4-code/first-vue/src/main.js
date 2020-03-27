@@ -17,8 +17,9 @@ new Vue({
   template: '<App/>'
 })
 
-// vue-cli, 快速搭建一个基于webpack的vue项目的目录结构, 并且所有的webpack都配置好了(包含之前学习的webpack配置以及其他的所有webpack配置), 以及所有需要的依赖项(包)都下载好了!!
+// vue-cli(vue脚手架), 快速搭建一个基于webpack的vue项目的目录结构, 并且所有的webpack都配置好了(包含之前学习的webpack配置以及其他的所有webpack配置), 以及所有需要的依赖项(包)都下载好了!!
 // 注意 使用vue-cli初始化项目时, 路径中不要含有中文, 并且文件夹名字不要是敏感文件名, 比如vue, webpack, 即不要是npm上已有的包名
+// 使用vue-cli, 需要先安装node以及npm
 
 // 当使用脚手架初始化好了项目后, ★★★ 只需要修改src目录中的内容即可, 在src目录中写vue代码即可, 其他目录及文件最好不要动！！！
 // 去公司以后, 拿到项目, 第一件事就是: npm i 安装项目中使用到的模块, 让项目跑起来 npm run dev / npm start
