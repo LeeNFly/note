@@ -26,7 +26,11 @@
             @close 菜单收起事件
 
           el-sub-menu 表示一组菜单
-            index 是唯一的，不能重复！！！
+            index 是该菜单的唯一标识，不能重复！！！
+
+          el-menu-item 表示一组菜单el-sub-menu中的子菜单,
+            index 是该子菜单的唯一标识
+            如果要给菜单添加 小图标，应该使用 template 来包裹整个内容
          -->
 
         <el-menu :router="true" default-active="/home/users" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
@@ -42,6 +46,9 @@
             </template>
 
             <!-- 启用路由模式后，index就相当于 原来 router-link 中的to属性，用来指定导航的路径（哈希值） -->
+            <!-- 相当于菜单菜单变成 <a href="#/home/users"></a>, 点击菜单则URL地址栏中中的#锚点部分会被覆盖成#/home/users
+                 然后路由会自动监听到锚点的变化, 从而展示对应的路由组件 (这里应该是子路由的匹配规则了)
+             -->
             <!-- 可以使用 /home/users 或者 home/users -->
             <el-menu-item index="/home/users">
               <template slot="title">
