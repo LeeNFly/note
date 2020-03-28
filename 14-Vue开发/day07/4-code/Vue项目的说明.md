@@ -56,7 +56,7 @@ element-ui说明:
 
     element-ui标签可以嵌套, 并列普通标签, 也可以嵌套 并列 element-ui标签, 普通标签也可以嵌套 并列 element-ui标签和普通标签, 并且将来编译的时候会保持标签的嵌套  并列 关系
 
-可以把element-ui标签就当作标签来使用
+    可以把element-ui标签就当作标签来使用, element-ui在组件的template中使用, 所以也可以使用/也拥有vue特性
 
 ## 项目启动做了什么
 - 1 在终端中运行：`npm run dev`，实际上就是运行了：`webpack-dev-server ...`

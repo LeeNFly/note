@@ -85,7 +85,7 @@ element-ui说明:
 
   element-ui标签可以嵌套, 并列普通标签, 也可以嵌套 并列 element-ui标签, 普通标签也可以嵌套 并列 element-ui标签和普通标签, 并且将来编译的时候会保持标签的嵌套  并列 关系
 
-  可以把element-ui标签就当作标签来使用
+  可以把element-ui标签就当作标签来使用, element-ui在组件的template中使用, 所以也可以使用/也拥有vue特性
 
 ---
 
@@ -106,12 +106,15 @@ element-ui说明:
 ## 编程式导航
 
 - 就是通过 JS 代码来实现路由的跳转功能
-
+- 在vue实例中使用路由时, vue会将使用的路由对象拷贝一份到vue实例身上, 可以通过this.$router (this指向vue实例) 或 vue实例.$router访问
+- 可以通过路由对象.push方法, 跳转到当前路由对象中对应的路由
 ```js
 // 注意：是 router 不是 route
 // router用来实现路由跳转，route用来获取路由参数
-// push 方法的参数为：要跳转到的路由地址（path）, 跳转到对应路由地址, 并会改变地址栏URL锚点, 页面重新渲染该路由对应的组件
+// push 方法的参数为：要跳转到的路由地址（path）, 跳转到对应路由地址, 并会改变地址栏URL锚点, 然后被路由监听到, 页面重新渲染该路由对应的组件
 this.$router.push('/home')
+vue实例.$router.push('/home')
+
 ```
 
 ## 密码
@@ -198,7 +201,7 @@ BE（后端） back-end
   
     element-ui标签可以嵌套, 并列普通标签, 也可以嵌套 并列 element-ui标签, 普通标签也可以嵌套 并列 element-ui标签和普通标签, 并且将来编译的时候会保持标签的嵌套  并列 关系
   
-    可以把element-ui标签就当作标签来使用
+    可以把element-ui标签就当作标签来使用, element-ui在组件的template中使用, 所以也可以使用/也拥有vue特性
     
 ## vue 单文件组件中的 lang
 

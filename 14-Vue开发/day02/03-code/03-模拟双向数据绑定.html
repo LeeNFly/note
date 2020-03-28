@@ -12,6 +12,12 @@
       <h1 id="myh"></h1>
     </div>
     <script>
+
+      // vue底层是通过Object.defineProperty来实现双向数据绑定以及视图自动更新的 (已经帮我们实现了)
+
+      // 实现原理如下: (了解即可, vue底层已经帮我们实现了)
+
+      
       let obj = {} // 将来要给这个对象增加一个name属性
 
       Object.defineProperty(obj, 'name', {
@@ -29,6 +35,17 @@
 
       document.getElementById('myinput').addEventListener('input', function(e) {
         obj.name = e.target.value // 这里相当于给obj.name赋值，如果这个地方我们用了Object.defineProperty定义obj里面的属性的话，它就会去调用这个setter函数
+      })
+
+      // 如何解除v-model双向数据绑定
+      // 覆盖要解除绑定变量的defineProperty的getter, setter方法
+      Object.defineProperty(obj, 'name', {
+        get() {
+          return name
+        },
+        set(newName) {
+          name = newName
+        }
       })
     </script>
   </body>

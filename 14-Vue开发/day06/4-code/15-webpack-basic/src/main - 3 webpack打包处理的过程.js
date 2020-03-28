@@ -23,7 +23,7 @@
 // CommonJS 中的模块化语法
 // const $ = require('jquery')
 
-// ES6 中的模块化语法: (浏览器和node无法识别, 需要借助webpack打包后才能识别)
+// ES6 中的模块化语法: (浏览器和node无法ES6模块化语法识别, 需要借助webpack打包后才能识别)
 // 除了可以导入js, 还可以导入包或其他任意文件！！！
 import $ from 'jquery' // 类似于之前的script标签引入jq, 在当前js中直接引入jq, $就是jQuery暴露到全局的jQuery函数, 与之前一样, 可以直接使用$来使用jQuery
 

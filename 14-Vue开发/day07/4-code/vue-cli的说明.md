@@ -13,7 +13,7 @@
 - 在 `.eslintrc.js` 中添加 `'space-before-function-paren': 'off'` 关闭 方法名字后的空格校验规则
 - 前提：如果使用了老师的 VScode 配置（ prettier ）
 
-## ★ 在webpack项目中, 采用模块化设计, 每一个js文件, 都是一个node模块(nodejs), 独立作用域等, 可以通过import语法替代之前的require, 来导入模块, 文件, 组件等, 导入后就可以在当前模块/组件中使用了
+## ★ 在webpack项目中, 采用模块化设计, 每一个js文件, 都是一个node模块(nodejs), 独立作用域等, 可以通过import语法替代之前的require, 来导入模块, 文件, 组件等, 导入后就可以在当前模块/组件中使用了, 每个模块可以多个文件导入, 使用多次
 
 ## 在webpack项目中, 每一个组件(.vue文件, 都是局部组件)也可以看作一个模块, 作用域独立, 也可以通过import来导入组件
 

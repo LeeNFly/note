@@ -39,7 +39,12 @@
       <el-table-column prop="mobile" label="电话" width="180">
       </el-table-column>
       <el-table-column label="用户状态">
-        <!-- scope.row 表示当前行的数据 -->
+        <!-- 表格中自定义列的使用, 通过template在el-table-column中定义自定义列 -->
+
+        <!-- scope.row 表示当前行的对应的在data中的对象数据
+             在自定义列template中可以在 插值表达式 或 指令 中的任意地方使用
+             scope.row 每一行对应的data中的对象数据
+         -->
         <template slot-scope="scope">
           <!--
             v-model 用来绑定数据
@@ -65,7 +70,7 @@
         layout 分页显示的内容
         total 总条数
 
-        给 current-page 属性添加 .sync 修饰符后, 就可以设置当前页
+        给 current-page 属性添加 .sync 修饰符后, 就可以设置当前页, 即修改curPage, 可以直接同步组件中显示高亮的当前页
     -->
     <el-pagination background layout="prev, pager, next" :total="total" :page-size="pageSize" :current-page.sync="curPage" @current-change="changePage">
     </el-pagination>
@@ -270,7 +275,7 @@ export default {
       if (meta.status === 200) {
         // 获取数据成功
         this.userList = data.users
-        this.total = data.total
+        this.total = data.total // 设置分页组件总条数
         this.curPage = data.pagenum
       }
     },

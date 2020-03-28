@@ -18,19 +18,19 @@
 
       element-ui标签可以嵌套, 并列普通标签, 也可以嵌套 并列 element-ui标签, 普通标签也可以嵌套 并列 element-ui标签和普通标签, 并且将来编译的时候会保持标签的嵌套  并列 关系
 
-      可以把element-ui标签就当作标签来使用
+      可以把element-ui标签就当作标签来使用, element-ui在组件的template中使用, 所以也可以使用/也拥有vue特性
     -->
     <!--
       el-form
         label-position="top" 设置label的位置
-        :model 用来给表单设置数据模型（对象）
+        :model 用来给表单设置数据模型（对象）, 即该表单对应哪个数据对象
         :rules 用来设置表单验证规则的
-        ref 用来引用当前的表单组件
+        ref 用来引用当前的表单组件, 之后通过vue实例.$refs.ref值 可以拿到该表单组件vue实例
 
       el-form-item
         label 当前表单项的名称
         prop 它的值是 el-form中 model属性对应数据对象中的一个属性
-          当使用 表单验证 或者 表单重置 功能时，必须要提供该属性, 表示对应校验/重置的表单数据对象中的哪个属性
+          当使用 ★ 表单验证 或者 ★ 表单重置 功能时，必须要提供该属性, 表示对应校验/重置的表单数据对象中的哪个属性
 
       el-input
         v-model 实现双向数据绑定
@@ -72,7 +72,8 @@ export default {
         username: [
           // required 是否为必填项
           // message 当前规则校验失败时的提示
-          // trigger 表单验证的触发实际，blur表示失去焦点时触发
+          // trigger 表单验证的触发时机，blur表示失去焦点时触发校验, change在表单值发生改变时触发校验
+          // 如果需要在值改变或者失去焦点的时候，都触发验证，可以传递两个 trigger: 'change, blur'
           { required: true, message: '用户名为必填项', trigger: 'blur' },
           // min 最小长度
           // max 最大长度
@@ -160,9 +161,9 @@ export default {
 
     submitForm() {
       // ref 用在组件中，就表示当前组件vue实例
-      // this.$refs.loginForm 拿到el-form组件vue实例, el-form的vue实例中提供了validate方法, 用于校验el-form内表单的
+      // this.$refs.loginForm 拿到el-form组件(loginForm)的vue实例, el-form的vue实例中提供了validate方法, 用于校验el-form内表单的
       this.$refs.loginForm.validate(valid => {
-        // valid 表示是否校验成功，如果成功就为：true
+        // valid 表示是否校验成功，如果校验成功就为：true, 校验失败为false
         // 如果失败就为：false
         if (valid) {
           // 成功：调用登录接口
@@ -178,7 +179,7 @@ export default {
       })
     },
     resetForm() {
-      // el-form的vue实例中提供了resetFields方法, 用于重置el-form内表单的
+      // this.$refs.loginForm 拿到el-form组件(loginForm)的vue实例, el-form的vue实例中提供了resetFields方法, 用于重置el-form内表单的
       this.$refs.loginForm.resetFields()
     }
   }

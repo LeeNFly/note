@@ -19,34 +19,38 @@ import axios from 'axios'
 // axios 在发送请求之前, 会将 baseUrl + '/users' 得到完整路径, 才会发送请求
 axios.defaults.baseURL = 'http://localhost:8888/api/private/v1'
 
-// 只要配置了拦击器, 那么所有的请求都会走拦截器
+// axios只要配置请求了拦击器, 那么axios发送的所有的请求都会先走(执行)请求拦截器, 然后再发送请求
 // 因此,可以在拦截器中统一处理 headers
 
 // 请求拦截器
 axios.interceptors.request.use(function(config) {
   // 在请求发送之前做一些事情
   // endsWith 字符串的方法,用来判断是不是以参数为结尾,如果是返回值为true
+  // config: 包含请求的一些基本信息, 将来axios是根据config中的信息来发送请求, 所以, 我们将要添加, 修改的请求中的信息在config中做出修改即可.
 
   // 判断如果是登录接口,就不需要添加 Authorization 请求头
   if (!config.url.endsWith('/login')) {
+    // config.headers 请求头信息
     config.headers['Authorization'] = localStorage.getItem('token')
   }
   // console.log('请求拦截器', config)
-  return config
+  return config // 之后axios会
 })
+
+// axios只要配置响应了拦击器, 那么axios在服务器响应回数据时, 会先走(执行)响应拦截器, 然后在将数据响应给浏览器
 
 // 响应拦截器
 axios.interceptors.response.use(function(response) {
   // 在获取到响应数据的时候做一些事情
-  // console.log('响应拦截器', response)
+  // console.log('响应拦截器', response) // response与之前axios请求的返回数据格式一样, 也是axios封装的响应数据格式
   if (response.data.meta.status === 401) {
     // 因为现在不是在组件中,因此无法通过 this.$router 来访问到路由实例
     // 但是，可以直接通过上面导入的路由模块中的 router （路由实例）来访问到路由对象
-    router.push('/login')
+    router.push('/login') // 路由跳转
     localStorage.removeItem('token')
   }
 
-  return response
+  return response // 将response响应给浏览器
 })
 
 // 将 axios 添加到Vue的原型中

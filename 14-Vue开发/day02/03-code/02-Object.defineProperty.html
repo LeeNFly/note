@@ -10,6 +10,10 @@
     <div id="app">
     </div>
     <script>
+      // vue底层是通过Object.defineProperty来实现双向数据绑定以及视图自动更新的 (已经帮我们实现了)
+
+      // 实现原理如下: (了解即可, vue底层已经帮我们实现了)
+      
       // Object.defineProperty阔以用于给对象添加更新属性
       let obj = {}
       // 该方法中包含以下参数：需要添加属性的对象，你需要加的属性，配置项
