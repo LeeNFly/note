@@ -75,7 +75,7 @@ devDependencies: 例如less包, 只需要在开发时用到, 开发时通过Less
 
 ## 如何将依赖项的信息保存到dependencies 和 devDependencies中
 在最新的npm版本中, 执行下载操作, 会默认自动将包信息添加到package.json的运行时依赖项dependencies中
-在最新的npm版本中, 执行卸载操作, 会自动将包信息从package.json中对应的dependencies或devDependencies中删除
+在最新的npm版本中, 执行卸载操作`npm uninstall 包名`, 会自动将包信息从package.json中对应的dependencies或devDependencies中删除 (不通过执行命令, 直接删除node_modules文件夹, 是不会删除package.json中的依赖项信息的)
 
 在早期版本的npm中，依赖项信息不会自动保存！
 需要手动保存依赖项信息

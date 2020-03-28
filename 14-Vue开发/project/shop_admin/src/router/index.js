@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+// 先将组件导入, 之后就可以在路由中使用了. 相当于导入了组件的vue实例
+
 // 导入 Login 组件（注意，不要添加 .vue 后缀）
 import Login from '@/components/login/Login'
 // 导入首页组件
@@ -12,6 +14,7 @@ import Rights from '@/components/rights/Rights'
 // 导入角色列表组件
 import Roles from '@/components/roles/Roles'
 
+// 安装路由插件，在 webpack 这样的模块化系统中，必须执行这一步
 Vue.use(Router)
 
 const router = new Router({
