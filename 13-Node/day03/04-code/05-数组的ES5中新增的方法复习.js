@@ -1,4 +1,4 @@
-var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 2];
 
 
 // 1. 遍历 forEach
@@ -68,3 +68,15 @@ var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // })
 
 // console.log(newArr)
+
+// 7. findIndex
+// 返回数组中 ★ 第一个满足条件(函数return true就是满足条件)的元素的 ★索引号 , 不会改变数组
+
+// var index = arr.findIndex(item => item === 2)
+// var index = arr.findIndex(function (item) {
+//     return item === 2
+// })
+
+// console.log(index);
+
+// 以上所有你们函数都可以使用箭头函数及箭头函数的简写方式来改造
