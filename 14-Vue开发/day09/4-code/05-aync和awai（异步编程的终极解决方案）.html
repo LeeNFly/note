@@ -29,7 +29,7 @@
       // await 关键字后面跟一个 Promise 对象 (await用在Promise对象之前, 用来修饰Promise对象的)
       // await 会等待该Promise封装的异步操作执行完毕后，才会执行后面的代码 
       // await实际上是先阻塞栈中代码执行, 等Promise对象调用resolve后, 才会继续执行await 之后的代码
-      // res 就是 Promise 中调用 resolve 函数时传递的参数 (必须要配合await res才是resolve的数据)
+      // res 就是 Promise 中调用 resolve 函数时传递的参数 (必须要配合await res才是resolve传递的参数数据)
       const res = await fn()
       console.log('await 后的结果为：', res)
     }

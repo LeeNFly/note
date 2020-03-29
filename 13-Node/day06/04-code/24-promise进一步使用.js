@@ -59,7 +59,7 @@ function timeout(time) {
 // Promise.race: 在第一个Promise异步操作完成之后，就执行某个任务
 
 
-// var arr = [timeout(1000), timeout(2000), timeout(1500)];
+// var arr = [timeout(1000), timeout(2000), timeout(1500)]; // 该数组的元素都是promise对象
 
 // Promise.all(arr).then(function (data) {
 //     console.log("所有的异步操作都完成了", data);
