@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+    <title>Document</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="./vue2.js"></script>
@@ -26,13 +26,13 @@
         注意: 若{{}}解析和执行的最后结果为字符串, 则输出时不会带最外层引号, 因为字符串在单独输出时不带最外层引号
         注意: 插值表达式的 ★★★ 使用位置是在标签的innerHTML位置, 即只能在标签的文本部分使用,
              在标签的属性部分, 不能使用插值表达式!!!
-        注意: 插值表达式 可以 和 标签内的其他内容共存, 不会覆盖标签的内容
+        注意: 插值表达式 可以 和 标签内(innerHTML)的其他内容共存, 不会覆盖标签内部的内容
       -->
     <div id="app">
       <h1>{{username}}</h1>
       <h1>{{'欧阳' + username}}</h1>
       <p>{{age+1}}</p>
-      <p>{{age>=18?'已成年':'未成年'}}</p>
+      <p>{{ age >= 18 ? '已成年' : '未成年' }}</p>
       <!-- <p>{{if(age>=18) {return '已成年'}}}</p>   虽然if else语句等价于三元表达式，但是不能在插值表达式中使用 -->
       <p>{{username.split('').reverse().join('')}}</p>
     </div>

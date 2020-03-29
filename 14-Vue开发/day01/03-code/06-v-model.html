@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+    <title>Document</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="./vue2.js"></script>
@@ -16,14 +16,15 @@
               data中变量的值发生改变, 表单的value值发生同步改变.
            如果v-model用在复选框checkbox和单选框radio里, 则表单元素的checked属性与data中对应的变量完成双向绑定,
               data中数据为true则表单更新为选中状态, data中数据为false则表单更新为不选中状态 (支持隐式布尔类型转换),
-              同样的, 选中则data中绑定的数据就更新为true, 不选中, 则vue中的数据就更新为false
+              同样的, 复选框勾选则data中绑定的数据就更新为true, 不选中, 则vue中的数据就更新为false
            如果v-model用在下拉框里, 则select的value值与data中对应的变量的值完成双向绑定
               select的value值与data中绑定的变量的值保持一致;
               表单的value值改变, 则data中变量的值同步改变;
               data中变量的值发生改变, 表单的value值发生同步改变.
+              select标签的value值与选择的option的value值始终保持一致
       -->
       <!-- 若data中的变量为对象的, 则v-model也可以和data中的对象变量中的某个属性绑定, 比如data中有一个user属性, user: {name: 'zs', age: 18},
-            v-model = "user.name", 表示与data中user变量中的name属性完成双向绑定, 也会实现实时渲染的!!!
+            v-model = "user.name", 表示与data中user变量中的name属性完成双向绑定, 也会实现实时更新数据和渲染页面的!!!
 
             双向绑定可以和data中的任意变量完成双向绑定, 双向绑定后 视图 和 变量 都会同步更新
        -->
@@ -34,7 +35,7 @@
       <!-- 双向数据绑定就是：数据模型中的数据与视图中的数据同步变化
 
             单项数据绑定: 数据模型(data)中的数据变化, 视图会★自动★跟着更新 根据data中的最新数据重新渲染页面 (视图中的所有标签, 元素, 组件都会★自动★根据更新后的数据(data)重新进行渲染)
-            双向数据绑定: 数据模型(data)中的数据变化, 视图会★自动★跟着更新 根据data中的最新数据重新渲染页面  (视图中的所有标签, 元素, 组件都会★自动★根据更新后的数据(data)重新进行渲染); 视图中的数据发生变化, 数据模型(data)中的数据会★自动★跟着变化
+            双向数据绑定: 数据模型(data)中的数据变化, 视图会★自动★跟着更新 根据data中的最新数据重新渲染页面  (视图中的所有标签, 元素, 组件都会★自动★根据更新后的数据(data)重新进行渲染); 视图中的数据发生变化, 数据模型(data)中的数据会★自动★跟着变化, 然后数据模型中数据变化后, 又会反过来重新更新视图
             注意: vue中视图自动更新渲染, 是异步操作, 不会阻塞栈, 需要放到浏览器任务队列中等待栈空时被执行
       -->
       <input type="text" v-model="name">
