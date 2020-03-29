@@ -56,7 +56,7 @@
 function timeout(time) {
     // ★★★ 只有Promise对象有.then方法, 所以我们需要返回一个Promise对象
     return new Promise(function (resolve, reject) {
-        // function 该函数会在Promise对象被创建时调用一次
+        // function 该函数会在Promise对象被创建时调用一次(同步调用)
         setTimeout(function () {
             // 当异步操作完成之后，我们不需要考虑要执行什么回调函数, 要执行的回调函数会在使用时, 通过promise.then定义好
             // 在创建Promise时, 我们不需要关心成功或失败的回调函数是什么, 回调函数会在调用.then时定义好

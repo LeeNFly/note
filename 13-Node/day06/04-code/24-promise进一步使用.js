@@ -39,6 +39,7 @@
 
 
 // promise的catch说明
+// 可以把失败的回调函数写在.catch中
 function timeout(time) {
     return new Promise((resolve, reject) => {
         setTimeout(function () {
