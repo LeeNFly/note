@@ -42,7 +42,7 @@
         <!-- 表格中自定义列的使用, 通过template在el-table-column中定义自定义列 -->
 
         <!-- scope.row 表示当前行的对应的在data中的对象数据
-             在自定义列template中可以在 插值表达式 或 指令 中的任意地方使用
+             在自定义列template内部可以在 插值表达式 或 指令 中的任意地方 访问使用scope
              scope.row 每一行对应的data中的对象数据
          -->
         <template slot-scope="scope">
@@ -76,6 +76,9 @@
     </el-pagination>
 
     <!-- 添加用户对话框 -->
+    <!--
+        visible.sync属性, 当对话框隐藏的时候, 不会渲染对话框, 当对话框显示的时候, 才会渲染对话框内容, 且渲染的方式是异步渲染的
+     -->
     <el-dialog title="添加用户" :visible.sync="userAddDialog" @close="closeUserAddDialog">
       <el-form :model="userAddForm" :rules="userAddRules" ref="userAddForm">
         <el-form-item prop="username" label="用户名" label-width="120px">
