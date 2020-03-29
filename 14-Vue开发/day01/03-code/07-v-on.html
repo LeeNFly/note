@@ -20,7 +20,7 @@
         一个事件可以被触发多次, 每次触发, 都会调用 一次 对应事件的事件处理函数
         只要是触发了事件, 都会调用对应的事件处理函数
 
-        特殊: 绑定的事件处理函数一般都在mthods中, 而methods中的函数的this都指向vue实例, 所以事件处理函数中this不再指向注册事件的dom元素了
+        特殊: 绑定的事件处理函数一般都在methods中, 而methods中的函数的this都指向vue实例, ★ 所以vue中事件处理函数中this不再指向注册事件的dom元素了, 而是指向vue实例
         //    如何解决? : 后续使用ref属性, 通过vue实例也可以拿到dom元素
 
         v-on简写: @
@@ -28,9 +28,9 @@
        -->
       <button v-on:click="changeName">点击改变</button>
       <button @click="changeName">点击改变简写</button>
-      <!-- 传参, 在指令中, 这里不是调用函数的意思 -->
+      <!-- 传参, 在指令中, 这里不是调用函数的意思, 参数可以传多个 参数会在事件处理函数中按顺序一一对应接收 -->
       <!-- 在绑定事件时传参, 若后续视图更新渲染, 如果传参的值发生改变, 则对应的事件处理函数传参的值也会发生改变  -->
-      <button @click="changeNameByArg('黑马程序员')">点击改变传参 (参数会在事件处理函数中按顺序一一对应接收)</button>
+      <button @click="changeNameByArg('黑马程序员')">点击改变传参</button>
       <!-- 注意如果想要传递事件对象，就只能写$event，并且不能加引号 -->
       <button @click="getEvent($event)">点击获取事件对象</button>
 
@@ -40,7 +40,7 @@
       <a href="http://www.baidu.com">跳转到百度</a>
       <a href="http://www.baidu.com" @click.prevent="print">打印一句话</a>
 
-      <!-- 按键修饰符, 键盘事件特有 -->
+      <!-- 按键修饰符, 键盘事件(keyup, keyDown, keyPress)特有 -->
       <!-- 在键盘按下特定按键时, 才会调用事件处理函数 -->
       <!-- 通过键盘码修饰 -->
       <input type="text" v-model="name" @keyDown.13="submit">
@@ -64,7 +64,7 @@
         data: {
           name: 'itcast',
         },
-        // vue中规定, vue实例中所有定义(声明, 创建)函数都在methods对象的属性中定义(推荐使用es6对象中函数属性简写形式), 可以声明多个, methods中都是声明函数, 不会调用
+        // vue中规定, vue实例中所有定义(声明, 创建)函数都在methods对象的属性中定义(推荐使用es6对象中函数属性简写形式), 可以声明多个, methods中都是函数的声明, 不会调用
         // methods是一个对象, 内部只用来声明函数, 推荐使用es6对象简写函数属性的方式
         // ★ 在vue实例methods属性中的所有函数, 他们的函数体中的this都是指向vue实例对象
         // 而vue实例对象中, 所有的data中的变量及其值, 都会保存一份到vue实例对象的属性上, 并且始终保持他们是实时同步且一致的, 即只要其中某一个变, 另一个也会自动跟着一起变, 始终保持一致 , 且是实时 ★同步★立刻更新的, 实时同步保持一致
