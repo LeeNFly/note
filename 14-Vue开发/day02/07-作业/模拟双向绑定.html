@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <span></span>
+    <script>
+        const obj = {}
+        var input = document.querySelector('input')
+        var span = document.querySelector('span')
+        Object.defineProperty(obj, 'name', {
+            get() {
+                console.log('get触发了')
+                return name
+            },
+            set(newName) {
+                console.log('set触发了', newName);
+                name = newName
+                span.innerText = newName
+                input.value = newName
+            }
+        })
+        
+        input.addEventListener('input', function () {
+            obj.name = input.value
+        })
+    </script>
+</body>
+</html>

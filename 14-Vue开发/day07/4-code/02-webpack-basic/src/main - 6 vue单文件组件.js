@@ -3,7 +3,7 @@
 /*
   准备: 安装vue: npm install vue -D
   处理 Vue 中的单文件组件：
-  单文件组件以.vue结尾, 需要被预编译后才能被浏览器识别和使用 依赖于 vue-loader 和 vue-template-compiler
+  单文件组件以.vue结尾, 需要被webpack预编译后才能被浏览器识别和使用 依赖于 vue-loader 和 vue-template-compiler
   单文件组件说明详细请看 App.vue
 
   1 安装：npm i -D vue-loader vue-template-compiler
@@ -12,8 +12,8 @@
   3 在 webpack.config.js中 plugins配置中, 添加插件 VueLoaderPlugin
   4 创建一个 App.vue 以.vue为后缀的单文件组件
   5 单文件组件有三个组成部分： template / script / style
-  6 在 main.js 入口中导入vue
-  7 在 main.js 入口中导入这个单文件组件
+  6 在 main.js 入口中导入vue模块
+  7 在 main.js 入口中导入这个单文件组件App模块
   7 创建 vue实例 , 在vue实例中通过 render 方法来渲染这个组件
 
   以上这些步骤只需要配置一次即可. 将来整个页面就只有这个一个vue实例 (单页应用程序)

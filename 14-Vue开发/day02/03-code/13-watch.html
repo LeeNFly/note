@@ -21,7 +21,7 @@
           fullName: ''
         },
         // watch监听器会监听data中数据的变化，只要一变化，就能够执行相应的逻辑
-        // 监听的数据名放到这里面作为函数名，这个函数里面有两个参数，一个是新值，一个是旧值
+        // 监听的data中的变量名放到这里面作为函数名，这个函数里面有两个参数，一个是新值，一个是旧值
         watch: {
           firstName(newVal, oldVal) {
             console.log(newVal, oldVal)
@@ -34,7 +34,7 @@
             }, 200);
           }
         }
-        // 对比computed而言，这个computed性能更好，所以能用computed实现就用computed实现
+        // 对比computed而言，computed性能更好，所以能用computed实现就用computed实现
         // 在涉及到异步数据操作的时候，就只能用watch去实现了。
 
        // watch说明：

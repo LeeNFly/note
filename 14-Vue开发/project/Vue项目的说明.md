@@ -29,8 +29,9 @@
 - 8 动态菜单
 
 ## 项目搭建
+-0 安装vue-cli `npm i -g vue-cli`
 
-- 1 `vue init webpack shop_admin`
+- 1 `vue init webpack shop_admin` (用脚手架初始化项目, 要求项目路径中不能有中文!!!)
 
 ```html
 Project name                            ：默认

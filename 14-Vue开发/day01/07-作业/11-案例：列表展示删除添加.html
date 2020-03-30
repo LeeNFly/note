@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./vue2.js"></script>
+  <style>
+    #app {
+      width: 600px;
+      margin: 10px auto;
+    }
+
+    .tb {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .tb th {
+      background-color: #0094ff;
+      color: white;
+    }
+
+    .tb td,
+    .tb th {
+      padding: 5px;
+      border: 1px solid black;
+      text-align: center;
+    }
+
+    .add {
+      padding: 5px;
+      border: 1px solid black;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="add">
+      编号:<input type="text" v-model="newId" ref="newId">
+      品牌名称:<input type="text" v-model="brandName" @keydown.enter="addBrand()">
+      <input type="button" value="添加" @click="addBrand">
+    </div>
+
+    <div class="add">
+      品牌名称:<input type="text" placeholder="请输入搜索条件" v-model="searchKeyWords" @keydown.enter="searchBrandByName">
+    </div>
+
+    <div>
+      <table class="tb">
+        <tr>
+          <th>编号</th>
+          <th>品牌名称</th>
+          <th>创立时间</th>
+          <th>操作</th>
+        </tr>
+        <tr v-for="item in list">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.ctime | formatDate('-') }}</td>
+          <td>
+            <button @click="delBrandById(item.id)">删除</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+<script>
+  Vue.filter('formatDate', (timeData, separator) => {
+    let str = ''
+    const year = timeData.getFullYear()
+    const month = timeData.getMonth() + 1
+    const day = timeData.getDate()
+    return year + separator + month + separator + day
+  })
+  new Vue({
+    el: '#app',
+    data: {
+      list: [{
+          id: 33,
+          name: 'LV',
+          ctime: new Date()
+        },
+        {
+          id: 44,
+          name: 'CC',
+          ctime: new Date()
+        },
+        {
+          id: 55,
+          name: 'NIKE',
+          ctime: new Date()
+        },
+        {
+          id: 66,
+          name: 'YSL',
+          ctime: new Date()
+        },
+      ],
+      newId: '',
+      brandName: '',
+      searchKeyWords: ''
+    },
+    mounted() {
+      this.$refs.newId.focus()
+    },
+    methods: {
+      delBrandById(brandId) {
+        const index = this.list.findIndex(item => item.id === brandId)
+        this.list.splice(index, 1)
+      },
+      addBrand() {
+        this.list.push({
+          id: this.newId,
+          name: this.brandName,
+          ctime: new Date()
+        })
+        this.newId = ''
+        this.brandName = ''
+      },
+      searchBrandByName() {
+        const searchList = this.list.filter(item => item.name === this.searchKeyWords)
+        this.list = searchList
+      }
+    }
+  })
+</script>
+
+</html>

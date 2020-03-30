@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/home">去首页</router-link>
+        <router-link to="/user">用户管理页</router-link>
+        <router-link to="/stu/1/李一">学生1</router-link>
+        <router-link to="/stu/2/王二">学生2</router-link>
+        <router-link to="/pt/">嵌套路由</router-link>
+
+        <router-view></router-view>
+    </div>
+
+    <script src="./node_modules//vue//dist//vue.js"></script>
+    <script src="./node_modules//vue-router/dist/vue-router.js"></script>
+    <script>
+        const Home = {
+            template: `
+                <div>我是首页</div>
+            `
+        }
+        const User = {
+            template: `
+                <div>我是用户管理页</div>
+            `
+        }
+        const Student = {
+            template: `
+            <div>
+                <div>我的编号是{{$route.params.id}}</div>
+                <div>我叫{{ name }}</div>
+            </div>
+            `,
+            data() {
+                return {
+                    name: ''
+                }
+            },
+            created() {
+                console.log('stu钩子函数执行了');
+                this.name = this.$route.params.name
+            },
+            watch: {
+                // 监视路由的改变
+                // $route(to, from) {
+                //     // from 从哪来，也就是：从哪个路由跳转过来的
+                //     // to   到哪去，也就是：也就是要跳转到的路由（也就是当前路由）
+                //     // console.log(to)
+                //     // console.log('路由参数为：', to.params.id)
+                //     console.log(to, from);
+                //     // const id = to.params.id
+                //     // this.name = this.stuList[id]
+                //     this.name = to.params.name
+                // }
+            }
+        }
+        const Pt = {
+            template: `
+                <div>
+                    <div>平台</div>
+                    <router-view />
+                </div>
+            `
+        }
+
+        const Md1 = {
+            template: `
+                <div>
+                    <div>模块1</div>
+                </div>
+            `
+        }
+
+        const Md2 = {
+            template: `
+                <div>
+                    <div>模块2</div>
+                </div>
+            `
+        }
+        new Vue({
+            el: '#app',
+            router: new VueRouter({
+                routes: [{
+                        path: '/',
+                        redirect: '/home'
+                    },
+                    {
+                        path: '/home',
+                        component: Home
+                    },
+                    {
+                        path: '/user',
+                        component: User
+                    },
+                    {
+                        path: '/stu/:id/:name',
+                        component: Student
+                    },
+                    {
+                        path: '/pt',
+                        component: Pt,
+                        children: [{
+                                path: 'module1',
+                                component: Md1
+                            },
+                            {
+                                path: '/module2',
+                                component: Md2
+                            }
+                        ]
+                    }
+                ]
+            })
+        })
+    </script>
+</body>
+
+</html>

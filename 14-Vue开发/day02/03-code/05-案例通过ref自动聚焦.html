@@ -91,11 +91,11 @@
     mounted () {
       // document.getElementById('myid').focus()
       // 1.2 获取定义的ref可以通过this.$refs.ref的名字
-      // vue实例的$refs属性, 是一个对象, 里面存储着所有当前vue实例管理范围的视图里的ref
+      // vue实例的$refs属性, 是一个对象, 里面存储着所有 ★ 当前vue实例管理范围的视图里的ref
       // vue实例的$refs属性, 是一个对象, 对象中属性名为当前vue实例管理范围内的视图中所有定义的ref属性的属性值, 属性值为对应ref属性所在标签的dom元素
       // 在给标签添加ref属性的时候, 应避免与其他标签的ref属性重复, 否则会覆盖之前相同的ref
-      // vue实例.$refs 可以获取到一个对象, 对象中包含了当前vue实例管理范围内的视图中所有含有ref标签属性的标签的dom元素
-      // vue实例.$refs.ref属性值, 可以拿到当前vue实例管理范围内对应标签属性中ref为ref属性值的标签的dom元素
+      // vue实例.$refs 可以获取到一个对象, 对象中包含了 ★ 当前vue实例管理范围内的视图中所有含有ref标签属性的标签的dom元素
+      // vue实例.$refs.ref属性值, 可以拿到 ★ 当前vue实例管理范围内对应标签属性中ref为ref属性值的标签的dom元素
       // 在钩子函数中, this也是指向vue实例, this.$refs, this.$refs.ref属性值
 
       // 如果后续ref属性写在组件使用处的标签内, 则也会按照上面一样, 在当前vue实例中进行拷贝, 只不过存储的不是dom元素了, 而是对应组件的vue实例了
