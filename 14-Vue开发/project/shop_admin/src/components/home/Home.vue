@@ -46,7 +46,7 @@
             </template>
 
             <!-- 启用路由模式后，index就相当于 原来 router-link 中的to属性，用来指定导航的路径（哈希值） -->
-            <!-- 相当于菜单菜单变成 <a href="#/home/users"></a>, 点击菜单则URL地址栏中中的#锚点部分会被覆盖成#/home/users
+            <!-- 相当于菜单菜单变成 <a href="#/home/users"></a>, 点击菜单则URL地址栏中的#锚点部分会被覆盖成#/home/users
                  然后路由会自动监听到锚点的变化, 从而展示对应的路由组件 (这里应该是子路由的匹配规则了)
              -->
             <!-- 可以使用 /home/users 或者 home/users -->
