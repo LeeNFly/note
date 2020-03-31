@@ -40,6 +40,38 @@
 
     // 所有支持Promise的API, 其内部都封装好了, 会在内部封装的异步操作的回调函数中 resolve(返回的数据), 所以await会一直阻塞栈中代码的执行, 直到Promise内部异步操作的回调函数被执行调用, 才会调用resolve(返回的数据) 返回数据到await处, 然后才会继续执行await之后的代码. 
 
+    // 特殊说明, 若axios配合async 和 await使用, 则axios返回的是axios自己封装的响应数据, 可以在await处使用变量进行接收. 
+    // ★ Promise只有配合async 和 await使用, 在await处才能拿到resolve(参数)传递的参数值
+
+    // async await 运行逻辑说明:
+    // try/catch版本,
+    // 当await后面的Promise对象中, 调用resolve(参数)后, 会回到await处, 继续往下执行await之后的代码, 并且在await处可以拿到Promise调用resolve时传递的参数值, try中代码执行完之后, 不会执行catch中代码, 直接跳出try/catch, 执行try/catch之后的代码
+    // 当await后面的Promise对象中, 调用的是reject('参数'), 此时await后面代码不再执行, 直接进入到catch(err)中, 执行catch代码块中的代码, 通过catch的参数err可以拿到reject(参数)传递的参数, 执行完catch中代码后, 直接跳出try/catch, 执行try/catch之后的代码
+
+    // 示例
+    // async function fn() {
+    //   // await 的返回值是 后面Promise 成功的结果，也就是 resolve 方法的参数
+    //   try {
+    //     // await 拿到的是resolve(参数)成功时传递的数据
+    //     const a = await readFile('./data/aa.txt')
+    //     console.log(a)
+    //   } catch (err) {
+    //     // 在catch中, 可以通过err拿到reject('参数')失败时传递的数据, 并继续往下执行catch中代码
+    //     console.log('出错了：', err)
+    //   }
+    //   // 要想拿到失败时的数据, 要用try/catch语法
+
+    //   const b = await readFile('./data/b.txt')
+    //   const c = await readFile('./data/c.txt')
+    //   const d = await readFile('./data/d.txt')
+
+    //   console.log(b)
+    //   console.log(c)
+    //   console.log(d)
+    // }
+
+    // 当然, 能保证Promise一定调用resolve的情况下, 可以不使用try/catch模式来使用await, await处拿到的就是resolve()中的参数, 并且resolve()后会回到await处继续执行await之后的代码.
+    // 如果不写try/catch来使用await, 如果Promise调用的是reject(), 则程序报错, 停止执行. 如果外面写了try/catch, 则不报错, 继续执行catch中代码, 执行结束后跳出try/catch, 继续执行try/catch之后的代码
     foo()
   </script>
 </body>

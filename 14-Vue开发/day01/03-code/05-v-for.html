@@ -10,7 +10,7 @@
     <div id="app">
       <!--
         v-for指令可以用来遍历数组/对象
-        它可以根据data中数据的更新动态刷新视图 (包括引用地址里, 只要数据发生更新, 也会刷新视图, 与引用地址是否发生改变无关)
+        它可以根据data中数据的更新动态刷新视图 (包括data中的数据如果为, 引用地址里, 只要引用地址里的数据发生更新, 也会刷新视图, 与引用地址是否发生改变无关)
         数据不一定要在数组中, 只要是v-for中有关的任何数据, 只要数据更新, v-for都会自动进行重新渲染视图的. 
         v-for也是指令, 拥有指令的特性
         1. 遍历数组
@@ -23,12 +23,13 @@
           // 注意: 虽然对象是无序的, 但是遍历对象的时候, 遍历属性的顺序和对象创建时的顺序一致
 
 
-        注意：使用下面两种方式改变数组不能够动态刷新视图
+        注意：使用下面两种方式改变数组不能够动态刷新视图 (除了这2种之外的其他方式改变数组, 视图都会自动重新渲染)
           1. 使用数组的length属性去更改数组的时候不行, 比如arr.length = 0;
           2. 使用索引的方式去更改数组也不行, 比如 arr[0] = 3
         解决方式:
           1. Vue.set(arr, index, value)方法 arr:表示需要设置的数组，index表示数组索引，value表示该索引项的新的值⭐，例如：Vue.set(vm.list, 0, {id: 111, name: 'jack'})
           2. 直接调用数组的splice()方法 (推荐)
+          3. ★ 支持数组的其他操作, 比如push, pop, unshift, shift, 视图都会自动渲染!!!
 
         v-for的作用: 遍历生成v-for所在标签及标签的内容, 并渲染(输出到)到页面上 (遍历生成的标签标签属性上是没有v-for属性的)
         注意: v-for="(item, index) in arr"
@@ -65,6 +66,8 @@
       <ul>
         <li v-for="(value, key, index) in boss" :key="index">{{key}}:{{value}}-------{{index}}</li>
       </ul>
+
+      <button @click="add">加数据</button>
     </div>
     <script>
       var vm = new Vue({
@@ -76,6 +79,15 @@
             {id: 13, name: 'neil'}
           ],
           boss: {name: 'mayun', age: 50}
+        },
+        methods: {
+          add() {
+            // this.list.push({name: 123, id: 66})
+            // this.list.splice(0, 1, {name: 11, id: 22}, {name: 33, id: 44})
+            // this.list.unshift({name: 123, id: 66})
+            this.list.pop()
+
+          }
         }
       })
     </script>

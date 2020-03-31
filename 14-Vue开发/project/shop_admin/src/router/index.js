@@ -51,7 +51,7 @@ router.beforeEach((to, from, next) => {
   // ...
 
   if (to.path === '/login') {
-    // to.path, 要去的那个路由的规则.
+    // to.path, 要去的那个路由的规则. (这里请使用to来, 不要使用location.hash来判断)
     // 如果访问的是login页面，直接放行，也就是任何人不管有没有登录
     // 都可以访问登录页面
     // 直接调用 next() 方法，表示：访问的是哪个页面，就展示这个页面的内容

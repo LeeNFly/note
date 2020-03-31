@@ -13,7 +13,7 @@
   4 创建一个 App.vue 以.vue为后缀的单文件组件
   5 单文件组件有三个组成部分： template / script / style
   6 在 main.js 入口中导入vue模块
-  7 在 main.js 入口中导入这个单文件组件App模块
+  7 在 main.js 入口中导入这个单文件组件App 文件
   7 创建 vue实例 , 在vue实例中通过 render 方法来渲染这个组件
 
   以上这些步骤只需要配置一次即可. 将来整个页面就只有这个一个vue实例 (单页应用程序)

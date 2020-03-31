@@ -33,6 +33,9 @@
         注意: 若{{}}解析和执行的最后结果为字符串, 则输出时不会带最外层引号, 因为字符串在单独输出时不带最外层引号
         注意: 普通标签: <div show="true"></div> => show标签属性对应的属性值为 字符串string true
               指令: <div :show="true"></div> => 指令支持js基本语法, show标签属性对应的属性值为 布尔值boolean true
+
+              普通标签: <div show="left"></div> => show标签属性对应的属性值为 字符串string left
+              指令: <div :show="left"></div> => 指令支持js基本语法, show标签属性对应的属性值为 data中变量left的值
       -->
       <!--
         v-bind指令用于动态绑定属性

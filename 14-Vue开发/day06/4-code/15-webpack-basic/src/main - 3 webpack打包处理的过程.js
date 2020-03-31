@@ -10,8 +10,8 @@
 // 2 webpack 就会找到我们指定的入口文件 main.js (入口文件只能是js文件)
 // 3 webpack 就会分析 main.js 中的代码, 当遇到 import $ from 'jquery' 语法的时候, 那么, webpack
 //    就知道,我们要使用 jQuery 这个模块
-// 4 webpack 就会将jQuery模块的代码拿过来
-// 5 然后,继续往后分析, 如果在遇到 import 语法 (还可以导入其他css, js文件), 继续加载这个模块 ...
+// 4 webpack 就会将jQuery模块的代码拿过来分析处理打包
+// 5 然后,继续往后分析, 如果在遇到 import 语法 (还可以导入其他css, js文件), 继续加载这个模块 ... 然后分析处理打包
 // 6 直到分析完成整个入口文件后, 将 main.js 中所有用到的模块的代码 与 我们自己写的js代码 保留原来的代码逻辑
 //   打包生成 ★ 一个新的JS文件, 也就是 dist/bundles.js, 这个js文件可以被浏览器识别, 原来的路口文件仍保持不变
 
@@ -26,6 +26,7 @@
 // ES6 中的模块化语法: (浏览器和node无法ES6模块化语法识别, 需要借助webpack打包后才能识别)
 // 除了可以导入js, 还可以导入包或其他任意文件！！！
 // import 语法 只能用在 js文件里 (js环境中, 如script并且内也可以使用import语法)
+// 语法: import 接收变量名 from '包名' 或 '文件路径'
 import $ from 'jquery' // 类似于之前的script标签引入jq, 在当前js中直接引入jq, $就是jQuery暴露到全局的jQuery函数, 与之前一样, 可以直接使用$来使用jQuery
 
 $('#list > li:odd').css('background-color', 'red')
@@ -40,3 +41,6 @@ $('#list > li:even').css('background-color', 'green')
 // 即一个打包后得到的js文件, 包含了入口中所有引入的文件, 如包 插件 js 资源文件(css等) 以及我们自己写的js代码
 
 // ★ 在项目中所有用到的模块, 文件, 资源文件等所有需要用到的文件, 应该都要在入口文件中导入(import), 在入口文件中初始化完成, 因为将来打包, webpack只会对路口文件进行打包
+// ★ 我们所有的逻辑代码, 要么在入口文件中写, 要么在入口文件中引入, 因为将来webpack只会对入口文件进行打包
+// ★ 对于路由, webpack会对路由中的所有组件进行处理的. 
+// ★ webpack会对导入import或引入的所有文件、模块 的所有内容进行分析处理和打包的.

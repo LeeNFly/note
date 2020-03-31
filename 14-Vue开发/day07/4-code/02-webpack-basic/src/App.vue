@@ -69,7 +69,7 @@ export default {
 
   lang:
   给 `style` 标签添加 `lang="less"` 后，在style标签里就可以使用 less 语法了
-  但是需要自己安装：`npm i -D less less-loader`即可, 配置项vue-cli在创建的时候已经帮我们配置好了
+  但是需要自己安装：`npm i -D less less-loader`即可, 相关配置项vue-cli在创建的时候已经帮我们配置好了
 
  */
 h1 {

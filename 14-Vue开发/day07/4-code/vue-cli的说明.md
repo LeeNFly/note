@@ -47,10 +47,10 @@ ES Module版本: 新的打包工具使用, 比如webpack 2 或 Rollup
 - 3 入口文件中, `import Vue from 'vue'` 默认导入的是：运行时版本
 - 4 如果要使用完整版，需要在 webpack 中添加一个 alias 配置才可以
   - `build/webpack.base.conf.js` 中 resolve 的 alias 设置为 `'vue$': 'vue/dist/vue.esm.js'`, 
-  -  这样在入口文件中import Vue from 'vue' 引入的就是vue/dist/vue.esm.js, 就是完整版了
+  -  这样在入口文件中import Vue from 'vue' 引入的就是vue/dist/vue.esm.js, 就是完整版了 
   
 用vue-cli创建的项目默认使用完整版的(配置文件也自动帮我们配好了), 如果将来想使用编译版的, 怎么切换?
-直接将入口文件中的vue实例创建中渲染组件的方式由
+将以上alias别名注释, 然后直接将入口文件中的vue实例创建中渲染组件的方式由
 components: { App },
 template: '<App/>'
 切换成

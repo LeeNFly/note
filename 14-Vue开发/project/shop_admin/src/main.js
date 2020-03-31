@@ -50,7 +50,7 @@ axios.interceptors.response.use(function(response) {
     localStorage.removeItem('token')
   }
 
-  return response // 将response响应给浏览器
+  return response // 将response数据响应给浏览器
 })
 
 // 将 axios 添加到Vue的原型中
