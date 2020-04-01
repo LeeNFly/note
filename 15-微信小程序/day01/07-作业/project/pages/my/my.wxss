@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  padding: 20rpx 40rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.item input {
+  text-align: right;
+  flex: auto;
+}
+.login:not([size='mini']){
+  background-color: #FECC3A;
+  color: #fff;
+  margin-top: 40rpx;
+  width: 80%
+}
+.code_btn[size='mini'] {
+  font-size: 24rpx;
+  background-color: #3EB7FF;
+  margin-left: 10rpx;
+  padding: 10rpx 20rpx;
+  color: #fff;
+  border-radius: 20rpx;
+}

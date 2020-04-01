@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/card/card",
+    "pages/my/my"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FECC3A",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "综合案例"
+  },
+  "tabBar": {
+    "backgroundColor": "#FECC3A",
+    "selectedColor": "#fff",
+    "color": "#D88E03",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/home@2x.png",
+        "selectedIconPath": "/assets/home@2x.png"
+      },
+      {
+        "pagePath": "pages/card/card",
+        "text": "卡券",
+        "iconPath": "/assets/card@2x.png",
+        "selectedIconPath": "/assets/card@2x.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/assets/my@2x.png",
+        "selectedIconPath": "/assets/my@2x.png"
+      }
+    ]
+  }
+}

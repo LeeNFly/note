@@ -1,0 +1,36 @@
+/* 
+  1. wxss: Weixin style sheets: 小程序提供的样式表
+  2. 用法和css基本是一样的
+  3. 不一样的地方
+    3.1 wxss中新增了一个单位， rpx: 这个单位超级的好用。 这个单位比px 或者是rem都要好用 规定手机屏幕宽度统一都是750rpm, 并且会rpm会根据屏幕宽度自适应
+    3.2 wxss中并没有提供和css一样多的选择器，但是提供的选择器基本够用了
+    3.3 wxss中布局推荐使用flex布局
+导入了common.wxss
+*/
+@import '/common.wxss';
+.box {
+  background-color: pink;
+  width: 750rrpx; 
+  height: 750rpx;
+  font-size: 80rpx;
+  /* 父元素, 设置了display:flex,就是弹性盒子 */
+  /* 弹性盒子有 主轴和侧轴的概念 */
+  display: flex;
+
+  /* flex-direction: 调整主轴的方向 */
+  /* flex-direction: column; */
+  /* 调整子元素在主轴的对齐方式 */
+  justify-content: space-between;
+
+  /* 调整侧轴 */
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+
+
+.son {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: green;
+  border: 10rpx solid red;
+}

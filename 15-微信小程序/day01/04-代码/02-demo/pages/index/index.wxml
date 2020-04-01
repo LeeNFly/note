@@ -1,0 +1,79 @@
+<!-- 
+  1. wxml: WeiXin Markup Language： 微信自己提供的一套标记语言
+  2. 我们使用的时候，当成普通的html标签来用
+  3. 注意：在wxml中，不能出现html标签
+  4. 能用的都应该是微信给我们提供好的组件
+ -->
+
+<!-- view组件， 类似于html中的div标签 -->
+<view>哈哈哈哈</view>
+<view>呵呵呵</view>
+<view>
+  <view>1</view>
+  <view>2</view>
+</view>
+
+
+<!-- text组件， 用来放文本信息的，类似于 span -->
+<view>
+  <text>哈哈</text>
+  <text>呵呵</text>
+</view>
+
+
+<!-- icon: 用来放字体图标的  i -->
+<!-- <icon type="success" size="40" color="#f80"></icon>
+<icon type="warn"></icon> -->
+
+
+<!-- 表单相关的组件 -->
+<!-- <form>
+<button type="primary" loading plain>哈哈哈</button>
+<checkbox id="username" checked color="#f80"></checkbox> -->
+
+
+<!-- <input  placeholder='请输入内容' style="border: 1px solid #ccc;"></input>
+<label for="username">用户名</label> -->
+
+<!-- <view class="section">
+  <view class="section__title">时间选择器</view>
+  <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+    <view class="picker">
+      当前选择: {{time}}
+    </view>
+  </picker>
+</view> -->
+
+
+<!-- <radio-group>
+<radio value="1">男</radio>
+<radio value="2">女</radio>
+</radio-group>
+
+<switch checked color="red"></switch>
+
+<textarea style="border: 1px solid #ccc;"></textarea> -->
+
+<!-- </form> -->
+
+
+<!-- navigator导航组件，类似于html中的a标签 -->
+<!-- 注意点： navigator组件不会跳转到tabBar配置的页面上去
+
+open-type="navigate":  表示跳转到路径不能是tabBar中的，默认值
+open-type='switchTab': 表示跳转的路径只能是tabBar中配置过的
+ -->
+<!-- <navigator url="../test/test" open-type='switchTab'>点我进行跳转</navigator> -->
+
+
+
+<!-- image组件相当于html中img标签 -->
+<!-- <image src="/assets/1.jpg" mode="scaleToFill"></image>
+<image src="/assets/1.jpg" mode="aspectFit"></image>
+<image src="/assets/1.jpg" mode="aspectFill"></image>
+<image src="/assets/1.jpg" mode="widthFix"></image>
+<image src="/assets/1.jpg" mode="top left"></image> -->
+
+<!-- <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera> -->
+
+<map latitude='23.099994' longitude='113.324520'></map>

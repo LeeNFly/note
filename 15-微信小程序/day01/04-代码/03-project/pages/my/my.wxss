@@ -1,0 +1,25 @@
+.item {
+  height: 100rpx;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  margin: 0 20rpx;
+  font-size: 24rpx;
+}
+
+.item input {
+  flex: auto;
+  text-align: right;
+}
+
+.login {
+  background-color: #FECC3A;
+  margin: 40rpx;
+  color: #fff;
+}
+
+.getCode {
+  font-size: 24rpx;
+  background-color: #3EB7FF;
+  margin-left: 10rpx;
+}
