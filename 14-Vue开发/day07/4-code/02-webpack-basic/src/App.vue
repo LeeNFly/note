@@ -65,7 +65,7 @@ export default {
 
   element-ui标签可以嵌套, 并列普通标签, 也可以嵌套 并列 element-ui标签, 普通标签也可以嵌套 并列 element-ui标签和普通标签, 并且将来编译的时候会保持标签的嵌套  并列 关系
 
-  可以把element-ui标签就当作标签来使用, element-ui在组件的template中使用, 所以也可以使用/也拥有vue特性
+  可以把element-ui标签就当作标签来使用, element-ui在组件的template中使用, 所以也可以使用/也拥有vue特性 (比如插值表达式, 指令, 双向绑定, 数据变, 视图自动重新渲染等所有vue特性)
 
   lang:
   给 `style` 标签添加 `lang="less"` 后，在style标签里就可以使用 less 语法了

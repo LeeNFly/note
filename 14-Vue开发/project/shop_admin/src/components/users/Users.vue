@@ -41,9 +41,9 @@
       <el-table-column label="用户状态">
         <!-- 表格中自定义列的使用, 通过template在el-table-column中定义自定义列 -->
 
-        <!-- scope.row 表示当前行的对应的在data中的对象数据 (引用地址)
+        <!-- scope.row 表示当前遍历的行的对应的在data中的对象数据 (引用地址)
              在自定义列template内部可以在 插值表达式 或 指令 中的任意地方 访问使用scope
-             scope.row 每一行对应的data中的对象数据
+             scope.row 遍历的每一行对应的data中的对象数据
          -->
         <template slot-scope="scope">
           <!--

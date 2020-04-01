@@ -1,0 +1,103 @@
+<div>
+  <el-table
+  :data="rolesList"
+  stripe
+  style="width: 100%">
+    <el-table-column type="expand">
+      <template slot-scope="scope">
+        <el-row  v-if="scope.row.children.length === 0">
+          暂无权限，请分配
+        </el-row>
+        <el-row v-for="rightsLevel1 in scope.row.children" :key="rightsLevel1.id" class="rights-level1-row" v-else>
+            <el-col :span="4">
+              <el-tag
+                closable
+                @close="delRights(scope.row.id, rightsLevel1.id)"
+                >
+                {{ rightsLevel1.authName }}
+              </el-tag>
+              <i class="el-icon-arrow-right"></i>
+            </el-col>
+            <el-col :span="20">
+              <el-row v-for="rightsLevel2 in rightsLevel1.children" :key="rightsLevel2.id" class="rights-level2-row">
+                <el-col :span="4">
+                  <el-tag
+                    closable
+                    type="success"
+                    @close="delRights(scope.row.id, rightsLevel2.id)">
+                    {{ rightsLevel2.authName }}
+                  </el-tag>
+                  <i class="el-icon-arrow-right"></i>
+                </el-col>
+                <el-col :span="20">
+                  <el-tag
+                    v-for="rightsLevel3 in rightsLevel2.children"
+                    :key="rightsLevel3.id"
+                    closable
+                    class="rights-level3-tag"
+                    type="warning"
+                    @close="delRights(scope.row.id, rightsLevel3.id)"
+                    >
+                    {{ rightsLevel3.authName }}
+                  </el-tag>
+                </el-col>
+              </el-row>
+            </el-col>
+        </el-row>
+
+      </template>
+    </el-table-column>
+    <el-table-column
+      type="index"
+      width="50">
+    </el-table-column>
+    <el-table-column
+      prop="roleName"
+      label="角色名称"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="roleDesc"
+      label="描述"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      label="操作">
+      <template slot-scope="scope">
+        <el-button type="primary" icon="el-icon-edit" size="mini" plain @click="showUpdateRoleDialog(scope.row)"></el-button>
+        <el-button type="danger" icon="el-icon-delete" size="mini" plain @click="delRoleById(scope.row.id)"></el-button>
+        <el-button type="success" icon="el-icon-check" size="mini" plain @click="showUpdateRightsDialog(scope.row)">分配权限</el-button>
+      </template>
+    </el-table-column>
+  </el-table>
+  <el-dialog title="编辑角色" :visible.sync="updateRoleDialogVisible">
+    <el-form :model="updateRoleForm" ref="updateRoleForm">
+      <el-form-item label="角色名称" label-width="120px" prop="roleName">
+        <el-input v-model="updateRoleForm.roleName" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="角色描述" label-width="120px" prop="roleDesc">
+        <el-input v-model="updateRoleForm.roleDesc" autocomplete="off"></el-input>
+      </el-form-item>
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+      <el-button @click="updateRoleDialogVisible = false">取 消</el-button>
+      <el-button type="primary" @click="updateRole">确 定</el-button>
+    </div>
+  </el-dialog>
+  <el-dialog
+  title="分配权限"
+  :visible.sync="updateRightsDialogVisible">
+  <el-tree
+    :data="rightsList"
+    show-checkbox
+    node-key="id"
+    :default-expand-all="true"
+    :props="defaultProps"
+    ref="rightsTree">
+  </el-tree>
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="updateRightsDialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="updateRoleRights">确 定</el-button>
+  </span>
+</el-dialog>
+</div>
