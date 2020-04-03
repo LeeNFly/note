@@ -1,0 +1,71 @@
+.slide-container {
+  position: relative;
+}
+.slide-container .score {
+  position: absolute;
+  right: 10rpx;
+  padding: 5rpx 10rpx;
+  top: 10rpx;
+  background-color: #EE523D;
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.slide {
+  height: 480rpx;
+}
+.shop-banner {
+  width: 100%;
+} 
+
+.shop-info {
+  padding: 10rpx;
+  color: #666;
+}
+.shop-info .title {
+  font-size: 40rpx;
+  color: #333;
+}
+.shop-info text {
+  padding-left: 30rpx;
+}
+.comments-list {
+  padding: 20rpx;
+}
+.comments-list .comments-item {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 40rpx 0;
+  border-bottom: 1px solid #EEEEEE;
+}
+.comments-list .comments-item .name {
+  width: 50%;
+  font-size: 40rpx;
+}
+.comments-list .comments-item .date {
+  color: #999;
+  width: 50%;
+  font-size: 24rpx;
+  text-align: right;
+}
+
+.comments-list .comments-item .content {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+.comments-list .comments-item .rating {
+  position: absolute;
+  right: 0;
+  top: 10rpx;
+  font-size: 24rpx;
+  color: red;
+}
+
+.comments-list .comments-item .images image {
+  width: 110rpx;
+  height: 110rpx;
+  margin-right: 20rpx;
+}

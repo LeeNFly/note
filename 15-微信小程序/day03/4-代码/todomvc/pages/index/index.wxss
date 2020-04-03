@@ -1,0 +1,82 @@
+page {
+  /* 如果添加了padding，整个页面被撑大了 */
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.header {
+  border: 1px solid #ccc;
+  border-radius: 10rpx;
+  display: flex;
+  height: 80rpx;
+  padding: 0 20rpx;
+  align-items: center;
+  box-shadow: 0 0 10rpx #ccc;
+}
+
+.header image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.header input {
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+
+
+/* 列表的样式 */
+.list {
+  border: 1px solid #ccc;
+  margin-top: 30rpx;
+  /* 父盒子不需要下边框 */
+  border-bottom: none;
+}
+
+.list .item {
+  border-bottom: 1px solid #ccc;
+  height: 80rpx;
+  display: flex; 
+  align-items: center;
+  padding: 0 20rpx;
+}
+
+.list .item text {
+  /* 希望text能够占用所有剩余的空间 */
+  flex: auto;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+/* 表示有completed类的text */
+.list .item text.completed {
+  color: #999;
+  text-decoration: line-through;
+}
+
+
+/* 底部的样式 */
+.footer {
+  font-size: 30rpx;
+  color: #999;
+  display: flex;
+  justify-content: space-between;
+  height: 60rpx;
+  align-items: center;
+}
+
+
+/* tips样式 */
+.tips {
+  color: #999;
+  text-align: center;
+}
+
+.tips .title {
+  font-size: 60rpx;
+  margin-top: 200rpx;
+}
+
+.tips .content {
+  font-size: 40rpx;
+  margin-top: 40rpx;
+}

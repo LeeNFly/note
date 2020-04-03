@@ -10,6 +10,7 @@
   // cookie, sessionStorage, localStorage 都是浏览器端的存储空间
   // 明确: cookie, sessionStorage, localStorage一般只存储基本数据类型, 如果存储复杂数据类型, 需转成JSON字符串后再存储
   // 因为是在浏览器端存储的, 可以在浏览器F12的Application中查看
+  // 以下操作都是同步的, 即会阻塞栈中代码执行
   // 1. cookie 的特点
   //    (1) 大小 4k
   //    (2) 声明周期, 默认是会话级别的, 可以设置过期时间

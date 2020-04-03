@@ -1,0 +1,33 @@
+<!-- 头部 -->
+<view class="header">
+  <image src="/assets/plus.png"></image>
+  <input bindinput='getName' bindconfirm='addTodo' value="{{name}}" placeholder='Anything here...'></input>
+</view>
+
+<block wx:if="{{list.length > 0}}">
+  <!-- 列表 -->
+  <view class="list">
+    <view class="item" wx:for="{{list}}" wx:key="id">
+      <icon data-id="{{item.id}}" bindtap='change' size="18" type="{{item.completed?'success':'circle'}}"></icon>
+      <text class="{{item.completed?'completed':''}}">{{item.name}}</text>
+      <icon size="18" type="clear" bindtap='delTodo' data-id="{{item.id}}"></icon>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="footer">
+    <text bindtap='toggleAll'>toggle all</text>
+    <text>{{leftCount}} items left</text>
+    <!-- list.length - leftCount: 总任务的条数 - 未完成任务的条数 = 完成的任务的条数
+      完成的任务的条数 > 0 说明有完成的任务，需要显示清空按钮
+     -->
+    <text wx:if="{{list.length - leftCount > 0}}" bindtap="clearCompleted">clear completed</text>
+  </view>
+</block>
+<block wx:else>
+  <!-- 提示消息 -->
+  <view class="tips">
+    <view class="title">Congratulations</view>
+    <view class="content">There's no more work left</view>
+  </view>
+</block>  

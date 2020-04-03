@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/demo/demo",
+    "pages/setdata/setdata",
+    "pages/event/event",
+    "pages/for/for",
+    "pages/if/if",
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#f80",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "小程序"
+  }
+}

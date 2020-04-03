@@ -1,0 +1,20 @@
+<!-- 微信小程序也提供了注册事件的功能 -->
+<!-- bind+事件名=事件函数 -->
+<!-- 事件函数需要在js中定义 -->
+
+
+<!-- 在微信小程序中注册事件分为两种 -->
+<!-- bind+ 事件=事件函数：  bind注册的事件会冒泡 -->
+<!-- catch+事件=事件函数：  catch注册的事件不会冒泡 -->
+<!-- 
+<view bind:tap="parentFn">
+  <button bind:tap='fn'>点我注册事件</button>
+  <button catch:tap='fn'>点我注册事件</button>
+</view>
+-->
+
+
+<!-- 需求：点那儿，删除哪个 -->
+<!-- 点击按钮的时候，我想要传参数 -->
+<!-- 给当前元素添加自定义的属性 -->
+<button bindtap='del' data-name="{{item.name}}" data-id="{{item.id}}" wx:for="{{list}}" wx:key="id">{{item.name}}</button>

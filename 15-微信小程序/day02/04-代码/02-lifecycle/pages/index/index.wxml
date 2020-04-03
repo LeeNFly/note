@@ -1,0 +1,5 @@
+<!--pages/index/index.wxml-->
+<text>pages/index/index.wxml</text>
+
+<!-- open-type -->
+<navigator open-type="redirect" url="/pages/test/test">点我进行跳转</navigator>

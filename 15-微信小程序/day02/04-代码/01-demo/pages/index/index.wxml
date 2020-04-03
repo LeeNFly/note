@@ -1,0 +1,39 @@
+<!-- WXML 中的动态数据均来自对应 Page 的 data。 -->
+<!-- 1. 用法和vue的基本差不多，显示data中的数据 -->
+<view>{{msg}}</view>
+
+<view>{{user.name}} ---- {{user.age}}</view>
+
+<!-- 在wxml中，想要使用data中的数据，只需要使用{{}},不管在标签中或者是属性中 -->
+<!-- 类似于artTemplate -->
+<image src="{{imgUrl}}"></image>
+
+
+<!-- 在{{}}中能不能出现表达式呢??? -->
+<!-- 在{{}}中是可以出现表达式的 -->
+<view>{{user.age + 10}}</view>
+<view>{{user.age>=18?'成年':'未成年'}}</view>
+
+
+<!-- 考题 -->
+<view>{{1+1}}</view>
+<!-- 获取到的false的字符串 -->
+<checkbox checked="false"></checkbox>
+<!-- 获取到的才是真正的false，布尔类型 -->
+<checkbox checked="{{false}}"></checkbox>
+
+
+<!-- 注意点： 在小程序的{{}}中不能出现方法调用的 -->
+<view>{{[1,2,3,4].join('-')}}</view>
+
+
+
+<!-- 
+总结：
+  1. {{}}用法和vue基本上一致，可以显示data中的数据，可以写表达式
+
+  2. 不一样的地方
+    2.1 小程序中的{{}}可以写在属性中
+    2.2 小程序的{{}}不能使用方法的调用
+ -->
+

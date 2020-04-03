@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/todos/todos",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF8800",
+    "navigationBarTitleText": "todos",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/todos/todos",
+      "text": "任务",
+      "iconPath": "/assets/todos.png",
+      "selectedIconPath": "/assets/todos-active.png"
+    },
+    {
+      "pagePath": "pages/logs/logs",
+      "text": "日志",
+      "iconPath": "/assets/logs.png",
+      "selectedIconPath": "/assets/logs-active.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -51,6 +51,9 @@
       // 使用场景：发送ajax请求
       created() {
         console.warn('生命周期钩子函数 created', this.msg, this.fn)
+        setTimeout(() => {
+          console.log('time:0');
+        }, 0);
       },
 
       beforeMount() {

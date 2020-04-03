@@ -1,0 +1,24 @@
+<view class="todos-wrapper">
+  <view class="header">
+    <image src="/assets/plus.png"></image>
+    <input placeholder="Anything here" value="{{ todoName }}" bind:input="todoNameChange" bind:confirm="addTodo"></input>
+  </view>
+  <block wx:if="{{ todosList.length > 0 }}">
+    <view class="list">
+      <view class="item" wx:for="{{ todosList }}" wx:key="id">
+        <icon type="{{ item.compeleted ? 'success' : 'circle' }}" class="chk" bind:tap="changeTodosState" data-id="{{ item.id }}"></icon>
+        <text class="{{ item.compeleted ? 'compeleted' : '' }}">{{ item.name }}</text>
+        <icon type="clear" class="del" bindtap="delTodosById" data-id="{{ item.id }}" ></icon>
+      </view> 
+    </view>
+    <view class="footer" wx:if="{{true}}">
+      <text bind:tap="toggleAllTodos">toggle all</text>
+      <text>{{ todosList.length - compeletedTodosCount }} items left</text>
+      <text hidden="{{ compeletedTodosCount === 0 }}" bind:tap="clearCompeletedTodos">clear completed</text>
+    </view>
+  </block>
+  <view class="tips" wx:if="{{ todosList.length === 0 }}">
+    <view class="title">Congratulations</view>
+    <view class="content">There's no more work left</view>
+  </view>
+</view>

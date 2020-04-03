@@ -1,0 +1,66 @@
+.todos-wrapper {
+  padding: 20rpx;
+}
+.header {
+  display: flex;
+  border: 1px solid #ccc;
+  height: 80rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 0 20rpx;
+}
+.header image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.header input {
+  flex: auto;
+  margin-left: 20rpx;
+}
+
+.list {
+  border: 1px solid #ccc;
+  border-bottom: none;
+  margin-top: 40rpx;
+}
+
+.list .item {
+  text-align: left;
+  padding: 10rpx 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+
+.list .item text {
+  flex: auto;
+  padding-left: 20rpx;
+}
+.list .item .compeleted {
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx 20rpx;
+  color: #A39999;
+}
+
+.tips .title {
+  text-align: center;
+  font-size: 60rpx;
+  color: #999999;
+  margin-top: 40rpx;
+}
+
+.tips .content {
+  color: #999999;
+  text-align: center;
+  font-size: 40rpx;
+  margin-top: 20rpx;
+}

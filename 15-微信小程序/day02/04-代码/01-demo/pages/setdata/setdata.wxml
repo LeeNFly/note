@@ -1,0 +1,3 @@
+<text>{{msg}}</text>
+<input bindinput='input' style="border: 1px solid #ccc;" value="{{msg}}"></input>
+<button bindtap='change'>修改msg的值</button>

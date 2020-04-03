@@ -1,0 +1,31 @@
+<!-- wx:for可以遍历一个数组，重复的渲染操作 -->
+<!-- 默认数组的当前项的下标变量名默认为 index，数组当前项的变量名默认为 item -->
+<!-- <view wx:for="{{list}}">{{index}} --- {{item.name}}</view> -->
+
+<!-- 如果不想使用默认的 item和 index, 可以自己指定 -->
+<!-- wx:for-item 来指定item的名字 -->
+<!-- wx:for-index 来指定index的名字 -->
+<!-- <view wx:for="{{list}}" wx:for-item="v" wx:for-index="i">{{i}} --- {{v.name}}</view> -->
+
+
+
+<!-- 注意：在使用wx:for的使用，应该要指定wx:key来提升性能 -->
+<!-- 
+<view wx:for="{{list}}" wx:key="id">{{item.name}}</view>
+  -->
+
+
+<!-- 如果我们数组中的值是一个字符串或者是一个数字 -->
+<!-- *this表示的就是字符串本身 -->
+<view wx:for="{{friends}}" wx:key="*this">{{item}}</view>
+
+
+
+<!-- 
+  总结：
+    1. wx:for可以遍历数组中的数据
+    2. wx:for一定要指定wx:key，不然会报一个警告
+    3. wx:key的值有两种方式
+      3.1 如果遍历的值是一个对象， wx:key可以是对象中某一个唯一的属性
+      3.2 如果数组中的值是字符串， wx:key 指定为*this，*this表示字符串本身。
+ -->

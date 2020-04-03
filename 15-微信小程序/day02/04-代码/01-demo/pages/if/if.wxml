@@ -1,0 +1,45 @@
+<!-- 
+  1. 在微信小程序中使用wx:if来判断元素是否需要渲染
+  2. 类似于v-if
+ -->
+ <!-- <view wx:if="{{isShow}}">显示了吗</view> -->
+ <!-- <view wx:if="{{age>=18}}">显示不</view> -->
+
+
+<!-- 说明： wx:if 通过创建或者删除元素来控制显示和隐藏 -->
+ <!-- 
+ <view wx:if="{{age >= 18}}">成年</view>
+ <view wx:elif="{{age >= 16}}">青少年</view>
+ <view wx:else>未成年</view>
+-->
+
+<!-- hidden可以控制元素的显示和隐藏 -->
+<!-- hidden是通过css样式的display属性来控制元素的显示和隐藏 -->
+<!-- <view hidden='{{age >= 18}}'>
+  {{age}}
+</view> -->
+
+<!-- 如果wx:if的元素需要隐藏， 内部的任意的内容都不会做渲染 -->
+<!-- <view wx:if='{{age <= 18}}'>{{age}}</view> -->
+
+
+
+<!-- 
+总结
+  1。 通过wx:if 或者是 hidden都可以实现元素的显示和隐藏
+  2. 如果元素需要频繁的显示和隐藏应该使用hidden, 如果不是频繁的显示和隐藏，应该使用wx:if即可
+ -->
+
+
+ <!-- v-show
+      v-if
+  -->
+
+
+  <!-- 控制多个元素的显示和隐藏 -->
+  <block wx:if="{{true}}">
+    <view>1</view>
+    <view>2</view>
+    <view>3</view>
+    <view>4</view>
+  </block>

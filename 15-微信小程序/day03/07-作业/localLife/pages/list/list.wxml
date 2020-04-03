@@ -1,0 +1,15 @@
+<view class="shop-list">
+  <navigator url="/pages/detail/detail?id={{ item.id }}" class="shop-item" wx:for="{{ shopsList }}" wx:key="id">
+    <image class="shop-img" src="{{ item.images[0] }}"></image>
+    <view class="shop-info">
+      <text class="title">{{ item.name }}</text>
+      <text class="phone">电话: {{ item.phone }}</text>
+      <text class="address">地址: {{ item.address }}</text>
+      <text class="workTime">营业时间: {{ item.businessHours }}</text>
+      <text class="score">{{ item.score }}</text>
+    </view>
+  </navigator>
+  <view class="tips" hidden="{{ !loadCompeleted }}">
+      没有更多数据了
+    </view>
+</view>

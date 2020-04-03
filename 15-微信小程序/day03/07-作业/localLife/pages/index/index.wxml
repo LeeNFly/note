@@ -1,0 +1,17 @@
+<view>
+  <swiper indicator-dots autoplay circular>
+    <swiper-item wx:for="{{ bannerList }}" wx:key="id">
+      <image class="banner" mode="widthFix" src="{{ item.image }}"></image>
+    </swiper-item>
+  </swiper>
+  <view class="nav">
+    <navigator url="/pages/list/list?id={{ item.id }}" class="nav-item" wx:for="{{ categoryList }}" wx:key="id">
+      <image mode="widthFix" src="{{ item.icon }}"></image>
+      <text>{{ item.name }}</text>
+    </navigator>
+  </view>
+  <view class="links">
+    <image mode="widthFix" src="/assets/images/link-01.png"></image>
+    <image mode="widthFix" src="/assets/images/link-02.png"></image>
+  </view>
+</view>
