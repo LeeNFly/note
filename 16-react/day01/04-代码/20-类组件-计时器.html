@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="lib/react.development.js"></script>
+  <script src="lib/react-dom.development.js"></script>
+  <script src="lib/babel.min.js"></script>
+
+  <script type="text/babel">
+
+    // 定义了一个类组件
+    class Clock extends React.Component {
+      constructor(props) {
+        super(props)
+
+        // 自己提供状态
+        this.state = {
+          date: new Date()
+        }
+      }
+
+      render() {
+        return (
+          <div>
+            <h1>北京时间</h1>
+            <h2>当前时间; {this.state.date.toLocaleString()}</h2>
+          </div>
+        )
+      }
+      componentDidMount() {
+        this.timeId = setInterval(() => {
+          // 修改组件自己的状态 react不是双向数据绑定，所以不能直接通过
+          // this.state.xxx修改  
+          // this.setState
+          this.setState({
+            date: new Date()
+          })
+        }, 1000)
+      }
+      componentWillUnmount () {
+        clearInterval(this.timeId)
+      }
+    }
+
+    ReactDOM.render(
+      <Clock/>,
+      document.getElementById("app")
+    )
+
+
+  </script>
+</body>
+
+</html>

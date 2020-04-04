@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="./lib/react.development.js"></script>
+  <script src="./lib/react-dom.development.js"></script>
+  <script src="./lib/babel.min.js"></script>
+  <script type="text/babel">
+    // jsx语法作用: 帮助我们快速的创建一个 ★ react对象 ( ★ react对象其实就是js对象类型)
+    // 什么是jsx语法? 通过在js中写html标签(写法同在html中写html标签类似), 来快速创建一个react对象 如 <div id="box">哈哈哈</div>, 返回的是一个react对象, react对象就是一个js对象
+    // jsx的使用位置? jsx是js的扩展语法, 需要配合babel来使用, jsx也是js代码, 在js环境里都可以使用, 即script标签内或js文件中, 都可以使用jsx语法
+    // 注意: 内部其实也是调用React.createElement方法来创建react对象 (是由babel解析jsx语法中的内容帮我们自动处理, 使用React.createElement来帮我们创建react对象, 这个由babel处理, 我们不用关心)
+
+    // jsx其实返回的就是一个react对象(也是js对象), 所以jsx语法返回的就是一个js对象, 就是js对象, 我们可以当成js对象来使用(jsx语法返回的就是一个react对象, 其实就是一个js对象), 所以jsx能够当做返回值，参数等等来使用
+    // jsx语法推荐使用()包裹起来， 
+    // ★ 使用jsx语法创建react对象, 要求最外层只能有一个根元素, 且要求里面的所有的标签都是闭合的 . <div></div> <input />
+    // jsx语法虽然类似于html标签,  但是其实是js代码，所以，在jsx中如果要添加class这样的属性，请使用className, 因为class在js中是关键字.
+
+    function fn() {
+      // 函数中, return 一旦换行， js会自动在return的后面加;号 (这是js内部机制决定的), 这样如果我们return 一个jsx语法创建react的对象的话, 就无法使用换行缩进了.
+      // 解决: 在return 的同一行 后加一个(), 然后在()中写jsx语法, 就可以换行了. 这样函数就会将()内jsx语法创建的react对象返回(return)了
+      // 虚拟DOM diff
+      return (
+        <div>
+          <h1 className="你好啊" title={[1,2,3].join('-')}>哈哈哈哈</h1>
+          <input type="checkbox" />
+        </div>
+      )
+    }
+
+
+    ReactDOM.render(
+      fn(),
+      document.getElementById('app')
+    )
+
+
+
+    /* 
+      1. jsx不是html，也不是字符串，是一个reate对象，js的对象,当成对象来用
+      2. jsx语法中可以使用{}来书写js表达式
+      3. jsx的注释 { /* \*\/ }
+      4. jsx中只有一个根元素， 要求所有的标签必须闭合  <div></div>  <input />
+      5. jsx中推荐保留换行和缩进，整个jsx语法都应该使用()包裹，防止bug
+     */
+
+
+  </script>
+
+</body>
+
+</html>

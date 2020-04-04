@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="lib/react.development.js"></script>
+  <script src="lib/react-dom.development.js"></script>
+  <script src="lib/babel.min.js"></script>
+
+  <script type="text/babel">
+
+    class Hello extends React.Component {
+      // ★ 在类组件中想要获取传递过来的值，也是通过props来获取
+      constructor(props) {
+        // 表示把props添加给了当前组件， 将来在任意的函数中，都可以通过this.props来访问到
+        // 会将传递给组件的数据 拷贝 一份到组件对象的props属性中
+        super(props)
+      }
+
+      render() {
+        return (
+          <div>
+            大家好 --{this.props.name} ----{this.props.age}
+          </div>
+        )
+      }
+    }
+    // 怎么给类组件传值, 与函数组件传值一样, 在组件使用处的自定义标签中通过标签属性进行传值
+    // 可以传递任意类型的数据, 如果传递复杂类型的数据(5基本, 3复杂), 则与vue不同, 自定义标签属性的属性值不用写""双引号
+
+
+    ReactDOM.render(
+      <Hello name="zs" age="18"/>,
+      document.getElementById('app')
+    )
+
+  </script>
+</body>
+
+</html>

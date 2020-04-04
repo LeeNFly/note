@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 在es6以前，怎么创建对象， 通过构造函数的方式来创建对象
+    // 结合原型链来实现面向对象编程
+    // function Person(name, age) {
+    //   this.name = name
+    //   this.age = age
+    // }
+
+    // Person.prototype.sayHi = function () {
+    //   console.log('大家好,我是' + this.name)
+    // }
+
+    // let p = new Person('zs', 20)
+    // p.sayHi()
+    // console.log(p)
+
+    // 在es6中，提出了一个关键字 class  类 ： 类似于构造函数
+    // 类 是用来创建js对象
+    // 对象： 指的是一个具体的事物  对象 属性  特征
+    // 类： 一类事物  手机  水杯   人  狗
+    // 类可以创建对象
+
+    // 定义了Person类
+    class Person {
+      // 指定构造函数
+      constructor(name, age) {
+        this.name = name
+        this.age = age
+      }
+      // 如果要给对象添加方法，直接在类中提供即可
+      // 实质上还是添加给原型了
+      sayHi() {
+        console.log('大家好，我是' + this.name)
+      }
+      eat() {
+        console.log('我能吃')
+      }
+    }
+
+    var p = new Person('zs', 19)
+    console.log(p)
+    p.sayHi()
+    p.eat()
+
+
+  </script>
+
+</body>
+
+</html>

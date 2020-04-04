@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="lib/react.development.js"></script>
+  <script src="lib/react-dom.development.js"></script>
+  <script src="lib/babel.min.js"></script>
+
+  <script type="text/babel">
+
+    // 函数组件没有状态     无状态组件
+    // 类组件有自己的状态    状态组件
+    // 状态表示的就是组件自己的私有的一些数据，这些状态，组件可以自己去修改
+    // 组件一旦修改了这个状态，页面中显示的内容就会发生更改.
+
+    class Hello extends React.Component {
+      // 在类组件中想要获取传递过来的值，也是通过props来获取
+      constructor(props) {
+        // 表示把props添加给了当前组件对象的属性中，将来在任意的函数中，都可以通过this.props来访问到
+        // 能访问到组件对象, 就能拿到props中的值
+        super(props)
+
+        // 除了props，类组件还可以自己提供状态，（数据）
+        // 在构造函数中写的实例属性, 将来都会添加到实例身上, 所以将来都会被添加在组件对象的属性中去, 所有可以访问到组件对象的地方, 都可以访问到state和state中的数据了
+        this.state = {
+          msg: '你好啊'
+        }
+      }
+      sayHi () {
+        // 在类组件中, 所有的方法, 都在构造函数的原型上, 即在组件对象的原型链上, ★ 所以只要是组件对象, 就可以访问组件中定义的方法了.
+        // 在类组件中, 所有函数的this, 都是对象调用模式, (类组件其实就是一个js对象) 即this都指向组件对象, 都可以访问类中定义的所有方法
+        console.log(this);
+      }
+      render() {
+        console.log(this)
+        return (
+          <div>
+           {/* 在jsx中{}使用js语法, this的访问顺序按照词法作用域, 所以this指向的是当前render函数的this, 即指向组件实例 */}
+            大家好 --{this.props.name} ----{this.props.age}
+            我自己的数据 ----- {this.state.msg}
+          </div>
+        )
+      }
+    }
+    // 怎么给类组件传值
+    ReactDOM.render(
+      <Hello name="zs" age="18"/>,
+      document.getElementById('app')
+    )
+
+  </script>
+</body>
+
+</html>

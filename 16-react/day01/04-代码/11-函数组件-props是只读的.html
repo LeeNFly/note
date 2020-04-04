@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="lib/react.development.js"></script>
+  <script src="lib/react-dom.development.js"></script>
+  <script src="lib/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 定义组件 函数组件
+    // 1. 定义的组件名必须首字母大写，为了和html标签区分开
+    // 2. 必须返回一个jsx
+
+    // 组件传值：
+    // 2. 组件中怎么接受到传递过来的值, 通过props参数来接收即可
+    // props是只读的， 在组件接收到的内容不允许修改
+    function Hello(props) {
+      // props.name = '李四'
+      // props.age = 22
+      return (
+        <div>
+          <p>大家好</p>
+          <p>{props.name} ---- {props.age}</p>
+        </div>
+      )
+    }
+
+    ReactDOM.render(
+      <Hello name="张胜男" age="20"/>,
+      document.getElementById('app')
+    )
+
+
+    // 1. 如何创建组件   function 组件名() {}
+    // 2. 如何给组件传值，  <Hello name="zs" age="18">
+
+  </script>
+</body>
+
+</html>

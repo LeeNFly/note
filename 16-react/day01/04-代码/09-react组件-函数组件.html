@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="./lib/react.development.js"></script>
+  <script src="./lib/react-dom.development.js"></script>
+  <script src="./lib/babel.min.js"></script>
+  <script type="text/babel">
+
+    // 组件：组件就是一个自定义的标签
+    // 在react中，组件有两类，  函数组件  类组件
+    
+
+    //1. 定义组件
+    // 函数组件类似于vue中的全局组件, Vue.component('Hello', {})
+    // 1. ★ 这个组件必须返回一个  react对象  (一般使用jsx创建)
+    // 2. ★ 组件的名字首字母必须大写， 和普通的html标签区分开 (在jsx语法中, 小写的标签会被当作普通的html标签, 大写字母开头的标签, 会被当作一个组件来解析)
+    // function Hello () {
+    // 每次使用函数组件, 都会调用执行一次函数, 将组件(函数)返回的jsx (函数的返回值), 经过编译后(解析{}内容), 覆盖替换掉组件使用处的自定义标签, 成为使用组件处的jsx语法中的一部分, (最终返回一个完整的react对象) 
+    //   return (
+    //     <div>hello, 我是一个组件</div>
+    //   )
+    // }
+
+    // 函数组件，，， 这个组件是通过函数来创建
+    function Modal() {
+      return (
+        <div>
+          <h3>你确定要退出吗</h3>
+          <div>这是模态框的内容</div>
+        </div>
+      )
+    }
+
+
+    //2. 怎么使用组件, 把组件当成自定义的html标签 在任意的 jsx语法中 使用即可, 标签名为函数名 可以用作单标签或者双标签使用, 都可以
+    // 使用说明: 
+    //    1 . 在任意的jsx语法中都可以使用组件, 当作自定义标签来使用即可, 标签名为函数名
+    //    2 . 组件可以多次复用, 每次复用都会重新创建一个新的组件, 然后重新编译return后的jsx语法, 将编译后的jsx返回到组件的使用处, 且各个组件互相独立
+    //    3 . 只要是在jsx语法中, 就可以使用组件, 并且可以使用多个, 多次不同的组件
+    // 使用原理说明: ★ 会将组件(函数)返回的jsx (函数的返回值), 经过编译后(解析{}内容), 覆盖替换掉组件使用处的自定义标签, 成为使用组件处的jsx语法中的一部分, (最终返回一个完整的react对象) 
+    // 如:
+    // const element = (
+    //   <div>
+    //     <Modal />
+    //   </div>
+    // )
+    // 相当于: 
+    // const element = (
+    //   <div>
+    //     <div>
+    //       <h3>你确定要退出吗</h3>
+    //       <div>这是模态框的内容</div>
+    //     </div>
+    //   </div>
+    // ) // 创建了一个react对象
+    
+    // ★ 也可以直接当作自定义标签来使用, 因为本身组件返回的就是一个jsx语法创建的react对象
+    // 如: 
+    // const element = <Modal />
+    // 相当于:
+    // const element = (
+    //   <div>
+    //     <h3>你确定要退出吗</h3>
+    //     <div>这是模态框的内容</div>
+    //   </div>
+    // ) // 创建了一个react对象
+
+    ReactDOM.render(
+      <div>
+        <Modal></Modal><Modal></Modal><Modal></Modal>
+      </div>,
+      document.getElementById('app')
+    )
+
+   
+  </script>
+
+</body>
+
+</html>

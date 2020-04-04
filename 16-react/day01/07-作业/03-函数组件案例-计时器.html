@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="lib/react.development.js"></script>
+    <script src="lib/react-dom.development.js"></script>
+    <script src="lib/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        // 方式1
+        // function Clock() {
+        //     return (
+        //     <div>
+        //         <h1>北京时间</h1>
+        //         <div>{new Date().toLocaleTimeString() }</div>
+        //     </div>
+        //     )
+        // }
+        // setInterval(() => {
+        //     ReactDOM.render( <Clock />, document.querySelector('#app'))
+        // }, 1000);
+        
+        // 方式2
+        // function Clock(props) {
+        //     return (
+        //     <div>
+        //         <h1>北京时间</h1>
+        //         <div>{props.date.toLocaleTimeString()}</div>
+        //     </div>
+        //     )
+        // }
+        // setInterval(() => {
+        //     ReactDOM.render( <Clock date={new Date()}/>, document.querySelector('#app'))
+        // }, 1000);
+    </script>
+</body>
+
+</html>

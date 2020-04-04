@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+    <script src="lib/react.development.js"></script>
+    <script src="lib/react-dom.development.js"></script>
+    <script src="lib/babel.min.js"></script>
+    <script type="text/babel">
+        const ul = <ul id="list">
+            <li>苹果</li>
+            <li>香蕉</li>
+            <li>橘子</li>
+        </ul>
+        console.log(document.querySelector('#app'));
+        ReactDOM.render(ul, document.querySelector('#app'))
+    </script>
+</body>
+</html>

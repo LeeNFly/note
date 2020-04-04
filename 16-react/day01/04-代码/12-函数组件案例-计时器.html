@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="lib/react.development.js"></script>
+  <script src="lib/react-dom.development.js"></script>
+  <script src="lib/babel.min.js"></script>
+
+  <script type="text/babel">
+
+    //定义一个Clock组件，专门用于显示时间
+
+    
+    function Clock (props) {
+      return (
+        <div>
+          <h1>北京时间</h1>
+          <h2>当前时间：{props.date.toLocaleString()}</h2>
+        </div>
+      )
+    }
+
+
+    setInterval(() => {
+      // 如何渲染的Clock组件
+      ReactDOM.render(
+        <Clock date={new Date()}/>,
+        document.getElementById('app')
+      )
+    }, 1000)
+
+
+
+    // 函数组件： 有一个缺点， 没有状态   函数组件自己没有数据
+
+  </script>
+</body>
+
+</html>

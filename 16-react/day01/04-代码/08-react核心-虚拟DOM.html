@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    // 什么真实的DOM, 页面中任意一个标签或者是文本，都是一个对应的dom对象
+    var div = document.querySelector('div')
+    // react内容，使用的不是真实的DOM, 虚拟的DOM
+    let count = 0;
+    let str = ''
+    for (var k in div) {
+      count++
+      str += k + ' '
+    }
+    console.log(count, str)
+  </script>
+
+
+
+
+</body>
+
+
+<!-- 1. 
+react的虚拟dom概念：  react对象不是一个真正的DOM，而是一个js对象，描述了真正的DOM
+虚拟DOM
+
+为什么要有虚拟dom: 如果直接操作页面上的DOM元素, 太笨重了, 而操作虚拟dom, 就是操作js对象, 快很多, 并且虚拟dom不会触发重绘和回流问题 最终只需要通过ReactDOM.render就可以将react对象变成真实的DOM元素了
+
+2. react不会把整个DOM结构都更新，  使用diff算法
+  比较虚拟DOM中的属性的改变， 最终只会更新改变的某一个部分
+  注意点： 将来在遍历对象的，应该给每一个元素都加上给一个key
+
+ -->
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="./lib/react.development.js"></script>
+  <script src="./lib/react-dom.development.js"></script>
+  <script src="./lib/babel.min.js"></script>
+  <script type="text/babel">
+
+    //滴答
+    function tick () {
+      // 定义了一个react对象
+      // react对象： 虚拟的DOM  是一个js对象，最终这个js对象可以变成真实的DOM
+      const element = (
+        <div>
+          <h1>北京时间</h1>
+          <h2>当前时间：{new Date().toLocaleString()}</h2>
+        </div>
+      )
+
+      // 把react对象渲染到页面中
+      ReactDOM.render(
+        element,
+        document.getElementById('app')
+      )
+    }
+
+    setInterval(tick, 1000)
+
+
+
+  </script>
+
+</body>
+
+</html>

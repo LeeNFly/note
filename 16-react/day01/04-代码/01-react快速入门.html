@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<div id="app">
+  啊啊啊
+</div>
+<!-- 1. 引包：引入react文件 -->
+<!-- 2. 通过react的api创建一个react对象 -->
+<!-- 3. 把react元素渲染到页面中 -->
+
+<!-- 后续: react应该配合webpack打包的使用 -->
+
+<!-- 引入了react的核心文件 -->
+<!-- <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script> -->
+<!-- 引入了react-dom文件，这个文件专门用于操作DOM -->
+<!-- <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script> -->
+<!-- 引入了babel文件，babel文件可以把ES6的语法转成ES5的语法， jax的语法 -->
+<!-- <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script> -->
+
+<!-- 1. 引包 -->
+<script src="./lib/react.development.js"></script>
+<script src="./lib/react-dom.development.js"></script>
+<script src="./lib/babel.min.js"></script>
+
+<body>
+  <!-- 
+    注意点： 如果是以浏览器的方式引入了babel, 即是通过script标签引入babel的, 则要设置type="text/babel"
+    只有设置type=text/babel, babel才会工作, 即把ES6语法转成ES5语法
+    type="text/babel" 本质script标签内还是写js, 浏览器还是当作js来执行, 与原来的script标签没有区别, 只是能让babel工作, 把JS中ES6语法转成ES5语法而已
+
+    如果后续babel配合webpack使用, 则不需要设置type="text/babel"
+  -->
+  <script type="text/babel">
+
+    // 2. 创建了一个react对象 (react对象其实就是js对象类型)
+    // 表示创建一个react对象 (注意: 是创建react对象, 不是创建DOM元素. react对象和DOM元素是不同的东西.)
+    // 什么是react对象: react对象可以看作是一个虚拟dom, ★ 就是以对象的方式去描述页面上的标签, ★ 但是react对象不是DOM元素
+    // react对象： 虚拟的DOM, 是一个js对象，最终这个js对象可以变成真实的DOM (通过ReactDOM.render可以将react对象变成真实的DOM元素)
+
+
+    // 参数1：创建什么类型的react对象，标签的名字
+    // 参数2：创建的元素的标签属性有哪些  用js对象描述
+    // 参数3：创建的react对象的内容（子元素）内容部分 类似于innerHTML部分
+    // 返回值： 就是一个react对象
+    let element = React.createElement('div', {id: 'box', title: '哈哈'}, '我是内容') 
+    // 该react对象描述的页面标签为: <div id="box" title="哈哈">我是内容</div>, 但只是一个虚拟的DOM元素, 并不是真正的DOM元素
+
+
+    //3. 把react对象渲染到页面
+    // 参数1： react对象
+    // 参数2： 渲染到页面中的DOM容器, 是一个DOM元素
+    // 会将react对象所描述的虚拟DOM, 即react对象, 编译后, 自动转化成真实的DOM元素, 添加到参数2 DOM元素的内容部分中(innerHTML中), ★ 并且会覆盖其原来的innerHTML中的所有内容, 即覆盖其内部的所有内容, 如果参数2 DOM元素在DOM树上, 则也会将react对象转成的真实DOM元素添加到浏览器DOM树上, 然后浏览器会自动重新渲染页面
+    ReactDOM.render(element, document.getElementById('app'))
+  </script>
+
+
+  <!-- 
+    1. 引包（3个）   
+    2.必须创建一个react对象： createElement  
+    3. 把react对象渲染到页面中  render
+  -->
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 混入 原型继承  经典继承   ：对象与对象
+
+    // 实现的是类与类之间的继承
+    class Person {
+      constructor(name, age) {
+        this.name = name
+        this.age = age
+      }
+      eat() {
+        console.log('eat')
+      }
+      speak() {
+        console.log('大家好', this.name)
+      }
+    }
+
+    // 中国人
+    // 中国人继承了Person
+    // 所有中国人对象都能访问 Person中添加的属性和方法
+    class Chinese extends Person {
+      // 这是中国人的构造函数
+      constructor(name, age) {
+        // super表示调用父类的构造函数
+        super(name, age)
+
+        // 可以给chinese加上自己的属性
+        this.color = 'yellow'
+      }
+
+      // 给chinese添加方法
+      sayHello() {
+        console.log('今天吃了没')
+      }
+    }
+
+    // 非洲人
+    class Africa extends Person {
+      constructor(name, age) {
+        super(name, age)
+
+        // 给非洲人添加非洲人特有的属性
+        this.color = 'black'
+        this.tooth = 'white'
+      }
+
+      run() {
+        console.log('跑的飞快')
+      }
+    }
+
+    var xm = new Chinese('小明', 18)
+    console.log(xm)
+
+    var p = new Africa('黑人', 30)
+    console.log(p)
+
+    // 1. 如何定义一个类
+    // 2. 如何继承一个类
+
+
+  </script>
+
+</body>
+
+</html>

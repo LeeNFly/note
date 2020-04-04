@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="lib/react.development.js"></script>
+  <script src="lib/react-dom.development.js"></script>
+  <script src="lib/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 定义一个clock组件
+    class Clock extends React.Component {
+      constructor(props) {
+        super(props)
+
+        this.state = {
+          date: new Date(),
+          name: 'zs'
+        }
+      }
+      render() {
+        return (
+          <div>
+            <h1>北京时间</h1>
+            <h2>当前时间：{this.state.date.toLocaleString()}</h2>
+            <p>大家好，我的名字是{this.state.name}</p>
+          </div>
+        )
+      }
+
+      // DOM结构渲染好了， 开启一个定时器，动态的修改时间
+      componentDidMount() {
+        this.timeId = setInterval( () => {
+          // 修改状态, 在react中，修改状态不能直接通过this.state.xxx来修改
+          // 必须通过this.setState()来进行修改
+          // this.state.date = new Date()
+          // this.state.name = '李四'
+          // // 同步
+          // this.setState(this.state)
+
+          // 原因： react框架和小程序 不是双向数据绑定的
+          // vue和angular都是双向数据绑定
+
+          // 注意: react中, 不是双向数据绑定, 需要通过this.setState(), 来更新数据, 并重新渲染视图, 并且是异步渲染的, 不会阻塞栈
+          // this.setState有2个作用, 1, 更新变量的值. 2, 重新渲染视图中变量涉及到的部分. 但是, this.setState, 不管是更新变量的值, 还是重新渲染视图, 都是异步的, 不会阻塞栈
+          // this.setState 本质上是在 ★ 更新数据以后, 重新调用该组件的render方法, 然后重新编译render方法返回jsx, 将编译后的jsx重新覆盖渲染到该组件的使用处.
+          // this.state.xx = '值', 也可以给state中的数据赋值, 且是同步赋值, 但是不会重新渲染视图.
+          this.setState({
+            date: new Date(),
+            name: 'ls'
+          })
+          
+        }, 1000)
+      }
+
+      // 关闭定时器
+      componentWillUnmount () {
+        clearInterval(this.timeId)
+      }
+    }
+
+    ReactDOM.render(
+      <Clock/>,
+      document.getElementById('app')
+    )
+    
+  </script>
+</body>
+
+</html>

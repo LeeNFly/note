@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="lib/react.development.js"></script>
+  <script src="lib/react-dom.development.js"></script>
+  <script src="lib/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 定义组件 函数组件
+    // 1. 定义的组件名必须首字母大写，为了和html标签区分开
+    // 2. 必须返回一个jsx
+
+    // 组件传值：
+    // 2. 组件中怎么接受到传递过来的值, 通过props参数来接收即可 (props会将传递给组件的所有数据封装成一个对象, 然后在函数中就可以使用传递过来的 数据了)
+    function Hello(props) {
+      return (
+        // 会将jsx编译后(解析{}),  覆盖替换掉组件使用处的自定义标签 成为使用组件处的jsx语法中的一部分 
+        <div>
+          <p>大家好</p>
+          <p>{props.name} ---- {props.age}</p>
+        </div>
+      )
+    }
+
+    function App() {
+      return (
+        // 在使用组件的使用, 通过组件使用处的自定义标签的标签属性, 可以向组件中传递数据, 可以传递多个值, 写多个标签属性即可
+        // 可以传递任意类型的数据, 如果传递复杂类型的数据(5基本, 3复杂), 则与vue不同, 自定义标签属性的属性值不用写""双引号
+        <div>
+          {/*  在App组件内部，可以使用别的组件 */}
+          <Hello name="zs" age="18"/>
+          <Hello name="ls" age="20"/>
+          <Hello name="ww" age="22"/>
+        </div>
+      )
+    }
+
+    ReactDOM.render(
+      <App/>,
+      document.getElementById('app')
+    )
+
+    // 补充说明:
+    //  1. 在组件中, 也可以使用其他组件 (在jsx语法中), 并且可以使用多个, 多次其他组件
+    //  2. 只要是在jsx语法中, 就可以使用组件, 并且可以使用多个, 多次不同的组件
+    //  3. 如果使用的组件中使用了其他组件, 则也会将其他组件编译后一起引入, 即引入的是一个完整的组件
+
+    // 1. 如何创建组件   function 组件名() {}
+    // 2. 如何给组件传值，  <Hello name="zs" age="18">
+
+  </script>
+</body>
+
+</html>

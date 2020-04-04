@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="./lib/react.development.js"></script>
+  <script src="./lib/react-dom.development.js"></script>
+  <script src="./lib/babel.min.js"></script>
+  <script type="text/babel">
+
+    // React.createElement()方法
+    // 创建了一个react对象
+    // 什么是react对象: react对象可以看作是一个虚拟DOM, ★ 就是以对象的方式去描述页面上的标签 ★ , ★ 但是react对象不是DOM元素
+    // 参数1；type,标签名 表示你要创建什么类型react对象 标签名字
+    // 参数2：可选的对象，用于指定react对象的标签属性, 是一个js对象, 若没有标签属性, 可以指定null (注意: 在js中, class为关键字, 所以若要指定标签的class属性, 请使用className)
+    // 参数3：指定react对象的内容， 即标签的内容部分(innerHTML部分) 可以是一个文本，也可以是一个react对象, 若是react对象, 说明标签内部嵌套标签
+    // 注意, 若react对象的内容部分有多个标签, 则后面还可以跟参数4, 参数5, 参数6 ..., 之后的每一个参数, 都作为标签内容部分, 且是并列关系的
+    let p = React.createElement('p', null, '我是一个p标签')
+    let element = React.createElement('div', {className: 'haha'}, p)
+    // let element = React.createElement('div', {className: 'haha'}, '我是内容')
+
+    // ReactDOM.render()
+    // 参数1： 需要渲染的react对象
+    // 参数2： 需要渲染到那个DOM元素容器
+    // 会将react对象所描述的虚拟DOM, 自动转化成真实的DOM元素, 添加到参数2 DOM元素的innerHTML中, ★ 并且会覆盖其原来的innerHTML中的所有内容, 即覆盖其内部的所有内容, 如果参数2 DOM元素在DOM树上, 则也会将react对象转成的真实DOM元素添加到浏览器DOM树上, 然后浏览器会自动重新渲染页面
+    ReactDOM.render(p, document.getElementById('app'))
+  </script>
+
+</body>
+
+</html>
