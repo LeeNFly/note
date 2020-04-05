@@ -38,7 +38,7 @@
 <body>
   <div id="app">
     <div class="add">
-      <!-- 1.1 ref属性可以用来获取dom的引用，它的值可以随便定义, 但是注意这个名字不要和页面中其他的ref属性名相同, 否则会覆盖之前相同的ref -->
+      <!-- 1.1 ref属性可以用来获取dom的引用，直接在标签中定义标签的ref属性即可, 它的值可以随便定义, 但是注意这个名字不要和页面中其他的ref属性名相同, 否则会覆盖之前相同的ref -->
       编号:<input type="text" v-model="newId" ref="inputRef">
       品牌名称:<input type="text" v-model="newName" @keyDown.enter="addData" ref="inputRef">
       <input type="button" value="添加" @click="addData">

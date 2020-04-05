@@ -16,19 +16,23 @@
   <script src="./lib/react-dom.development.js"></script>
   <script src="./lib/babel.min.js"></script>
   <script type="text/babel">
-    // jsx语法作用: 帮助我们快速的创建一个 ★ react对象 ( ★ react对象其实就是js对象类型)
+    // jsx语法作用: 帮助我们快速的创建一个 ★ react对象 ( ★ react对象其实就是js对象类型)   jsx就是react对象
     // 什么是jsx语法? 通过在js中写html标签(写法同在html中写html标签类似), 来快速创建一个react对象 如 <div id="box">哈哈哈</div>, 返回的是一个react对象, react对象就是一个js对象
-    // jsx的使用位置? jsx是js的扩展语法, 需要配合babel来使用, jsx也是js代码, 在js环境里都可以使用, 即script标签内或js文件中, 都可以使用jsx语法
+    // jsx的使用位置? jsx是js的扩展语法, 需要配合babel来使用, jsx也是js代码, 在js环境里都可以使用(包括函数体中也可以使用), 只要是js运行环境中任意地方, 都可以使用 即script标签内或js文件中, 都可以使用jsx语法
     // 注意: 内部其实也是调用React.createElement方法来创建react对象 (是由babel解析jsx语法中的内容帮我们自动处理, 使用React.createElement来帮我们创建react对象, 这个由babel处理, 我们不用关心)
 
     //1. jsx的作用：用来创建react对象
     
-    //2. 在jsx语法中任意地方(包括标签内容中, 标签属性中, 或""中),可以通过{}来写js代码, 
-    //  2.1> {}中任意地方可以使用js变量, 函数调用等, ★访问顺序按照词法作用域规则进行访问
-    //  2.2> {}中支持js的基本语法, 内置函数 表达式, 三元运算符, 函数调用等所有其他js语法. {}中就是用来写js代码的, 支持js的所有使用语法
+    //2. 只要在jsx中, 在jsx语法中任意地方(包括标签内容中, 标签属性中),可以通过{}来写js代码,  (只要在jsx中想写js代码, 都需要用{}语法)
+    //  2.1> {}中任意地方可以直接使用/访问/js变量, 函数调用等, ★变量访问顺序按照词法作用域规则进行查找, 可以获取js变量的值, 也可以改变js变量的值
+    //  2.2> {}中支持js的基本语法, 内置函数以及方法的使用, 表达式, 三元运算符, 函数调用等所有其他js语法. {}中就是用来写js代码的, 支持js的所有使用语法
     //  2.3> {}中不支持js中的语句, 比如if语句, for循环语句等
     //  会解析执行{}中的js代码, 并且将解析执行的最终结果, 输出到jsx语法对应位置中 (字符串输出不带最外层引号), ★ 将来babel会根据jsx语法中最终解析执行的结果, 自动为我们创建一个react对象
-    
+    //  注意: ★★★ 在 ★ 标签属性的属性值 ★ 中, 若属性值中添加了"", 则{}不会被解析, 若想要{}在标签属性的属性值中被解析, 则标签属性的属性值中不要加""双引号
+    //  比如 若age值为3,  <div name="{age}"></div> 最终得到的是 <div name="{age}"></div>. <div name={age}></div>最终得到的是<div name="3"></div>
+    //  jsx中, 只有{}会被解析执行, 其他的当作普通文本 和 标签 输出
+    //  注意: ★★★ 在jsx中的{}中, 解析执行的最终结果也可以是jsx (react对象), 会将jsx输出拼接到{}所在的jsx中, 构成一个完整的jsx (react对象)
+
     //3. 在jsx中使用注释 不是//  而是{/* */}, 即先转为js代码, 然后在使用注释
 
     //4. 推荐在jsx中添加上代码的缩进和换行, 即jsx语法书写html标签时加上换行和缩进, 便于阅读.
@@ -43,7 +47,7 @@
     }
     // 就是通过jsx语法定义的一个react对象
     let element = (<div>
-      <h1>hello world</h1>
+      <h1 name={user.age} age={user.age = 1}>hello world</h1>
       <p>{user.name} ------ {user.age}</p>
       <p>{[1,2,2,3].join('-')}</p>
       <p> {user.age > 18? '成年人': '未成年'}  </p>
@@ -54,6 +58,7 @@
     
     // 把react对象渲染到页面中
     ReactDOM.render(element, document.getElementById('app'))
+    console.log(user)
 
   </script>
 

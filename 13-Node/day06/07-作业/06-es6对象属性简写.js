@@ -8,5 +8,3 @@ let obj = {
 }
 console.log(obj.name)
 obj.sing('张学友')
-
-

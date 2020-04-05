@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="lib/react.development.js"></script>
+    <script src="lib/react-dom.development.js"></script>
+    <script src="lib/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Hello extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    msg: '哈哈'
+                }
+            }
+            // sayHi(e) {
+            //     console.log('大家好')
+            //     console.log(this)
+            //     console.log(e)
+            //     e.preventDefault();
+            // }
+
+            sayHi = (e) => {
+                console.log(this)
+                this.setState({
+                    msg: '呵呵'
+                })
+                e.preventDefault();
+            }
+            sendParams = (id, e) => {
+                console.log(id);
+                console.log(e);
+            }
+            sendParams2 = (id, e) => {
+                console.log(id);
+                console.log(e);
+            }
+            render() {
+                const { msg } = this.state
+                return (
+                    <div>
+                        <a href="http://www.baidu.com" onClick={this.sayHi.bind(this)}>{ msg }</a>
+                        <a href="#" onClick={this.sendParams.bind(this, 3)}>传参</a>
+                        <a href="#" onClick={(e) => this.sendParams2(3, e)}>传参2</a>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Hello />, document.querySelector('#app'))
+    </script>
+</body>
+</html>

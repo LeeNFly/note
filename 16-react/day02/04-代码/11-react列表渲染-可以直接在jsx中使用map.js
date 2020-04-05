@@ -10,19 +10,18 @@ class List extends React.Component {
     }
   }
   render() {
-    let content = this.state.list.map(item => (
-      <tr key={item.id}>
-        <td>{item.id}</td>
-        <td>{item.name}</td>
-        <td>{item.age}</td>
-        <td>{item.gender}</td>
-      </tr>
-    ))
     return (
       <table>
         <tbody>
           {/* 可以直接在{}中遍历 */}
-          {content}
+          {this.state.list.map(item => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>{item.age}</td>
+              <td>{item.gender}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     )

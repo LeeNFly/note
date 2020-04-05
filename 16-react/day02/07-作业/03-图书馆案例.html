@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="app"></div>
+    <script src="lib/react.development.js"></script>
+    <script src="lib/react-dom.development.js"></script>
+    <script src="lib/babel.min.js"></script>
+
+    <script type="text/babel">
+        
+        class Library extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    bookList: [{
+                        id: 1,
+                        name: '红楼梦',
+                        desc: '一堆乱七八糟的破事'
+                    },
+                    {
+                        id: 2,
+                        name: '西游记',
+                        desc: '小时候的经典'
+                    },
+                    {
+                        id: 3,
+                        name: '权威指南',
+                        desc: 'js程序员必读'
+                    }],
+                    bookName: '',
+                    bookDesc: '',
+                    editId: ''
+                }
+            }
+            render() {
+                const { bookList, bookName, bookDesc } = this.state
+                const { handleChange, addBook, editBook, delBookById } = this
+                const bookListJsxArr = bookList.map((item, index) => (
+                    <tr key={item.id}>
+                        <td>{index + 1}</td>
+                        <td>{item.name}</td>
+                        <td>{item.desc}</td>
+                        <td>
+                            <a style={{marginRight: '10px'}} href="#" onClick={editBook.bind(this, item)}>修改</a>
+                            <a href="#" onClick={delBookById.bind(this, item.id)}>删除</a>
+                        </td>
+                    </tr>
+                ))
+               return (
+                <div className="container">
+                    <div>
+                        书名:<input type="text" name="bookName" value={bookName} onChange={handleChange}/>
+                        描述:<input type="text" name="bookDesc" value={bookDesc} onChange={handleChange}/>
+                        <button onClick={ addBook }>添加</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>编号</th>
+                                <th>书名</th>
+                                <th>描述</th>
+                                <th>操作</th>
+                            </tr>    
+                        </thead>    
+                        <tbody>
+                            {bookListJsxArr}
+                        </tbody>
+                    </table>
+                </div>
+               )
+            }
+            handleChange = (e) => {
+                const { value, name } = e.target
+                this.setState({
+                    [name]: value 
+                })
+            }
+            addBook = () => {
+                const { editId, bookName, bookDesc, bookList } = this.state
+                if (editId === '') {
+                    // 添加操作
+                    let id = -1
+                    if (bookList.length > 0) {
+                        id = bookList[bookList.length - 1].id + 1
+                    } else {
+                        id = 1
+                    }
+                    bookList.push({
+                        id,
+                        name: bookName,
+                        desc: bookDesc
+                    })
+                } else {
+                    // 修改操作
+                    const book = bookList.find(item => item.id === editId)
+                    book.name = bookName
+                    book.desc = bookDesc
+                }
+                this.setState({
+                    bookList,
+                    bookName: '',
+                    bookDesc: '',
+                    editId: ''
+                })
+            }
+            editBook = (item) => {
+                this.setState({
+                    bookName: item.name,
+                    bookDesc: item.desc,
+                    editId: item.id
+                })
+            }
+            delBookById = (bookId) => {
+                const { bookList } = this.state
+                const idx = bookList.findIndex(item => item.id === bookId)
+                bookList.splice(idx, 1)
+                this.setState({
+                    bookList
+                })
+            }
+        }
+        ReactDOM.render(<Library />, document.getElementById('app'))
+    </script>
+</body>
+</html>

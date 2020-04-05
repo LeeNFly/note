@@ -2,6 +2,7 @@
 // 2. 在react中注册事件，采用驼峰命名法， onClick onMouseEnter onBlur
 // 3. 在react中注册事件，通过{}传入的是一个函数, 而不是一个字符串
 // 4. 在react中，如果想要组件浏览器的默认行为，不要使用return false，使用e.preventDefault()
+// 5. 在事件处理函数定义处, 可以直接通过e形参拿到事件对象
 class Event extends React.Component {
   render() {
     return (

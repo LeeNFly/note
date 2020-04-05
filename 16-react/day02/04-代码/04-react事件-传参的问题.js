@@ -1,4 +1,10 @@
 // 在注册事件的时候，能够传递参数
+
+// <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
+// <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+// 上述两种方式是等价的，分别通过箭头函数和 Function.prototype.bind 来实现。
+// 在这两种情况下，React 的事件对象 e 会被作为第二个参数传递。如果通过箭头函数的方式，事件对象必须 ★ 显式的进行传递，而通过 bind 的方式，事件对象以及更多的参数将会被隐式的进行传递。
+// 传参时, 不管事件对象是隐式传还是显示传, 在形参中, 事件对象都作为最后一个形参接收
 class Event extends React.Component {
   constructor(props) {
     super(props)

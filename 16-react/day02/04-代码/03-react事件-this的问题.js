@@ -1,7 +1,7 @@
 // 在react的事件处理程序中，内部的this是指向undefined
-// 解决方案1：  通过this.clickFn.bind(this)
-// 解决方案2：  属性初始化器语法, 提供了一个箭头函数
-// 解决方案3：  在函数外面包一层箭头函数  onClick={this.clickFn}
+// 解决方案1：  通过this.clickFn.bind(this) 让this指向组件实例对象
+// 解决方案2：  属性初始化器语法, 提供了一个箭头函数 让this指向组件实例对象
+// 解决方案3：  在函数外面包一层箭头函数  onClick={this.clickFn} 让this指向组件实例对象
 //  onClick={()=>{this.clickFn()}}
 
 class Event extends React.Component {
@@ -15,6 +15,11 @@ class Event extends React.Component {
 
     // 可以在构造函数中，去处理事件处理函数的this问题
     // this.clickFn = this.clickFn.bind(this)
+
+    // 属性初始化器语法 (不过方法这样声明的话, 是添加到组件对象的属性中去了, 作为实例属性, 而不是添加到构造函数原型上了, 不过不影响. 组件实例对象还是可以直接通过方法名访问到该方法的, 并且可以加()调用 )
+    // clickFn = () => {
+        // 箭头函数没有this, this向上查找, 所以this指向组件实例对象
+    // }
   }
   render() {
     return (
