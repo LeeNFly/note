@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="lib/react.development.js"></script>
+    <script src="lib/react-dom.development.js"></script>
+    <script src="lib/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Comments extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    commentsList: [
+                        { id: 1, name: '张三', content: '沙发' },
+                        { id: 2, name: '李四', content: '板凳' },
+                        { id: 3, name: '王五', content: '卖瓜子' }
+                    ]
+                }
+            }
+            render() {
+                const { commentsList } = this.state
+                const { addComment } = this
+                return (
+                    <div>
+                        <h1>评论案例</h1>
+                        <br />
+                        < CommentsForm addComment={ addComment }/> 
+                        <br />
+                        < CommentsList commentsList={ commentsList }/>
+                    </div>
+                )
+            }
+            addComment = (commentTitle, commentContent) => {
+                const { commentsList } = this.state
+                const id = commentsList[commentsList.length - 1].id + 1
+                commentsList.push({
+                    id,
+                    name: commentTitle,
+                    content: commentContent
+                })
+                this.setState({
+                    commentsList
+                })
+            }
+        }
+
+        class CommentsForm extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    commentTitle: '',
+                    commentContent: ''
+                }
+            }
+            render() {
+                const { handleChange, addComment } = this
+                const { commentTitle, commentContent } = this.state
+                return (
+                    <div>
+                        <input type="text" name="commentTitle" value={ commentTitle } onChange={ handleChange }/>
+                        <br />
+                        <textarea name="commentContent" rows="5" cols="30" onChange={ handleChange } value={ commentContent } ></textarea>
+                        <br />
+                        <button onClick={ addComment }>添加</button>
+                    </div>
+                )
+            }
+            handleChange = (e) => {
+                const { name, value } = e.target
+                this.setState({
+                    [name]: value
+                })
+            }
+            addComment = () => {
+                const { addComment } = this.props
+                const { commentTitle, commentContent } = this.state
+                addComment(commentTitle, commentContent)
+                this.setState({
+                    commentTitle: '',
+                    commentContent: ''
+                })
+            }
+        }
+
+        class CommentsList extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            render() {
+                const { commentsList } = this.props
+                const commentsListJsxArr = commentsList.map(item => (
+                    <li key={item.id}>
+                        <h1>评论人: {item.name} </h1>
+                        <div>评论内容: {item.content} </div>
+                    </li>
+                ))
+                return (
+                    <ul>
+                        { commentsListJsxArr }    
+                    </ul>
+                )
+            }
+        }
+
+        ReactDOM.render(<Comments />, document.querySelector('#app'))
+
+    </script>
+</body>
+</html>

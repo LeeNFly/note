@@ -21,7 +21,7 @@ class Form extends React.Component {
     // 我们可以给表单元素绑定指定onChange事件 (该事件react做过优化了, 由之前的失焦才触发改为只要表单内容发生改变, 就会触发), 
     // 在表单输入框中的内容发送改变时触发
 
-    // react中并没有提供双向绑定功能, 我们需要通过表单的value和onChange事件, 手动实现表单的双向绑定.
+    // react中并没有提供双向绑定功能, 我们需要通过表单的value和onChange事件, 通过受控组件的方式, 手动实现表单的双向绑定.
     return (
       <input
         type="text"

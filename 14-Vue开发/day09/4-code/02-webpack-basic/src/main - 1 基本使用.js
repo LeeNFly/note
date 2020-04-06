@@ -12,11 +12,11 @@
 // 注意:
 //  1 使用 export default 导出的内容，在导入的时候，import后面的名称可以是任意的
 //  2 在一个模块中 export default 语法只能使用一次
-//  3 通过import语法, 可以拿到导入模块的导出项
+//  3 通过import语法, 可以拿到导入模块的导出项 即 export default 之后的导出项
 //  4 和之前nodejs中的模块化一样, 只不过换成ES6写法了, 导入模块也会执行模块中的js代码, 然后执行完毕后, 返回导出项
 //  5 一个模块可以多次导入
 // 导入a.js中的内容：
-// import abc from './js/a'  导入模块a, 并且将a的导出项赋值给abc
+// import abc from './js/a'  导入模块a, 声明变量abc并且将a的导出项赋值给abc
 // console.log('main.js中导入内容为：', abc)
 
 // 第二种语法:

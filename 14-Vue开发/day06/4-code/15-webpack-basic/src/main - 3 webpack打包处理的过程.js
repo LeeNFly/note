@@ -28,6 +28,7 @@
 // import 语法 只能用在 js文件里 (js环境中, 如script并且内也可以使用import语法)
 // 语法: import 接收变量名 from '包名' 或 '文件路径'
 import $ from 'jquery' // 类似于之前的script标签引入jq, 在当前js中直接引入jq, $就是jQuery暴露到全局的jQuery函数, 与之前一样, 可以直接使用$来使用jQuery
+// 声明变量$并且将jQuery包中导出的jQuery函数赋值给$
 
 $('#list > li:odd').css('background-color', 'red')
 $('#list > li:even').css('background-color', 'green')
