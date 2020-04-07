@@ -2,13 +2,13 @@
 // 使用ES6 import语法导入需要的模块
 import React from 'react'; // 导入react模块
 import ReactDOM from 'react-dom'; // 导入react-dom模块
-import './index.css'; // 导入通用样式
+import './index.css'; // 导入通用样式, 将来作用于整个index,html 这个单页面, 即作用域整个项目中的页面, 组件, 所以为通用样式
 import App from './App.jsx'; // 导入根组件
 
 // react项目中, 导入.js文件, 后缀名可以省略
 
 // 将根组件渲染到public/index.html中的id为root的标签内容部分
-// 在public/index.html中, 会自动引入我们的打包后的入口文件, 即会将入口文件中引入的所有模块以及我们写的js代码引入到页面中执行
+// 在public/index.html中, 会自动引入我们的打包后的入口文件, 即会将入口文件中引入的所有模块、文件以及我们写的js代码引入到页面中执行
 ReactDOM.render(
     <App />,
   document.getElementById('root')

@@ -8,6 +8,7 @@
 // 第一种语法:
 // 导出：export default 要导出的内容  (类似于node模块化中的导出项modules.export)
 // 导入：import a from '模块路径' (类似于类似于node模块化中的导入模块require)
+//       在当前作用域声明了变量a, 并且将模块的导出项(export default 后的导出项) 赋值给了变量a
 //
 // 注意:
 //  1 使用 export default 导出的内容，在导入的时候，import后面的名称可以是任意的

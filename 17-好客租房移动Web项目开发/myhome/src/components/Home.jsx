@@ -3,6 +3,9 @@ import React from 'react'
 class Home extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+
+        }
     }
     render() {
         return (
@@ -11,4 +14,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home // 导出类组件, 将来该组件才可以通过import导入
+export default Home

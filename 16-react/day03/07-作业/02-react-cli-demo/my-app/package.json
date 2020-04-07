@@ -17,7 +17,7 @@
     "start": "set PORT=8888 && react-scripts start",
     // 在window上是这样修改端口的 set PORT=8888 && react-scripts start , 在mac本上是这样修改端口的 PORT=8888 && react-scripts start 怎么统一?
     // 需要使用cross-env 这个插件 npm i cross-env -D
-    // 然后通过设置 cross-env PORT=8888 && react-scripts start 就可以在window或mac或其他任意环境下, 用8888启动端口了
+    // 然后通过设置 cross-env PORT=8888 react-scripts start 就可以在window或mac或其他任意环境下, 用8888启动端口了
     // cross-env作用就是在不同环境下, 统一命令
     "build": "react-scripts build",
     "test": "react-scripts test",
