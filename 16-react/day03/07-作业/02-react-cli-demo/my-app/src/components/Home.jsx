@@ -11,4 +11,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home
+export default Home // 导出类组件, 将来该组件才可以被导入
