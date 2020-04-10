@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2020-03-29 12:32:38
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-10 22:37:51
+ * @Description: 
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,8 +36,8 @@
       // await 关键字后面必须跟一个 Promise 对象 (await用在Promise对象之前, 用来修饰Promise对象的)
       // 一个async修饰的函数中可以使用多次await
       // await 会等待该Promise封装的异步操作执行完毕后，才会执行后面的代码 
-      // await实际上是先阻塞栈中代码执行, 等Promise对象调用resolve后, 即异步操作成功时, 才会继续执行await 之后的代码
-      // res 就是 Promise 中调用 resolve 函数时传递的参数 (必须要配合await res才是resolve传递的参数数据)
+      // await实际上是先阻塞栈中代码执行, 等await后的Promise对象的函数中调用resolve(传递数据)后, 即异步操作成功时, 返回数据到await处时, 才会继续执行await 之后的代码
+      // ★ res 就是 Promise对象函数中调用 resolve(数据) 函数时传递的实参数据 (必须要配合await res才是resolve传递的参数数据) (若不配合await, 则res拿到的是Promise对象)
       const res = await fn()
       console.log('await 后的结果为：', res)
     }
@@ -38,9 +45,9 @@
     // 加了async但是内部没有使用await的函数, 调用此函数还是同步调用的
     // 加了async但是内部使用了await的函数, 调用此函数就变成异步调用了, 不会阻塞栈, 会在浏览器任务队列中排队, 等待栈空时被调用执行
 
-    // 所有支持Promise的API, 其内部都封装好了, 会在内部封装的异步操作的回调函数中 resolve(返回的数据), 所以await会一直阻塞栈中代码的执行, 直到Promise内部异步操作的回调函数被执行调用, 才会调用resolve(返回的数据) 返回数据到await处, 然后才会继续执行await之后的代码. 
+    // 所有支持Promise的API, 其内部都封装好了, 会在内部封装的异步操作的回调函数中调用resolve(返回的数据), 所以await会一直阻塞栈中代码的执行, 直到Promise内部异步操作的回调函数被执行调用, 才会调用resolve(返回的数据) 返回数据到await处, 然后才会继续执行await之后的代码. 
 
-    // 特殊说明, 若axios配合async 和 await使用, 则axios返回的是axios自己封装的响应数据, 可以在await处使用变量进行接收. 
+    // 特殊说明, 若axios配合async 和 await使用, 则axios中resolve(数据) 返回的数据是axios自己封装的响应数据, 可以在await处使用变量进行接收. 
     // ★ Promise只有配合async 和 await使用, 在await处才能拿到resolve(参数)传递的参数值
 
     // async await 运行逻辑说明:
@@ -70,7 +77,7 @@
     //   console.log(d)
     // }
 
-    // 当然, 能保证Promise一定调用resolve的情况下, 可以不使用try/catch模式来使用await, await处拿到的就是resolve()中的参数, 并且resolve()后会回到await处继续执行await之后的代码.
+    // 当然, 能保证Promise一定调用resolve的情况下, 可以不使用try/catch模式, 可以直接使用await, await处拿到的就是resolve()中的参数, 并且resolve()后会回到await处继续执行await之后的代码.
     // 如果不写try/catch来使用await, 如果Promise调用的是reject(), 则程序报错, 停止执行. 如果外面写了try/catch, 则不报错, 继续执行catch中代码, 执行结束后跳出try/catch, 继续执行try/catch之后的代码
     foo()
   </script>
