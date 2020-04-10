@@ -1,0 +1,48 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2020-04-09 16:53:21
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-10 13:20:03
+ * @Description: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            position: absolute;
+        }
+        /* div {
+            float: left;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+        } */
+
+        div {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+        }
+        
+    </style>
+</head>
+<body>
+    <span>
+        <div>
+            <!-- 浮动元素撑不开父级容器的宽高, BFC可以解决此问题, 浮动元素也可以撑开BFC父级容器 包括宽高 -->
+            <!-- 脱标元素, 如绝对定位, 固定定位元素, 撑不开父级容器的宽高, BFC也无法解决此问题 -->
+        </div>
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </span>
+</body>
+</html>

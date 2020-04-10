@@ -116,8 +116,9 @@
 //  var a = { x : 1 }
 //  var b = a;
 //  a.x = a = { n : 1}; //赋值顺序从右往左,给变量赋值之前,先找到变量(记住了a和a.x的位置,然后执行赋值)
-//  console.log(a.x); //
-//  console.log(b.x); //
+// 在赋值前先找到了a.x 和 a的位置后, 然后才开始从右往左赋值
+//  console.log(a.x); // undefined
+//  console.log(b.x); // {n: 1}
     
   
 
