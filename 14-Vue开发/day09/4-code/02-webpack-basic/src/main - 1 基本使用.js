@@ -1,8 +1,16 @@
+/*
+ * @Author: Ling Hui Shi
+ * @Date: 2020-03-29 12:32:38
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-11 14:15:43
+ * @Description: 
+ */
 // ES6 中的模块化语法
 // import / export  (类似于node中的require语法和导出项modules.export)
 
 // 在浏览器或NodeJS环境中，是无法直接使用 import 语法的, 需要配合webpack使用, webpack打包编译后, 才可以被浏览器或nodejs识别
 // 在模块化的环境中每个JS文件都是一个独立的作用域，如果两个JS文件需要交互
+// 一个js文件, 就可以看作是一个模块
 // 那么，必须通过 导入和导出 才能实现
 
 // 第一种语法:
@@ -36,3 +44,6 @@ import { num, str, fn } from './js/b'
 console.log('导入b.js内容为:', num, str)
 
 fn()
+
+// 第三种语法, 直接导入静态资源文件, 或其他文件, (需要配合webpack打包处理)
+// import './css/index.css'

@@ -1,9 +1,16 @@
+/*
+ * @Author: Ling Hui Shi
+ * @Date: 2020-03-26 08:27:12
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-11 14:02:33
+ * @Description: 
+ */
 // Vue中的单文件组件
 
 /*
   准备: 安装vue: npm install vue -D
   处理 Vue 中的单文件组件：
-  单文件组件以.vue结尾, 需要被webpack预编译后才能被浏览器识别和使用 依赖于 vue-loader 和 vue-template-compiler
+  单文件组件以.vue结尾, 浏览器不能直接识别, 需要被webpack预编译后才能被浏览器识别和使用 依赖于 vue-loader 和 vue-template-compiler
   单文件组件说明详细请看 App.vue
 
   1 安装：npm i -D vue-loader vue-template-compiler

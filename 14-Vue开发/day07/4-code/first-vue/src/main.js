@@ -1,3 +1,10 @@
+/*
+ * @Author: Ling Hui Shi
+ * @Date: 2020-03-24 08:17:03
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-11 14:53:27
+ * @Description:
+ */
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
@@ -9,7 +16,7 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  el: '#app', // 用于搜索el标签, 将来根据生命周期覆盖展示
   router,
 
   // 脚手架生成的项目中，默认采用完整版（运行时+编译器）

@@ -1,3 +1,10 @@
+/*
+ * @Author: Ling Hui Shi
+ * @Date: 2020-04-06 14:12:26
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-11 14:12:57
+ * @Description: 
+ */
 // webpack打包的入口文件
 // 使用ES6 import语法导入需要的模块
 import React from 'react'; // 导入react模块
@@ -5,10 +12,13 @@ import ReactDOM from 'react-dom'; // 导入react-dom模块
 import './index.css'; // 导入通用样式, 将来作用于整个index,html 这个单页面, 即作用域整个项目中的页面, 组件, 所以为通用样式
 import App from './App.jsx'; // 导入根组件
 
+// 在入口文件中可以导入任意文件, 比如资源文件(css), 包, js文件等, 将来都会被打包处理
+
 // react项目中, 导入.js文件, 后缀名可以省略
 
 // 将根组件渲染到public/index.html中的id为root的标签内容部分
-// 在public/index.html中, 会自动引入我们的打包后的入口文件, 即会将入口文件中引入的所有模块、文件以及我们写的js代码引入到页面中执行
+// 在public/index.html中, 会自动引入我们的打包后的入口文件, 即会将入口文件中引入的所有模块、文件以及我们写的js代码引入到页面中执行 生效
+// 即在public/index.html 及 页面 中的组件中, 可以使用入口文件导入的所有模块, 资源文件, 都生效.
 ReactDOM.render(
     <App />,
   document.getElementById('root')
