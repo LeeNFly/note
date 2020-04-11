@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2020-03-15 10:43:10
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-11 13:10:45
+ * @Description: 
+ -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,8 +28,8 @@
           change() {
             this.msg = 'itcast' // 通过vue实例.变量名给data中的变量同步赋值, 且将赋值同步更新到data中, 虽然data变量赋值和更新是同步执行完成的, 但vue的视图更新渲染是异步的, 不会阻塞栈, 会被放到浏览器任务队列中等待栈空时被执行
             // console.log(document.getElementById('myh').innerText); // 如果直接这样打印，打印出来的结果不是我们想要的itcast，而是hello，因为视图渲染是异步的, 不会阻塞栈, 此时视图还未渲染完成
-            // this.$nextTick()的作用是，等你页面上的视图更新完之后，我再执行回调函数中的方法 (此时data中的数据更新完毕), 是异步的, 不会阻塞栈
-            // this.$nextTick() 是vue实例中的方法, 所有可以访问到vue实例的地方, 都可以通过vue实例.$nextTick()来使用此方法
+            // this.$nextTick(fn)的作用是，等你页面上的视图更新完之后，再执行回调函数中的方法, 确保回调函数中能拿到页面最新的DOM元素, 是异步的, 不会阻塞栈
+            // this.$nextTick(fn) 是vue实例中的方法, 所有可以访问到vue实例的地方, 都可以通过vue实例.$nextTick()来使用此方法
             // $nextTick()方法是异步的, 不会阻塞栈中代码执行
             this.$nextTick(() => {
               console.log(document.getElementById('myh').innerText) // itcast

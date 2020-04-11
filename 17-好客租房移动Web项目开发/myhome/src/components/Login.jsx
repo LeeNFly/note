@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Form } from 'semantic-ui-react'
 
+import { Button } from 'antd'
+
 import './Login.css'
 
 class Login extends React.Component {
@@ -26,6 +28,8 @@ class Login extends React.Component {
                     <Form.Checkbox label='I agree to the Terms and Conditions' />
                 </Form.Field>
                 <Form.Button type='submit'>Submit</Form.Button>
+
+                <Button type="dashed">Primary</Button>
             </Form>
         )
     }
