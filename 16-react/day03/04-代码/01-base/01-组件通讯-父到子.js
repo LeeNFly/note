@@ -1,3 +1,10 @@
+/*
+ * @Author: Ling Hui Shi
+ * @Date: 2018-12-13 20:19:43
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-13 20:56:33
+ * @Description: 
+ */
 class Father extends React.Component {
   constructor(props) {
     super(props)
@@ -16,6 +23,9 @@ class Father extends React.Component {
     )
   }
 }
+
+// ★ 各个组件中的数据是独立的, 包括复用组件, 父子组件. 兄弟组件等所有组件, 数组都是独立的, 不共享, 无法互相访问
+
 
 // 需求： 在子组件中如何使用父组件的数据
 // 1. 父组件通过标签自定义的属性把值传递给子组件 (属性值不加"")

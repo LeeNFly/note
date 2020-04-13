@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2019-01-07 22:41:10
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-13 21:43:27
+ * @Description: 
+ -->
 # 模块化
 
 ## 概念
@@ -21,7 +28,7 @@
 ## node.js的模块化
 
 ### 定义模块
-一个js文件就是一个模块
+★ 一个js文件就是一个模块
 
 与之前script标签引入js文件不同, 每个模块有自己单独的作用域, 
 1、模块与模块之间作用域独立

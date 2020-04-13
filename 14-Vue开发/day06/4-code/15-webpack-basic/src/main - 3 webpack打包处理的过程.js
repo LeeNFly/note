@@ -2,7 +2,7 @@
  * @Author: Ling Hui Shi
  * @Date: 2020-03-22 14:21:35
  * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-11 14:18:22
+ * @LastEditTime: 2020-04-13 21:35:34
  * @Description: 
  */
 // webpack打包处理的过程::
@@ -18,7 +18,7 @@
 // 3 webpack 就会分析 main.js 中的代码, 当遇到 import $ from 'jquery' 语法的时候, 那么, webpack
 //    就知道,我们要使用 jQuery 这个模块
 // 4 webpack 就会将jQuery模块的代码拿过来分析处理打包
-// 5 然后,继续往后分析, 如果在遇到 import 语法 (还可以导入其他css, js, 包, 插件, 资源文件等其他文件), 继续加载这个模块 ... 然后分析处理打包
+// 5 然后,继续往后分析, 如果在遇到 import 语法 (还可以导入其他css文件, js文件, 包, 插件, 资源文件等其他文件), 继续加载这个模块 ... 然后分析处理打包
 // 6 直到分析完成整个入口文件后, 将 main.js 中所有用到的模块的代码 与 我们自己写的js代码 保留原来的代码逻辑
 //   打包生成 ★ 一个新的JS文件, 打包生成的js文件中包含了入口文件中引入的所有模块, 内容, 资源等, 也包括入口文件自己写的js代码, 即包括入口文件中的所有内容
 //   也就是 dist/bundles.js, 这个js文件可以被浏览器识别, 原来的路口文件仍保持不变
@@ -33,8 +33,8 @@
 
 // ES6 中的模块化语法: (浏览器和node无法ES6模块化语法识别, 需要借助webpack打包后才能识别)
 // 除了可以导入js, 还可以导入包或其他任意文件！！！
-// import 语法 只能用在 js文件里 (js环境中, 如script并且内也可以使用import语法)
-// 语法: import 接收变量名 from '包名' 或 '文件路径'
+// import 语法 只能用在 js文件里 (js环境中, 如script并且内也可以使用import语法) 使用
+// 语法: import 接收变量名 from '包名' 或 '文件路径' (还可以导入其他css文件, js文件, 包, 插件, 资源文件等其他文件)
 import $ from 'jquery' // 类似于之前的script标签引入jq, 在当前js中直接引入jq, $就是jQuery暴露到全局的jQuery函数, 与之前一样, 可以直接使用$来使用jQuery
 // 在当前作用域声明变量$并且将jQuery包中导出的jQuery函数赋值给$
 // import './css/index.css' 也可以直接导入资源文件或其他文件(需要配合webpack打包处理, 由对应的loader来处理)

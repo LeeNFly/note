@@ -2,10 +2,10 @@
  * @Author: Ling Hui Shi
  * @Date: 2020-03-29 12:32:38
  * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-11 14:15:43
+ * @LastEditTime: 2020-04-13 21:43:09
  * @Description: 
  */
-// ES6 中的模块化语法
+// ES6 中的模块化语法 可以在js运行环境中使用 (.js文件, script标签内)
 // import / export  (类似于node中的require语法和导出项modules.export)
 
 // 在浏览器或NodeJS环境中，是无法直接使用 import 语法的, 需要配合webpack使用, webpack打包编译后, 才可以被浏览器或nodejs识别
@@ -15,7 +15,7 @@
 
 // 第一种语法:
 // 导出：export default 要导出的内容  (类似于node模块化中的导出项modules.export)
-// 导入：import a from '模块路径' (类似于类似于node模块化中的导入模块require)
+// 导入：import a from '模块路径' (类似于类似于node模块化中的导入模块require) (还可以导入其他css文件, js文件, 包, 插件, 资源文件等其他文件)
 //       在当前作用域声明了变量a, 并且将模块的导出项(export default 后的导出项) 赋值给了变量a
 //
 // 注意:

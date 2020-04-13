@@ -2,7 +2,7 @@
  * @Author: Ling Hui Shi
  * @Date: 2020-03-04 19:40:47
  * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-11 14:36:09
+ * @LastEditTime: 2020-04-13 19:14:57
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
   <!-- 注意下面这段视图没有在vue管辖范围之后，所以{{}}是不会有任何效果的 -->
   <div>{{msg}}</div>
   <script>
-    // 2. 创建一个vue实例，这个实例可以用来管理html代码, vue实例是一个js对象, 所以vue实例中的属性是无序的, 没有顺序要求
+    // 2. 创建一个vue实例，这个实例可以用来管理html代码, ★ vue实例是一个js对象, 所以vue实例中的属性是无序的, 没有顺序要求
     // let vm = 可以不写, 因为后续不会通过vm去访问vue实例 ...
     let vm = new Vue({
       // 3. 通过构造函数参数中el属性来指定该vue实例需要管理的html范围,这个el属性的值是一个# + id 字符串

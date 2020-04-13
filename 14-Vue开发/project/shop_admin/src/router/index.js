@@ -1,3 +1,10 @@
+/*
+ * @Author: Ling Hui Shi
+ * @Date: 2018-09-21 22:22:40
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-13 19:04:36
+ * @Description:
+ */
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -46,7 +53,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   // 注意, 在回调函数中, 只有执行了放行next(), 路由才会继续往下走, 即页面路由出口处才会展示匹配的路由对应的组件, 如果没有执行next(), 即在这个回调函数中没有放行, 则页面路由出口处什么都不展示
   // next(), 不传参数放行, 则页面直接展示当前URL路径#锚点匹配的那个路由规则对应的组件, ★ 且不会再执行这个回调函数了
-  // 如果传了参数(路由规则), 则中断当前路由, 相当于重定向到对应路由, 并且会改变URL地址中的锚点部分, ★★★ 然后再重新执行一次这个回调函数
+  // 如果传了参数(路由规则), 则中断当前路由, 相当于重定向到对应路由, 并且会改变URL地址中的锚点部分, ★★★ 然后再重新执行一次beforeEach这个回调函数
   // console.log('导航守卫在看门', to)
   // ...
 
