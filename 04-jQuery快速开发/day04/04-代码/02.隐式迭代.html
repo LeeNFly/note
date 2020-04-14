@@ -2,7 +2,7 @@
  * @Author: Ling Hui Shi
  * @Date: 2020-02-16 19:54:47
  * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-14 20:34:30
+ * @LastEditTime: 2020-04-15 00:06:34
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -50,7 +50,7 @@
                     // index： 表示当前遍历的这个元素的下标, 从0开始, 从小到大 是数字类型
                     // ele：  表示当前遍历的这个元素, 是dom元素, 当前执行这个函数的元素, 相当于把jq中的每个dom元素(引用地址)依次赋值给ele进行遍历
             // 可以在遍历时对jq对象中的每个dom元素进行单独的设置和获取性操作, 操作的也是dom树上的标签节点对象, 因为dom元素也是对象, 是引用类型
-            // jq中获取的dom元素一定在dom树上, 所以遍历的jq中的每个dom元素一定在dom树上, 所以可以直接对jq中的dom元素进行操作, 会自动将对dom元素的操作渲染更新到dom树上, 然后才继续往下执行之后的代码
+            // jq对象中的dom元素一定在dom树上, 所以遍历的jq对象中的每个dom元素一定在dom树上, 即是dom树上的dom元素(标签节点, 页面上的标签), 所以可以直接对jq中的dom元素进行操作, 会自动将对dom元素的操作渲染更新到dom树上, 然后才继续往下执行之后的代码
             // 如果jq对象的长度为0, 即没有获取到元素, 则each不会进行遍历, 也不会报错
             $("li").each(function(index, ele){
                 // console.log(index, ele);
