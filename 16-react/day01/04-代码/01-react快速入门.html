@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2018-12-13 20:18:57
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-16 14:38:16
+ * @Description: 
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +39,7 @@
   <!-- 
     注意点： 如果是以浏览器的方式引入了babel, 即是通过script标签引入babel的, 则要设置type="text/babel"
     只有设置type=text/babel, babel才会工作, 即把ES6语法转成ES5语法
-    type="text/babel" 本质script标签内还是写js, 浏览器还是当作js来执行, 与原来的script标签没有区别, 只是能让babel工作, 把JS中ES6语法转成ES5语法而已
+    type="text/babel" 本质script标签内还是js运行环境, 还是写js代码, 浏览器还是将script标签内代码当作js代码, 并执行解析, 与原来的script标签没有区别, 只是能让babel工作, 把JS中ES6语法转成ES5语法而已
 
     如果后续babel配合webpack使用, 则不需要设置type="text/babel"
   -->
