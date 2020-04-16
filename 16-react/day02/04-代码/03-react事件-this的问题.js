@@ -1,3 +1,10 @@
+/*
+ * @Author: Ling Hui Shi
+ * @Date: 2020-04-04 23:00:33
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-17 00:37:21
+ * @Description: 
+ */
 // 在react的事件处理程序中，内部的this是指向undefined
 // 解决方案1：  通过this.clickFn.bind(this) 让this指向组件实例对象
 // 解决方案2：  属性初始化器语法, 提供了一个箭头函数 让this指向组件实例对象
@@ -28,6 +35,7 @@ class Event extends React.Component {
         {/* 需求：点击button的时候，需要改变msg的数据 */}
         <button
           onClick={() => {
+            // 箭头函数没有this, this向上查找, 所以this指向组件实例对象
             this.clickFn()
           }}
         >

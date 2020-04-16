@@ -2,7 +2,7 @@
  * @Author: Ling Hui Shi
  * @Date: 2020-03-08 12:34:28
  * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-11 14:38:16
+ * @LastEditTime: 2020-04-17 00:45:08
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -49,7 +49,7 @@
         // 计算属性说明:
           //   computed计算属性，它表示根据已有属性，计算得到一个新的属性, 用来解决插值表达式中要展示逻辑复杂的数据时的问题
           // 1. computed, 是一个对象, 里面都是存储着函数 (属性都是函数属性), 且都是函数的声明, 不会调用, 推荐使用es6对象中函数属性简写形式
-          // 2. computed中的定义的每个函数属性, 函数中必须要return一个值 (不return默认return undefined), 会将具体的返回值计算出来后, 作为该计算属性的值. computed中可以定义多个函数, 每一个函数都是一个计算属性
+          // 2. computed中的定义的每个函数属性, 函数中必须要return一个值 (不return默认return undefined), (函数的返回值可以是表达式, 函数调用, 变量, 具体的值) 会将具体的返回值计算出来后, 作为该计算属性的值. computed中可以定义多个函数, 每一个函数都是一个计算属性
           // 3. computed中的定义的函数属性的函数体中, this指向vue实例, 则可以访问到data中的变量和methods中的方法以及其他计算属性了
           // 4. 在vue实例视图管理范围内, 插值表达式或vue指令中, 可以直接通过computed中的函数名 (不需要调用, 当作变量来用), 来访问获取和使用对应computed计算属性中对应函数的返回值
           // 5. 在vue实例对象中, 会拷贝computed中的所有计算属性作为自身vue实例属性, 属性名为computed中的函数名, 属性值为computed中对应函数的返回值

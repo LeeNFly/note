@@ -2,7 +2,7 @@
  * @Author: Ling Hui Shi
  * @Date: 2020-04-13 21:34:34
  * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-13 23:18:26
+ * @LastEditTime: 2020-04-17 00:42:40
  * @Description:
  */
 import Vue from 'vue' // 导入vue (vuex依赖于vue)
@@ -21,7 +21,7 @@ export default new Vuex.Store({
       { name: '大佬', money: 400, id: 4 }
     ]
   },
-  // getters: 用来获取属性, 与计算属性类似, 当作属性来使用, 值为函数中的返回值, 并且会监听和自动更新数据 和 视图, 也有缓存机制
+  // getters: 用来获取属性, 与计算属性类似, 当作属性来使用, 计算属性值为函数中的返回值, 函数必须要返回一个值, 并且会监听直接或间接用到的数据, 影响到返回值的数据, 会自动更新数据 和 视图, 也有缓存机制
   getters: {
     saleProducts (state) {
       return state.productList.map(item => {

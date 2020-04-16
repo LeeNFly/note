@@ -1,3 +1,10 @@
+/*
+ * @Author: Ling Hui Shi
+ * @Date: 2020-04-04 23:00:33
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-17 00:32:21
+ * @Description: 
+ */
 // 1. 在构造函数中，需要自己创建一个引用  ref
 
 class Form extends React.Component {
@@ -33,7 +40,7 @@ class Form extends React.Component {
     // 非受控组件： 我们需要手动的操作DOM，手动获取到DOM的value值
     // refs: 用于操作DOM的
 
-    // 3. 通过this.usernameRef.current
+    // 3. 通过this.usernameRef.current 获取对应ref标签的dom元素
     console.log(this.usernameRef.current.value)
     console.log(this.helloRef);
   }
