@@ -91,6 +91,7 @@
             //  3. 在事件处理函数中,获取到当前点击的a,然后拿到href 和title,再去赋值
 //            console.log(links[i]); // undefined => 由于事件触发的时候,此时循环已经结束,这时候再触发事件,调用事件处理函数,才开始具体解析和执行函数体中的代码,此事循环已经结束,i = 4,而link[i] => link[4] 不存在,所以是undefined
             //  这里使用this来获得当前事件源 
+            // this指向当前执行的事件函数是哪个dom元素注册的, this就指向这个dom元素, 即this是dom元素, 可以将每个注册该事件处理函数的dom元素一一区分开来
             //  console.log(this);  //this => 指向我们点击的事件源 元素
             //  console.log(this.href);  // 绝对路径,绝对路径不影响赋值
 //              console.log(this.title);  //

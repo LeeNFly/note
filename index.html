@@ -2,7 +2,7 @@
  * @Author: Ling Hui Shi
  * @Date: 2020-04-09 16:53:21
  * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-10 20:04:15
+ * @LastEditTime: 2020-04-18 01:21:13
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -46,10 +46,36 @@
     </span>
 
     <script>
-        for (let i = 0; i < 10; i++) {
-            const j = i + 1
-            console.log(j)
+        var str = 'abccbaskdaslkdcbjbcjasjc'
+        function tj (str) {
+            var max = 0
+            var maxKey = ''
+            var obj = {}
+            for (var i = 0; i < str.length; i++ ) {
+                if (!obj[str[i]]) {
+                    obj[str[i]] = 1
+                } else {
+                    obj[str[i]] ++
+                }
+                if (obj[str[i]] > max) {
+                    max = obj[str[i]]
+                    maxKey = str[i]
+                }
+            }
+            return {
+                obj,
+                max,
+                maxKey
+            }
         }
+        console.log(tj(str))
+
+        var objj = {}
+        console.log(objj)
+        objj.name = 'zs'
+        console.log(objj)
+        objj.name = 'ls'
+        console.log(objj)
     </script>
 </body>
 </html>

@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2020-02-16 19:54:47
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-17 08:36:40
+ * @Description: 
+ -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -15,7 +22,9 @@
 </ul>
 <script>
   
-  //不能使用this, 利用闭包,打印每一个li的文本
+  //不能使用this , 利用闭包,打印每一个li的文本
+  // this指向当前执行的事件函数是哪个dom元素注册的, this就指向这个dom元素, 即this是dom元素, 可以将每个注册该事件处理函数的dom元素一一区分开来
+
   var lis = document.getElementsByTagName('li');
 
 //  for(var i = 0; i < lis.length; i++) {
