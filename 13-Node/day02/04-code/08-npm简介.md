@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2019-01-07 22:42:32
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-18 22:43:13
+ * @Description: 
+ -->
 # npm简介
 Node Package Manager node包管理工具
 
@@ -71,6 +78,7 @@ npm init 主要就是用于项目初始化npm的, 实际上就是生成一个pac
 不需要知道全局安装包的目录在哪(一般在nodejs的安装目录下), 需要全局安装的包文档里会有说明
 
 命令 (全局安装包可以在命令行的任意位置进行, 反正是全局安装; 安装后的全局命令 可以在任意地方的命令行中使用)
+即全局安装包的命令, 可以在命令行中的 任意目录下 执行命令安装全局包.
 `npm install 包名 -g` (简写形式)
 `npm install 包名 --global`
 

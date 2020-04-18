@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2020-02-16 19:54:47
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-18 23:42:07
+ * @Description: 
+ -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +15,9 @@
 </head>
 <body>
     <script>
-      // 双重for循环,外层用i,里层就用j,防止干扰
+      // 双重for循环, 循环里套循环, 外层用i,里层就用j,防止干扰
+      // 明确, 循环语句都是同步执行的, 要等到当前循环全部执行结束后, 才会执行循环之后的代码
+      // 由以上可知道, 内层循环全部执行结束后, 才会继续往下执行外层的循环
 
 
       //1  网页打印5*5方形★阵  document.write();

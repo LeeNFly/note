@@ -2,15 +2,15 @@
  * @Author: Ling Hui Shi
  * @Date: 2020-03-22 14:21:35
  * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-17 01:15:48
+ * @LastEditTime: 2020-04-18 22:19:10
  * @Description: 
  */
 // webpack打包处理的过程::
 
 // 案例: 使用jQuery实现隔行变色的效果
 
-// 浏览器或者NodeJS中 都无法直接识别 import 语法,
-// 但是, 经过webpack打包处理后, 浏览器就能够识别这个语法了
+// 浏览器或者NodeJS中 都无法直接识别和解析执行 import 语法,
+// 但是, 经过webpack打包处理后, 浏览器就能够识别和解析执行这个语法了, 即ES6中模块化语法import需要配合webpack使用, 才能被浏览器识别和解析执行
 
 // webpack打包处理的过程:
 // 1 运行了webpack的打包命令: webpack ./src/main.js --mode development

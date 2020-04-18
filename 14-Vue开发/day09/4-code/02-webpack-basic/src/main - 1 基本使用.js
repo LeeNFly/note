@@ -2,11 +2,12 @@
  * @Author: Ling Hui Shi
  * @Date: 2020-03-29 12:32:38
  * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-13 21:43:09
+ * @LastEditTime: 2020-04-18 22:20:07
  * @Description: 
  */
 // ES6 中的模块化语法 可以在js运行环境中使用 (.js文件, script标签内)
 // import / export  (类似于node中的require语法和导出项modules.export)
+// ES6 模块化语法不能直接被浏览器或nodejs识别解析和执行, 需要配合webpack打包处理后, 才能被浏览器识别和解析和执行
 
 // 在浏览器或NodeJS环境中，是无法直接使用 import 语法的, 需要配合webpack使用, webpack打包编译后, 才可以被浏览器或nodejs识别
 // 在模块化的环境中每个JS文件都是一个独立的作用域，如果两个JS文件需要交互

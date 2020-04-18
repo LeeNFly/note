@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2020-02-16 19:54:46
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-18 23:20:49
+ * @Description: 
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +27,10 @@
       alert('滴,滴滴');
     </script>
 
-    <!-- 方式2 : 引入 js 文件,js文件中不必再写script标签了,第一,标签只能写在html文件中,第二,.js文件已经是一个js运行环境了,直接写js代码即可, 且只能写js代码 -->
-    <!-- 会将引入的js文件里的js代码, 在当前引入的页面中(的全局作用域)执行!!! -->
+    <!--方式2, 通过script标签的src属性引入js文件 : <script src="./test.js"></script> -->
+    <!-- ★ js文件的后缀名为.js, .js文件内部为js代码运行环境了, 直接写js代码即可, .js文件中只能写js代码 -->
+    <!-- 引入 js 文件,js文件中不必再写script标签了,第一,标签只能写在html文件中,第二,.js文件已经是一个js运行环境了,直接写js代码即可, 且只能写js代码 -->
+    <!-- 会将引入的js文件里的js代码, 在当前引入的页面中(的全局作用域中)执行!!! -->
     <!--  场景 : 项目中  -->
     <!-- 引入的js文件也会执行 -->
     <!-- src: 支持相对路径和绝对路径 -->
