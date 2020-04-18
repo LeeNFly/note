@@ -1,7 +1,7 @@
 <?php
   header('content-type:text/html;charset=utf-8');
 
-  // 超全局变量 $_GET 获取所有用户通过 get 方式发起请求(传递)的基本数据
+  // 超全局变量 $_GET 获取所有用户通过 get 方式发起请求(传递)的基本参数数据
   // $_GET 是一个一维关联数组, key值与表单提交的name值一致
 
   echo '<pre>';
