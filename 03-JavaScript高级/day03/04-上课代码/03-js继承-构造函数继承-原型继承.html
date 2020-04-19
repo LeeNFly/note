@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2020-02-16 19:54:47
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-19 17:44:42
+ * @Description: 
+ -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -16,13 +23,14 @@
   }
   
   function Student(name, age){
-    Person.call(this, name, age); //借用构造函数继承,只能继承写在函数体内this.xxx的属性
+    Person.call(this, name, age); //借用构造函数继承,只能继承写在函数体内this.xxx的属性, 即借用构造函数只能继承Person构造函数的实例属性, 无法继承Person构造函数原型链上的属性
   }
   
   
-  //如果想要继承原型上的属性,那么就要使用原型继承这个方式
-//  原型继承: 专门用来继承写在原型上的属性的
-//  Student.prototype = new Person();
+  //如果想要继承原型链上的属性,那么就要使用原型继承这个方式
+//  原型继承: 专门用来继承写在原型链上的属性的
+//  原型继承, 不仅继承了原型对象, 还将原型对象及其整个原型链, 都继承过来了
+//  Student.prototype = new Person(); // 推荐
 //    Student.prototype = Person.prototype;
   //  var zs = new Student('zs', 18);
 //  zs.say();
@@ -30,8 +38,11 @@
   
 //  属性写在构造函数中, 方法写在原型上
 //  私有属性写在构造函数中,共有的属性写在原型上,所有实例都可以访问到
-//  借用构造函数法用来继承私有属性, 原型继承用来继承共有的属性
+//  借用构造函数法用来继承私有属性, 原型继承用来继承共有的属性 (原型链上的属性)
 //  组合继承 = 借用构造函数 + 原型继承
+//  借用构造函数: 用于继承构造函数的实例属性
+//  原型继承: 用于继承构造函数的原型链上的属性
+
 //    function Person(){
 //      this.name = name;
 //      this.age = age;

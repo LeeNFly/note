@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2020-02-16 19:54:47
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-19 17:44:53
+ * @Description: 
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +19,7 @@
         //当我们要批量创建对象的时候,需要用到构造函数,构造函数如何继承
 
         function Person(name, age){
+            // console.log('调用了Person构造函数')
             this.name = name;
             this.age = age;
         }
@@ -26,8 +34,9 @@
 
         //1. 借用构造函数法
         function Student(name, age, score){
-            Person.call(this,name, age);  // => 调用Person函数,将this指定为Student中新创建的对象,传入name和age值
-                                          // => 相当于执行了this.name = name;this.age = age;这2行代码,给新创建的Student对象赋值了name和age属性
+            Person.call(this,name, age);  // => 调用Person函数, 执行函数体, 将this指定为new Student时新创建的对象,传入name和age值
+                                          // => 相当于执行了this.name = name;this.age = age;这2行代码,给新新创建的Student对象赋值了name和age属性
+            // 借用构造函数法, 让创建的对象继承了Person构造函数的实例属性
             this.score = score;
         }
 
