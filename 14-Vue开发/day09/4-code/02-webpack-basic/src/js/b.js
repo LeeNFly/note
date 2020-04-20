@@ -1,3 +1,10 @@
+/*
+ * @Author: Ling Hui Shi
+ * @Date: 2020-03-29 12:32:38
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-20 22:46:43
+ * @Description: 
+ */
 // export const num = 888
 // export const str = 'bbbbbb'
 
@@ -16,3 +23,13 @@ export { num, str, fn }
 // 在导入的时候 以不同的方式进行接收
 const num1 = 999
 export default num1
+
+
+// 导出语法3: 
+// export const a1 = 1
+
+// const a2 = {name: 'zs}
+
+// export a2
+
+// 可以在导入时 import { a1, a2 } from './b.js' 在当前作用域声明变量并获取导出值

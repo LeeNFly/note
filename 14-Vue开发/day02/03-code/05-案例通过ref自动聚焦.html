@@ -100,7 +100,7 @@
 
       // 如果后续ref属性写在组件使用处的标签内, 则也会按照上面一样, 在当前vue实例中进行拷贝, 只不过存储的不是dom元素了, 而是对应组件的vue实例了
 
-      // ★ 要想拿到vue实例.$refs的dom元素或组件, 前提是该dom元素/组件已经被vue视图渲染完成了. 即要被vue渲染后, 才会将ref添加到vue实例的$refs中
+      // ★ 要想拿到vue实例.$refs的dom元素或组件, 前提是该dom元素/组件已经被vue视图渲染完成了. 即dom元素/组件 要被vue渲染到视图后, 才会将ref添加到vue实例的$refs中, 才可以通过$refs属性拿到
       console.log(this.$refs.inputRef);
       this.$refs.inputRef.focus()
     },

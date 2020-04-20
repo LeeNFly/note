@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2020-02-16 19:54:46
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-21 01:41:13
+ * @Description: 
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +15,7 @@
 		/*
 			我们在量一个盒子的时候 有时候很难直接量盒子的内容区域的大小  于是更多的是直接量整个盒子的大小(border+padding+width/height) 然后直接赋给width  后期添加左右padding、border的时候会撑大盒子, 需要在width的基础上手动减去padding/border值 保证盒子的总大小不变
 
-			如果一个盒子本身没有width  而是通过继承得到的宽度 那么这个盒子在添加左右padding、border的时候 不会撑大当前盒子的宽度 （此时浏览器会自动减去padding值，保证盒子总大小不变）
+			如果一个盒子本身没有width  而是通过继承得到的宽度(即块级元素的默认宽度) 那么这个盒子在添加左右padding、border的时候 不会撑大当前盒子的宽度 （此时浏览器会自动减去padding值，保证盒子总大小不变）
 
 			由于高度不能被继承，所以在添加上下padding,border的时候，都会撑大盒子，视情况可以减去对应的高度
 

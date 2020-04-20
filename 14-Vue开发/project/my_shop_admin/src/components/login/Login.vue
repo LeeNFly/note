@@ -1,6 +1,13 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2020-03-31 10:16:09
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-21 01:28:15
+ * @Description:
+ -->
 <template>
   <div class="login-wrapper">
-    <el-row type="flex" align="middle" justify="center" class="loginForm-wrapper">
+    <el-row class="loginForm-wrapper" type="flex" align="middle" justify="center">
       <el-col :xs="12" :sm="10" :md="8" :lg="6" :xl="4">
         <el-form class="loginForm" label-position="top" :model="loginForm" :rules="rules" ref="loginForm" label-width="80px">
           <el-form-item label="用户名" prop="username">

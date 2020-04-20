@@ -44,7 +44,37 @@
               </el-row>
             </el-col>
         </el-row>
-
+        <!-- <el-row v-for="level1 in scope.row.children" :key="level1.id" class="v-le1-row">
+          <el-col :span="4">
+            <el-tag
+            closable>
+            {{ level1.authName }}
+            </el-tag>
+          <i class="el-icon-arrow-right"></i>
+          </el-col>
+          <el-col :span="20">
+            <el-row v-for="level2 in level1.children" :key="level2.id" class="v-le2-row">
+              <el-col :span="4">
+                <el-tag
+                closable
+                type="success">
+                {{ level2.authName }}
+                </el-tag>
+                <i class="el-icon-arrow-right"></i>
+              </el-col>
+              <el-col :span="20">
+                <el-tag
+                closable
+                v-for="level3 in level2.children"
+                :key="level3.id"
+                class="v-le3-tag"
+                type="warning">
+                {{ level3.authName }}
+                </el-tag>
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row> -->
       </template>
     </el-table-column>
     <el-table-column

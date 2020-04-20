@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2019-01-07 22:42:32
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-20 23:26:02
+ * @Description: 
+ -->
 # package.json
 
 ## 作用
@@ -55,7 +62,7 @@ jquery: 1.x 2.x 3.x
 1.12.1 1.12.4
 
 ## dependencies 和 devDependencies 的说明
-这两个属性中保存的都是当前包中所有的依赖信息。, 即当前项目用到的所有包 (依赖项)
+这两个属性中保存的都是当前包中所有的依赖信息, 包括版本号。, 即当前项目用到的所有包 (依赖项)
 依赖项: 就是当前项目用到的包, 从npm上下载的包. 
 dependencies： 运行时依赖项，在将代码上传到服务器时，这个包仍被需要, 即不管是生产环境还是开发环境都需要的包
 devDependencies： 开发时依赖项，这个依赖项只需要在开发的时候用到，上传到服务器的时候不需要！
