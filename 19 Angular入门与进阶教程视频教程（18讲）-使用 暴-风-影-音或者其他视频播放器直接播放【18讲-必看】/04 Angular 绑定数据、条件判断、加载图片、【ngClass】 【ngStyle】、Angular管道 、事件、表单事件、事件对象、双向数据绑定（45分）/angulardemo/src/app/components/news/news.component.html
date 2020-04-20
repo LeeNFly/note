@@ -1,0 +1,143 @@
+
+<h1>angualr模板里面绑定数据</h1>
+          <h2>{{title}}</h2>
+
+          <h3>{{msg}}</h3>
+
+
+          <h4>{{username}}</h4>
+
+
+          <h5>{{student}}</h5>
+
+
+
+          <hr />
+
+          <h6>{{userinfo.username}}</h6>
+
+
+          <div>
+
+            {{message}}
+          </div>
+
+<hr />
+<h1>angualr模板里面绑定属性</h1>
+
+
+        <div title="我是一个div">
+
+          鼠标瞄上去看一下
+
+        </div>
+
+        <br>
+
+        <div [title]="student">
+
+          张三
+        </div>
+
+<hr />
+<h1>angualr模板里面绑定Html</h1>
+
+
+
+        <div>
+
+          {{content}}
+        </div>
+
+        <br>
+
+        <span [innerHTML]='content' class="red"></span>
+
+
+
+
+<hr />
+<h1>angualr模板里面允许做简单的运算</h1>
+
+
+
+1+2={{1+2}}
+
+
+
+
+<hr />
+<h1>angualr里面的数据循环</h1>
+
+
+
+    <ul>
+      <li *ngFor="let item of arr">
+
+          {{item}}
+
+      </li>
+    </ul>
+
+
+
+    <br>  
+
+
+    <ol>
+
+      <li *ngFor="let item of list">
+
+        {{item}}
+      </li>
+    </ol>
+
+
+
+    <br>  
+
+
+    <ol>
+
+      <li *ngFor="let item of items">
+
+        {{item}}
+      </li>
+    </ol>
+
+
+
+    <br>  
+
+    <ul>
+
+      <li *ngFor="let item of userlist">
+
+        {{item.username}}---{{item.age}}
+      </li>
+    </ul>
+
+
+
+    <br>
+
+
+    <ul>
+      <li *ngFor="let item of cars">
+          <h2>{{item.cate}}</h2>
+          <ol>
+            <li *ngFor="let car of item.list">
+
+                {{car.title}}---{{car.price}}
+
+            </li>
+          </ol>
+
+      </li>
+    </ul>
+  <br>  
+  <br>
+  <br>
+  <br>
+
+      

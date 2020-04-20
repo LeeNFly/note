@@ -1,0 +1,185 @@
+<h1>引入图片</h1>
+
+
+        <img src="assets/images/02.png" alt="收藏" />
+
+
+        <img [src]="picUrl" />
+
+
+<hr>
+
+<h1>循环数据 显示数据的索引（key）</h1>
+
+
+      <ul>
+
+        <li *ngFor="let item of list;let key=index;">
+          {{key}}---{{item.title}}
+        </li>
+      </ul>
+
+<h1>条件判断语句 *ngIf</h1>
+
+
+    <div *ngIf="flag">
+
+      <img src="assets/images/02.png" />
+    </div>
+
+    <div *ngIf="!flag">
+
+        <img src="assets/images/01.png" />
+    </div>
+      
+
+
+    <ul>
+
+        <li *ngFor="let item of list;let key=index;">
+            <span  *ngIf="key==1" class="red">{{key}}---{{item.title}}</span> 
+            <span  *ngIf="key!=1">{{key}}---{{item.title}}</span> 
+        </li>
+        
+     </ul>
+
+    
+
+<h1>条件判断语句 *ngSwitch</h1>
+
+
+    <span [ngSwitch]="orderStatus">
+      <p *ngSwitchCase="1">
+          表示已经支付
+      </p>
+      <p *ngSwitchCase="2">
+          支付并且确认订单
+      </p>
+      <p *ngSwitchCase="3">
+          表示已经发货
+      </p>
+      <p *ngSwitchCase="4">
+          表示已经收货
+      </p>
+      <p *ngSwitchDefault>
+        无效订单
+      </p>
+    </span>
+
+
+  
+ <h1>属性[ngClass]、[ngStyle]</h1>
+
+
+
+                <div class="red">
+                    ngClass演示 （尽量不要用dom来改变class）
+                </div>
+                    
+
+                <div [ngClass]="{'blue':true,'red':false}">
+                    ngClass演示
+                </div>
+
+                <hr>  
+
+                <div [ngClass]="{'orange':flag,'red':!flag}">
+                    ngClass演示
+                </div>
+
+              <strong>循环数组，让数组的第一个元素的样式为red ,第二个为orange</strong>
+
+
+              <ul>
+
+
+                  <li *ngFor="let item of list;let key=index;" [ngClass]="{'red':key==0,'orange':key==1,'blue':key==2}">
+                      {{key}}---{{item.title}}
+                  </li>
+              </ul>
+
+
+
+              <hr>  
+
+              <p style="color:red">我是一个p标签</p>
+
+
+
+              <p [ngStyle]="{'color':'blue'}">我是一个p标签</p>
+
+
+
+              <p [ngStyle]="{'color': attr}">我是一个p标签  </p>
+
+            <br>
+
+<h1>管道</h1>
+
+      {{today | date:'yyyy-MM-dd HH:mm ss'}}
+
+
+<h1>事件</h1>
+  
+        <strong>{{title}}</strong>
+
+        <br>  
+        <br>  
+
+        <button (click)="run()">执行事件</button>
+
+        <br>  
+        <br>  
+
+        <button (click)="getData()">执行方法获取数据</button>
+        <br>  
+
+        <br>  
+        <button (click)="setData()">执行方法改变属性里面的数据</button>
+
+        <br>  
+
+        <br>  
+        <button (click)="runEvent($event)">执行方法获取事件对象</button>
+
+<h1>表单事件 事件对象</h1>
+
+
+
+            
+          <!-- <input type="text" (keydown)="keyDown()" /> -->
+
+          keyDown
+          <input type="text" (keydown)="keyDown($event)" />
+
+          <br>
+
+          keyUp:
+
+
+          <input type="text" (keyup)="keyUp($event)" />
+
+
+<h1>双休数据绑定--MVVM 只是针对表单</h1>
+
+
+            <input type="text" [(ngModel)]='keywords' />
+
+            {{keywords}}
+
+            <br>
+            <br>
+
+
+            <button (click)="changeKeywords()">改变keywords的值</button>
+
+            <br>
+            <br>
+
+            <button (click)="getKeywords()">获取keywords的值</button>
+            
+ <br> 
+ <br>
+ <br>
+ <br>
+ <br>
