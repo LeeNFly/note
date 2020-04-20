@@ -1,5 +1,5 @@
 import React from 'react'
-import CommentForm from './CommentForm.jsx' // 需要使用到其他组件, 在组件中直接导入即可
+import CommentForm from './CommentForm.jsx' // 需要使用到其他组件, 在组件中直接导入即可, 然后在jsx中当作自定义标签使用即可
 import CommentList from './CommentList.jsx'
 import './Comment.css' // 需要使用css, 在组件中直接导入即可
 class Comment extends React.Component {

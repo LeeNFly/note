@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2018-12-13 20:18:57
+ * @LastEditors: Ling Hui Shi
+ * @LastEditTime: 2020-04-21 03:16:37
+ * @Description: 
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +58,7 @@
 
           // 注意: react中, 不是双向数据绑定, 需要通过this.setState(), 类实例(组件实例).setState(), 来更新数据, 并重新渲染视图, 并且是异步渲染的, 不会阻塞栈
           // this.setState有2个作用, 1, 更新变量的值. 2, 重新渲染视图中变量涉及到的部分. 但是, ★ this.setState, 不管是更新变量的值, 还是重新渲染视图, 都是异步的, 不会阻塞栈
-          // this.setState 本质上是 ★ 先更新组件实例中state中数据, 等到state数据更新完毕后 (同步), ★ 再重新调用执行该组件实例的render方法, 然后重新编译render方法新返回的jsx, 将此次render方法返回的编译后的jsx重新覆盖渲染拼接到该组件的使用处.
+          // this.setState 本质上是 ★ 先更新组件实例中state中数据, 等到state数据更新完毕后 (同步), ★ 再重新调用执行该组件实例的render方法(函数体代码同步执行), 然后重新编译render方法新返回的jsx, 将此次render方法返回的编译后的jsx重新覆盖渲染拼接到该组件的使用处.
           // this.state.xx = '值', 也可以给state中的数据赋值, 且是同步赋值, 但是不会重新渲染视图.
           this.setState({
             date: new Date(),
