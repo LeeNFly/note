@@ -1,8 +1,8 @@
 <!--
  * @Author: Ling Hui Shi
  * @Date: 2020-04-09 16:53:21
- * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-18 01:21:13
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-21 22:17:31
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -11,71 +11,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        span {
-            position: absolute;
-        }
-        /* div {
-            float: left;
-            width: 20px;
-            height: 20px;
-            border: 1px solid #ccc;
-        } */
-
-        div {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border: 1px solid #ccc;
-        }
-        
-    </style>
 </head>
 <body>
-    <span>
-        <div>
-            <!-- 浮动元素撑不开父级容器的宽高, BFC可以解决此问题, 浮动元素也可以撑开BFC父级容器 包括宽高 -->
-            <!-- 脱标元素, 如绝对定位, 固定定位元素, 撑不开父级容器的宽高, BFC也无法解决此问题 -->
-        </div>
-        <div>
-            
-        </div>
-        <div>
-            
-        </div>
-    </span>
-
+    <input type="text">
+    <input type="file">
     <script>
-        var str = 'abccbaskdaslkdcbjbcjasjc'
-        function tj (str) {
-            var max = 0
-            var maxKey = ''
-            var obj = {}
-            for (var i = 0; i < str.length; i++ ) {
-                if (!obj[str[i]]) {
-                    obj[str[i]] = 1
-                } else {
-                    obj[str[i]] ++
-                }
-                if (obj[str[i]] > max) {
-                    max = obj[str[i]]
-                    maxKey = str[i]
-                }
-            }
-            return {
-                obj,
-                max,
-                maxKey
-            }
+        var inp = document.querySelector('input')
+        inp.onchange =  function() {
+            console.log(this.value)
         }
-        console.log(tj(str))
-
-        var objj = {}
-        console.log(objj)
-        objj.name = 'zs'
-        console.log(objj)
-        objj.name = 'ls'
-        console.log(objj)
     </script>
 </body>
 </html>

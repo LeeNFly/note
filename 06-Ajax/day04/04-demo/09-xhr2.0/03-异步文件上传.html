@@ -1,3 +1,10 @@
+<!--
+ * @Author: Ling Hui Shi
+ * @Date: 2020-02-16 19:54:48
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-21 22:20:10
+ * @Description: 
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,11 +38,18 @@
     // xhr2.0中的 ★ formData 对象支持文件的异步上传。
     // 只需要在formData里添加一个参数, 值为文件对象即可
     // 当用户重新选择文件后
+
+    // 可以给文件表单绑定change事件, 每次上传文件发生变化时, 会触发该事件, 调用事件处理函数, (多次上传文件, 后面的文件会覆盖之前上传的文件, 存储到上传表单dom元素中)
+    // 在事件处理函数中, 上传表单中存储的文件已经发生改变, 在上传表单dom元素中可以拿到当前上传表单中存储着的最新的文件对象(js对象)
+
+    // 即 可以通过给file表单注册 change事件 来监听是否有上传文件
     fileInp.onchange = function() {
       console.dir( fileInp );
       // 将文件对象从dom元素 fileInp 中取出, 
       // 注意, 是从dom元素中取出, 只有dom元素中有文件对象
       // 文件对象可以从input:file的dom元素中取出
+      // 文件对象是从文件表单(input:file)dom元素中取出, 可以取到上传的文件
+      // 文件对象是一个js对象
       var file = fileInp.files[0]; // 文件对象
       
       // 异步上传文件

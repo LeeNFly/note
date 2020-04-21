@@ -30,12 +30,11 @@
       console.log(str2);
       console.log(typeof str2);
 
-      //3. + ''  (推荐)
+      //3. + ''  利用字符串拼接 (推荐)
       var age = 666;
-      var s = '';
-      console.log( age + s);
-      console.log(typeof (age + s)); //666 => string
-      console.log((age+s).length); //3 不会改变长度
+      console.log( age + '');
+      console.log(typeof (age + '')); //666 => string
+      console.log((age+'').length); //3 不会改变长度
       
       
       

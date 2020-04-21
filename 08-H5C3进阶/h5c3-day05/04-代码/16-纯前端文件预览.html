@@ -33,10 +33,17 @@
       console.log( "文件读取完成" );
 
       // 5. 拿到图片读取结果, 是图片dataUrl的base64位地址, 可以直接在地址栏预览, 浏览器可以进行解析的 直接设置给 img的src, 就可以展示图片了
+      //    在地址栏直接输入base64地址, 也可以请求到图片
+      
       var result = fileReader.result;
+      console.log(result)
       div.innerHTML = '<img src="' + result + '">';
     }
 
+    // 对图片base64说明: base64, 相当于将图片转成浏览器识别的编码格式, 类似于二进制形式, 而该base64编码对于浏览器来说就是一张图片, 浏览器可以直接解析成图片
+    // 这样的话, 浏览器就直接解析base64就可以得到图片并展示, 不需要再发送请求去请求图片了, 减少了图片的请求
+
+    // base64编码格式: data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4T... 
   })
 
 

@@ -36,13 +36,13 @@
     // strrchr( 字符串, 标识字符 )
     $ext = strrchr( $name, "." );  // .png
 
-    // 2. 通过随机数生成新的文件名
+    // 2. 通过随机数生成新的文件名 (包含文件的后缀名)
     $newFileName = time().rand( 1000, 9999 ).$ext;
 
     // 3. 临时文件路径
     $temp = $file['tmp_name'];
 
-    // 4. 新的文件路径
+    // 4. 新的文件路径 (包含文件后缀名)
     $newFileUrl = './upload/' . $newFileName;
 
     // 5. 进行转存
