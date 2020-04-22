@@ -1,4 +1,3 @@
-"use strict";
 /*
 1、vscode配置自动编译
 
@@ -61,29 +60,19 @@ es5:
 
     p.run()
 */
-/*
-      ts中定义类：
-
-
-          class Person{
-
-              name:string;   //属性  前面省略了public关键词
-
-              constructor(n:string){  //构造函数   实例化类的时候触发的方法
-                  this.name=n;
-              }
-
-              run():void{
-
-                  alert(this.name);
-              }
-
-          }
-          var p=new Person('张三');
-
-          p.run()
-
-*/
+// ts中定义类：
+var Person = /** @class */ (function () {
+    function Person(n) {
+        this.name = n;
+    }
+    Person.prototype.run = function () {
+        alert(this.name);
+    };
+    return Person;
+}());
+var p = new Person('张三');
+console.log(p);
+p.run();
 /*
 class Person{
 
@@ -258,14 +247,14 @@ alert(p.getName());
 //         console.log(`${this.name}在工作`)
 //     }
 // }
-var Person = /** @class */ (function () {
-    function Person(name) {
-        this.name = name;
-    }
-    Person.prototype.run = function () {
-        return this.name + "\u5728\u8FD0\u52A8";
-    };
-    return Person;
-}());
-var p = new Person('哈哈哈');
-alert(p.run());
+// class Person{
+//     private name:string;  /*私有*/
+//     constructor(name:string){
+//         this.name=name;
+//     }
+//     run():string{
+//         return `${this.name}在运动`
+//     }
+// }
+// var p=new Person('哈哈哈');
+// alert(p.run());

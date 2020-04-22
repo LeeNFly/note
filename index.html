@@ -2,7 +2,7 @@
  * @Author: Ling Hui Shi
  * @Date: 2020-04-09 16:53:21
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-04-21 22:17:31
+ * @LastEditTime: 2020-04-22 08:58:53
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -16,10 +16,36 @@
     <input type="text">
     <input type="file">
     <script>
-        var inp = document.querySelector('input')
-        inp.onchange =  function() {
-            console.log(this.value)
+        // var a = 10;
+        // var fn = function () {
+        //     a = 20
+        // }
+        // fn()
+        // console.log(a)
+
+        // var obj = {
+        //     name: 'zs',
+        //     age: 14
+        // }
+        // var fn = function() {
+        //     obj.name = 'ls'
+        // }
+        // fn()
+        // console.log(obj) // {name: "ls", age: 14}
+        
+        var a = 0
+        var fn = function() {
+            var a = 1
+            function fn2() {
+                a = 2
+            }
+            fn2()
+            console.log(a) // 2
         }
+        fn()
+        console.log(a) // 0
+
+        
     </script>
 </body>
 </html>

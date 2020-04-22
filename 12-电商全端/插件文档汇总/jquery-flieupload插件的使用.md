@@ -37,7 +37,7 @@ github地址：https://github.com/blueimp/jQuery-File-Upload
 ## js代码
 
 ```javascript
-// 每次input:file框的上传文件发生变化, 都会向data-url地址发生请求 (请求是异步的, 不会阻塞栈) , 请求参数的key值为input:file的name属性值, value值为上传的文件
+// 每次input:file框的上传文件发生变化(每次上传文件), 都会向data-url地址发生请求 (请求是异步的, 不会阻塞栈) , 请求参数的key值为input:file的name属性值, value值为上传的文件
 // 如果是支持多文件上传的, 即multiple, 则可以支持选择多个文件, 然后每个文件都向data-url地址发生一次请求, 请求的参数的key都是input:file的name属性值, value值就是当前发送请求的这个文件
 // 多文件上传相当于每个文件都发生一个请求, 上传几个文件就发生几个请求, 这些请求是异步的, 不会阻塞栈, 谁先请求结束不确定
 $("#fileupload").fileupload({

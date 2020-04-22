@@ -65,8 +65,8 @@
     */
 
 
-  /*
-        ts中定义类：
+
+        // ts中定义类：
 
 
             class Person{
@@ -84,10 +84,10 @@
 
             }
             var p=new Person('张三');
-
+            console.log(p)
             p.run()
-  
-  */
+   
+
 
 
 
@@ -385,20 +385,20 @@
 
 
 
-    class Person{
+    // class Person{
 
-        private name:string;  /*私有*/
+    //     private name:string;  /*私有*/
 
-        constructor(name:string){
-            this.name=name;
-        }
+    //     constructor(name:string){
+    //         this.name=name;
+    //     }
 
-        run():string{
+    //     run():string{
 
-            return `${this.name}在运动`
-        }
-    }
+    //         return `${this.name}在运动`
+    //     }
+    // }
 
-    var p=new Person('哈哈哈');
+    // var p=new Person('哈哈哈');
 
-    alert(p.run());
+    // alert(p.run());
