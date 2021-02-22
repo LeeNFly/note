@@ -10,7 +10,7 @@
   //         (
   //             [name] => TIM图片20191122203426.jpg
   //             [type] => image/jpeg
-  //             [tmp_name] => C:\Users\shilinghui\AppData\Local\Temp\phpB731.tmp
+  //             [tmp_name] => C:\Users\user\AppData\Local\Temp\phpB731.tmp
   //             [error] => 0
   //             [size] => 163138
   //         )

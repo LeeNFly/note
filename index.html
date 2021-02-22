@@ -33,17 +33,32 @@
         // fn()
         // console.log(obj) // {name: "ls", age: 14}
         
-        var a = 0
-        var fn = function() {
-            var a = 1
-            function fn2() {
-                a = 2
-            }
-            fn2()
-            console.log(a) // 2
-        }
-        fn()
-        console.log(a) // 0
+        // var a = 0
+        // var fn = function() {
+        //     var a = 1
+        //     function fn2() {
+        //         a = 2
+        //     }
+        //     fn2()
+        //     console.log(a) // 2
+        // }
+        // fn()
+        // console.log(a) // 0
+        
+
+        console.log('script start');
+
+        setTimeout(function() {
+        console.log('setTimeout');
+        }, 0);
+
+        Promise.resolve().then(function() {
+        console.log('promise1');
+        }).then(function() {
+        console.log('promise2');
+        });
+
+        console.log('script end');
 
         
     </script>
