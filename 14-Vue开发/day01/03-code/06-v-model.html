@@ -1,8 +1,8 @@
 <!--
  * @Author: Ling Hui Shi
  * @Date: 2020-03-04 19:40:47
- * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-21 01:57:46
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-03-15 23:05:33
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -32,6 +32,7 @@
       -->
       <!-- 若data中的变量为对象的, 则v-model也可以和data中的对象变量中的某个属性绑定, 比如data中有一个user属性, user: {name: 'zs', age: 18},
             v-model = "user.name", 表示与data中user变量中的name属性完成双向绑定, 也会实现实时更新数据和渲染页面的!!!
+            // 页面中的数据变化, user的name属性也会变化, user的name属性值变化, 页面中对应与user.name绑定的地方也会重新渲染
 
             双向绑定可以和data中的任意变量完成双向绑定, 双向绑定后 视图 和 变量 都会同步更新
 

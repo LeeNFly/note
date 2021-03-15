@@ -1,8 +1,8 @@
 <!--
  * @Author: Ling Hui Shi
  * @Date: 2020-02-16 19:54:46
- * @LastEditors: Ling Hui Shi
- * @LastEditTime: 2020-04-20 06:56:33
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-03-15 22:54:09
  * @Description: 
  -->
 <!DOCTYPE html>
@@ -35,7 +35,7 @@
     <!-- 引入的js文件也会执行 -->
     <!-- src: 支持相对路径和绝对路径, 相对路径会自动帮我们加上前缀 -->
     <script src="./test.js">
-      alert('天王盖地虎'); // 无效
+      alert('天王盖地虎'); // 无效  script中带有src属性的话, script标签内的JS代码无效, 不会再被解析执行了, 以src地址里的js文件为准
     </script>
 
     <!-- 方式二相当于

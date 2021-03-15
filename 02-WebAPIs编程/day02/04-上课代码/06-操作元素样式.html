@@ -44,7 +44,7 @@
 //  注意: 如果要通过style获取样式, 只能获取 ★ 行内样式,并且返回的是字符串, 带有单位 , 如果是 外链式和内嵌式设置的style属性获取不到, 也不能获取到元素默认的宽高, 只能获取到通过行内样式设置的宽高
 
   // 2. 设置标签的class属性
-  // 元素.className => 获得标签的class属性,为字符串 ; 元素.className = '值' 设置元素的class属性,会把原来的覆盖掉
+  // 元素.className => 获得标签的class属性,为字符串 ; 元素.className = '值' 设置元素的class属性, 会把原来的整个class属性值覆盖掉
   //className  类名  通过操纵类名,可以重新调用css类选择器的样式 ,给类添加css样式,来操作css样式 设置类名相当于调用样式, 会自动根据操作后的盒子的类名, 重新渲染盒子及其css样式
   // 后设置的className 会覆盖之前设置的className
   box.className = 'one'; //设置 类名为one,值是字符串,相当于给标签加上class="one";
